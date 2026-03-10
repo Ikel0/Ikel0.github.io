@@ -39,6 +39,7 @@
             overflow-x: hidden;
         }
 
+        /* ===== CANVAS BACKGROUND ===== */
         #bg-canvas {
             position: fixed;
             top: 0; left: 0;
@@ -47,6 +48,7 @@
             pointer-events: none;
         }
 
+        /* ===== CURSOR CUSTOM ===== */
         .cursor {
             width: 20px; height: 20px;
             border: 2px solid var(--cyan);
@@ -97,17 +99,11 @@
             letter-spacing: -1px;
         }
 
-        /* Nav center + right */
-        .nav-center {
-            display: flex;
-            align-items: center;
-            gap: 35px;
-        }
-
         .nav-links {
             display: flex;
             gap: 35px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -129,7 +125,10 @@
             border-radius: 2px;
         }
 
-        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover {
+            color: #fff;
+        }
+
         .nav-links a:hover::after { width: 100%; }
 
         .nav-cta {
@@ -148,29 +147,29 @@
 
         .nav-cta::after { display: none !important; }
 
-        /* ===== LANG SWITCHER ===== */
+        /* Switch langue */
         .lang-switcher {
-            display: flex;
+            border: none;
+            background: rgba(255,255,255,0.05);
+            border-radius: 999px;
+            padding: 8px 14px;
+            display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 8px 16px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            color: rgba(255,255,255,0.8);
             font-size: 0.85rem;
             font-weight: 600;
-            user-select: none;
-            color: #fff;
-            white-space: nowrap;
+            transition: all 0.3s ease;
         }
 
         .lang-switcher:hover {
-            border-color: var(--cyan);
-            background: rgba(0,212,255,0.08);
+            background: rgba(0,212,255,0.1);
+            border: 1px solid rgba(0,212,255,0.4);
             color: var(--cyan);
         }
+
+        .lang-switcher:focus { outline: none; }
 
         /* Mobile */
         .menu-toggle {
@@ -192,7 +191,9 @@
             z-index: 1;
         }
 
-        .hero-content { max-width: 900px; }
+        .hero-content {
+            max-width: 900px;
+        }
 
         .hero-badge {
             display: inline-flex;
@@ -218,7 +219,6 @@
             background: var(--cyan);
             border-radius: 50%;
             animation: dotPulse 1.5s ease-in-out infinite;
-            flex-shrink: 0;
         }
 
         @keyframes dotPulse {
@@ -259,7 +259,9 @@
             animation: blink 0.7s infinite;
         }
 
-        @keyframes blink { 50% { border-color: transparent; } }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
 
         .hero p {
             font-size: 1.15rem;
@@ -300,6 +302,7 @@
         }
 
         .btn-primary:hover::before { left: 100%; }
+
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 20px 50px rgba(0,212,255,0.35);
@@ -325,6 +328,7 @@
             box-shadow: 0 10px 30px rgba(0,212,255,0.15);
         }
 
+        /* Stats */
         .hero-stats {
             display: flex;
             justify-content: center;
@@ -351,6 +355,7 @@
             margin-top: 5px;
         }
 
+        /* Scroll arrow */
         .scroll-down {
             position: absolute;
             bottom: 30px; left: 50%;
@@ -377,8 +382,15 @@
             padding: 100px 20px;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 70px; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
 
         .section-tag {
             display: inline-block;
@@ -422,7 +434,9 @@
             align-items: center;
         }
 
-        .about-photo-wrapper { position: relative; }
+        .about-photo-wrapper {
+            position: relative;
+        }
 
         .about-photo-frame {
             width: 320px;
@@ -451,7 +465,8 @@
         }
 
         .about-photo-inner {
-            width: 100%; height: 100%;
+            width: 100%;
+            height: 100%;
             border-radius: 28px;
             overflow: hidden;
             background: linear-gradient(135deg, #1a1a3e, #0d0d2b);
@@ -460,7 +475,12 @@
             justify-content: center;
         }
 
-        .about-photo-inner img { width: 100%; height: 100%; object-fit: cover; }
+        .about-photo-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .about-photo-inner i {
             font-size: 8rem;
             background: linear-gradient(135deg, var(--cyan), var(--purple));
@@ -468,6 +488,7 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* Floating chips */
         .float-chip {
             position: absolute;
             background: rgba(8,8,24,0.9);
@@ -484,8 +505,16 @@
         }
 
         .float-chip i { color: var(--cyan); }
-        .chip-1 { top: -15px; right: -30px; animation: floatChip 3s ease-in-out infinite; }
-        .chip-2 { bottom: -15px; left: -30px; animation: floatChip 3s ease-in-out infinite 1.5s; }
+
+        .chip-1 {
+            top: -15px; right: -30px;
+            animation: floatChip 3s ease-in-out infinite;
+        }
+
+        .chip-2 {
+            bottom: -15px; left: -30px;
+            animation: floatChip 3s ease-in-out infinite 1.5s;
+        }
 
         @keyframes floatChip {
             0%, 100% { transform: translateY(0); }
@@ -505,9 +534,16 @@
             line-height: 1.9;
         }
 
-        .about-content p strong { color: #fff; }
+        .about-content p strong {
+            color: #fff;
+        }
 
-        .about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 25px 0; }
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0;
+        }
 
         .about-tag {
             padding: 8px 18px;
@@ -535,16 +571,37 @@
             border-radius: 12px;
         }
 
-        .info-item i { color: var(--purple); font-size: 1.1rem; width: 20px; }
-        .info-item span { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
-        .info-item strong { display: block; color: #fff; font-size: 0.9rem; }
+        .info-item i {
+            color: var(--purple);
+            font-size: 1.1rem;
+            width: 20px;
+        }
+
+        .info-item span {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+        }
+
+        .info-item strong {
+            display: block;
+            color: #fff;
+            font-size: 0.9rem;
+        }
 
         /* ===== SKILLS ===== */
         .skills-bg {
-            background: linear-gradient(180deg, transparent, rgba(0,212,255,0.03) 50%, transparent);
+            background: linear-gradient(180deg, 
+                transparent, 
+                rgba(0,212,255,0.03) 50%, 
+                transparent
+            );
         }
 
-        .skills-categories { display: flex; flex-direction: column; gap: 50px; }
+        .skills-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
 
         .skill-category-title {
             font-size: 1.1rem;
@@ -556,12 +613,21 @@
         }
 
         .skill-category-title::after {
-            content: ''; flex: 1; height: 1px; background: var(--border);
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
         }
 
-        .skill-category-title i { color: var(--cyan); }
+        .skill-category-title i {
+            color: var(--cyan);
+        }
 
-        .skills-row { display: flex; flex-wrap: wrap; gap: 15px; }
+        .skills-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
 
         .skill-pill {
             display: flex;
@@ -582,11 +648,22 @@
             box-shadow: 0 10px 30px rgba(0,212,255,0.1);
         }
 
-        .skill-pill img { width: 28px; height: 28px; object-fit: contain; }
-        .skill-pill span { font-size: 0.9rem; font-weight: 500; }
+        .skill-pill img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .skill-pill span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
 
         /* ===== EXPERIENCE ===== */
-        .timeline { position: relative; padding-left: 50px; }
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
 
         .timeline::before {
             content: '';
@@ -596,7 +673,10 @@
             background: linear-gradient(to bottom, var(--cyan), var(--purple), transparent);
         }
 
-        .timeline-item { position: relative; padding-bottom: 50px; }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 50px;
+        }
 
         .timeline-dot {
             position: absolute;
@@ -658,7 +738,10 @@
             white-space: nowrap;
         }
 
-        .exp-list { list-style: none; margin-bottom: 20px; }
+        .exp-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
 
         .exp-list li {
             padding: 8px 0 8px 25px;
@@ -679,7 +762,12 @@
             font-size: 1.1rem;
         }
 
-        .exp-impact { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .exp-impact {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
 
         .impact-badge {
             display: flex;
@@ -693,7 +781,11 @@
             color: var(--cyan);
         }
 
-        .exp-tech { display: flex; flex-wrap: wrap; gap: 8px; }
+        .exp-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
 
         .exp-tech span {
             padding: 4px 14px;
@@ -735,7 +827,8 @@
         .project-card:hover {
             transform: translateY(-12px);
             border-color: rgba(0,212,255,0.2);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 30px rgba(0,212,255,0.08);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4), 
+                        0 0 30px rgba(0,212,255,0.08);
         }
 
         .project-banner {
@@ -748,16 +841,28 @@
         }
 
         .project-banner img.logo-img {
-            width: 70px; height: 70px;
+            width: 70px;
+            height: 70px;
             object-fit: contain;
             filter: drop-shadow(0 0 20px rgba(0,212,255,0.4));
             position: relative;
             z-index: 1;
         }
 
-        .project-banner i { font-size: 4rem; position: relative; z-index: 1; }
-        .banner-bg { position: absolute; inset: 0; }
-        .project-body { padding: 28px; }
+        .project-banner i {
+            font-size: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .project-body {
+            padding: 28px;
+        }
 
         .project-type {
             font-size: 0.75rem;
@@ -782,7 +887,10 @@
             margin-bottom: 20px;
         }
 
-        .project-highlights { list-style: none; margin-bottom: 20px; }
+        .project-highlights {
+            list-style: none;
+            margin-bottom: 20px;
+        }
 
         .project-highlights li {
             font-size: 0.85rem;
@@ -792,10 +900,18 @@
         }
 
         .project-highlights li::before {
-            content: '→'; position: absolute; left: 0; color: var(--purple);
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--purple);
         }
 
-        .project-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+        .project-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
 
         .project-stack span {
             padding: 4px 12px;
@@ -834,7 +950,10 @@
             border: 1px solid var(--border);
         }
 
-        .link-github:hover { background: rgba(255,255,255,0.1); color: #fff; }
+        .link-github:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
 
         .link-demo {
             background: linear-gradient(135deg, var(--cyan), var(--purple));
@@ -846,12 +965,16 @@
             box-shadow: 0 8px 20px rgba(0,212,255,0.3);
         }
 
-        .project-status { font-size: 0.78rem; padding: 4px 12px; border-radius: 50px; }
+        .project-status {
+            font-size: 0.78rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+        }
 
         .status-pro {
-            background: rgba(255,200,0,0.1);
+            background: rgba(255, 200, 0, 0.1);
             color: #ffc800;
-            border: 1px solid rgba(255,200,0,0.2);
+            border: 1px solid rgba(255, 200, 0, 0.2);
         }
 
         .status-open {
@@ -906,9 +1029,18 @@
             flex-shrink: 0;
         }
 
-        .certif-logo-wrap img { width: 45px; height: 45px; object-fit: contain; }
+        .certif-logo-wrap img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
 
-        .certif-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
+        .certif-body h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
 
         .certif-issuer {
             color: rgba(255,255,255,0.5);
@@ -920,7 +1052,12 @@
         }
 
         .certif-issuer i { color: var(--purple); }
-        .certif-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        .certif-btns {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
         .certif-link {
             display: inline-flex;
@@ -970,7 +1107,11 @@
             margin-bottom: 35px;
         }
 
-        .contact-items { display: flex; flex-direction: column; gap: 20px; }
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
         .contact-item {
             display: flex;
@@ -985,7 +1126,10 @@
             color: #fff;
         }
 
-        .contact-item:hover { border-color: var(--cyan); transform: translateX(5px); }
+        .contact-item:hover {
+            border-color: var(--cyan);
+            transform: translateX(5px);
+        }
 
         .contact-icon {
             width: 45px; height: 45px;
@@ -1005,7 +1149,9 @@
             display: block;
         }
 
-        .contact-detail strong { font-size: 0.95rem; }
+        .contact-detail strong {
+            font-size: 0.95rem;
+        }
 
         .contact-right {
             background: var(--card);
@@ -1020,7 +1166,9 @@
             margin-bottom: 25px;
         }
 
-        .form-group { margin-bottom: 20px; }
+        .form-group {
+            margin-bottom: 20px;
+        }
 
         .form-group label {
             display: block;
@@ -1044,11 +1192,20 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus { border-color: var(--cyan); }
+        .form-group textarea:focus {
+            border-color: var(--cyan);
+        }
 
-        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
 
-        .socials-row { display: flex; gap: 15px; margin-top: 30px; }
+        .socials-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
 
         .social-btn {
             width: 50px; height: 50px;
@@ -1122,8 +1279,11 @@
 </head>
 <body>
 
+    <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Canvas Background -->
     <canvas id="bg-canvas"></canvas>
 
     <!-- NAVIGATION -->
@@ -1133,17 +1293,19 @@
             <i class="fas fa-bars"></i>
         </div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#about"          id="nav-about">À propos</a></li>
-            <li><a href="#skills"         id="nav-skills">Compétences</a></li>
-            <li><a href="#experience"     id="nav-experience">Expérience</a></li>
-            <li><a href="#projects"       id="nav-projects">Projets</a></li>
-            <li><a href="#certifications" id="nav-certif">Certifications</a></li>
-            <li><a href="#contact" class="nav-cta" id="nav-contact">Me contacter</a></li>
+            <li><a href="#about"          data-i18n="nav-about">À propos</a></li>
+            <li><a href="#skills"         data-i18n="nav-skills">Compétences</a></li>
+            <li><a href="#experience"     data-i18n="nav-experience">Expérience</a></li>
+            <li><a href="#projects"       data-i18n="nav-projects">Projets</a></li>
+            <li><a href="#certifications" data-i18n="nav-certif">Certifications</a></li>
+            <li><a href="#contact" class="nav-cta" data-i18n="nav-contact">Me contacter</a></li>
+            <li>
+                <button class="lang-switcher" type="button" onclick="switchLang()">
+                    <span id="lang-flag">🇬🇧</span>
+                    <span id="lang-label">EN</span>
+                </button>
+            </li>
         </ul>
-        <div class="lang-switcher" onclick="switchLang()" title="Switch language">
-            <span id="lang-flag">🇬🇧</span>
-            <span id="lang-label">EN</span>
-        </div>
     </nav>
 
     <!-- HERO -->
@@ -1151,37 +1313,39 @@
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
             <div class="hero-badge">
                 <span class="badge-dot"></span>
-                <span id="hero-badge-text">Disponible pour de nouvelles opportunités</span>
+                <span data-i18n="hero-badge">Disponible pour de nouvelles opportunités</span>
             </div>
             <h1>Ikel OUEDRAOGO</h1>
             <div class="hero-typed">
                 <span id="typed-text"></span>
             </div>
-            <p id="hero-desc">
+            <p data-i18n="hero-desc">
                 Construire des solutions data utiles, fiables et adaptées aux besoins 
                 des équipes métiers. Expert en pipelines Big Data, orchestration cloud 
                 et intelligence artificielle.
             </p>
             <div class="hero-btns">
                 <a href="#projects" class="btn-primary">
-                    <i class="fas fa-rocket"></i> <span id="hero-btn1">Voir mes projets</span>
+                    <i class="fas fa-rocket"></i>
+                    <span data-i18n="hero-btn-projects">Voir mes projets</span>
                 </a>
                 <a href="#contact" class="btn-secondary">
-                    <i class="fas fa-envelope"></i> <span id="hero-btn2">Me contacter</span>
+                    <i class="fas fa-envelope"></i>
+                    <span data-i18n="hero-btn-contact">Me contacter</span>
                 </a>
             </div>
             <div class="hero-stats">
                 <div class="stat">
                     <div class="stat-number" id="count1">0</div>
-                    <div class="stat-label" id="stat1-label">Années d'expérience</div>
+                    <div class="stat-label" data-i18n="stat-exp">Années d'expérience</div>
                 </div>
                 <div class="stat">
                     <div class="stat-number" id="count2">0</div>
-                    <div class="stat-label" id="stat2-label">Projets Data réalisés</div>
+                    <div class="stat-label" data-i18n="stat-projects">Projets Data réalisés</div>
                 </div>
                 <div class="stat">
                     <div class="stat-number" id="count3">0</div>
-                    <div class="stat-label" id="stat3-label">Technologies maîtrisées</div>
+                    <div class="stat-label" data-i18n="stat-tech">Technologies maîtrisées</div>
                 </div>
             </div>
         </div>
@@ -1195,9 +1359,11 @@
     <div class="section-wrapper" id="about">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-tag" id="about-tag">Qui suis-je ?</span>
-                <h2 class="section-title">À <span id="about-title-span">Propos</span></h2>
-                <p class="section-desc" id="about-desc">Passionné par la donnée, je transforme la complexité en valeur.</p>
+                <span class="section-tag" data-i18n="about-tag">Qui suis-je ?</span>
+                <h2 class="section-title">
+                    <span data-i18n="about-title">À Propos</span>
+                </h2>
+                <p class="section-desc" data-i18n="about-desc">Passionné par la donnée, je transforme la complexité en valeur.</p>
             </div>
             <div class="about-grid">
                 <div class="about-photo-wrapper" data-aos="fade-right">
@@ -1207,64 +1373,64 @@
                         </div>
                     </div>
                     <div class="float-chip chip-1">
-                        <i class="fas fa-database"></i> <span id="chip1">Big Data Expert</span>
+                        <i class="fas fa-database"></i> <span data-i18n="chip1">Big Data Expert</span>
                     </div>
                     <div class="float-chip chip-2">
-                        <i class="fas fa-brain"></i> <span id="chip2">IA & Machine Learning</span>
+                        <i class="fas fa-brain"></i> <span data-i18n="chip2">IA & Machine Learning</span>
                     </div>
                 </div>
                 <div class="about-content" data-aos="fade-left">
-                    <h3 id="about-h3">Data Engineer & IA</h3>
-                    <p id="about-p1">
+                    <h3 data-i18n="about-h3">Data Engineer & IA</h3>
+                    <p>
                         Actuellement Data Engineer chez <strong>Generali</strong>, je conçois 
                         et industrialise des pipelines de données dans des environnements Big Data 
                         à grande échelle (Hadoop, Snowflake). Je couvre l'ensemble de la chaîne 
                         de valeur : de l'ingestion brute jusqu'aux reportings métiers.
                     </p>
-                    <p id="about-p2">
+                    <p>
                         Diplômé du <strong>Programme Grande École de l'EFREI Paris</strong> 
                         en Big Data & Machine Learning, j'ai eu l'opportunité d'étudier 
                         à <strong>Kuala Lumpur</strong> et de développer une double expertise 
                         technique et business.
                     </p>
-                    <p id="about-p3">
+                    <p>
                         Mon moteur : transformer des données brutes en insights actionnables, 
                         en alliant rigueur technique et compréhension des enjeux métiers.
                     </p>
                     <div class="about-tags">
-                        <span class="about-tag" id="tag1">Adaptabilité</span>
-                        <span class="about-tag" id="tag2">Leadership</span>
-                        <span class="about-tag" id="tag3">Rigueur</span>
-                        <span class="about-tag" id="tag4">Autonomie</span>
-                        <span class="about-tag" id="tag5">Gestion du stress</span>
+                        <span class="about-tag" data-i18n="tag1">Adaptabilité</span>
+                        <span class="about-tag" data-i18n="tag2">Leadership</span>
+                        <span class="about-tag" data-i18n="tag3">Rigueur</span>
+                        <span class="about-tag" data-i18n="tag4">Autonomie</span>
+                        <span class="about-tag" data-i18n="tag5">Gestion du stress</span>
                     </div>
                     <div class="about-info-row">
                         <div class="info-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <small id="label-location">Localisation</small>
+                                <small data-i18n="label-location">Localisation</small>
                                 <strong>Paris, France</strong>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-graduation-cap"></i>
                             <div>
-                                <small id="label-school">Formation</small>
+                                <small data-i18n="label-school">Formation</small>
                                 <strong>EFREI Paris</strong>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-language"></i>
                             <div>
-                                <small id="label-lang">Langues</small>
-                                <strong id="info-lang">Français & Anglais (TOEIC)</strong>
+                                <small data-i18n="label-lang">Langues</small>
+                                <strong data-i18n="info-lang">Français & Anglais (TOEIC)</strong>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-briefcase"></i>
                             <div>
-                                <small id="label-status">Statut</small>
-                                <strong id="info-status">Disponible</strong>
+                                <small data-i18n="label-status">Statut</small>
+                                <strong data-i18n="info-status">Disponible</strong>
                             </div>
                         </div>
                     </div>
@@ -1277,15 +1443,16 @@
     <div class="section-wrapper skills-bg" id="skills">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-tag" id="skills-tag">Stack Technique</span>
-                <h2 class="section-title">Mes <span id="skills-title-span">Compétences</span></h2>
-                <p class="section-desc" id="skills-desc">Un arsenal complet pour construire des solutions data robustes</p>
+                <span class="section-tag" data-i18n="skills-tag">Stack Technique</span>
+                <h2 class="section-title">Mes <span data-i18n="skills-title">Compétences</span></h2>
+                <p class="section-desc" data-i18n="skills-desc">Un arsenal complet pour construire des solutions data robustes</p>
             </div>
             <div class="skills-categories">
 
+                <!-- Data Engineering -->
                 <div data-aos="fade-up">
                     <div class="skill-category-title">
-                        <i class="fas fa-cogs"></i> <span id="cat-engineering">Data Engineering & Orchestration</span>
+                        <i class="fas fa-cogs"></i> <span data-i18n="cat-engineering">Data Engineering & Orchestration</span>
                     </div>
                     <div class="skills-row">
                         <div class="skill-pill">
@@ -1309,7 +1476,7 @@
                             <span>Docker</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS"/>
                             <span>AWS</span>
                         </div>
                         <div class="skill-pill">
@@ -1319,9 +1486,10 @@
                     </div>
                 </div>
 
+                <!-- Langages -->
                 <div data-aos="fade-up">
                     <div class="skill-category-title">
-                        <i class="fas fa-code"></i> <span id="cat-dev">Langages & Développement</span>
+                        <i class="fas fa-code"></i> <span data-i18n="cat-dev">Langages & Développement</span>
                     </div>
                     <div class="skills-row">
                         <div class="skill-pill">
@@ -1351,9 +1519,10 @@
                     </div>
                 </div>
 
+                <!-- IA / ML -->
                 <div data-aos="fade-up">
                     <div class="skill-category-title">
-                        <i class="fas fa-brain"></i> <span id="cat-ml">Machine Learning & IA</span>
+                        <i class="fas fa-brain"></i> <span data-i18n="cat-ml">Machine Learning & IA</span>
                     </div>
                     <div class="skills-row">
                         <div class="skill-pill">
@@ -1379,9 +1548,10 @@
                     </div>
                 </div>
 
+                <!-- Dataviz -->
                 <div data-aos="fade-up">
                     <div class="skill-category-title">
-                        <i class="fas fa-chart-bar"></i> <span id="cat-viz">Data Visualisation</span>
+                        <i class="fas fa-chart-bar"></i> <span data-i18n="cat-viz">Data Visualisation</span>
                     </div>
                     <div class="skills-row">
                         <div class="skill-pill">
@@ -1407,9 +1577,9 @@
     <div class="section-wrapper" id="experience">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-tag" id="exp-tag">Parcours</span>
-                <h2 class="section-title"><span id="exp-title">Expérience Professionnelle</span></h2>
-                <p class="section-desc" id="exp-desc">Des missions concrètes dans des environnements exigeants</p>
+                <span class="section-tag" data-i18n="exp-tag">Parcours</span>
+                <h2 class="section-title"><span data-i18n="exp-title">Expérience Professionnelle</span></h2>
+                <p class="section-desc" data-i18n="exp-desc">Des missions concrètes dans des environnements exigeants</p>
             </div>
             <div class="timeline">
 
@@ -1419,23 +1589,23 @@
                     <div class="timeline-card">
                         <div class="exp-header">
                             <div>
-                                <h3 class="exp-role" id="exp1-role">Data Engineer</h3>
+                                <h3 class="exp-role" data-i18n="exp1-role">Data Engineer</h3>
                                 <p class="exp-company">
                                     <i class="fas fa-building"></i> Generali — Paris
                                 </p>
                             </div>
-                            <span class="exp-date" id="exp1-date">Août 2023 — Sept 2025</span>
+                            <span class="exp-date" data-i18n="exp1-date">Août 2023 — Sept 2025</span>
                         </div>
                         <div class="exp-impact">
-                            <span class="impact-badge"><i class="fas fa-bolt"></i> <span id="exp1-b1">Big Data Production</span></span>
-                            <span class="impact-badge"><i class="fas fa-users"></i> <span id="exp1-b2">Équipes Marketing</span></span>
-                            <span class="impact-badge"><i class="fas fa-chart-line"></i> <span id="exp1-b3">Performance Digitale</span></span>
+                            <span class="impact-badge"><i class="fas fa-bolt"></i> <span data-i18n="exp1-b1">Big Data Production</span></span>
+                            <span class="impact-badge"><i class="fas fa-users"></i> <span data-i18n="exp1-b2">Équipes Marketing</span></span>
+                            <span class="impact-badge"><i class="fas fa-chart-line"></i> <span data-i18n="exp1-b3">Performance Digitale</span></span>
                         </div>
                         <ul class="exp-list">
-                            <li id="exp1-li1">Conception et industrialisation d'un outil de pilotage de la performance digitale dans un environnement Hadoop / Snowflake à grande échelle</li>
-                            <li id="exp1-li2">Développement de pipelines PySpark & Snowpark robustes et scalables couvrant ingestion, transformation et agrégation</li>
-                            <li id="exp1-li3">Mise en place de reportings dynamiques facilitant le suivi des KPIs par les équipes métier</li>
-                            <li id="exp1-li4">Production d'analyses statistiques ciblées pour les équipes marketing</li>
+                            <li data-i18n="exp1-li1">Conception et industrialisation d'un outil de pilotage de la performance digitale dans un environnement Hadoop / Snowflake à grande échelle</li>
+                            <li data-i18n="exp1-li2">Développement de pipelines PySpark & Snowpark robustes et scalables couvrant ingestion, transformation et agrégation</li>
+                            <li data-i18n="exp1-li3">Mise en place de reportings dynamiques facilitant le suivi des KPIs par les équipes métier</li>
+                            <li data-i18n="exp1-li4">Production d'analyses statistiques ciblées pour les équipes marketing</li>
                         </ul>
                         <div class="exp-tech">
                             <span>Hadoop</span><span>Snowflake</span><span>PySpark</span>
@@ -1450,21 +1620,21 @@
                     <div class="timeline-card">
                         <div class="exp-header">
                             <div>
-                                <h3 class="exp-role" id="exp2-role">Développeur IA — Chatbot RAG</h3>
+                                <h3 class="exp-role" data-i18n="exp2-role">Développeur IA — Chatbot RAG</h3>
                                 <p class="exp-company">
                                     <i class="fas fa-leaf"></i> WeAreMUSH
                                 </p>
                             </div>
-                            <span class="exp-date" id="exp2-date">Sept 2024 — Fév 2025</span>
+                            <span class="exp-date" data-i18n="exp2-date">Sept 2024 — Fév 2025</span>
                         </div>
                         <div class="exp-impact">
                             <span class="impact-badge"><i class="fas fa-robot"></i> LLM & RAG</span>
-                            <span class="impact-badge"><i class="fas fa-seedling"></i> <span id="exp2-b1">Transition Écologique</span></span>
+                            <span class="impact-badge"><i class="fas fa-seedling"></i> <span data-i18n="exp2-b1">Transition Écologique</span></span>
                         </div>
                         <ul class="exp-list">
-                            <li id="exp2-li1">Implémentation d'un chatbot IA spécialisé transition écologique avec l'approche RAG (Retrieval Augmented Generation)</li>
-                            <li id="exp2-li2">Backend optimisé pour la gestion des requêtes OpenAI GPT-3.5 et pipeline de récupération documentaire</li>
-                            <li id="exp2-li3">Conception d'un frontend interactif pour une expérience utilisateur fluide</li>
+                            <li data-i18n="exp2-li1">Implémentation d'un chatbot IA spécialisé transition écologique avec l'approche RAG (Retrieval Augmented Generation)</li>
+                            <li data-i18n="exp2-li2">Backend optimisé pour la gestion des requêtes OpenAI GPT-3.5 et pipeline de récupération documentaire</li>
+                            <li data-i18n="exp2-li3">Conception d'un frontend interactif pour une expérience utilisateur fluide</li>
                         </ul>
                         <div class="exp-tech">
                             <span>RAG</span><span>LangChain</span><span>OpenAI GPT-3.5</span>
@@ -1479,7 +1649,7 @@
                     <div class="timeline-card">
                         <div class="exp-header">
                             <div>
-                                <h3 class="exp-role" id="exp3-role">Chef de Projet Data</h3>
+                                <h3 class="exp-role" data-i18n="exp3-role">Chef de Projet Data</h3>
                                 <p class="exp-company">
                                     <i class="fas fa-stream"></i> DataFloW France
                                 </p>
@@ -1487,13 +1657,13 @@
                             <span class="exp-date">2025</span>
                         </div>
                         <div class="exp-impact">
-                            <span class="impact-badge"><i class="fas fa-users-cog"></i> <span id="exp3-b1">5 personnes managées</span></span>
+                            <span class="impact-badge"><i class="fas fa-users-cog"></i> <span data-i18n="exp3-b1">5 personnes managées</span></span>
                             <span class="impact-badge"><i class="fas fa-infinity"></i> CI/CD & Agile</span>
                         </div>
                         <ul class="exp-list">
-                            <li id="exp3-li1">Conception et automatisation de pipelines ETL end-to-end : ingestion, transformation et chargement sur AWS</li>
-                            <li id="exp3-li2">Encadrement d'une équipe de 5 personnes avec suivi agile des livrables et revues de code</li>
-                            <li id="exp3-li3">Mise en place de l'infrastructure CI/CD et containerisation avec Docker</li>
+                            <li data-i18n="exp3-li1">Conception et automatisation de pipelines ETL end-to-end : ingestion, transformation et chargement sur AWS</li>
+                            <li data-i18n="exp3-li2">Encadrement d'une équipe de 5 personnes avec suivi agile des livrables et revues de code</li>
+                            <li data-i18n="exp3-li3">Mise en place de l'infrastructure CI/CD et containerisation avec Docker</li>
                         </ul>
                         <div class="exp-tech">
                             <span>PySpark</span><span>Airflow</span><span>AWS</span>
@@ -1510,9 +1680,9 @@
     <div class="section-wrapper" id="projects">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-tag" id="proj-tag">Réalisations</span>
-                <h2 class="section-title">Mes <span id="proj-title-span">Projets</span></h2>
-                <p class="section-desc" id="proj-desc">Des solutions concrètes qui démontrent mon expertise</p>
+                <span class="section-tag" data-i18n="proj-tag">Réalisations</span>
+                <h2 class="section-title">Mes <span data-i18n="proj-title">Projets</span></h2>
+                <p class="section-desc" data-i18n="proj-desc">Des solutions concrètes qui démontrent mon expertise</p>
             </div>
             <div class="projects-grid">
 
@@ -1523,18 +1693,18 @@
                         <img class="logo-img" src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" alt="Snowflake">
                     </div>
                     <div class="project-body">
-                        <p class="project-type" id="proj1-type">Data Engineering · Production</p>
-                        <h3 class="project-title" id="proj1-title">Outil de Pilotage Performance Digitale</h3>
-                        <p class="project-desc" id="proj1-desc">
+                        <p class="project-type" data-i18n="proj1-type">Data Engineering · Production</p>
+                        <h3 class="project-title" data-i18n="proj1-title">Outil de Pilotage Performance Digitale</h3>
+                        <p class="project-desc" data-i18n="proj1-desc">
                             Solution Big Data industrielle conçue chez Generali pour piloter 
                             la performance digitale en temps quasi-réel. Couvre l'ensemble 
                             de la chaîne de valeur de la donnée.
                         </p>
                         <ul class="project-highlights">
-                            <li id="proj1-li1">Pipelines PySpark / Snowpark pour des volumes de données massifs</li>
-                            <li id="proj1-li2">Transformation et agrégation automatisées via Dataiku</li>
-                            <li id="proj1-li3">Reportings dynamiques Power BI pour les équipes marketing</li>
-                            <li id="proj1-li4">Qualité de données intégrée tout au long de la chaîne</li>
+                            <li data-i18n="proj1-li1">Pipelines PySpark / Snowpark pour des volumes de données massifs</li>
+                            <li data-i18n="proj1-li2">Transformation et agrégation automatisées via Dataiku</li>
+                            <li data-i18n="proj1-li3">Reportings dynamiques Power BI pour les équipes marketing</li>
+                            <li data-i18n="proj1-li4">Qualité de données intégrée tout au long de la chaîne</li>
                         </ul>
                         <div class="project-stack">
                             <span>Hadoop</span><span>Snowflake</span><span>PySpark</span>
@@ -1543,10 +1713,10 @@
                         <div class="project-footer">
                             <div class="project-links">
                                 <a href="#" class="link-github">
-                                    <i class="fas fa-lock"></i> <span id="proj-confidential">Projet confidentiel</span>
+                                    <i class="fas fa-lock"></i> <span data-i18n="proj-conf">Projet confidentiel</span>
                                 </a>
                             </div>
-                            <span class="project-status status-pro" id="status-pro-1">Entreprise</span>
+                            <span class="project-status status-pro" data-i18n="status-pro">Entreprise</span>
                         </div>
                     </div>
                 </div>
@@ -1558,18 +1728,18 @@
                         <i class="fas fa-robot" style="color:#00d4ff;"></i>
                     </div>
                     <div class="project-body">
-                        <p class="project-type" id="proj2-type">IA Générative · RAG · LLM</p>
-                        <h3 class="project-title" id="proj2-title">EcoBot — Chatbot RAG Transition Écologique</h3>
-                        <p class="project-desc" id="proj2-desc">
+                        <p class="project-type" data-i18n="proj2-type">IA Générative · RAG · LLM</p>
+                        <h3 class="project-title" data-i18n="proj2-title">EcoBot — Chatbot RAG Transition Écologique</h3>
+                        <p class="project-desc" data-i18n="proj2-desc">
                             Chatbot IA intelligent qui répond à des questions complexes sur 
                             la transition écologique grâce au pattern RAG : il retrouve 
                             les documents pertinents puis génère une réponse contextualisée.
                         </p>
                         <ul class="project-highlights">
-                            <li id="proj2-li1">Architecture RAG complète : indexation, retrieval, génération</li>
-                            <li id="proj2-li2">Intégration GPT-3.5 via API OpenAI avec gestion du contexte</li>
-                            <li id="proj2-li3">Vector store pour recherche sémantique ultra-rapide</li>
-                            <li id="proj2-li4">Interface utilisateur intuitive et responsive</li>
+                            <li data-i18n="proj2-li1">Architecture RAG complète : indexation, retrieval, génération</li>
+                            <li data-i18n="proj2-li2">Intégration GPT-3.5 via API OpenAI avec gestion du contexte</li>
+                            <li data-i18n="proj2-li3">Vector store pour recherche sémantique ultra-rapide</li>
+                            <li data-i18n="proj2-li4">Interface utilisateur intuitive et responsive</li>
                         </ul>
                         <div class="project-stack">
                             <span>RAG</span><span>LangChain</span><span>GPT-3.5</span>
@@ -1596,18 +1766,18 @@
                         <img class="logo-img" src="https://www.vectorlogo.zone/logos/apache_kafka/apache_kafka-icon.svg" alt="Kafka">
                     </div>
                     <div class="project-body">
-                        <p class="project-type" id="proj3-type">Streaming · Temps Réel · Big Data</p>
-                        <h3 class="project-title" id="proj3-title">Real-Time Crypto Streaming Pipeline</h3>
-                        <p class="project-desc" id="proj3-desc">
+                        <p class="project-type" data-i18n="proj3-type">Streaming · Temps Réel · Big Data</p>
+                        <h3 class="project-title" data-i18n="proj3-title">Real-Time Crypto Streaming Pipeline</h3>
+                        <p class="project-desc" data-i18n="proj3-desc">
                             Pipeline de données en temps réel qui ingère les prix de 
                             cryptomonnaies via l'API CoinGecko, les stream avec Kafka, 
                             les transforme avec PySpark Streaming et les stocke pour analyse.
                         </p>
                         <ul class="project-highlights">
-                            <li id="proj3-li1">Ingestion temps réel via API CoinGecko → Producer Kafka</li>
-                            <li id="proj3-li2">Traitement des flux avec PySpark Structured Streaming</li>
-                            <li id="proj3-li3">Stockage dans PostgreSQL + dashboard de monitoring</li>
-                            <li id="proj3-li4">Déploiement complet avec Docker Compose</li>
+                            <li data-i18n="proj3-li1">Ingestion temps réel via API CoinGecko → Producer Kafka</li>
+                            <li data-i18n="proj3-li2">Traitement des flux avec PySpark Structured Streaming</li>
+                            <li data-i18n="proj3-li3">Stockage dans PostgreSQL + dashboard de monitoring</li>
+                            <li data-i18n="proj3-li4">Déploiement complet avec Docker Compose</li>
                         </ul>
                         <div class="project-stack">
                             <span>Kafka</span><span>PySpark</span><span>PostgreSQL</span>
@@ -1631,18 +1801,18 @@
                         <img class="logo-img" src="https://seeklogo.com/images/D/dbt-logo-500AB0BAA7-seeklogo.com.png" alt="dbt">
                     </div>
                     <div class="project-body">
-                        <p class="project-type" id="proj4-type">Data Warehouse · Analytics Engineering</p>
-                        <h3 class="project-title" id="proj4-title">Data Lakehouse E-commerce avec dbt + Snowflake</h3>
-                        <p class="project-desc" id="proj4-desc">
+                        <p class="project-type" data-i18n="proj4-type">Data Warehouse · Analytics Engineering</p>
+                        <h3 class="project-title" data-i18n="proj4-title">Data Lakehouse E-commerce avec dbt + Snowflake</h3>
+                        <p class="project-desc" data-i18n="proj4-desc">
                             Architecture Data Lakehouse complète pour un e-commerce fictif : 
                             ingestion S3, transformation dbt, modélisation en étoile sur 
                             Snowflake et reporting analytique avancé.
                         </p>
                         <ul class="project-highlights">
-                            <li id="proj4-li1">Modélisation dimensionnelle (Star Schema) avec dbt</li>
-                            <li id="proj4-li2">Tests de qualité de données automatisés dans dbt</li>
-                            <li id="proj4-li3">Documentation auto-générée de tous les modèles</li>
-                            <li id="proj4-li4">Orchestration du DAG avec Airflow</li>
+                            <li data-i18n="proj4-li1">Modélisation dimensionnelle (Star Schema) avec dbt</li>
+                            <li data-i18n="proj4-li2">Tests de qualité de données automatisés dans dbt</li>
+                            <li data-i18n="proj4-li3">Documentation auto-générée de tous les modèles</li>
+                            <li data-i18n="proj4-li4">Orchestration du DAG avec Airflow</li>
                         </ul>
                         <div class="project-stack">
                             <span>Snowflake</span><span>dbt</span><span>AWS S3</span>
@@ -1666,18 +1836,18 @@
                         <img class="logo-img" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
                     </div>
                     <div class="project-body">
-                        <p class="project-type" id="proj5-type">MLOps · Machine Learning · Automatisation</p>
-                        <h3 class="project-title" id="proj5-title">ML Pipeline Automatisé avec MLflow & Airflow</h3>
-                        <p class="project-desc" id="proj5-desc">
+                        <p class="project-type" data-i18n="proj5-type">MLOps · Machine Learning · Automatisation</p>
+                        <h3 class="project-title" data-i18n="proj5-title">ML Pipeline Automatisé avec MLflow & Airflow</h3>
+                        <p class="project-desc" data-i18n="proj5-desc">
                             Pipeline MLOps de bout en bout : ingestion de données, 
                             feature engineering automatisé, entraînement de modèle, 
                             évaluation et déploiement — tout orchestré par Airflow.
                         </p>
                         <ul class="project-highlights">
-                            <li id="proj5-li1">Feature engineering automatisé avec Pandas & Scikit-learn</li>
-                            <li id="proj5-li2">Tracking des expériences ML avec MLflow</li>
-                            <li id="proj5-li3">Orchestration des DAGs d'entraînement avec Airflow</li>
-                            <li id="proj5-li4">Containerisation avec Docker pour la reproductibilité</li>
+                            <li data-i18n="proj5-li1">Feature engineering automatisé avec Pandas & Scikit-learn</li>
+                            <li data-i18n="proj5-li2">Tracking des expériences ML avec MLflow</li>
+                            <li data-i18n="proj5-li3">Orchestration des DAGs d'entraînement avec Airflow</li>
+                            <li data-i18n="proj5-li4">Containerisation avec Docker pour la reproductibilité</li>
                         </ul>
                         <div class="project-stack">
                             <span>Airflow</span><span>MLflow</span><span>Scikit-learn</span>
@@ -1698,21 +1868,22 @@
                 <div class="project-card" data-aos="fade-up" data-aos-delay="350">
                     <div class="project-banner">
                         <div class="banner-bg" style="background: linear-gradient(135deg, #001a1a, #1a0010);"></div>
-                        <img class="logo-img" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-line-wordmark.svg" alt="AWS">
+                        <img class="logo-img"
+                             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-line-wordmark.svg" alt="AWS"/>
                     </div>
                     <div class="project-body">
-                        <p class="project-type" id="proj6-type">Cloud · ETL · Management</p>
-                        <h3 class="project-title" id="proj6-title">Pipeline ETL Cloud-Native sur AWS</h3>
-                        <p class="project-desc" id="proj6-desc">
+                        <p class="project-type" data-i18n="proj6-type">Cloud · ETL · Management</p>
+                        <h3 class="project-title" data-i18n="proj6-title">Pipeline ETL Cloud-Native sur AWS</h3>
+                        <p class="project-desc" data-i18n="proj6-desc">
                             Pipeline ETL complet déployé sur AWS avec CI/CD intégré. 
                             Projet mené en tant que Chef de Projet avec encadrement 
                             d'une équipe de 5 personnes en méthode Agile/Scrum.
                         </p>
                         <ul class="project-highlights">
-                            <li id="proj6-li1">Ingestion multi-sources vers AWS S3 (Data Lake)</li>
-                            <li id="proj6-li2">Transformation PySpark sur EMR + Airflow pour l'orchestration</li>
-                            <li id="proj6-li3">CI/CD avec GitHub Actions + déploiement Docker automatisé</li>
-                            <li id="proj6-li4">Management agile d'une équipe de 5 ingénieurs</li>
+                            <li data-i18n="proj6-li1">Ingestion multi-sources vers AWS S3 (Data Lake)</li>
+                            <li data-i18n="proj6-li2">Transformation PySpark sur EMR + Airflow pour l'orchestration</li>
+                            <li data-i18n="proj6-li3">CI/CD avec GitHub Actions + déploiement Docker automatisé</li>
+                            <li data-i18n="proj6-li4">Management agile d'une équipe de 5 ingénieurs</li>
                         </ul>
                         <div class="project-stack">
                             <span>AWS</span><span>PySpark</span><span>Airflow</span>
@@ -1737,48 +1908,51 @@
     <div class="section-wrapper" id="certifications">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-tag" id="certif-tag">Certifications</span>
-                <h2 class="section-title">Mes <span id="certif-title-span">Certifications</span></h2>
-                <p class="section-desc" id="certif-desc">Des certifications reconnues qui valident mon expertise</p>
+                <span class="section-tag" data-i18n="certif-tag">Certifications</span>
+                <h2 class="section-title">Mes <span data-i18n="certif-title">Certifications</span></h2>
+                <p class="section-desc" data-i18n="certif-desc">Des certifications reconnues qui valident mon expertise</p>
             </div>
             <div class="certif-grid">
 
+                <!-- IBM -->
                 <div class="certif-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="certif-logo-wrap">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"
                              alt="IBM" style="filter: brightness(0) invert(1);">
                     </div>
                     <div class="certif-body">
-                        <h3 id="certif1-title">Introduction to Data Engineering</h3>
+                        <h3 data-i18n="certif1-title">Introduction to Data Engineering</h3>
                         <p class="certif-issuer">
                             <i class="fas fa-building"></i> IBM via Coursera
                         </p>
                         <div class="certif-btns">
                             <a href="https://coursera.org/share/88e78d7792208299f87d5149c965229e"
                                target="_blank" class="certif-link primary">
-                                <i class="fas fa-certificate"></i> <span id="certif-btn-cert1">Certificat</span>
+                                <i class="fas fa-certificate"></i> <span data-i18n="certif-btn-cert">Certificat</span>
                             </a>
                             <a href="https://www.credly.com/badges/06f88cbf-2fba-4714-96ee-4fc34d578893/public_url"
                                target="_blank" class="certif-link secondary">
-                                <i class="fas fa-award"></i> <span id="certif-btn-badge">Badge Credly</span>
+                                <i class="fas fa-award"></i> <span data-i18n="certif-btn-badge">Badge Credly</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Snowflake -->
                 <div class="certif-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="certif-logo-wrap">
-                        <img src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" alt="Snowflake">
+                        <img src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg"
+                             alt="Snowflake">
                     </div>
                     <div class="certif-body">
-                        <h3 id="certif2-title">Snowflake Data Engineering</h3>
+                        <h3 data-i18n="certif2-title">Snowflake Data Engineering</h3>
                         <p class="certif-issuer">
                             <i class="fas fa-snowflake"></i> Snowflake via Coursera
                         </p>
                         <div class="certif-btns">
                             <a href="https://coursera.org/share/35b52c23d9edf4f7f2d3d0ac1e27e86a"
                                target="_blank" class="certif-link primary">
-                                <i class="fas fa-certificate"></i> <span id="certif-btn-cert2">Certificat</span>
+                                <i class="fas fa-certificate"></i> <span data-i18n="certif-btn-cert">Certificat</span>
                             </a>
                         </div>
                     </div>
@@ -1792,14 +1966,14 @@
     <div class="section-wrapper" id="contact">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-tag" id="contact-tag">Contact</span>
-                <h2 class="section-title"><span id="contact-title">Travaillons Ensemble</span></h2>
-                <p class="section-desc" id="contact-desc">Une opportunité ? Un projet ? Je suis disponible !</p>
+                <span class="section-tag" data-i18n="contact-tag">Contact</span>
+                <h2 class="section-title"><span data-i18n="contact-title">Travaillons Ensemble</span></h2>
+                <p class="section-desc" data-i18n="contact-desc">Une opportunité ? Un projet ? Je suis disponible !</p>
             </div>
             <div class="contact-wrapper" data-aos="fade-up">
                 <div class="contact-left">
-                    <h3 id="contact-h3">Discutons de votre projet data 🚀</h3>
-                    <p id="contact-p">
+                    <h3 data-i18n="contact-h3">Discutons de votre projet data 🚀</h3>
+                    <p data-i18n="contact-p">
                         Que vous cherchiez un Data Engineer pour construire vos pipelines, 
                         intégrer de l'IA dans vos processus ou optimiser votre architecture data — 
                         je suis là pour vous aider.
@@ -1808,14 +1982,14 @@
                         <a href="mailto:Ouedragoikel@gmail.com" class="contact-item">
                             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                             <div class="contact-detail">
-                                <small id="label-email">Email</small>
+                                <small data-i18n="label-email">Email</small>
                                 <strong>Ouedragoikel@gmail.com</strong>
                             </div>
                         </a>
                         <a href="tel:+33753830689" class="contact-item">
                             <div class="contact-icon"><i class="fas fa-phone"></i></div>
                             <div class="contact-detail">
-                                <small id="label-phone">Téléphone</small>
+                                <small data-i18n="label-phone">Téléphone</small>
                                 <strong>+33 7 53 83 06 89</strong>
                             </div>
                         </a>
@@ -1829,10 +2003,12 @@
                         </a>
                     </div>
                     <div class="socials-row">
-                        <a href="https://github.com/IkelOuedraogo" target="_blank" class="social-btn">
+                        <a href="https://github.com/IkelOuedraogo" 
+                           target="_blank" class="social-btn">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/ikel-ouedraogo-8460041b7" target="_blank" class="social-btn">
+                        <a href="https://linkedin.com/in/ikel-ouedraogo" 
+                           target="_blank" class="social-btn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="mailto:Ouedragoikel@gmail.com" class="social-btn">
@@ -1841,22 +2017,23 @@
                     </div>
                 </div>
                 <div class="contact-right">
-                    <h3 id="form-title">Envoyer un message</h3>
+                    <h3 data-i18n="form-title">Envoyer un message</h3>
                     <form onsubmit="handleForm(event)">
                         <div class="form-group">
-                            <label id="form-name-label">Votre nom</label>
-                            <input type="text" id="form-name-input" placeholder="Nom Prénom" required>
+                            <label data-i18n="form-name">Votre nom</label>
+                            <input type="text" data-i18n-placeholder="form-ph-name" placeholder="Nom Prénom" required>
                         </div>
                         <div class="form-group">
-                            <label id="form-email-label">Votre email</label>
-                            <input type="email" id="form-email-input" placeholder="xxx@mail.com" required>
+                            <label data-i18n="form-email">Votre email</label>
+                            <input type="email" data-i18n-placeholder="form-ph-email" placeholder="xxx@mail.com" required>
                         </div>
                         <div class="form-group">
-                            <label id="form-msg-label">Message</label>
-                            <textarea id="form-msg-input" placeholder="Bonjour Ikel..." required></textarea>
+                            <label data-i18n="form-message">Message</label>
+                            <textarea data-i18n-placeholder="form-ph-message" placeholder="Bonjour Ikel..." required></textarea>
                         </div>
-                        <button type="submit" class="btn-primary" id="form-submit-btn" style="width:100%; border:none; cursor:pointer; font-size:1rem;">
-                            <i class="fas fa-paper-plane"></i> <span id="form-btn-text">Envoyer</span>
+                        <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer; font-size:1rem;">
+                            <i class="fas fa-paper-plane"></i>
+                            <span data-i18n="form-submit">Envoyer</span>
                         </button>
                     </form>
                 </div>
@@ -1866,8 +2043,8 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2025 <span>Ikel OUEDRAOGO</span> · <span id="footer-role">Data Engineer Big Data & IA</span> · Paris 🇫🇷</p>
-        <p style="margin-top: 8px;" id="footer-sub">Fait avec Github Pages</p>
+        <p><span>Ikel OUEDRAOGO</span> · <span data-i18n="footer-role">Data Engineer Big Data & IA</span> · Paris 🇫🇷</p>
+        <p style="margin-top: 8px;" data-i18n="footer-sub">Fait avec ❤️ et beaucoup de ☕ et de data</p>
     </footer>
 
     <!-- ===== SCRIPTS ===== -->
@@ -1892,52 +2069,56 @@
             });
         });
 
-        // ===== CURSOR =====
+        // ===== CURSOR CUSTOM =====
         const cursor = document.getElementById('cursor');
         const follower = document.getElementById('cursorFollower');
 
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left   = e.clientX - 10 + 'px';
-            cursor.style.top    = e.clientY - 10 + 'px';
-            follower.style.left = e.clientX - 4  + 'px';
-            follower.style.top  = e.clientY - 4  + 'px';
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top  = e.clientY - 10 + 'px';
+            follower.style.left = e.clientX - 4 + 'px';
+            follower.style.top  = e.clientY - 4 + 'px';
         });
 
         document.querySelectorAll('a, button, .skill-pill, .project-card').forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursor.style.transform   = 'scale(2)';
+                cursor.style.transform = 'scale(2)';
                 cursor.style.borderColor = '#7b2cbf';
             });
             el.addEventListener('mouseleave', () => {
-                cursor.style.transform   = 'scale(1)';
+                cursor.style.transform = 'scale(1)';
                 cursor.style.borderColor = '#00d4ff';
             });
         });
 
         // ===== TYPED EFFECT =====
-        const typedTexts = {
-            fr: ['Data Engineer', 'Spécialiste Big Data', 'Développeur IA & LLM', 'Analytics Engineer', 'Architecte de Pipelines'],
-            en: ['Data Engineer', 'Big Data Specialist',  'AI & LLM Developer',   'Analytics Engineer', 'Pipeline Architect']
-        };
-
-        let textIndex = 0, charIndex = 0, isDeleting = false;
+        const texts = [
+            'Data Engineer',
+            'Big Data Specialist',
+            'IA & LLM Developer',
+            'Analytics Engineer',
+            'Pipeline Architect'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
         const typedEl = document.getElementById('typed-text');
 
         function typeEffect() {
-            const arr     = typedTexts[currentLang] || typedTexts.fr;
-            const current = arr[textIndex % arr.length];
-
-            typedEl.textContent = isDeleting
-                ? current.substring(0, charIndex - 1)
-                : current.substring(0, charIndex + 1);
-
-            isDeleting ? charIndex-- : charIndex++;
+            const current = texts[textIndex];
+            if (isDeleting) {
+                typedEl.textContent = current.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedEl.textContent = current.substring(0, charIndex + 1);
+                charIndex++;
+            }
 
             if (!isDeleting && charIndex === current.length) {
                 setTimeout(() => { isDeleting = true; }, 1800);
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
-                textIndex++;
+                textIndex = (textIndex + 1) % texts.length;
             }
 
             setTimeout(typeEffect, isDeleting ? 60 : 100);
@@ -1950,7 +2131,10 @@
             const step = target / (duration / 16);
             const timer = setInterval(() => {
                 start += step;
-                if (start >= target) { start = target; clearInterval(timer); }
+                if (start >= target) {
+                    start = target;
+                    clearInterval(timer);
+                }
                 el.textContent = Math.floor(start) + suffix;
             }, 16);
         }
@@ -1958,8 +2142,8 @@
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animateCount(document.getElementById('count1'), 2,  '+');
-                    animateCount(document.getElementById('count2'), 6,  '+');
+                    animateCount(document.getElementById('count1'), 2, '+');
+                    animateCount(document.getElementById('count2'), 6, '+');
                     animateCount(document.getElementById('count3'), 15, '+');
                     statsObserver.disconnect();
                 }
@@ -1969,14 +2153,15 @@
         const heroStats = document.querySelector('.hero-stats');
         if (heroStats) statsObserver.observe(heroStats);
 
-        // ===== CANVAS =====
+        // ===== CANVAS BACKGROUND (Constellation) =====
         const canvas = document.getElementById('bg-canvas');
-        const ctx    = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d');
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         window.addEventListener('resize', () => {
-            canvas.width  = window.innerWidth;
+            canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             initParticles();
         });
@@ -1991,31 +2176,36 @@
 
         class Particle {
             constructor() {
-                this.x       = Math.random() * canvas.width;
-                this.y       = Math.random() * canvas.height;
-                this.vx      = (Math.random() - 0.5) * 0.4;
-                this.vy      = (Math.random() - 0.5) * 0.4;
-                this.radius  = Math.random() * 2 + 0.5;
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.radius = Math.random() * 2 + 0.5;
                 this.opacity = Math.random() * 0.5 + 0.1;
-                this.color   = Math.random() > 0.5 ? '#00d4ff' : '#7b2cbf';
+                this.color = Math.random() > 0.5 ? '#00d4ff' : '#7b2cbf';
             }
+
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
-                if (this.x < 0 || this.x > canvas.width)  this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height)  this.vy *= -1;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
                 if (mouse.x && mouse.y) {
-                    const dx = mouse.x - this.x, dy = mouse.y - this.y;
-                    if (Math.sqrt(dx*dx + dy*dy) < 100) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 100) {
                         this.x -= dx * 0.02;
                         this.y -= dy * 0.02;
                     }
                 }
             }
+
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle   = this.color;
+                ctx.fillStyle = this.color;
                 ctx.globalAlpha = this.opacity;
                 ctx.fill();
                 ctx.globalAlpha = 1;
@@ -2025,22 +2215,24 @@
         function initParticles() {
             particles = [];
             const count = Math.min(Math.floor(canvas.width / 12), 120);
-            for (let i = 0; i < count; i++) particles.push(new Particle());
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
         }
 
         function drawConnections() {
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
-                    const dx   = particles[i].x - particles[j].x;
-                    const dy   = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < 120) {
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
                         ctx.strokeStyle = '#00d4ff';
                         ctx.globalAlpha = (1 - dist / 120) * 0.08;
-                        ctx.lineWidth   = 0.5;
+                        ctx.lineWidth = 0.5;
                         ctx.stroke();
                         ctx.globalAlpha = 1;
                     }
@@ -2061,257 +2253,254 @@
         // ===== FORM =====
         function handleForm(e) {
             e.preventDefault();
-            const btn     = document.getElementById('form-submit-btn');
-            const okLabel = currentLang === 'en' ? 'Message sent!' : 'Message envoyé !';
-            btn.innerHTML = `<i class="fas fa-check"></i> ${okLabel}`;
+            const btn = e.target.querySelector('button');
+            const msgSent = currentLang === 'en' ? 'Message sent!' : 'Message envoyé !';
+            const msgDefault = currentLang === 'en' ? 'Send' : 'Envoyer';
+            btn.innerHTML = '<i class="fas fa-check"></i> ' + msgSent;
             btn.style.background = 'linear-gradient(135deg, #00c853, #00796b)';
             setTimeout(() => {
-                const sendLabel = currentLang === 'en' ? 'Send' : 'Envoyer';
-                btn.innerHTML = `<i class="fas fa-paper-plane"></i> <span id="form-btn-text">${sendLabel}</span>`;
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + msgDefault;
                 btn.style.background = '';
                 e.target.reset();
             }, 3000);
         }
 
-        // =============================================
-        // ===== SYSTÈME DE TRADUCTION PAR ID =========
-        // =============================================
-
+        // ===== TRADUCTION =====
         let currentLang = 'fr';
 
-        // Toutes les traductions indexées par id d'élément
-        const t = {
+        const translations = {
             // NAV
-            'nav-about':      { fr: 'À propos',       en: 'About' },
-            'nav-skills':     { fr: 'Compétences',    en: 'Skills' },
-            'nav-experience': { fr: 'Expérience',     en: 'Experience' },
-            'nav-projects':   { fr: 'Projets',        en: 'Projects' },
-            'nav-certif':     { fr: 'Certifications', en: 'Certifications' },
-            'nav-contact':    { fr: 'Me contacter',   en: 'Contact me' },
+            'nav-about':      { fr: 'À propos',             en: 'About' },
+            'nav-skills':     { fr: 'Compétences',          en: 'Skills' },
+            'nav-experience': { fr: 'Expérience',           en: 'Experience' },
+            'nav-projects':   { fr: 'Projets',              en: 'Projects' },
+            'nav-certif':     { fr: 'Certifications',       en: 'Certifications' },
+            'nav-contact':    { fr: 'Me contacter',         en: 'Contact me' },
 
             // HERO
-            'hero-badge-text': { fr: 'Disponible pour de nouvelles opportunités', en: 'Open to new opportunities' },
-            'hero-desc':       { fr: 'Construire des solutions data utiles, fiables et adaptées aux besoins des équipes métiers. Expert en pipelines Big Data, orchestration cloud et intelligence artificielle.',
-                                 en: 'Building useful, reliable data solutions tailored to business teams. Expert in Big Data pipelines, cloud orchestration and artificial intelligence.' },
-            'hero-btn1':       { fr: 'Voir mes projets', en: 'See my projects' },
-            'hero-btn2':       { fr: 'Me contacter',     en: 'Contact me' },
-            'stat1-label':     { fr: "Années d'expérience",  en: 'Years of experience' },
-            'stat2-label':     { fr: 'Projets Data réalisés', en: 'Data projects delivered' },
-            'stat3-label':     { fr: 'Technologies maîtrisées', en: 'Technologies mastered' },
+            'hero-badge':         { fr: 'Disponible pour de nouvelles opportunités', en: 'Open to new opportunities' },
+            'hero-desc':          { fr: 'Construire des solutions data utiles, fiables et adaptées aux besoins des équipes métiers. Expert en pipelines Big Data, orchestration cloud et intelligence artificielle.',
+                                    en: 'Building useful, reliable data solutions tailored to business teams. Expert in Big Data pipelines, cloud orchestration and artificial intelligence.' },
+            'hero-btn-projects':  { fr: 'Voir mes projets', en: 'See my projects' },
+            'hero-btn-contact':   { fr: 'Me contacter',     en: 'Contact me' },
+            'stat-exp':           { fr: "Années d'expérience",    en: 'Years of experience' },
+            'stat-projects':      { fr: 'Projets Data réalisés',  en: 'Data projects delivered' },
+            'stat-tech':          { fr: 'Technologies maîtrisées',en: 'Technologies mastered' },
 
             // ABOUT
-            'about-tag':        { fr: 'Qui suis-je ?',  en: 'Who am I?' },
-            'about-title-span': { fr: 'Propos',         en: 'About Me' },
-            'about-desc':       { fr: 'Passionné par la donnée, je transforme la complexité en valeur.',
-                                  en: 'Passionate about data, I turn complexity into value.' },
-            'about-h3':         { fr: 'Data Engineer & IA', en: 'Data Engineer & AI' },
-            'about-p1':         { fr: "Actuellement Data Engineer chez Generali, je conçois et industrialise des pipelines de données dans des environnements Big Data à grande échelle (Hadoop, Snowflake). Je couvre l'ensemble de la chaîne de valeur : de l'ingestion brute jusqu'aux reportings métiers.",
-                                  en: "Currently Data Engineer at Generali, I design and industrialize data pipelines in large-scale Big Data environments (Hadoop, Snowflake), covering the entire data value chain from raw ingestion to business reporting." },
-            'about-p2':         { fr: "Diplômé du Programme Grande École de l'EFREI Paris en Big Data & Machine Learning, j'ai eu l'opportunité d'étudier à Kuala Lumpur et de développer une double expertise technique et business.",
-                                  en: "Graduate of EFREI Paris Grande École Program in Big Data & Machine Learning, I had the opportunity to study in Kuala Lumpur and develop dual technical and business expertise." },
-            'about-p3':         { fr: "Mon moteur : transformer des données brutes en insights actionnables, en alliant rigueur technique et compréhension des enjeux métiers.",
-                                  en: "My drive: turning raw data into actionable insights, combining technical rigor with a deep understanding of business challenges." },
-            'chip1':            { fr: 'Big Data Expert',   en: 'Big Data Expert' },
-            'chip2':            { fr: 'IA & Machine Learning', en: 'AI & Machine Learning' },
-            'tag1':             { fr: 'Adaptabilité',      en: 'Adaptability' },
-            'tag2':             { fr: 'Leadership',        en: 'Leadership' },
-            'tag3':             { fr: 'Rigueur',           en: 'Rigor' },
-            'tag4':             { fr: 'Autonomie',         en: 'Autonomy' },
-            'tag5':             { fr: 'Gestion du stress', en: 'Stress Management' },
-            'label-location':   { fr: 'Localisation',     en: 'Location' },
-            'label-school':     { fr: 'Formation',        en: 'Education' },
-            'label-lang':       { fr: 'Langues',          en: 'Languages' },
-            'label-status':     { fr: 'Statut',           en: 'Status' },
-            'info-lang':        { fr: 'Français & Anglais (TOEIC)', en: 'French & English (TOEIC)' },
-            'info-status':      { fr: 'Disponible',       en: 'Available' },
+            'about-tag':      { fr: 'Qui suis-je ?',        en: 'Who am I?' },
+            'about-title':    { fr: 'À Propos',             en: 'About Me' },
+            'about-desc':     { fr: 'Passionné par la donnée, je transforme la complexité en valeur.',
+                                en: 'Passionate about data, I turn complexity into value.' },
+            'about-h3':       { fr: 'Data Engineer & IA',   en: 'Data Engineer & AI' },
+            'chip1':          { fr: 'Big Data Expert',      en: 'Big Data Expert' },
+            'chip2':          { fr: 'IA & Machine Learning',en: 'AI & Machine Learning' },
+            'tag1':           { fr: 'Adaptabilité',         en: 'Adaptability' },
+            'tag2':           { fr: 'Leadership',           en: 'Leadership' },
+            'tag3':           { fr: 'Rigueur',              en: 'Rigor' },
+            'tag4':           { fr: 'Autonomie',            en: 'Autonomy' },
+            'tag5':           { fr: 'Gestion du stress',    en: 'Stress management' },
+            'label-location': { fr: 'Localisation',         en: 'Location' },
+            'label-school':   { fr: 'Formation',            en: 'Education' },
+            'label-lang':     { fr: 'Langues',              en: 'Languages' },
+            'label-status':   { fr: 'Statut',               en: 'Status' },
+            'info-lang':      { fr: 'Français & Anglais (TOEIC)', en: 'French & English (TOEIC)' },
+            'info-status':    { fr: 'Disponible',           en: 'Available' },
 
             // SKILLS
-            'skills-tag':        { fr: 'Stack Technique',  en: 'Tech Stack' },
-            'skills-title-span': { fr: 'Compétences',      en: 'Skills' },
-            'skills-desc':       { fr: 'Un arsenal complet pour construire des solutions data robustes',
-                                   en: 'A complete toolkit to build robust data solutions' },
-            'cat-engineering':   { fr: 'Data Engineering & Orchestration', en: 'Data Engineering & Orchestration' },
-            'cat-dev':           { fr: 'Langages & Développement',         en: 'Languages & Development' },
-            'cat-ml':            { fr: 'Machine Learning & IA',            en: 'Machine Learning & AI' },
-            'cat-viz':           { fr: 'Data Visualisation',               en: 'Data Visualization' },
+            'skills-tag':     { fr: 'Stack Technique',      en: 'Tech Stack' },
+            'skills-title':   { fr: 'Compétences',          en: 'Skills' },
+            'skills-desc':    { fr: 'Un arsenal complet pour construire des solutions data robustes',
+                                en: 'A complete toolkit to build robust data solutions' },
+            'cat-engineering':{ fr: 'Data Engineering & Orchestration', en: 'Data Engineering & Orchestration' },
+            'cat-dev':        { fr: 'Langages & Développement', en: 'Languages & Development' },
+            'cat-ml':         { fr: 'Machine Learning & IA', en: 'Machine Learning & AI' },
+            'cat-viz':        { fr: 'Data Visualisation',   en: 'Data Visualization' },
 
             // EXPERIENCE
-            'exp-tag':    { fr: 'Parcours',                   en: 'Career' },
-            'exp-title':  { fr: 'Expérience Professionnelle', en: 'Work Experience' },
-            'exp-desc':   { fr: 'Des missions concrètes dans des environnements exigeants',
-                            en: 'Concrete missions in demanding environments' },
-            'exp1-role':  { fr: 'Data Engineer',              en: 'Data Engineer' },
-            'exp1-date':  { fr: 'Août 2023 — Sept 2025',      en: 'Aug 2023 — Sept 2025' },
-            'exp1-b1':    { fr: 'Big Data Production',        en: 'Big Data Production' },
-            'exp1-b2':    { fr: 'Équipes Marketing',          en: 'Marketing Teams' },
-            'exp1-b3':    { fr: 'Performance Digitale',       en: 'Digital Performance' },
-            'exp1-li1':   { fr: "Conception et industrialisation d'un outil de pilotage de la performance digitale dans un environnement Hadoop / Snowflake à grande échelle",
-                            en: "Design and industrialization of a digital performance monitoring tool in a large-scale Hadoop / Snowflake environment" },
-            'exp1-li2':   { fr: "Développement de pipelines PySpark & Snowpark robustes et scalables couvrant ingestion, transformation et agrégation",
-                            en: "Development of robust, scalable PySpark & Snowpark pipelines covering ingestion, transformation and aggregation" },
-            'exp1-li3':   { fr: "Mise en place de reportings dynamiques facilitant le suivi des KPIs par les équipes métier",
-                            en: "Implementation of dynamic reports enabling business teams to track KPIs" },
-            'exp1-li4':   { fr: "Production d'analyses statistiques ciblées pour les équipes marketing",
-                            en: "Production of targeted statistical analyses for marketing teams" },
-            'exp2-role':  { fr: 'Développeur IA — Chatbot RAG', en: 'AI Developer — RAG Chatbot' },
-            'exp2-date':  { fr: 'Sept 2024 — Fév 2025',         en: 'Sept 2024 — Feb 2025' },
-            'exp2-b1':    { fr: 'Transition Écologique',         en: 'Ecological Transition' },
-            'exp2-li1':   { fr: "Implémentation d'un chatbot IA spécialisé transition écologique avec l'approche RAG (Retrieval Augmented Generation)",
-                            en: "Implementation of an AI chatbot specialized in ecological transition using the RAG approach" },
-            'exp2-li2':   { fr: "Backend optimisé pour la gestion des requêtes OpenAI GPT-3.5 et pipeline de récupération documentaire",
-                            en: "Optimized backend for OpenAI GPT-3.5 request handling and document retrieval pipeline" },
-            'exp2-li3':   { fr: "Conception d'un frontend interactif pour une expérience utilisateur fluide",
-                            en: "Design of an interactive frontend for a smooth user experience" },
-            'exp3-role':  { fr: 'Chef de Projet Data',           en: 'Data Project Manager' },
-            'exp3-b1':    { fr: '5 personnes managées',          en: '5 people managed' },
-            'exp3-li1':   { fr: "Conception et automatisation de pipelines ETL end-to-end : ingestion, transformation et chargement sur AWS",
-                            en: "Design and automation of end-to-end ETL pipelines: ingestion, transformation and loading on AWS" },
-            'exp3-li2':   { fr: "Encadrement d'une équipe de 5 personnes avec suivi agile des livrables et revues de code",
-                            en: "Management of a 5-person team with agile tracking of deliverables and code reviews" },
-            'exp3-li3':   { fr: "Mise en place de l'infrastructure CI/CD et containerisation avec Docker",
-                            en: "Setup of CI/CD infrastructure and containerization with Docker" },
+            'exp-tag':        { fr: 'Parcours',             en: 'Career' },
+            'exp-title':      { fr: 'Expérience Professionnelle', en: 'Work Experience' },
+            'exp-desc':       { fr: 'Des missions concrètes dans des environnements exigeants',
+                                en: 'Concrete missions in demanding environments' },
+            'exp1-role':      { fr: 'Data Engineer',        en: 'Data Engineer' },
+            'exp1-date':      { fr: 'Août 2023 — Sept 2025', en: 'Aug 2023 — Sept 2025' },
+            'exp1-b1':        { fr: 'Big Data Production',  en: 'Big Data Production' },
+            'exp1-b2':        { fr: 'Équipes Marketing',    en: 'Marketing Teams' },
+            'exp1-b3':        { fr: 'Performance Digitale', en: 'Digital Performance' },
+            'exp1-li1':       { fr: "Conception et industrialisation d'un outil de pilotage de la performance digitale dans un environnement Hadoop / Snowflake à grande échelle",
+                                en: "Design and industrialization of a digital performance monitoring tool in a large-scale Hadoop / Snowflake environment" },
+            'exp1-li2':       { fr: "Développement de pipelines PySpark & Snowpark robustes et scalables couvrant ingestion, transformation et agrégation",
+                                en: "Development of robust, scalable PySpark & Snowpark pipelines covering ingestion, transformation and aggregation" },
+            'exp1-li3':       { fr: "Mise en place de reportings dynamiques facilitant le suivi des KPIs par les équipes métier",
+                                en: "Implementation of dynamic reports enabling business teams to track KPIs" },
+            'exp1-li4':       { fr: "Production d'analyses statistiques ciblées pour les équipes marketing",
+                                en: "Production of targeted statistical analyses for marketing teams" },
 
-            // PROJECTS
-            'proj-tag':        { fr: 'Réalisations',   en: 'Portfolio' },
-            'proj-title-span': { fr: 'Projets',        en: 'Projects' },
-            'proj-desc':       { fr: 'Des solutions concrètes qui démontrent mon expertise',
-                                 en: 'Concrete solutions that demonstrate my expertise' },
-            'proj-confidential': { fr: 'Projet confidentiel', en: 'Confidential project' },
-            'status-pro-1':      { fr: 'Entreprise',          en: 'Enterprise' },
+            'exp2-role':      { fr: 'Développeur IA — Chatbot RAG', en: 'AI Developer — RAG Chatbot' },
+            'exp2-date':      { fr: 'Sept 2024 — Fév 2025',         en: 'Sept 2024 — Feb 2025' },
+            'exp2-b1':        { fr: 'Transition Écologique',        en: 'Ecological Transition' },
+            'exp2-li1':       { fr: "Implémentation d'un chatbot IA spécialisé transition écologique avec l'approche RAG (Retrieval Augmented Generation)",
+                                en: "Implementation of an AI chatbot specialized in ecological transition using the RAG approach" },
+            'exp2-li2':       { fr: "Backend optimisé pour la gestion des requêtes OpenAI GPT-3.5 et pipeline de récupération documentaire",
+                                en: "Optimized backend for OpenAI GPT-3.5 request handling and document retrieval pipeline" },
+            'exp2-li3':       { fr: "Conception d'un frontend interactif pour une expérience utilisateur fluide",
+                                en: "Design of an interactive frontend for a smooth user experience" },
 
-            'proj1-type':  { fr: 'Data Engineering · Production', en: 'Data Engineering · Production' },
-            'proj1-title': { fr: 'Outil de Pilotage Performance Digitale', en: 'Digital Performance Monitoring Tool' },
-            'proj1-desc':  { fr: "Solution Big Data industrielle conçue chez Generali pour piloter la performance digitale en temps quasi-réel. Couvre l'ensemble de la chaîne de valeur de la donnée.",
-                             en: "Industrial Big Data solution designed at Generali to monitor digital performance in near real-time, covering the entire data value chain." },
-            'proj1-li1':   { fr: 'Pipelines PySpark / Snowpark pour des volumes de données massifs', en: 'PySpark / Snowpark pipelines for massive data volumes' },
-            'proj1-li2':   { fr: 'Transformation et agrégation automatisées via Dataiku', en: 'Automated transformation and aggregation via Dataiku' },
-            'proj1-li3':   { fr: 'Reportings dynamiques Power BI pour les équipes marketing', en: 'Dynamic Power BI reports for marketing teams' },
-            'proj1-li4':   { fr: 'Qualité de données intégrée tout au long de la chaîne', en: 'Data quality integrated throughout the pipeline' },
+            'exp3-role':      { fr: 'Chef de Projet Data',          en: 'Data Project Manager' },
+            'exp3-b1':        { fr: '5 personnes managées',         en: '5 people managed' },
+            'exp3-li1':       { fr: "Conception et automatisation de pipelines ETL end-to-end : ingestion, transformation et chargement sur AWS",
+                                en: "Design and automation of end-to-end ETL pipelines: ingestion, transformation and loading on AWS" },
+            'exp3-li2':       { fr: "Encadrement d'une équipe de 5 personnes avec suivi agile des livrables et revues de code",
+                                en: "Management of a 5-person team with agile tracking of deliverables and code reviews" },
+            'exp3-li3':       { fr: "Mise en place de l'infrastructure CI/CD et containerisation avec Docker",
+                                en: "Setup of CI/CD infrastructure and containerization with Docker" },
 
-            'proj2-type':  { fr: 'IA Générative · RAG · LLM',    en: 'Generative AI · RAG · LLM' },
-            'proj2-title': { fr: 'EcoBot — Chatbot RAG Transition Écologique', en: 'EcoBot — RAG Chatbot for Ecological Transition' },
-            'proj2-desc':  { fr: "Chatbot IA intelligent qui répond à des questions complexes sur la transition écologique grâce au pattern RAG.",
-                             en: "Intelligent AI chatbot answering complex questions about ecological transition using the RAG pattern." },
-            'proj2-li1':   { fr: 'Architecture RAG complète : indexation, retrieval, génération', en: 'Complete RAG architecture: indexing, retrieval, generation' },
-            'proj2-li2':   { fr: 'Intégration GPT-3.5 via API OpenAI avec gestion du contexte', en: 'GPT-3.5 integration via OpenAI API with context management' },
-            'proj2-li3':   { fr: 'Vector store pour recherche sémantique ultra-rapide', en: 'Vector store for ultra-fast semantic search' },
-            'proj2-li4':   { fr: 'Interface utilisateur intuitive et responsive', en: 'Intuitive and responsive user interface' },
+            // PROJECTS (résumés)
+            'proj-tag':   { fr: 'Réalisations', en: 'Portfolio' },
+            'proj-title': { fr: 'Projets',      en: 'Projects' },
+            'proj-desc':  { fr: 'Des solutions concrètes qui démontrent mon expertise',
+                            en: 'Concrete solutions that demonstrate my expertise' },
 
-            'proj3-type':  { fr: 'Streaming · Temps Réel · Big Data', en: 'Streaming · Real-Time · Big Data' },
-            'proj3-title': { fr: 'Real-Time Crypto Streaming Pipeline', en: 'Real-Time Crypto Streaming Pipeline' },
-            'proj3-desc':  { fr: "Pipeline en temps réel qui ingère les prix de cryptomonnaies via CoinGecko, les stream avec Kafka et les traite avec PySpark Streaming.",
-                             en: "Real-time pipeline ingesting crypto prices via CoinGecko, streaming with Kafka and processing with PySpark Streaming." },
-            'proj3-li1':   { fr: 'Ingestion temps réel via API CoinGecko → Producer Kafka', en: 'Real-time ingestion via CoinGecko API → Kafka Producer' },
-            'proj3-li2':   { fr: 'Traitement des flux avec PySpark Structured Streaming', en: 'Stream processing with PySpark Structured Streaming' },
-            'proj3-li3':   { fr: 'Stockage dans PostgreSQL + dashboard de monitoring', en: 'Storage in PostgreSQL + monitoring dashboard' },
-            'proj3-li4':   { fr: 'Déploiement complet avec Docker Compose', en: 'Full deployment with Docker Compose' },
+            'proj1-type': { fr: 'Data Engineering · Production', en: 'Data Engineering · Production' },
+            'proj1-title':{ fr: 'Outil de Pilotage Performance Digitale', en: 'Digital Performance Monitoring Tool' },
+            'proj1-desc': { fr: "Solution Big Data industrielle conçue chez Generali pour piloter la performance digitale en temps quasi-réel. Couvre l'ensemble de la chaîne de valeur de la donnée.",
+                            en: "Industrial Big Data solution designed at Generali to monitor digital performance in near real-time, covering the entire data value chain." },
+            'proj1-li1':  { fr: 'Pipelines PySpark / Snowpark pour des volumes de données massifs', en: 'PySpark / Snowpark pipelines for massive data volumes' },
+            'proj1-li2':  { fr: 'Transformation et agrégation automatisées via Dataiku', en: 'Automated transformation and aggregation via Dataiku' },
+            'proj1-li3':  { fr: 'Reportings dynamiques Power BI pour les équipes marketing', en: 'Dynamic Power BI reports for marketing teams' },
+            'proj1-li4':  { fr: 'Qualité de données intégrée tout au long de la chaîne', en: 'Data quality integrated throughout the pipeline' },
+            'proj-conf':  { fr: 'Projet confidentiel', en: 'Confidential project' },
+            'status-pro': { fr: 'Entreprise', en: 'Enterprise' },
 
-            'proj4-type':  { fr: 'Data Warehouse · Analytics Engineering', en: 'Data Warehouse · Analytics Engineering' },
-            'proj4-title': { fr: 'Data Lakehouse E-commerce avec dbt + Snowflake', en: 'E-commerce Data Lakehouse with dbt + Snowflake' },
-            'proj4-desc':  { fr: "Architecture Data Lakehouse complète pour un e-commerce fictif : ingestion S3, transformation dbt, modélisation en étoile sur Snowflake.",
-                             en: "Complete Data Lakehouse architecture for a fictional e-commerce: S3 ingestion, dbt transformation, star schema on Snowflake." },
-            'proj4-li1':   { fr: 'Modélisation dimensionnelle (Star Schema) avec dbt', en: 'Dimensional modeling (Star Schema) with dbt' },
-            'proj4-li2':   { fr: 'Tests de qualité de données automatisés dans dbt', en: 'Automated data quality tests in dbt' },
-            'proj4-li3':   { fr: 'Documentation auto-générée de tous les modèles', en: 'Auto-generated documentation for all models' },
-            'proj4-li4':   { fr: 'Orchestration du DAG avec Airflow', en: 'DAG orchestration with Airflow' },
+            'proj2-type': { fr: 'IA Générative · RAG · LLM', en: 'Generative AI · RAG · LLM' },
+            'proj2-title':{ fr: 'EcoBot — Chatbot RAG Transition Écologique', en: 'EcoBot — RAG Chatbot for Ecological Transition' },
+            'proj2-desc': { fr: "Chatbot IA intelligent qui répond à des questions complexes sur la transition écologique grâce au pattern RAG : il retrouve les documents pertinents puis génère une réponse contextualisée.",
+                            en: "Intelligent AI chatbot answering complex questions about ecological transition using the RAG pattern: retrieves relevant documents then generates contextualized answers." },
+            'proj2-li1':  { fr: 'Architecture RAG complète : indexation, retrieval, génération', en: 'Complete RAG architecture: indexing, retrieval, generation' },
+            'proj2-li2':  { fr: 'Intégration GPT-3.5 via API OpenAI avec gestion du contexte', en: 'GPT-3.5 integration via OpenAI API with context management' },
+            'proj2-li3':  { fr: 'Vector store pour recherche sémantique ultra-rapide', en: 'Vector store for ultra-fast semantic search' },
+            'proj2-li4':  { fr: 'Interface utilisateur intuitive et responsive', en: 'Intuitive and responsive user interface' },
 
-            'proj5-type':  { fr: 'MLOps · Machine Learning · Automatisation', en: 'MLOps · Machine Learning · Automation' },
-            'proj5-title': { fr: 'ML Pipeline Automatisé avec MLflow & Airflow', en: 'Automated ML Pipeline with MLflow & Airflow' },
-            'proj5-desc':  { fr: "Pipeline MLOps de bout en bout : ingestion, feature engineering, entraînement, évaluation et déploiement orchestrés par Airflow.",
-                             en: "End-to-end MLOps pipeline: ingestion, feature engineering, training, evaluation and deployment orchestrated by Airflow." },
-            'proj5-li1':   { fr: 'Feature engineering automatisé avec Pandas & Scikit-learn', en: 'Automated feature engineering with Pandas & Scikit-learn' },
-            'proj5-li2':   { fr: 'Tracking des expériences ML avec MLflow', en: 'ML experiment tracking with MLflow' },
-            'proj5-li3':   { fr: "Orchestration des DAGs d'entraînement avec Airflow", en: 'Training DAG orchestration with Airflow' },
-            'proj5-li4':   { fr: 'Containerisation avec Docker pour la reproductibilité', en: 'Docker containerization for reproducibility' },
+            'proj3-type': { fr: 'Streaming · Temps Réel · Big Data', en: 'Streaming · Real-Time · Big Data' },
+            'proj3-title':{ fr: 'Real-Time Crypto Streaming Pipeline', en: 'Real-Time Crypto Streaming Pipeline' },
+            'proj3-desc': { fr: "Pipeline de données en temps réel qui ingère les prix de cryptomonnaies via l'API CoinGecko, les stream avec Kafka, les transforme avec PySpark Streaming et les stocke pour analyse.",
+                            en: "Real-time data pipeline ingesting cryptocurrency prices via the CoinGecko API, streaming with Kafka, processing with PySpark Streaming and storing for analysis." },
+            'proj3-li1':  { fr: 'Ingestion temps réel via API CoinGecko → Producer Kafka', en: 'Real-time ingestion via CoinGecko API → Kafka Producer' },
+            'proj3-li2':  { fr: 'Traitement des flux avec PySpark Structured Streaming', en: 'Stream processing with PySpark Structured Streaming' },
+            'proj3-li3':  { fr: 'Stockage dans PostgreSQL + dashboard de monitoring', en: 'Storage in PostgreSQL + monitoring dashboard' },
+            'proj3-li4':  { fr: 'Déploiement complet avec Docker Compose', en: 'Full deployment with Docker Compose' },
 
-            'proj6-type':  { fr: 'Cloud · ETL · Management',         en: 'Cloud · ETL · Management' },
-            'proj6-title': { fr: 'Pipeline ETL Cloud-Native sur AWS', en: 'Cloud-Native ETL Pipeline on AWS' },
-            'proj6-desc':  { fr: "Pipeline ETL complet déployé sur AWS avec CI/CD intégré. Mené en tant que Chef de Projet avec une équipe de 5 personnes en Agile/Scrum.",
-                             en: "Complete ETL pipeline deployed on AWS with integrated CI/CD. Led as Project Manager with a 5-person Agile/Scrum team." },
-            'proj6-li1':   { fr: 'Ingestion multi-sources vers AWS S3 (Data Lake)', en: 'Multi-source ingestion to AWS S3 (Data Lake)' },
-            'proj6-li2':   { fr: "Transformation PySpark sur EMR + Airflow pour l'orchestration", en: 'PySpark transformation on EMR + Airflow orchestration' },
-            'proj6-li3':   { fr: 'CI/CD avec GitHub Actions + déploiement Docker automatisé', en: 'CI/CD with GitHub Actions + automated Docker deployment' },
-            'proj6-li4':   { fr: "Management agile d'une équipe de 5 ingénieurs", en: 'Agile management of a 5-engineer team' },
+            'proj4-type': { fr: 'Data Warehouse · Analytics Engineering', en: 'Data Warehouse · Analytics Engineering' },
+            'proj4-title':{ fr: 'Data Lakehouse E-commerce avec dbt + Snowflake', en: 'E-commerce Data Lakehouse with dbt + Snowflake' },
+            'proj4-desc': { fr: "Architecture Data Lakehouse complète pour un e-commerce fictif : ingestion S3, transformation dbt, modélisation en étoile sur Snowflake et reporting analytique avancé.",
+                            en: "Complete Data Lakehouse architecture for a fictitious e-commerce: S3 ingestion, dbt transformations, star schema on Snowflake and advanced analytics reporting." },
+            'proj4-li1':  { fr: 'Modélisation dimensionnelle (Star Schema) avec dbt', en: 'Dimensional modeling (Star Schema) with dbt' },
+            'proj4-li2':  { fr: 'Tests de qualité de données automatisés dans dbt', en: 'Automated data quality tests in dbt' },
+            'proj4-li3':  { fr: 'Documentation auto-générée de tous les modèles', en: 'Auto-generated documentation for all models' },
+            'proj4-li4':  { fr: 'Orchestration du DAG avec Airflow', en: 'DAG orchestration with Airflow' },
+
+            'proj5-type': { fr: 'MLOps · Machine Learning · Automatisation', en: 'MLOps · Machine Learning · Automation' },
+            'proj5-title':{ fr: 'ML Pipeline Automatisé avec MLflow & Airflow', en: 'Automated ML Pipeline with MLflow & Airflow' },
+            'proj5-desc': { fr: "Pipeline MLOps de bout en bout : ingestion de données, feature engineering automatisé, entraînement de modèle, évaluation et déploiement — tout orchestré par Airflow.",
+                            en: "End-to-end MLOps pipeline: data ingestion, automated feature engineering, model training, evaluation and deployment — all orchestrated by Airflow." },
+            'proj5-li1':  { fr: 'Feature engineering automatisé avec Pandas & Scikit-learn', en: 'Automated feature engineering with Pandas & Scikit-learn' },
+            'proj5-li2':  { fr: 'Tracking des expériences ML avec MLflow', en: 'ML experiment tracking with MLflow' },
+            'proj5-li3':  { fr: "Orchestration des DAGs d'entraînement avec Airflow", en: 'Training DAG orchestration with Airflow' },
+            'proj5-li4':  { fr: 'Containerisation avec Docker pour la reproductibilité', en: 'Docker containerization for reproducibility' },
+
+            'proj6-type': { fr: 'Cloud · ETL · Management', en: 'Cloud · ETL · Management' },
+            'proj6-title':{ fr: 'Pipeline ETL Cloud-Native sur AWS', en: 'Cloud-Native ETL Pipeline on AWS' },
+            'proj6-desc': { fr: "Pipeline ETL complet déployé sur AWS avec CI/CD intégré. Projet mené en tant que Chef de Projet avec encadrement d'une équipe de 5 personnes en méthode Agile/Scrum.",
+                            en: "Complete ETL pipeline deployed on AWS with integrated CI/CD. Led as Project Manager with a 5-person team using Agile/Scrum." },
+            'proj6-li1':  { fr: 'Ingestion multi-sources vers AWS S3 (Data Lake)', en: 'Multi-source ingestion to AWS S3 (Data Lake)' },
+            'proj6-li2':  { fr: "Transformation PySpark sur EMR + Airflow pour l'orchestration", en: 'PySpark transformation on EMR + Airflow orchestration' },
+            'proj6-li3':  { fr: 'CI/CD avec GitHub Actions + déploiement Docker automatisé', en: 'CI/CD with GitHub Actions + automated Docker deployment' },
+            'proj6-li4':  { fr: "Management agile d'une équipe de 5 ingénieurs", en: 'Agile management of a 5-engineer team' },
 
             // CERTIF
-            'certif-tag':        { fr: 'Certifications',  en: 'Certifications' },
-            'certif-title-span': { fr: 'Certifications',  en: 'Certifications' },
-            'certif-desc':       { fr: 'Des certifications reconnues qui valident mon expertise',
-                                   en: 'Recognized certifications that validate my expertise' },
-            'certif1-title':     { fr: 'Introduction to Data Engineering', en: 'Introduction to Data Engineering' },
-            'certif2-title':     { fr: 'Snowflake Data Engineering',       en: 'Snowflake Data Engineering' },
-            'certif-btn-cert1':  { fr: 'Certificat',   en: 'Certificate' },
-            'certif-btn-cert2':  { fr: 'Certificat',   en: 'Certificate' },
-            'certif-btn-badge':  { fr: 'Badge Credly', en: 'Credly Badge' },
+            'certif-tag':      { fr: 'Certifications', en: 'Certifications' },
+            'certif-title':    { fr: 'Certifications', en: 'Certifications' },
+            'certif-desc':     { fr: 'Des certifications reconnues qui valident mon expertise',
+                                 en: 'Recognized certifications that validate my expertise' },
+            'certif1-title':   { fr: 'Introduction to Data Engineering', en: 'Introduction to Data Engineering' },
+            'certif2-title':   { fr: 'Snowflake Data Engineering',       en: 'Snowflake Data Engineering' },
+            'certif-btn-cert': { fr: 'Certificat',                       en: 'Certificate' },
+            'certif-btn-badge':{ fr: 'Badge Credly',                     en: 'Credly Badge' },
 
             // CONTACT
             'contact-tag':   { fr: 'Contact',               en: 'Contact' },
             'contact-title': { fr: 'Travaillons Ensemble',  en: "Let's Work Together" },
             'contact-desc':  { fr: 'Une opportunité ? Un projet ? Je suis disponible !',
                                en: 'An opportunity? A project? I am available!' },
-            'contact-h3':    { fr: 'Discutons de votre projet data 🚀', en: "Let's talk about your data project 🚀" },
+            'contact-h3':    { fr: 'Discutons de votre projet data 🚀',
+                               en: "Let's talk about your data project 🚀" },
             'contact-p':     { fr: "Que vous cherchiez un Data Engineer pour construire vos pipelines, intégrer de l'IA dans vos processus ou optimiser votre architecture data — je suis là pour vous aider.",
                                en: "Whether you need a Data Engineer to build your pipelines, integrate AI into your processes or optimize your data architecture — I am here to help." },
-            'label-email':   { fr: 'Email',      en: 'Email' },
-            'label-phone':   { fr: 'Téléphone',  en: 'Phone' },
-            'form-title':    { fr: 'Envoyer un message', en: 'Send a message' },
-            'form-name-label':  { fr: 'Votre nom',   en: 'Your name' },
-            'form-email-label': { fr: 'Votre email', en: 'Your email' },
-            'form-msg-label':   { fr: 'Message',     en: 'Message' },
-            'form-btn-text':    { fr: 'Envoyer',     en: 'Send' },
+            'label-email':   { fr: 'Email',                en: 'Email' },
+            'label-phone':   { fr: 'Téléphone',            en: 'Phone' },
+            'form-title':    { fr: 'Envoyer un message',   en: 'Send a message' },
+            'form-name':     { fr: 'Votre nom',            en: 'Your name' },
+            'form-email':    { fr: 'Votre email',          en: 'Your email' },
+            'form-message':  { fr: 'Message',              en: 'Message' },
+            'form-ph-name':  { fr: 'Nom Prénom',           en: 'First Last' },
+            'form-ph-email': { fr: 'xxx@mail.com',         en: 'xxx@mail.com' },
+            'form-ph-message':{ fr: 'Bonjour Ikel...',     en: 'Hi Ikel...' },
+            'form-submit':   { fr: 'Envoyer',              en: 'Send' },
 
             // FOOTER
-            'footer-role': { fr: 'Data Engineer Big Data & IA', en: 'Data Engineer Big Data & AI' },
-            'footer-sub':  { fr: 'Fait avec GITHUB PAGES',
-                             en: 'Made with GITHUB PAGES' },
-        };
-
-        // Placeholders des inputs
-        const placeholders = {
-            'form-name-input':  { fr: 'Nom Prénom',   en: 'First Last' },
-            'form-email-input': { fr: 'xxx@mail.com', en: 'xxx@mail.com' },
-            'form-msg-input':   { fr: 'Bonjour Ikel...', en: 'Hi Ikel...' },
+            'footer-role':   { fr: 'Data Engineer Big Data & IA', en: 'Data Engineer Big Data & AI' },
+            'footer-sub':    { fr: 'Fait avec ❤️ et beaucoup de ☕ et de data',
+                               en: 'Made with ❤️ and lots of ☕ and data' }
         };
 
         function switchLang() {
-            // Bascule
             currentLang = currentLang === 'fr' ? 'en' : 'fr';
 
-            // Bouton
-            document.getElementById('lang-flag').textContent  = currentLang === 'en' ? '🇫🇷' : '🇬🇧';
-            document.getElementById('lang-label').textContent = currentLang === 'en' ? 'FR'   : 'EN';
+            // Met à jour le bouton
+            const flag  = document.getElementById('lang-flag');
+            const label = document.getElementById('lang-label');
+            if (currentLang === 'en') {
+                flag.textContent  = '🇫🇷';
+                label.textContent = 'FR';
+            } else {
+                flag.textContent  = '🇬🇧';
+                label.textContent = 'EN';
+            }
 
-            // Traduit chaque élément par son id
-            Object.keys(t).forEach(id => {
-                const el = document.getElementById(id);
-                if (el && t[id][currentLang] !== undefined) {
-                    el.textContent = t[id][currentLang];
+            // Textes simples
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[key] && translations[key][currentLang]) {
+                    el.textContent = translations[key][currentLang];
                 }
             });
 
-            // Traduit les placeholders
-            Object.keys(placeholders).forEach(id => {
-                const el = document.getElementById(id);
-                if (el && placeholders[id][currentLang] !== undefined) {
-                    el.placeholder = placeholders[id][currentLang];
+            // Placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[key] && translations[key][currentLang]) {
+                    el.placeholder = translations[key][currentLang];
                 }
             });
 
-            // Transition douce
-            document.body.style.transition = 'opacity 0.15s ease';
-            document.body.style.opacity    = '0.85';
-            setTimeout(() => { document.body.style.opacity = '1'; }, 150);
+            // Petite animation visuelle
+            document.body.style.transition = 'opacity 0.2s ease';
+            document.body.style.opacity    = '0.8';
+            setTimeout(() => { document.body.style.opacity = '1'; }, 200);
 
-            // Sauvegarde
-            localStorage.setItem('portfolioLang', currentLang);
+            // Sauvegarde préférence
+            localStorage.setItem('lang', currentLang);
         }
 
-        // Restaure la langue sauvegardée
+        // Au chargement, restaure la langue
         window.addEventListener('load', () => {
-            const saved = localStorage.getItem('portfolioLang');
-            if (saved && saved !== currentLang) switchLang();
+            const saved = localStorage.getItem('lang');
+            if (saved && saved !== currentLang) {
+                currentLang = saved === 'en' ? 'fr' : 'en'; // on inverse pour que switchLang fasse le bon switch
+                switchLang();
+            }
         });
-
     </script>
+
 </body>
 </html>
