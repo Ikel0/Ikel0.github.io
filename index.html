@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ikel OUEDRAOGO - Data Engineer Big Data & IA</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Ikel Ouedraogo - Data Engineer spécialisé Big Data, pipelines Spark/Snowflake, IA et Machine Learning. Disponible pour de nouvelles opportunités à Paris.">
+    <meta name="keywords" content="Data Engineer, Big Data, Spark, Snowflake, Machine Learning, IA, Python, Paris, Hadoop, ETL">
+    <meta name="author" content="Ikel OUEDRAOGO">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ikel OUEDRAOGO - Data Engineer Big Data & IA">
+    <meta property="og:description" content="Expert en pipelines Big Data, orchestration cloud et intelligence artificielle.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💾</text></svg>">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -70,6 +85,11 @@
             transition: 0.15s ease;
         }
 
+        /* Hide custom cursor on touch devices */
+        @media (hover: none) {
+            .cursor, .cursor-follower { display: none; }
+        }
+
         /* ===== NAVIGATION ===== */
         nav {
             position: fixed;
@@ -96,6 +116,7 @@
             background: linear-gradient(90deg, var(--cyan), var(--purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             letter-spacing: -1px;
         }
 
@@ -149,7 +170,7 @@
 
         /* Switch langue */
         .lang-switcher {
-            border: none;
+            border: 1px solid transparent;
             background: rgba(255,255,255,0.05);
             border-radius: 999px;
             padding: 8px 14px;
@@ -169,7 +190,7 @@
             color: var(--cyan);
         }
 
-        .lang-switcher:focus { outline: none; }
+        .lang-switcher:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
 
         /* Mobile */
         .menu-toggle {
@@ -177,6 +198,8 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: #fff;
+            background: none;
+            border: none;
         }
 
         /* ===== HERO ===== */
@@ -236,6 +259,7 @@
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             animation: heroGradient 5s ease infinite;
         }
 
@@ -290,6 +314,9 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-primary::before {
@@ -319,6 +346,9 @@
             border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-secondary:hover {
@@ -346,6 +376,7 @@
             background: linear-gradient(135deg, var(--cyan), var(--purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             line-height: 1;
         }
 
@@ -417,6 +448,7 @@
             background: linear-gradient(135deg, var(--cyan), var(--purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .section-desc {
@@ -486,6 +518,7 @@
             background: linear-gradient(135deg, var(--cyan), var(--purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Floating chips */
@@ -1243,6 +1276,25 @@
             background: linear-gradient(90deg, var(--cyan), var(--purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== SKIP LINK (Accessibility) ===== */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--cyan);
+            color: var(--dark);
+            padding: 8px 16px;
+            z-index: 10000;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0 0 8px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -1279,19 +1331,22 @@
 </head>
 <body>
 
+    <!-- Skip Link for Accessibility -->
+    <a href="#about" class="skip-link">Skip to main content</a>
+
     <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursorFollower"></div>
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
 
     <!-- Canvas Background -->
-    <canvas id="bg-canvas"></canvas>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
     <!-- NAVIGATION -->
-    <nav id="navbar">
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
         <div class="logo">IO.dev</div>
-        <div class="menu-toggle" onclick="toggleNav()">
-            <i class="fas fa-bars"></i>
-        </div>
+        <button class="menu-toggle" onclick="toggleNav()" aria-label="Toggle navigation menu" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
         <ul class="nav-links" id="navLinks">
             <li><a href="#about"          data-i18n="nav-about">À propos</a></li>
             <li><a href="#skills"         data-i18n="nav-skills">Compétences</a></li>
@@ -1300,7 +1355,7 @@
             <li><a href="#certifications" data-i18n="nav-certif">Certifications</a></li>
             <li><a href="#contact" class="nav-cta" data-i18n="nav-contact">Me contacter</a></li>
             <li>
-                <button class="lang-switcher" type="button" onclick="switchLang()">
+                <button class="lang-switcher" type="button" onclick="switchLang()" aria-label="Switch language">
                     <span id="lang-flag">🇬🇧</span>
                     <span id="lang-label">EN</span>
                 </button>
@@ -1309,28 +1364,27 @@
     </nav>
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" role="banner">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
             <div class="hero-badge">
-                <span class="badge-dot"></span>
+                <span class="badge-dot" aria-hidden="true"></span>
                 <span data-i18n="hero-badge">Disponible pour de nouvelles opportunités</span>
             </div>
             <h1>Ikel OUEDRAOGO</h1>
-            <div class="hero-typed">
+            <div class="hero-typed" aria-live="polite">
                 <span id="typed-text"></span>
             </div>
             <p data-i18n="hero-desc">
-                Construire des solutions data utiles, fiables et adaptées aux besoins 
-                des équipes métiers. Expert en pipelines Big Data, orchestration cloud 
-                et intelligence artificielle.
+                Architecte de solutions data performantes, fiables et alignées sur les enjeux business. 
+                Spécialiste des pipelines Big Data, de l'orchestration cloud et de l'intelligence artificielle.
             </p>
             <div class="hero-btns">
                 <a href="#projects" class="btn-primary">
-                    <i class="fas fa-rocket"></i>
+                    <i class="fas fa-rocket" aria-hidden="true"></i>
                     <span data-i18n="hero-btn-projects">Voir mes projets</span>
                 </a>
                 <a href="#contact" class="btn-secondary">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
                     <span data-i18n="hero-btn-contact">Me contacter</span>
                 </a>
             </div>
@@ -1341,7 +1395,7 @@
                 </div>
                 <div class="stat">
                     <div class="stat-number" id="count2">0</div>
-                    <div class="stat-label" data-i18n="stat-projects">Projets Data réalisés</div>
+                    <div class="stat-label" data-i18n="stat-projects">Projets Data livrés</div>
                 </div>
                 <div class="stat">
                     <div class="stat-number" id="count3">0</div>
@@ -1349,53 +1403,53 @@
                 </div>
             </div>
         </div>
-        <a href="#about" class="scroll-down">
+        <a href="#about" class="scroll-down" aria-label="Scroll to about section">
             <span>Scroll</span>
-            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
         </a>
     </section>
 
     <!-- ABOUT -->
-    <div class="section-wrapper" id="about">
+    <section class="section-wrapper" id="about" role="main">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-tag" data-i18n="about-tag">Qui suis-je ?</span>
                 <h2 class="section-title">
                     <span data-i18n="about-title">À Propos</span>
                 </h2>
-                <p class="section-desc" data-i18n="about-desc">Passionné par la donnée, je transforme la complexité en valeur.</p>
+                <p class="section-desc" data-i18n="about-desc">Passionné par la donnée, je transforme la complexité en valeur actionnable.</p>
             </div>
             <div class="about-grid">
                 <div class="about-photo-wrapper" data-aos="fade-right">
                     <div class="about-photo-frame">
                         <div class="about-photo-inner">
-                            <img src="photo.jpg" alt="Ikel OUEDRAOGO">
+                            <img src="photo.jpg" alt="Photo de Ikel OUEDRAOGO, Data Engineer">
                         </div>
                     </div>
                     <div class="float-chip chip-1">
-                        <i class="fas fa-database"></i> <span data-i18n="chip1">Big Data Expert</span>
+                        <i class="fas fa-database" aria-hidden="true"></i> <span data-i18n="chip1">Big Data Expert</span>
                     </div>
                     <div class="float-chip chip-2">
-                        <i class="fas fa-brain"></i> <span data-i18n="chip2">IA & Machine Learning</span>
+                        <i class="fas fa-brain" aria-hidden="true"></i> <span data-i18n="chip2">IA & Machine Learning</span>
                     </div>
                 </div>
                 <div class="about-content" data-aos="fade-left">
                     <h3 data-i18n="about-h3">Data Engineer & IA</h3>
-                    <p>
-                        Actuellement Data Engineer chez <strong>Generali</strong>, je conçois 
-                        et industrialise des pipelines de données dans des environnements Big Data 
-                        à grande échelle (Hadoop, Snowflake). Je couvre l'ensemble de la chaîne 
-                        de valeur : de l'ingestion brute jusqu'aux reportings métiers.
+                    <p data-i18n="about-p1">
+                        Actuellement <strong>Data Engineer chez Generali</strong>, je conçois et industrialise 
+                        des pipelines de données au sein d'environnements Big Data à grande échelle 
+                        (Hadoop, Snowflake). Mon périmètre couvre l'intégralité de la chaîne de valeur : 
+                        de l'ingestion des données brutes jusqu'aux reportings décisionnels.
                     </p>
-                    <p>
+                    <p data-i18n="about-p2">
                         Diplômé du <strong>Programme Grande École de l'EFREI Paris</strong> 
-                        en Big Data & Machine Learning, j'ai eu l'opportunité d'étudier 
-                        à <strong>Kuala Lumpur</strong> et de développer une double expertise 
-                        technique et business.
+                        en Big Data & Machine Learning, j'ai enrichi mon parcours par un semestre 
+                        académique à <strong>Kuala Lumpur</strong>, développant ainsi une double expertise 
+                        technique et business dans un contexte international.
                     </p>
-                    <p>
-                        Mon moteur : transformer des données brutes en insights actionnables, 
-                        en alliant rigueur technique et compréhension des enjeux métiers.
+                    <p data-i18n="about-p3">
+                        Ce qui me motive : transformer des données brutes en insights stratégiques, 
+                        en conjuguant excellence technique et compréhension fine des enjeux métiers.
                     </p>
                     <div class="about-tags">
                         <span class="about-tag" data-i18n="tag1">Adaptabilité</span>
@@ -1406,28 +1460,28 @@
                     </div>
                     <div class="about-info-row">
                         <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                             <div>
                                 <small data-i18n="label-location">Localisation</small>
                                 <strong>Paris, France</strong>
                             </div>
                         </div>
                         <div class="info-item">
-                            <i class="fas fa-graduation-cap"></i>
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                             <div>
                                 <small data-i18n="label-school">Formation</small>
                                 <strong>EFREI Paris</strong>
                             </div>
                         </div>
                         <div class="info-item">
-                            <i class="fas fa-language"></i>
+                            <i class="fas fa-language" aria-hidden="true"></i>
                             <div>
                                 <small data-i18n="label-lang">Langues</small>
                                 <strong data-i18n="info-lang">Français & Anglais (TOEIC)</strong>
                             </div>
                         </div>
                         <div class="info-item">
-                            <i class="fas fa-briefcase"></i>
+                            <i class="fas fa-briefcase" aria-hidden="true"></i>
                             <div>
                                 <small data-i18n="label-status">Statut</small>
                                 <strong data-i18n="info-status">Disponible</strong>
@@ -1437,50 +1491,50 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- SKILLS -->
-    <div class="section-wrapper skills-bg" id="skills">
+    <section class="section-wrapper skills-bg" id="skills">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-tag" data-i18n="skills-tag">Stack Technique</span>
                 <h2 class="section-title">Mes <span data-i18n="skills-title">Compétences</span></h2>
-                <p class="section-desc" data-i18n="skills-desc">Un arsenal complet pour construire des solutions data robustes</p>
+                <p class="section-desc" data-i18n="skills-desc">Un arsenal complet pour construire des solutions data robustes et scalables</p>
             </div>
             <div class="skills-categories">
 
                 <!-- Data Engineering -->
                 <div data-aos="fade-up">
                     <div class="skill-category-title">
-                        <i class="fas fa-cogs"></i> <span data-i18n="cat-engineering">Data Engineering & Orchestration</span>
+                        <i class="fas fa-cogs" aria-hidden="true"></i> <span data-i18n="cat-engineering">Data Engineering & Orchestration</span>
                     </div>
                     <div class="skills-row">
                         <div class="skill-pill">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Apache_Spark_logo.svg" alt="Spark">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Apache_Spark_logo.svg" alt="Apache Spark logo">
                             <span>Apache Spark</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png" alt="Airflow">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png" alt="Apache Airflow logo">
                             <span>Airflow</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" alt="Snowflake">
+                            <img src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" alt="Snowflake logo">
                             <span>Snowflake</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://www.vectorlogo.zone/logos/apache_kafka/apache_kafka-icon.svg" alt="Kafka">
+                            <img src="https://www.vectorlogo.zone/logos/apache_kafka/apache_kafka-icon.svg" alt="Apache Kafka logo">
                             <span>Kafka</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker logo">
                             <span>Docker</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS"/>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS logo">
                             <span>AWS</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://seeklogo.com/images/D/dbt-logo-500AB0BAA7-seeklogo.com.png" alt="dbt">
+                            <img src="https://seeklogo.com/images/D/dbt-logo-500AB0BAA7-seeklogo.com.png" alt="dbt logo">
                             <span>dbt</span>
                         </div>
                     </div>
@@ -1489,31 +1543,31 @@
                 <!-- Langages -->
                 <div data-aos="fade-up">
                     <div class="skill-category-title">
-                        <i class="fas fa-code"></i> <span data-i18n="cat-dev">Langages & Développement</span>
+                        <i class="fas fa-code" aria-hidden="true"></i> <span data-i18n="cat-dev">Langages & Développement</span>
                     </div>
                     <div class="skills-row">
                         <div class="skill-pill">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo">
                             <span>Python</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg" alt="Scala">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg" alt="Scala logo">
                             <span>Scala</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL logo">
                             <span>SQL</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R logo">
                             <span>R</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB logo">
                             <span>MongoDB</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git logo">
                             <span>Git / CI-CD</span>
                         </div>
                     </div>
@@ -1522,27 +1576,27 @@
                 <!-- IA / ML -->
                 <div data-aos="fade-up">
                     <div class="skill-category-title">
-                        <i class="fas fa-brain"></i> <span data-i18n="cat-ml">Machine Learning & IA</span>
+                        <i class="fas fa-brain" aria-hidden="true"></i> <span data-i18n="cat-ml">Machine Learning & IA</span>
                     </div>
                     <div class="skills-row">
                         <div class="skill-pill">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow logo">
                             <span>TensorFlow</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch logo">
                             <span>PyTorch</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn logo">
                             <span>Scikit-learn</span>
                         </div>
                         <div class="skill-pill">
-                            <i class="fas fa-robot" style="color:var(--cyan); width:28px; text-align:center;"></i>
+                            <i class="fas fa-robot" style="color:var(--cyan); width:28px; text-align:center;" aria-hidden="true"></i>
                             <span>RAG / LangChain</span>
                         </div>
                         <div class="skill-pill">
-                            <i class="fas fa-sliders-h" style="color:var(--purple); width:28px; text-align:center;"></i>
+                            <i class="fas fa-sliders-h" style="color:var(--purple); width:28px; text-align:center;" aria-hidden="true"></i>
                             <span>Fine-tuning LLM</span>
                         </div>
                     </div>
@@ -1551,55 +1605,55 @@
                 <!-- Dataviz -->
                 <div data-aos="fade-up">
                     <div class="skill-category-title">
-                        <i class="fas fa-chart-bar"></i> <span data-i18n="cat-viz">Data Visualisation</span>
+                        <i class="fas fa-chart-bar" aria-hidden="true"></i> <span data-i18n="cat-viz">Data Visualisation</span>
                     </div>
                     <div class="skills-row">
                         <div class="skill-pill">
-                            <img src="https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg" alt="Power BI">
+                            <img src="https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg" alt="Power BI logo">
                             <span>Power BI</span>
                         </div>
                         <div class="skill-pill">
-                            <img src="https://www.svgrepo.com/show/354428/tableau-icon.svg" alt="Tableau">
+                            <img src="https://www.svgrepo.com/show/354428/tableau-icon.svg" alt="Tableau logo">
                             <span>Tableau</span>
                         </div>
                         <div class="skill-pill">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Matplotlib">
-                            <span>Matplotlib</span>
+                            <span>Matplotlib / Seaborn</span>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- EXPERIENCE -->
-    <div class="section-wrapper" id="experience">
+    <section class="section-wrapper" id="experience">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-tag" data-i18n="exp-tag">Parcours</span>
                 <h2 class="section-title"><span data-i18n="exp-title">Expérience Professionnelle</span></h2>
-                <p class="section-desc" data-i18n="exp-desc">Des missions concrètes dans des environnements exigeants</p>
+                <p class="section-desc" data-i18n="exp-desc">Des missions à forte valeur ajoutée dans des environnements exigeants</p>
             </div>
             <div class="timeline">
 
                 <!-- Generali -->
-                <div class="timeline-item" data-aos="fade-up">
-                    <div class="timeline-dot"></div>
+                <article class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot" aria-hidden="true"></div>
                     <div class="timeline-card">
                         <div class="exp-header">
                             <div>
                                 <h3 class="exp-role" data-i18n="exp1-role">Data Engineer</h3>
                                 <p class="exp-company">
-                                    <i class="fas fa-building"></i> Generali — Paris
+                                    <i class="fas fa-building" aria-hidden="true"></i> Generali — Paris
                                 </p>
                             </div>
                             <span class="exp-date" data-i18n="exp1-date">Août 2023 — Sept 2025</span>
                         </div>
                         <div class="exp-impact">
-                            <span class="impact-badge"><i class="fas fa-bolt"></i> <span data-i18n="exp1-b1">Big Data Production</span></span>
-                            <span class="impact-badge"><i class="fas fa-users"></i> <span data-i18n="exp1-b2">Équipes Marketing</span></span>
-                            <span class="impact-badge"><i class="fas fa-chart-line"></i> <span data-i18n="exp1-b3">Performance Digitale</span></span>
+                            <span class="impact-badge"><i class="fas fa-bolt" aria-hidden="true"></i> <span data-i18n="exp1-b1">Big Data Production</span></span>
+                            <span class="impact-badge"><i class="fas fa-users" aria-hidden="true"></i> <span data-i18n="exp1-b2">Équipes Marketing</span></span>
+                            <span class="impact-badge"><i class="fas fa-chart-line" aria-hidden="true"></i> <span data-i18n="exp1-b3">Performance Digitale</span></span>
                         </div>
                         <ul class="exp-list">
                             <li data-i18n="exp1-li1">Conception et industrialisation d'un outil de pilotage de la performance digitale dans un environnement Hadoop / Snowflake à grande échelle</li>
@@ -1612,24 +1666,24 @@
                             <span>Snowpark</span><span>Dataiku</span><span>Python</span><span>Power BI</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- WeAreMUSH -->
-                <div class="timeline-item" data-aos="fade-up">
-                    <div class="timeline-dot"></div>
+                <article class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot" aria-hidden="true"></div>
                     <div class="timeline-card">
                         <div class="exp-header">
                             <div>
                                 <h3 class="exp-role" data-i18n="exp2-role">Développeur IA — Chatbot RAG</h3>
                                 <p class="exp-company">
-                                    <i class="fas fa-leaf"></i> WeAreMUSH
+                                    <i class="fas fa-leaf" aria-hidden="true"></i> WeAreMUSH
                                 </p>
                             </div>
                             <span class="exp-date" data-i18n="exp2-date">Sept 2024 — Fév 2025</span>
                         </div>
                         <div class="exp-impact">
-                            <span class="impact-badge"><i class="fas fa-robot"></i> LLM & RAG</span>
-                            <span class="impact-badge"><i class="fas fa-seedling"></i> <span data-i18n="exp2-b1">Transition Écologique</span></span>
+                            <span class="impact-badge"><i class="fas fa-robot" aria-hidden="true"></i> LLM & RAG</span>
+                            <span class="impact-badge"><i class="fas fa-seedling" aria-hidden="true"></i> <span data-i18n="exp2-b1">Transition Écologique</span></span>
                         </div>
                         <ul class="exp-list">
                             <li data-i18n="exp2-li1">Implémentation d'un chatbot IA spécialisé transition écologique avec l'approche RAG (Retrieval Augmented Generation)</li>
@@ -1641,24 +1695,24 @@
                             <span>Python</span><span>FastAPI</span><span>API REST</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- DataFloW -->
-                <div class="timeline-item" data-aos="fade-up">
-                    <div class="timeline-dot"></div>
+                <article class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot" aria-hidden="true"></div>
                     <div class="timeline-card">
                         <div class="exp-header">
                             <div>
                                 <h3 class="exp-role" data-i18n="exp3-role">Chef de Projet Data</h3>
                                 <p class="exp-company">
-                                    <i class="fas fa-stream"></i> DataFloW France
+                                    <i class="fas fa-stream" aria-hidden="true"></i> DataFloW France
                                 </p>
                             </div>
                             <span class="exp-date">2025</span>
                         </div>
                         <div class="exp-impact">
-                            <span class="impact-badge"><i class="fas fa-users-cog"></i> <span data-i18n="exp3-b1">5 personnes managées</span></span>
-                            <span class="impact-badge"><i class="fas fa-infinity"></i> CI/CD & Agile</span>
+                            <span class="impact-badge"><i class="fas fa-users-cog" aria-hidden="true"></i> <span data-i18n="exp3-b1">5 personnes managées</span></span>
+                            <span class="impact-badge"><i class="fas fa-infinity" aria-hidden="true"></i> CI/CD & Agile</span>
                         </div>
                         <ul class="exp-list">
                             <li data-i18n="exp3-li1">Conception et automatisation de pipelines ETL end-to-end : ingestion, transformation et chargement sur AWS</li>
@@ -1670,24 +1724,24 @@
                             <span>Docker</span><span>CI/CD</span><span>Agile/Scrum</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- PROJECTS -->
-    <div class="section-wrapper" id="projects">
+    <section class="section-wrapper" id="projects">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-tag" data-i18n="proj-tag">Réalisations</span>
                 <h2 class="section-title">Mes <span data-i18n="proj-title">Projets</span></h2>
-                <p class="section-desc" data-i18n="proj-desc">Des solutions concrètes qui démontrent mon expertise</p>
+                <p class="section-desc" data-i18n="proj-desc">Des solutions concrètes qui démontrent mon expertise technique</p>
             </div>
             <div class="projects-grid">
 
                 <!-- PROJET 1 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-banner">
                         <div class="banner-bg" style="background: linear-gradient(135deg, #1a0533, #0a1628);"></div>
                         <img class="logo-img" src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" alt="Snowflake">
@@ -1713,19 +1767,19 @@
                         <div class="project-footer">
                             <div class="project-links">
                                 <a href="#" class="link-github">
-                                    <i class="fas fa-lock"></i> <span data-i18n="proj-conf">Projet confidentiel</span>
+                                    <i class="fas fa-lock" aria-hidden="true"></i> <span data-i18n="proj-conf">Projet confidentiel</span>
                                 </a>
                             </div>
                             <span class="project-status status-pro" data-i18n="status-pro">Entreprise</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- PROJET 2 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+                <article class="project-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="project-banner">
                         <div class="banner-bg" style="background: linear-gradient(135deg, #0a2818, #051a28);"></div>
-                        <i class="fas fa-robot" style="color:#00d4ff;"></i>
+                        <i class="fas fa-robot" style="color:#00d4ff;" aria-hidden="true"></i>
                     </div>
                     <div class="project-body">
                         <p class="project-type" data-i18n="proj2-type">IA Générative · RAG · LLM</p>
@@ -1747,20 +1801,20 @@
                         </div>
                         <div class="project-footer">
                             <div class="project-links">
-                                <a href="TON_LIEN_GITHUB" class="link-github" target="_blank">
-                                    <i class="fab fa-github"></i> Code
+                                <a href="TON_LIEN_GITHUB" class="link-github" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github" aria-hidden="true"></i> Code
                                 </a>
-                                <a href="TON_LIEN_DEMO" class="link-demo" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> Démo
+                                <a href="TON_LIEN_DEMO" class="link-demo" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i> Démo
                                 </a>
                             </div>
                             <span class="project-status status-open">Open Source</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- PROJET 3 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-banner">
                         <div class="banner-bg" style="background: linear-gradient(135deg, #1a1000, #0a0a28);"></div>
                         <img class="logo-img" src="https://www.vectorlogo.zone/logos/apache_kafka/apache_kafka-icon.svg" alt="Kafka">
@@ -1785,17 +1839,17 @@
                         </div>
                         <div class="project-footer">
                             <div class="project-links">
-                                <a href="TON_LIEN_GITHUB" class="link-github" target="_blank">
-                                    <i class="fab fa-github"></i> Code
+                                <a href="TON_LIEN_GITHUB" class="link-github" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github" aria-hidden="true"></i> Code
                                 </a>
                             </div>
                             <span class="project-status status-open">Open Source</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- PROJET 4 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="250">
+                <article class="project-card" data-aos="fade-up" data-aos-delay="250">
                     <div class="project-banner">
                         <div class="banner-bg" style="background: linear-gradient(135deg, #00101a, #001a0d);"></div>
                         <img class="logo-img" src="https://seeklogo.com/images/D/dbt-logo-500AB0BAA7-seeklogo.com.png" alt="dbt">
@@ -1820,17 +1874,17 @@
                         </div>
                         <div class="project-footer">
                             <div class="project-links">
-                                <a href="TON_LIEN_GITHUB" class="link-github" target="_blank">
-                                    <i class="fab fa-github"></i> Code
+                                <a href="TON_LIEN_GITHUB" class="link-github" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github" aria-hidden="true"></i> Code
                                 </a>
                             </div>
                             <span class="project-status status-open">Open Source</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- PROJET 5 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <article class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-banner">
                         <div class="banner-bg" style="background: linear-gradient(135deg, #1a0028, #00001a);"></div>
                         <img class="logo-img" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
@@ -1855,21 +1909,21 @@
                         </div>
                         <div class="project-footer">
                             <div class="project-links">
-                                <a href="TON_LIEN_GITHUB" class="link-github" target="_blank">
-                                    <i class="fab fa-github"></i> Code
+                                <a href="TON_LIEN_GITHUB" class="link-github" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github" aria-hidden="true"></i> Code
                                 </a>
                             </div>
                             <span class="project-status status-open">Open Source</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- PROJET 6 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="350">
+                <article class="project-card" data-aos="fade-up" data-aos-delay="350">
                     <div class="project-banner">
                         <div class="banner-bg" style="background: linear-gradient(135deg, #001a1a, #1a0010);"></div>
                         <img class="logo-img"
-                             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-line-wordmark.svg" alt="AWS"/>
+                             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-line-wordmark.svg" alt="AWS">
                     </div>
                     <div class="project-body">
                         <p class="project-type" data-i18n="proj6-type">Cloud · ETL · Management</p>
@@ -1891,111 +1945,111 @@
                         </div>
                         <div class="project-footer">
                             <div class="project-links">
-                                <a href="TON_LIEN_GITHUB" class="link-github" target="_blank">
-                                    <i class="fab fa-github"></i> Code
+                                <a href="TON_LIEN_GITHUB" class="link-github" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github" aria-hidden="true"></i> Code
                                 </a>
                             </div>
                             <span class="project-status status-open">Open Source</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- CERTIFICATIONS -->
-    <div class="section-wrapper" id="certifications">
+    <section class="section-wrapper" id="certifications">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-tag" data-i18n="certif-tag">Certifications</span>
                 <h2 class="section-title">Mes <span data-i18n="certif-title">Certifications</span></h2>
-                <p class="section-desc" data-i18n="certif-desc">Des certifications reconnues qui valident mon expertise</p>
+                <p class="section-desc" data-i18n="certif-desc">Des certifications reconnues qui valident mon expertise technique</p>
             </div>
             <div class="certif-grid">
 
                 <!-- IBM -->
-                <div class="certif-card" data-aos="fade-up" data-aos-delay="100">
+                <article class="certif-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="certif-logo-wrap">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"
-                             alt="IBM" style="filter: brightness(0) invert(1);">
+                             alt="IBM Logo" style="filter: brightness(0) invert(1);">
                     </div>
                     <div class="certif-body">
                         <h3 data-i18n="certif1-title">Introduction to Data Engineering</h3>
                         <p class="certif-issuer">
-                            <i class="fas fa-building"></i> IBM via Coursera
+                            <i class="fas fa-building" aria-hidden="true"></i> IBM via Coursera
                         </p>
                         <div class="certif-btns">
                             <a href="https://coursera.org/share/88e78d7792208299f87d5149c965229e"
-                               target="_blank" class="certif-link primary">
-                                <i class="fas fa-certificate"></i> <span data-i18n="certif-btn-cert">Certificat</span>
+                               target="_blank" rel="noopener noreferrer" class="certif-link primary">
+                                <i class="fas fa-certificate" aria-hidden="true"></i> <span data-i18n="certif-btn-cert">Certificat</span>
                             </a>
                             <a href="https://www.credly.com/badges/06f88cbf-2fba-4714-96ee-4fc34d578893/public_url"
-                               target="_blank" class="certif-link secondary">
-                                <i class="fas fa-award"></i> <span data-i18n="certif-btn-badge">Badge Credly</span>
+                               target="_blank" rel="noopener noreferrer" class="certif-link secondary">
+                                <i class="fas fa-award" aria-hidden="true"></i> <span data-i18n="certif-btn-badge">Badge Credly</span>
                             </a>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Snowflake -->
-                <div class="certif-card" data-aos="fade-up" data-aos-delay="200">
+                <article class="certif-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="certif-logo-wrap">
                         <img src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg"
-                             alt="Snowflake">
+                             alt="Snowflake Logo">
                     </div>
                     <div class="certif-body">
                         <h3 data-i18n="certif2-title">Snowflake Data Engineering</h3>
                         <p class="certif-issuer">
-                            <i class="fas fa-snowflake"></i> Snowflake via Coursera
+                            <i class="fas fa-snowflake" aria-hidden="true"></i> Snowflake via Coursera
                         </p>
                         <div class="certif-btns">
                             <a href="https://coursera.org/share/35b52c23d9edf4f7f2d3d0ac1e27e86a"
-                               target="_blank" class="certif-link primary">
-                                <i class="fas fa-certificate"></i> <span data-i18n="certif-btn-cert">Certificat</span>
+                               target="_blank" rel="noopener noreferrer" class="certif-link primary">
+                                <i class="fas fa-certificate" aria-hidden="true"></i> <span data-i18n="certif-btn-cert">Certificat</span>
                             </a>
                         </div>
                     </div>
-                </div>
+                </article>
 
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- CONTACT -->
-    <div class="section-wrapper" id="contact">
+    <section class="section-wrapper" id="contact">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-tag" data-i18n="contact-tag">Contact</span>
                 <h2 class="section-title"><span data-i18n="contact-title">Travaillons Ensemble</span></h2>
-                <p class="section-desc" data-i18n="contact-desc">Une opportunité ? Un projet ? Je suis disponible !</p>
+                <p class="section-desc" data-i18n="contact-desc">Une opportunité ? Un projet data ? Je suis à votre écoute !</p>
             </div>
             <div class="contact-wrapper" data-aos="fade-up">
                 <div class="contact-left">
                     <h3 data-i18n="contact-h3">Discutons de votre projet data 🚀</h3>
                     <p data-i18n="contact-p">
-                        Que vous cherchiez un Data Engineer pour construire vos pipelines, 
-                        intégrer de l'IA dans vos processus ou optimiser votre architecture data — 
-                        je suis là pour vous aider.
+                        Que vous cherchiez un Data Engineer pour concevoir vos pipelines, 
+                        intégrer l'IA dans vos processus métier ou optimiser votre architecture data — 
+                        je suis là pour transformer vos défis en solutions.
                     </p>
                     <div class="contact-items">
                         <a href="mailto:Ouedragoikel@gmail.com" class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
                             <div class="contact-detail">
                                 <small data-i18n="label-email">Email</small>
                                 <strong>Ouedragoikel@gmail.com</strong>
                             </div>
                         </a>
                         <a href="tel:+33753830689" class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
                             <div class="contact-detail">
                                 <small data-i18n="label-phone">Téléphone</small>
                                 <strong>+33 7 53 83 06 89</strong>
                             </div>
                         </a>
                         <a href="https://www.linkedin.com/in/ikel-ouedraogo-8460041b7" 
-                           target="_blank" class="contact-item">
-                            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                           target="_blank" rel="noopener noreferrer" class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-linkedin" aria-hidden="true"></i></div>
                             <div class="contact-detail">
                                 <small>LinkedIn</small>
                                 <strong>Ikel Ouedraogo</strong>
@@ -2004,15 +2058,15 @@
                     </div>
                     <div class="socials-row">
                         <a href="https://github.com/IkelOuedraogo" 
-                           target="_blank" class="social-btn">
-                            <i class="fab fa-github"></i>
+                           target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub Profile">
+                            <i class="fab fa-github" aria-hidden="true"></i>
                         </a>
-                        <a href="https://linkedin.com/in/ikel-ouedraogo" 
-                           target="_blank" class="social-btn">
-                            <i class="fab fa-linkedin-in"></i>
+                        <a href="https://linkedin.com/in/ikel-ouedraogo-8460041b7" 
+                           target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Profile">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
                         </a>
-                        <a href="mailto:Ouedragoikel@gmail.com" class="social-btn">
-                            <i class="fas fa-envelope"></i>
+                        <a href="mailto:Ouedragoikel@gmail.com" class="social-btn" aria-label="Send Email">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -2020,31 +2074,31 @@
                     <h3 data-i18n="form-title">Envoyer un message</h3>
                     <form onsubmit="handleForm(event)">
                         <div class="form-group">
-                            <label data-i18n="form-name">Votre nom</label>
-                            <input type="text" data-i18n-placeholder="form-ph-name" placeholder="Nom Prénom" required>
+                            <label for="contact-name" data-i18n="form-name">Votre nom</label>
+                            <input type="text" id="contact-name" data-i18n-placeholder="form-ph-name" placeholder="Nom Prénom" required>
                         </div>
                         <div class="form-group">
-                            <label data-i18n="form-email">Votre email</label>
-                            <input type="email" data-i18n-placeholder="form-ph-email" placeholder="xxx@mail.com" required>
+                            <label for="contact-email" data-i18n="form-email">Votre email</label>
+                            <input type="email" id="contact-email" data-i18n-placeholder="form-ph-email" placeholder="xxx@mail.com" required>
                         </div>
                         <div class="form-group">
-                            <label data-i18n="form-message">Message</label>
-                            <textarea data-i18n-placeholder="form-ph-message" placeholder="Bonjour Ikel..." required></textarea>
+                            <label for="contact-message" data-i18n="form-message">Message</label>
+                            <textarea id="contact-message" data-i18n-placeholder="form-ph-message" placeholder="Bonjour Ikel..." required></textarea>
                         </div>
                         <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer; font-size:1rem;">
-                            <i class="fas fa-paper-plane"></i>
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
                             <span data-i18n="form-submit">Envoyer</span>
                         </button>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- FOOTER -->
     <footer>
         <p><span>Ikel OUEDRAOGO</span> · <span data-i18n="footer-role">Data Engineer Big Data & IA</span> · Paris 🇫🇷</p>
-        <p style="margin-top: 8px;" data-i18n="footer-sub">Fait avec ❤️ et beaucoup de ☕ et de data</p>
+        <p style="margin-top: 8px;" data-i18n="footer-sub">Conçu avec ❤️, beaucoup de ☕ et une passion pour la data</p>
     </footer>
 
     <!-- ===== SCRIPTS ===== -->
@@ -2060,12 +2114,16 @@
         });
 
         function toggleNav() {
-            document.getElementById('navLinks').classList.toggle('open');
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            navLinks.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
         }
 
         document.querySelectorAll('.nav-links a').forEach(a => {
             a.addEventListener('click', () => {
                 document.getElementById('navLinks').classList.remove('open');
+                document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
             });
         });
 
@@ -2073,31 +2131,33 @@
         const cursor = document.getElementById('cursor');
         const follower = document.getElementById('cursorFollower');
 
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX - 10 + 'px';
-            cursor.style.top  = e.clientY - 10 + 'px';
-            follower.style.left = e.clientX - 4 + 'px';
-            follower.style.top  = e.clientY - 4 + 'px';
-        });
+        if (window.matchMedia('(hover: hover)').matches) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX - 10 + 'px';
+                cursor.style.top  = e.clientY - 10 + 'px';
+                follower.style.left = e.clientX - 4 + 'px';
+                follower.style.top  = e.clientY - 4 + 'px';
+            });
 
-        document.querySelectorAll('a, button, .skill-pill, .project-card').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(2)';
-                cursor.style.borderColor = '#7b2cbf';
+            document.querySelectorAll('a, button, .skill-pill, .project-card').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'scale(2)';
+                    cursor.style.borderColor = '#7b2cbf';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'scale(1)';
+                    cursor.style.borderColor = '#00d4ff';
+                });
             });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                cursor.style.borderColor = '#00d4ff';
-            });
-        });
+        }
 
         // ===== TYPED EFFECT =====
         const texts = [
             'Data Engineer',
-            'Big Data Specialist',
-            'IA & LLM Developer',
+            'Big Data Architect',
+            'AI & LLM Developer',
             'Analytics Engineer',
-            'Pipeline Architect'
+            'Pipeline Expert'
         ];
         let textIndex = 0;
         let charIndex = 0;
@@ -2279,20 +2339,29 @@
 
             // HERO
             'hero-badge':         { fr: 'Disponible pour de nouvelles opportunités', en: 'Open to new opportunities' },
-            'hero-desc':          { fr: 'Construire des solutions data utiles, fiables et adaptées aux besoins des équipes métiers. Expert en pipelines Big Data, orchestration cloud et intelligence artificielle.',
-                                    en: 'Building useful, reliable data solutions tailored to business teams. Expert in Big Data pipelines, cloud orchestration and artificial intelligence.' },
-            'hero-btn-projects':  { fr: 'Voir mes projets', en: 'See my projects' },
+            'hero-desc':          { fr: 'Architecte de solutions data performantes, fiables et alignées sur les enjeux business. Spécialiste des pipelines Big Data, de l\'orchestration cloud et de l\'intelligence artificielle.',
+                                    en: 'Architect of high-performance, reliable data solutions aligned with business challenges. Specialist in Big Data pipelines, cloud orchestration and artificial intelligence.' },
+            'hero-btn-projects':  { fr: 'Voir mes projets', en: 'View my projects' },
             'hero-btn-contact':   { fr: 'Me contacter',     en: 'Contact me' },
             'stat-exp':           { fr: "Années d'expérience",    en: 'Years of experience' },
-            'stat-projects':      { fr: 'Projets Data réalisés',  en: 'Data projects delivered' },
+            'stat-projects':      { fr: 'Projets Data livrés',    en: 'Data projects delivered' },
             'stat-tech':          { fr: 'Technologies maîtrisées',en: 'Technologies mastered' },
 
             // ABOUT
             'about-tag':      { fr: 'Qui suis-je ?',        en: 'Who am I?' },
             'about-title':    { fr: 'À Propos',             en: 'About Me' },
-            'about-desc':     { fr: 'Passionné par la donnée, je transforme la complexité en valeur.',
-                                en: 'Passionate about data, I turn complexity into value.' },
+            'about-desc':     { fr: 'Passionné par la donnée, je transforme la complexité en valeur actionnable.',
+                                en: 'Passionate about data, I transform complexity into actionable value.' },
             'about-h3':       { fr: 'Data Engineer & IA',   en: 'Data Engineer & AI' },
+            
+            // ===== NOUVEAUX PARAGRAPHES ABOUT (CORRIGÉS) =====
+            'about-p1':       { fr: 'Actuellement <strong>Data Engineer chez Generali</strong>, je conçois et industrialise des pipelines de données au sein d\'environnements Big Data à grande échelle (Hadoop, Snowflake). Mon périmètre couvre l\'intégralité de la chaîne de valeur : de l\'ingestion des données brutes jusqu\'aux reportings décisionnels.',
+                                en: 'Currently a <strong>Data Engineer at Generali</strong>, I design and industrialize data pipelines within large-scale Big Data environments (Hadoop, Snowflake). My scope covers the entire value chain: from raw data ingestion to business intelligence reporting.' },
+            'about-p2':       { fr: 'Diplômé du <strong>Programme Grande École de l\'EFREI Paris</strong> en Big Data & Machine Learning, j\'ai enrichi mon parcours par un semestre académique à <strong>Kuala Lumpur</strong>, développant ainsi une double expertise technique et business dans un contexte international.',
+                                en: 'Graduate of the <strong>EFREI Paris Grande École Program</strong> in Big Data & Machine Learning, I enriched my journey with an academic semester in <strong>Kuala Lumpur</strong>, developing dual technical and business expertise in an international context.' },
+            'about-p3':       { fr: 'Ce qui me motive : transformer des données brutes en insights stratégiques, en conjuguant excellence technique et compréhension fine des enjeux métiers.',
+                                en: 'What drives me: transforming raw data into strategic insights, combining technical excellence with a deep understanding of business challenges.' },
+            
             'chip1':          { fr: 'Big Data Expert',      en: 'Big Data Expert' },
             'chip2':          { fr: 'IA & Machine Learning',en: 'AI & Machine Learning' },
             'tag1':           { fr: 'Adaptabilité',         en: 'Adaptability' },
@@ -2310,8 +2379,8 @@
             // SKILLS
             'skills-tag':     { fr: 'Stack Technique',      en: 'Tech Stack' },
             'skills-title':   { fr: 'Compétences',          en: 'Skills' },
-            'skills-desc':    { fr: 'Un arsenal complet pour construire des solutions data robustes',
-                                en: 'A complete toolkit to build robust data solutions' },
+            'skills-desc':    { fr: 'Un arsenal complet pour construire des solutions data robustes et scalables',
+                                en: 'A complete toolkit to build robust and scalable data solutions' },
             'cat-engineering':{ fr: 'Data Engineering & Orchestration', en: 'Data Engineering & Orchestration' },
             'cat-dev':        { fr: 'Langages & Développement', en: 'Languages & Development' },
             'cat-ml':         { fr: 'Machine Learning & IA', en: 'Machine Learning & AI' },
@@ -2320,8 +2389,8 @@
             // EXPERIENCE
             'exp-tag':        { fr: 'Parcours',             en: 'Career' },
             'exp-title':      { fr: 'Expérience Professionnelle', en: 'Work Experience' },
-            'exp-desc':       { fr: 'Des missions concrètes dans des environnements exigeants',
-                                en: 'Concrete missions in demanding environments' },
+            'exp-desc':       { fr: 'Des missions à forte valeur ajoutée dans des environnements exigeants',
+                                en: 'High-impact missions in demanding environments' },
             'exp1-role':      { fr: 'Data Engineer',        en: 'Data Engineer' },
             'exp1-date':      { fr: 'Août 2023 — Sept 2025', en: 'Aug 2023 — Sept 2025' },
             'exp1-b1':        { fr: 'Big Data Production',  en: 'Big Data Production' },
@@ -2340,26 +2409,26 @@
             'exp2-date':      { fr: 'Sept 2024 — Fév 2025',         en: 'Sept 2024 — Feb 2025' },
             'exp2-b1':        { fr: 'Transition Écologique',        en: 'Ecological Transition' },
             'exp2-li1':       { fr: "Implémentation d'un chatbot IA spécialisé transition écologique avec l'approche RAG (Retrieval Augmented Generation)",
-                                en: "Implementation of an AI chatbot specialized in ecological transition using the RAG approach" },
+                                en: "Implementation of an AI chatbot specialized in ecological transition using the RAG approach (Retrieval Augmented Generation)" },
             'exp2-li2':       { fr: "Backend optimisé pour la gestion des requêtes OpenAI GPT-3.5 et pipeline de récupération documentaire",
                                 en: "Optimized backend for OpenAI GPT-3.5 request handling and document retrieval pipeline" },
             'exp2-li3':       { fr: "Conception d'un frontend interactif pour une expérience utilisateur fluide",
-                                en: "Design of an interactive frontend for a smooth user experience" },
+                                en: "Design of an interactive frontend for a seamless user experience" },
 
             'exp3-role':      { fr: 'Chef de Projet Data',          en: 'Data Project Manager' },
-            'exp3-b1':        { fr: '5 personnes managées',         en: '5 people managed' },
+            'exp3-b1':        { fr: '5 personnes managées',         en: '5 team members managed' },
             'exp3-li1':       { fr: "Conception et automatisation de pipelines ETL end-to-end : ingestion, transformation et chargement sur AWS",
                                 en: "Design and automation of end-to-end ETL pipelines: ingestion, transformation and loading on AWS" },
             'exp3-li2':       { fr: "Encadrement d'une équipe de 5 personnes avec suivi agile des livrables et revues de code",
-                                en: "Management of a 5-person team with agile tracking of deliverables and code reviews" },
+                                en: "Management of a 5-person team with agile deliverable tracking and code reviews" },
             'exp3-li3':       { fr: "Mise en place de l'infrastructure CI/CD et containerisation avec Docker",
                                 en: "Setup of CI/CD infrastructure and containerization with Docker" },
 
-            // PROJECTS (résumés)
+            // PROJECTS
             'proj-tag':   { fr: 'Réalisations', en: 'Portfolio' },
             'proj-title': { fr: 'Projets',      en: 'Projects' },
-            'proj-desc':  { fr: 'Des solutions concrètes qui démontrent mon expertise',
-                            en: 'Concrete solutions that demonstrate my expertise' },
+            'proj-desc':  { fr: 'Des solutions concrètes qui démontrent mon expertise technique',
+                            en: 'Concrete solutions that demonstrate my technical expertise' },
 
             'proj1-type': { fr: 'Data Engineering · Production', en: 'Data Engineering · Production' },
             'proj1-title':{ fr: 'Outil de Pilotage Performance Digitale', en: 'Digital Performance Monitoring Tool' },
@@ -2384,7 +2453,7 @@
             'proj3-type': { fr: 'Streaming · Temps Réel · Big Data', en: 'Streaming · Real-Time · Big Data' },
             'proj3-title':{ fr: 'Real-Time Crypto Streaming Pipeline', en: 'Real-Time Crypto Streaming Pipeline' },
             'proj3-desc': { fr: "Pipeline de données en temps réel qui ingère les prix de cryptomonnaies via l'API CoinGecko, les stream avec Kafka, les transforme avec PySpark Streaming et les stocke pour analyse.",
-                            en: "Real-time data pipeline ingesting cryptocurrency prices via the CoinGecko API, streaming with Kafka, processing with PySpark Streaming and storing for analysis." },
+                            en: "Real-time data pipeline ingesting cryptocurrency prices via CoinGecko API, streaming with Kafka, processing with PySpark Streaming and storing for analysis." },
             'proj3-li1':  { fr: 'Ingestion temps réel via API CoinGecko → Producer Kafka', en: 'Real-time ingestion via CoinGecko API → Kafka Producer' },
             'proj3-li2':  { fr: 'Traitement des flux avec PySpark Structured Streaming', en: 'Stream processing with PySpark Structured Streaming' },
             'proj3-li3':  { fr: 'Stockage dans PostgreSQL + dashboard de monitoring', en: 'Storage in PostgreSQL + monitoring dashboard' },
@@ -2411,7 +2480,7 @@
             'proj6-type': { fr: 'Cloud · ETL · Management', en: 'Cloud · ETL · Management' },
             'proj6-title':{ fr: 'Pipeline ETL Cloud-Native sur AWS', en: 'Cloud-Native ETL Pipeline on AWS' },
             'proj6-desc': { fr: "Pipeline ETL complet déployé sur AWS avec CI/CD intégré. Projet mené en tant que Chef de Projet avec encadrement d'une équipe de 5 personnes en méthode Agile/Scrum.",
-                            en: "Complete ETL pipeline deployed on AWS with integrated CI/CD. Led as Project Manager with a 5-person team using Agile/Scrum." },
+                            en: "Complete ETL pipeline deployed on AWS with integrated CI/CD. Led as Project Manager with a 5-person team using Agile/Scrum methodology." },
             'proj6-li1':  { fr: 'Ingestion multi-sources vers AWS S3 (Data Lake)', en: 'Multi-source ingestion to AWS S3 (Data Lake)' },
             'proj6-li2':  { fr: "Transformation PySpark sur EMR + Airflow pour l'orchestration", en: 'PySpark transformation on EMR + Airflow orchestration' },
             'proj6-li3':  { fr: 'CI/CD avec GitHub Actions + déploiement Docker automatisé', en: 'CI/CD with GitHub Actions + automated Docker deployment' },
@@ -2420,8 +2489,8 @@
             // CERTIF
             'certif-tag':      { fr: 'Certifications', en: 'Certifications' },
             'certif-title':    { fr: 'Certifications', en: 'Certifications' },
-            'certif-desc':     { fr: 'Des certifications reconnues qui valident mon expertise',
-                                 en: 'Recognized certifications that validate my expertise' },
+            'certif-desc':     { fr: 'Des certifications reconnues qui valident mon expertise technique',
+                                 en: 'Recognized certifications that validate my technical expertise' },
             'certif1-title':   { fr: 'Introduction to Data Engineering', en: 'Introduction to Data Engineering' },
             'certif2-title':   { fr: 'Snowflake Data Engineering',       en: 'Snowflake Data Engineering' },
             'certif-btn-cert': { fr: 'Certificat',                       en: 'Certificate' },
@@ -2430,27 +2499,27 @@
             // CONTACT
             'contact-tag':   { fr: 'Contact',               en: 'Contact' },
             'contact-title': { fr: 'Travaillons Ensemble',  en: "Let's Work Together" },
-            'contact-desc':  { fr: 'Une opportunité ? Un projet ? Je suis disponible !',
-                               en: 'An opportunity? A project? I am available!' },
+            'contact-desc':  { fr: 'Une opportunité ? Un projet data ? Je suis à votre écoute !',
+                               en: 'An opportunity? A data project? I\'m all ears!' },
             'contact-h3':    { fr: 'Discutons de votre projet data 🚀',
                                en: "Let's talk about your data project 🚀" },
-            'contact-p':     { fr: "Que vous cherchiez un Data Engineer pour construire vos pipelines, intégrer de l'IA dans vos processus ou optimiser votre architecture data — je suis là pour vous aider.",
-                               en: "Whether you need a Data Engineer to build your pipelines, integrate AI into your processes or optimize your data architecture — I am here to help." },
+            'contact-p':     { fr: "Que vous cherchiez un Data Engineer pour concevoir vos pipelines, intégrer l'IA dans vos processus métier ou optimiser votre architecture data — je suis là pour transformer vos défis en solutions.",
+                               en: "Whether you need a Data Engineer to design your pipelines, integrate AI into your business processes or optimize your data architecture — I'm here to turn your challenges into solutions." },
             'label-email':   { fr: 'Email',                en: 'Email' },
             'label-phone':   { fr: 'Téléphone',            en: 'Phone' },
             'form-title':    { fr: 'Envoyer un message',   en: 'Send a message' },
             'form-name':     { fr: 'Votre nom',            en: 'Your name' },
             'form-email':    { fr: 'Votre email',          en: 'Your email' },
             'form-message':  { fr: 'Message',              en: 'Message' },
-            'form-ph-name':  { fr: 'Nom Prénom',           en: 'First Last' },
+            'form-ph-name':  { fr: 'Nom Prénom',           en: 'First Last name' },
             'form-ph-email': { fr: 'xxx@mail.com',         en: 'xxx@mail.com' },
             'form-ph-message':{ fr: 'Bonjour Ikel...',     en: 'Hi Ikel...' },
             'form-submit':   { fr: 'Envoyer',              en: 'Send' },
 
             // FOOTER
             'footer-role':   { fr: 'Data Engineer Big Data & IA', en: 'Data Engineer Big Data & AI' },
-            'footer-sub':    { fr: 'Fait avec ❤️ et beaucoup de ☕ et de data',
-                               en: 'Made with ❤️ and lots of ☕ and data' }
+            'footer-sub':    { fr: 'Conçu avec ❤️, beaucoup de ☕ et une passion pour la data',
+                               en: 'Built with ❤️, lots of ☕ and a passion for data' }
         };
 
         function switchLang() {
@@ -2462,16 +2531,23 @@
             if (currentLang === 'en') {
                 flag.textContent  = '🇫🇷';
                 label.textContent = 'FR';
+                document.documentElement.lang = 'en';
             } else {
                 flag.textContent  = '🇬🇧';
                 label.textContent = 'EN';
+                document.documentElement.lang = 'fr';
             }
 
             // Textes simples
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[key] && translations[key][currentLang]) {
-                    el.textContent = translations[key][currentLang];
+                    // Preserve HTML for elements with strong tags
+                    if (translations[key][currentLang].includes('<strong>')) {
+                        el.innerHTML = translations[key][currentLang];
+                    } else {
+                        el.textContent = translations[key][currentLang];
+                    }
                 }
             });
 
