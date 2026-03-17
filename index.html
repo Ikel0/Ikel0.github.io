@@ -952,7 +952,18 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0,212,255,0.3);
         }
-
+        .link-detail {
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.7);
+            border: 1px solid var(--border);
+        }
+        
+        .link-detail:hover {
+            background: rgba(0,212,255,0.1);
+            border-color: var(--cyan);
+            color: var(--cyan);
+            transform: translateY(-2px);
+        }
         .project-status {
             font-size: 0.78rem;
             padding: 4px 12px;
@@ -1755,7 +1766,14 @@
                             <span>Python</span><span>FastAPI</span><span>ChromaDB</span>
                         </div>
                         <div class="project-footer">
-                            <div class="project-links"></div>
+                            <div class="project-links">
+                                <a href="https://TON_LIEN_PROJET_2.com"
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="link-detail">
+                                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                    <span data-i18n="proj-detail">En savoir plus</span>
+                                </a>
+                            </div>
                             <span class="project-status status-open">Open Source</span>
                         </div>
                     </div>
@@ -1786,7 +1804,14 @@
                             <span>Docker</span><span>Python</span><span>CoinGecko API</span>
                         </div>
                         <div class="project-footer">
-                            <div class="project-links"></div>
+                            <div class="project-links">
+                                <a href="https://TON_LIEN_PROJET_3.com"
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="link-detail">
+                                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                    <span data-i18n="proj-detail">En savoir plus</span>
+                                </a>
+                            </div>
                             <span class="project-status status-open">Open Source</span>
                         </div>
                     </div>
@@ -1817,7 +1842,14 @@
                             <span>Airflow</span><span>SQL</span><span>Python</span>
                         </div>
                         <div class="project-footer">
-                            <div class="project-links"></div>
+                            <div class="project-links">
+                                <a href="https://TON_LIEN_PROJET_4.com"
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="link-detail">
+                                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                    <span data-i18n="proj-detail">En savoir plus</span>
+                                </a>
+                            </div>
                             <span class="project-status status-open">Open Source</span>
                         </div>
                     </div>
@@ -1848,7 +1880,14 @@
                             <span>Docker</span><span>Python</span><span>FastAPI</span>
                         </div>
                         <div class="project-footer">
-                            <div class="project-links"></div>
+                            <div class="project-links">
+                                <a href="https://TON_LIEN_PROJET_5.com"
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="link-detail">
+                                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                    <span data-i18n="proj-detail">En savoir plus</span>
+                                </a>
+                            </div>
                             <span class="project-status status-open">Open Source</span>
                         </div>
                     </div>
@@ -1880,12 +1919,61 @@
                             <span>Docker</span><span>CI/CD</span><span>GitHub Actions</span>
                         </div>
                         <div class="project-footer">
-                            <div class="project-links"></div>
+                            <div class="project-links">
+                                <a href="https://TON_LIEN_PROJET_6.com"
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="link-detail">
+                                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                    <span data-i18n="proj-detail">En savoir plus</span>
+                                </a>
+                            </div>
+                            <span class="project-status status-open">Open Source</span>
+                        </div>
+
+                    </div>
+                </article>
+                <!-- PROJET 7 -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-banner">
+                        <div class="banner-bg" style="background: linear-gradient(135deg, #0a001a, #001a0a);"></div>
+                        <i class="fas fa-beer-mug-empty" style="color:#00d4ff;" aria-hidden="true"></i>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-type" data-i18n="proj7-type">IoT · Streaming · Big Data · Alerting</p>
+                        <h3 class="project-title" data-i18n="proj7-title">Système de Surveillance d'Alcoolémie en Bar</h3>
+                        <p class="project-desc" data-i18n="proj7-desc">
+                            Système IoT temps réel de surveillance d'alcoolémie dans les bars :
+                            capteurs connectés, pipeline Kafka + Spark Streaming pour les alertes
+                            immédiates, et analyse batch à long terme des tendances de consommation.
+                        </p>
+                        <ul class="project-highlights">
+                            <li data-i18n="proj7-li1">Capteurs IoT émettant horodatage, ID, coordonnées GPS et niveau d'alcoolémie</li>
+                            <li data-i18n="proj7-li2">Pipeline temps réel Kafka → Spark Streaming avec déclenchement d'alertes critiques</li>
+                            <li data-i18n="proj7-li3">Stockage distribué HDFS / Cassandra pour la scalabilité à grande échelle</li>
+                            <li data-i18n="proj7-li4">Analyse batch Spark pour identifier les tendances et patterns de consommation</li>
+                        </ul>
+                        <div class="project-stack">
+                            <span>Apache Kafka</span>
+                            <span>Spark Streaming</span>
+                            <span>Spark Batch</span>
+                            <span>HDFS</span>
+                            <span>Cassandra</span>
+                            <span>IoT</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="https://TON_LIEN_PROJET_7.com"
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="link-detail">
+                                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                    <span data-i18n="proj-detail">En savoir plus</span>
+                                </a>
+                            </div>
                             <span class="project-status status-open">Open Source</span>
                         </div>
                     </div>
                 </article>
-
             </div>
         </div>
     </section>
@@ -2391,6 +2479,7 @@
                   en: "Setup of CI/CD infrastructure and containerization with Docker" },
 
             // PROJECTS
+            'proj-detail': { fr: 'En savoir plus', en: 'Learn more' },
             'proj-tag':   { fr: 'Réalisations', en: 'Portfolio' },
             'proj-title': { fr: 'Projets',      en: 'Projects' },
             'proj-desc':
@@ -2458,7 +2547,35 @@
             'proj6-li2': { fr: "Transformation PySpark sur EMR + Airflow pour l'orchestration",       en: 'PySpark transformation on EMR + Airflow orchestration' },
             'proj6-li3': { fr: 'CI/CD avec GitHub Actions + déploiement Docker automatisé',           en: 'CI/CD with GitHub Actions + automated Docker deployment' },
             'proj6-li4': { fr: "Management agile d'une équipe de 5 ingénieurs",                       en: 'Agile management of a 5-engineer team' },
-
+            'proj7-type':  { 
+                fr: 'IoT · Streaming · Big Data · Alerting', 
+                en: 'IoT · Streaming · Big Data · Alerting' 
+            },
+            'proj7-title': { 
+                fr: "Système de Surveillance d'Alcoolémie en Bar", 
+                en: 'Bar Alcohol Level Monitoring & Alert System' 
+            },
+            'proj7-desc':  { 
+                fr: "Système IoT temps réel de surveillance d'alcoolémie dans les bars : capteurs connectés, pipeline Kafka + Spark Streaming pour les alertes immédiates, et analyse batch à long terme des tendances de consommation.",
+                en: "Real-time IoT system monitoring alcohol levels in bars: connected sensors, Kafka + Spark Streaming pipeline for immediate alerts, and long-term batch analysis of consumption trends."
+            },
+            'proj7-li1':   { 
+                fr: "Capteurs IoT émettant horodatage, ID, coordonnées GPS et niveau d'alcoolémie",
+                en: "IoT sensors emitting timestamp, device ID, GPS coordinates and alcohol level"
+            },
+            'proj7-li2':   { 
+                fr: "Pipeline temps réel Kafka → Spark Streaming avec déclenchement d'alertes critiques",
+                en: "Real-time pipeline Kafka → Spark Streaming with critical alert triggering"
+            },
+            'proj7-li3':   { 
+                fr: "Stockage distribué HDFS / Cassandra pour la scalabilité à grande échelle",
+                en: "Distributed storage HDFS / Cassandra for large-scale scalability"
+            },
+            'proj7-li4':   { 
+                fr: "Analyse batch Spark pour identifier les tendances et patterns de consommation",
+                en: "Spark batch analysis to identify consumption trends and patterns"
+            },
+            
             // CERTIF
             'certif-tag':       { fr: 'Certifications', en: 'Certifications' },
             'certif-title':     { fr: 'Certifications', en: 'Certifications' },
