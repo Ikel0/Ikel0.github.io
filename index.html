@@ -1079,11 +1079,11 @@
         }
 
         /* ===== CONTACT ===== */
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
+       .contact-wrapper {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0;
+          align-items: start;
         }
 
         .contact-left h3 {
@@ -2135,7 +2135,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="contact-right">
+                <!-- <div class="contact-right">
                     <h3 data-i18n="form-title">Envoyer un message</h3>
                     <form onsubmit="handleForm(event)">
                         <div class="form-group">
@@ -2162,7 +2162,7 @@
                             <span data-i18n="form-submit">Envoyer</span>
                         </button>
                     </form>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -2384,19 +2384,19 @@
         animate();
 
         // ===== FORM =====
-        function handleForm(e) {
-            e.preventDefault();
-            const btn        = e.target.querySelector('button');
-            const msgSent    = currentLang === 'en' ? 'Message sent!' : 'Message envoyé !';
-            const msgDefault = currentLang === 'en' ? 'Send' : 'Envoyer';
-            btn.innerHTML    = '<i class="fas fa-check"></i> ' + msgSent;
-            btn.style.background = 'linear-gradient(135deg, #00c853, #00796b)';
-            setTimeout(() => {
-                btn.innerHTML    = '<i class="fas fa-paper-plane"></i> ' + msgDefault;
-                btn.style.background = '';
-                e.target.reset();
-            }, 3000);
-        }
+        // function handleForm(e) {
+        //     e.preventDefault();
+        //     const btn        = e.target.querySelector('button');
+        //     const msgSent    = currentLang === 'en' ? 'Message sent!' : 'Message envoyé !';
+        //     const msgDefault = currentLang === 'en' ? 'Send' : 'Envoyer';
+        //     btn.innerHTML    = '<i class="fas fa-check"></i> ' + msgSent;
+        //     btn.style.background = 'linear-gradient(135deg, #00c853, #00796b)';
+        //     setTimeout(() => {
+        //         btn.innerHTML    = '<i class="fas fa-paper-plane"></i> ' + msgDefault;
+        //         btn.style.background = '';
+        //         e.target.reset();
+        //     }, 3000);
+        // }
 
         // ===== TRADUCTIONS =====
         let currentLang = 'fr';
@@ -2652,14 +2652,14 @@
                   en: "Whether you need a Data Engineer to design your pipelines, integrate AI into your business processes or optimize your data architecture, I'm here to turn your challenges into solutions." },
             'label-email':     { fr: 'Email',      en: 'Email' },
             'label-phone':     { fr: 'Téléphone',  en: 'Phone' },
-            'form-title':      { fr: 'Envoyer un message', en: 'Send a message' },
-            'form-name':       { fr: 'Votre nom',          en: 'Your name' },
-            'form-email':      { fr: 'Votre email',        en: 'Your email' },
-            'form-message':    { fr: 'Message',            en: 'Message' },
-            'form-ph-name':    { fr: 'Nom Prénom',         en: 'First Last name' },
-            'form-ph-email':   { fr: 'xxx@mail.com',       en: 'xxx@mail.com' },
-            'form-ph-message': { fr: 'Bonjour Ikel...',    en: 'Hi Ikel...' },
-            'form-submit':     { fr: 'Envoyer',            en: 'Send' },
+            // 'form-title':      { fr: 'Envoyer un message', en: 'Send a message' },
+            // 'form-name':       { fr: 'Votre nom',          en: 'Your name' },
+            // 'form-email':      { fr: 'Votre email',        en: 'Your email' },
+            // 'form-message':    { fr: 'Message',            en: 'Message' },
+            // 'form-ph-name':    { fr: 'Nom Prénom',         en: 'First Last name' },
+            // 'form-ph-email':   { fr: 'xxx@mail.com',       en: 'xxx@mail.com' },
+            // 'form-ph-message': { fr: 'Bonjour Ikel...',    en: 'Hi Ikel...' },
+            // 'form-submit':     { fr: 'Envoyer',            en: 'Send' },
 
             // FOOTER
             'footer-role': { fr: 'Data Engineer Big Data & IA', en: 'Data Engineer Big Data & AI' },
