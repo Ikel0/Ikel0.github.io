@@ -15,14 +15,18 @@ lang.addEventListener('click', () => {
 const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), {threshold:.12});
 document.querySelectorAll('.reveal, .capability, .project, .timeline article').forEach(el => { el.classList.add('will-reveal'); observer.observe(el); });
 
-const demos = ['https://github.com/Ikel0/trust-layer', 'https://github.com/Ikel0/signal', 'https://github.com/Ikel0/flow'];
+const demos = [
+  { href: 'https://github.com/Ikel0/trust-layer', label: 'VOIR LE DÉPÔT ↗' },
+  { href: 'https://signal-ikel.onrender.com', label: 'ESSAYER EN LIGNE ↗' },
+  { href: 'https://github.com/Ikel0/flow', label: 'VOIR LE DÉPÔT ↗' }
+];
 document.querySelectorAll('.case-footer span:last-child').forEach((label, index) => {
   const link = document.createElement('a');
   link.className = 'demo-link';
-  link.href = demos[index];
+  link.href = demos[index].href;
   link.target = '_blank';
   link.rel = 'noopener';
-  link.textContent = 'VOIR LE DÉPÔT ↗';
+  link.textContent = demos[index].label;
   label.replaceWith(link);
 });
 
