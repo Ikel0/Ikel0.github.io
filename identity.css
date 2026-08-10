@@ -36,3 +36,17 @@ body::before { opacity:.34; background:repeating-linear-gradient(0deg,transparen
 .capability:hover { padding-left:10px; background:rgba(16,32,30,.025); }
 .build-status,.project-stack-v2 span { background:transparent; }
 @media(max-width:800px) { .profile-notes { box-shadow:none; } }
+
+/* Typography is expressed through distinct voices, not just heavier weights. */
+.site-rail { display:none; }
+.nav-wrap, .section-shell, .contact, footer { margin-left:0; }
+h1, .intro h2, .work h2, .contact h2, .capability h3, .case-body h3 {
+  font-family:'Instrument Serif', serif;
+  font-weight:400;
+  letter-spacing:-.05em;
+}
+h1 { line-height:.9; letter-spacing:-.06em; }
+.intro h2, .work h2, .contact h2 { line-height:.98; }
+.capability h3 { letter-spacing:-.04em; }
+.case-body h3 { letter-spacing:-.045em; }
+.hero-kicker, .section-index, .project-type, .visual-label, .timeline-date, .cap-num, .arrow, .note-label, .case-topline, .build-status, .case-footer, .journal-type, .journal-no, .journal-answer span, .journal-side a { font-family:'DM Mono', monospace; }
