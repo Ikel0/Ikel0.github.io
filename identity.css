@@ -1,107 +1,23 @@
-/* Ikel / carnet de terrain — une identité éditoriale, chaude et précise. */
-:root {
-  --ink: #16241d;
-  --muted: #667068;
-  --line: rgba(22, 36, 29, .17);
-  --acid: #d64d32;
-  --bg: #f5efe5;
-  --card: #fffaf3;
-  --moss: #3d5944;
-  --sun: #e9b95a;
-}
-
-body {
-  background-color: var(--bg);
-  background-image: linear-gradient(rgba(22,36,29,.028) 1px, transparent 1px), linear-gradient(90deg, rgba(22,36,29,.022) 1px, transparent 1px);
-  background-size: 28px 28px;
-  color: var(--ink);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-.noise { opacity: .032; mix-blend-mode: multiply; }
-.orb { opacity: .11; filter: blur(105px); }
-.orb-one { background: #ec8d68; }
-.orb-two { background: #71926d; }
-
-.nav-wrap { height: 92px; background: linear-gradient(to bottom, rgba(245,239,229,.96), rgba(245,239,229,.62), transparent); }
-.nav-wrap.is-scrolled { background: rgba(245,239,229,.95); border-color: var(--line); }
-.brand { font-size: 12px; color: var(--ink); }
-.brand-mark { width: 31px; height: 31px; border-radius: 7px 15px 7px 15px; background: var(--acid); color: #fffaf3; transform: rotate(-8deg); }
-.brand-mark::first-letter { display:inline-block; transform:rotate(8deg); }
-nav a { color: #4c584f; }
-nav a:hover, footer a:hover { color: var(--acid); }
-.nav-cta { padding: 12px 20px; border-radius: 0; background: var(--ink); color: #fffaf3; box-shadow: 5px 5px 0 var(--sun); }
-.nav-cta:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--sun); }
-.nav-cta span { color: var(--sun); }
-.lang span { color: var(--acid); }
-
-.hero { position:relative; min-height:calc(100vh - 92px); }
-.hero::after { content:'IKEL / 2026'; position:absolute; right:1%; top:10%; padding:9px 12px; border:1px solid var(--ink); color:var(--ink); background:var(--sun); transform:rotate(6deg); font:10px 'DM Mono'; letter-spacing:.08em; }
-.eyebrow { color: var(--ink); }
-.pulse { background: var(--acid); box-shadow: 0 0 0 5px rgba(214,77,50,.13); }
-.hero-kicker, .section-index, .project-type, .visual-label, .timeline-date, .cap-num, .arrow { color: var(--acid); }
-h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
-h1 { max-width: 1000px; letter-spacing: -.09em; }
-em, .journal-side > span { font-family: 'Instrument Serif', serif; font-weight:400; letter-spacing:-.05em; }
-h1 em { color: var(--moss); font-size:1.14em; }
-.hero-aside { border-left:1px solid var(--line); padding-left:26px; }
-.portrait { border-color: var(--ink); background:#d8c9b2; }
-.portrait::after { background:linear-gradient(180deg,transparent 46%,rgba(22,36,29,.6)); }
-.hero-aside p, .work-top > p, .section-heading > p, .intro-copy > p, .contact-side > p { color: #566158; }
-.text-link { color:var(--ink); border-color:var(--acid); }
-.text-link span { color:var(--acid); }
-.hero-bottom { border-color:var(--ink); color:#566158; }
-
-.intro { border-color:var(--line); }
-.intro h2, .work h2, .contact h2 { max-width:980px; }
-.profile-notes { gap:0; border-color:var(--ink); background:var(--ink); box-shadow: 8px 8px 0 var(--sun); }
-.profile-notes > div { position:relative; padding:28px; background:var(--card); }
-.profile-notes > div:nth-child(2) { background:#e6efe1; }
-.profile-notes > div:nth-child(3) { background:#f5d69c; }
-.note-label, .project-intro > span, .lab-note b, .journal-no, .journal-answer span, .journal-side a { color:var(--acid); }
-.profile-notes strong { font-size:18px; letter-spacing:-.04em; }
-.profile-notes p, .toolbelt p, .journey-heading > p, .journal-main > p:not(.journal-type), .journal-answer p, .lab-heading > p { color:var(--muted); }
-.traits span, .tags span, .tool-logos span { border-color:var(--line); color:#3b4a40; background:rgba(255,250,243,.66); }
-
-.experience { background:linear-gradient(180deg, transparent, rgba(233,185,90,.15), transparent); }
-.capabilities { border-color:var(--ink); }
-.capability { border-color:var(--line); }
-.capability:hover { padding-left:20px; background:rgba(214,77,50,.055); }
-.capability > div > p { color:var(--muted); }
-.toolbelt { border-color:var(--line); }
-
-.work { position:relative; }
-.work::before { content:'PROJETS PERSONNELS'; position:absolute; left:calc(50% - 50vw); right:calc(50% - 50vw); top:0; z-index:-1; color:rgba(22,36,29,.035); font:800 clamp(5rem,14vw,15rem)/.75 'Plus Jakarta Sans'; letter-spacing:-.1em; white-space:nowrap; overflow:hidden; }
-.project-intro, .lab-note { border-color:var(--ink); color:var(--muted); }
-.case-study, .project { position:relative; background:var(--card); border:1px solid var(--ink); box-shadow:6px 6px 0 rgba(22,36,29,.16); }
-.case-study::after { content:''; position:absolute; top:-1px; right:-1px; width:35px; height:35px; background:linear-gradient(135deg,transparent 49%,var(--sun) 50%); }
-.case-study:hover, .project:hover { border-color:var(--acid); box-shadow:11px 11px 0 rgba(214,77,50,.18); transform:translate(-4px,-4px); }
-.case-topline, .case-footer span:last-child, .case-lede em, .case-footer .demo-link { color:var(--acid); }
-.build-status { color:#695f52; border-color:var(--line); background:#fff7e9; }
-.case-lede { color:#2d4034; }
-.case-details small, .case-details p, .case-footer { color:var(--muted); }
-.project-stack-v2 span { border-color:var(--line); color:#405046; }
-.journal-row { border-color:var(--ink); }
-.journal-row:hover { background:rgba(233,185,90,.13); }
-.journal-type { color:#7b796f; }
-.journal-main strong, .journal-side > span { color:var(--ink); }
-.journal-answer, .journal-side { border-color:var(--line); }
-
-.contact { position:relative; overflow:hidden; background:var(--moss); color:#fffaf3; }
-.contact::after { content:'IO'; position:absolute; right:-.06em; bottom:-.29em; color:rgba(245,239,229,.1); font:800 28vw/.8 'Plus Jakarta Sans'; letter-spacing:-.16em; }
-.contact > * { position:relative; z-index:1; }
-.contact .section-index, .contact-links a, .contact-links span { color:#e7cba7; }
-.contact-side > p { color:#d7e1d2; }
-.contact em { color:var(--sun); }
-.email { color:#fffaf3; border-color:var(--sun); }
-.contact-links a:hover { color:#fffaf3; }
-footer { border-color:var(--line); }
-
-@media (max-width:800px) {
-  .nav-wrap { height:70px; }
-  .nav-wrap.open nav { background:var(--bg); border-color:var(--line); }
-  .hero { min-height:calc(100svh - 70px); }
-  .hero::after { right:4%; top:17%; }
-  .hero-aside { border-left:0; border-top:1px solid var(--line); padding:24px 0 0; }
-  .profile-notes { box-shadow:5px 5px 0 var(--sun); }
-  .profile-notes > div { padding:22px; }
-}
+/* DATA FIELD NOTES — an original portfolio language for Ikel. */
+:root { --ink:#10201e; --paper:#ece8dc; --red:#ed5939; --blue:#2a5f75; --moss:#5d7255; --sun:#efc65a; --muted:#63706a; --line:rgba(16,32,30,.22); --acid:var(--red); --bg:var(--paper); --card:var(--paper); }
+* { cursor:default; }
+html { background:var(--paper); }
+body { background:var(--paper); color:var(--ink); font-family:'Plus Jakarta Sans',sans-serif; }
+body::before { content:''; position:fixed; inset:0; z-index:-1; opacity:.5; background:radial-gradient(circle at 78% 3%,rgba(239,198,90,.48),transparent 22%),repeating-linear-gradient(0deg,transparent 0 31px,rgba(16,32,30,.035) 32px),repeating-linear-gradient(90deg,transparent 0 31px,rgba(16,32,30,.025) 32px); }
+.noise { opacity:.025; mix-blend-mode:multiply; }
+.orb { display:none; }
+.site-rail { position:fixed; z-index:20; top:0; bottom:0; left:0; width:34px; padding:17px 0; display:flex; flex-direction:column; align-items:center; justify-content:space-between; border-right:1px solid var(--line); background:rgba(236,232,220,.88); backdrop-filter:blur(8px); color:var(--ink); font:9px 'DM Mono'; letter-spacing:.09em; }
+.site-rail span { writing-mode:vertical-rl; transform:rotate(180deg); }.site-rail b { color:var(--red); font-weight:400; }.site-rail i { width:7px; height:7px; border:1px solid var(--ink); border-radius:50%; background:var(--sun); }
+.nav-wrap { height:75px; margin-left:34px; padding:0 54px; background:linear-gradient(to bottom,rgba(236,232,220,.97),rgba(236,232,220,.65),transparent); }
+.nav-wrap.is-scrolled { background:rgba(236,232,220,.94); border-color:var(--line); }.section-shell { margin-left:34px; max-width:1440px; padding-left:7vw; padding-right:7vw; }
+.brand { font-size:11px; letter-spacing:.2em; color:var(--ink); }.brand-mark { width:29px; height:29px; color:var(--paper); border-radius:50% 50% 50% 8%; background:var(--ink); transform:rotate(-15deg); }.brand-mark::first-letter { transform:rotate(15deg); }
+nav { gap:22px; } nav a { color:#4f5a54; font-size:10px; } nav a:hover,footer a:hover { color:var(--red); }.nav-cta { padding:10px 15px; color:var(--paper); background:var(--red); border-radius:999px; }.nav-cta span { color:var(--sun); }.lang span { color:var(--red); }
+.hero { position:relative; min-height:calc(100vh - 75px); padding-top:5vh; overflow:visible; }.hero::before { content:'IO'; position:absolute; top:4vh; left:5vw; z-index:-1; color:rgba(16,32,30,.055); font:800 min(47vw,640px)/.75 'Plus Jakarta Sans'; letter-spacing:-.22em; }.hero::after { content:'un portfolio en cours de construction'; position:absolute; right:7vw; top:17%; color:var(--red); font:10px 'DM Mono'; letter-spacing:.06em; transform:rotate(90deg); transform-origin:right; }
+.eyebrow { color:var(--ink); }.pulse { background:var(--red); box-shadow:0 0 0 5px rgba(237,89,57,.13); }.hero-grid { grid-template-columns:1.55fr .45fr; gap:4vw; padding:7vh 0 5vh; }.hero-kicker,.section-index,.project-type,.visual-label,.timeline-date,.cap-num,.arrow { color:var(--red); }
+h1,h2,h3 { font-family:'Plus Jakarta Sans',sans-serif; } h1 { max-width:900px; font-size:clamp(3.7rem,7.6vw,8.4rem); line-height:.84; letter-spacing:-.105em; } em,.journal-side>span { font-family:'Instrument Serif',serif; font-weight:400; letter-spacing:-.055em; } h1 em { color:var(--blue); font-size:1.19em; }.hero-aside { position:relative; padding:0 0 0 19px; border-left:1px solid var(--ink); }.portrait { width:100%; border:1px solid var(--ink); border-radius:0; background:var(--sun); transform:rotate(2deg); box-shadow:9px 9px 0 var(--red); }.portrait img { filter:contrast(1.06) saturate(.8) sepia(.07); }.portrait figcaption { color:var(--paper); }.hero-aside p,.work-top>p,.section-heading>p,.intro-copy>p,.contact-side>p { color:#526058; }.text-link { color:var(--ink); border-color:var(--red); }.text-link span { color:var(--red); }.hero-bottom { border-color:var(--ink); color:#566159; }
+.intro { padding-top:16vh; padding-bottom:16vh; border-color:var(--ink); }.intro-layout { grid-template-columns:1.23fr .55fr; }.intro h2,.work h2,.contact h2 { font-size:clamp(3rem,5.2vw,6.2rem); line-height:.91; }.intro h2 em { color:var(--moss); }.profile-notes { margin-top:80px; gap:0; background:var(--ink); border-color:var(--ink); box-shadow:11px 11px 0 var(--sun); }.profile-notes>div { position:relative; min-height:185px; padding:27px; background:#f7f3e9; }.profile-notes>div:nth-child(2) { background:#d8e4d0; }.profile-notes>div:nth-child(3) { background:#edc8a4; }.profile-notes>div::after { content:'↳'; position:absolute; right:19px; bottom:15px; color:var(--red); font:21px 'DM Mono'; }.note-label { color:var(--red); }.profile-notes p,.toolbelt p,.journey-heading>p { color:var(--muted); }.traits span,.tags span,.tool-logos span { border-color:var(--line); color:#405047; background:rgba(255,255,255,.36); }
+.experience { padding-top:14vh; padding-bottom:14vh; background:transparent; }.section-heading { border-bottom:1px solid var(--ink); padding-bottom:38px; }.capabilities { border-color:var(--ink); }.capability { grid-template-columns:7% 1fr 30px 28%; padding:42px 0; border-color:var(--line); }.capability:hover { padding-left:18px; background:rgba(237,89,57,.06); }.capability h3 { font-size:clamp(2rem,3.45vw,4.05rem); }.capability>div>p { color:var(--muted); }.toolbelt { border-color:var(--ink); }
+.work { padding-top:15vh; padding-bottom:15vh; }.work-top { grid-template-columns:1fr .45fr; }.work h2 em { color:var(--blue); }.project-intro { padding:18px 0; border-color:var(--ink); color:var(--muted); }.dossier-list { display:block; margin-top:1px; }.case-study,.project { display:grid; grid-template-columns:41% 59%; margin:0; border:0; border-bottom:1px solid var(--ink); background:transparent; box-shadow:none; overflow:visible; }.featured-case { grid-column:auto; }.case-study:hover,.project:hover { transform:none; border-color:var(--ink); box-shadow:none; }.case-study::after { content:none; }.case-visual,.featured-case .case-visual { min-height:330px; height:auto; margin:24px 0; border:1px solid var(--ink); }.case-body { position:relative; padding:48px 0 38px 44px; }.case-body::before { content:''; position:absolute; top:0; left:0; width:1px; height:100%; background:var(--ink); }.case-topline { color:var(--red); }.build-status { color:#685f52; border-color:var(--line); background:#f6efdf; }.case-body h3 { font-size:clamp(2.8rem,4.7vw,5.4rem); line-height:.86; margin:33px 0 17px; }.case-lede { max-width:570px; color:#304137; font-size:18px; }.case-lede em,.case-footer span:last-child,.case-footer .demo-link { color:var(--red); }.case-details { max-width:600px; }.case-details p,.case-details small,.case-footer { color:var(--muted); }.project-stack-v2 span { border-color:var(--line); color:#405047; background:rgba(255,255,255,.32); }.case-footer { max-width:600px; border-color:var(--ink); }
+.journey { padding-bottom:15vh; }.journey-heading { display:grid; grid-template-columns:1.2fr .8fr; padding-bottom:35px; border-bottom:1px solid var(--ink); }.timeline { margin-top:0; border:0; }.timeline article { grid-template-columns:17% 18% 1.12fr .85fr; padding:36px 0; border-color:var(--line); }.company-mark { color:var(--ink); }.company-mark.generali { color:#9a743a; }.company-mark.mush { color:#438058; }.company-mark.efrei { color:#b14358; }
+.contact { margin-left:34px; max-width:none; padding:110px max(7vw,54px); position:relative; overflow:hidden; background:var(--ink); color:var(--paper); }.contact::before { content:'PARLONS'; position:absolute; left:-.04em; bottom:-.22em; color:rgba(239,198,90,.14); font:800 20vw/.7 'Plus Jakarta Sans'; letter-spacing:-.12em; }.contact>* { position:relative; z-index:1; }.contact .section-index,.contact-links a,.contact-links span { color:#d9bf91; }.contact-side>p { color:#d4ddd1; }.contact em { color:var(--sun); }.email { color:var(--paper); border-color:var(--red); }.contact-links a:hover { color:var(--red); } footer { margin-left:34px; max-width:none; padding:0 7vw; border-color:var(--line); }
+@media(max-width:800px) { .site-rail{display:none}.nav-wrap,.section-shell,.contact,footer{margin-left:0}.nav-wrap{height:68px;padding:0 22px}.nav-wrap.open nav{background:var(--paper);border-color:var(--line)}.hero{min-height:calc(100svh - 68px)}.hero::after{display:none}.hero-grid,.intro-layout,.section-heading,.work-top,.contact{grid-template-columns:1fr;gap:29px}.hero-aside{padding:24px 0 0;border-left:0;border-top:1px solid var(--ink)}.portrait{max-width:330px}.intro,.experience,.work,.journey{padding-top:100px;padding-bottom:100px}.profile-notes{box-shadow:6px 6px 0 var(--sun)}.capability{grid-template-columns:35px 1fr 20px;gap:13px}.dossier-list{margin-top:0}.case-study,.project{display:block}.case-visual,.featured-case .case-visual{height:280px;min-height:0;margin:27px 0 0}.case-body{padding:28px 0 33px}.case-body::before{display:none}.case-body h3{font-size:3.5rem}.journey-heading{grid-template-columns:1fr;gap:12px}.timeline article{grid-template-columns:1fr;gap:13px}.contact{padding:80px 22px}footer{padding:0 22px}.work::before{display:none} }
