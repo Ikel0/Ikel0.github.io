@@ -25,3 +25,7 @@ document.querySelectorAll('.case-footer span:last-child').forEach((label, index)
   link.textContent = 'VOIR LE DÉPÔT ↗';
   label.replaceWith(link);
 });
+
+document.querySelectorAll('.build-status').forEach(status => { status.textContent = 'V1 DISPONIBLE'; });
+const projectDescription = document.querySelector('.project-intro > p');
+if (projectDescription) projectDescription.textContent = 'Trois prototypes publiés pour montrer un travail concret : code lisible, données de démonstration, tests et une base prête à évoluer. Chaque dépôt détaille le périmètre actuel et les prochaines itérations.';
