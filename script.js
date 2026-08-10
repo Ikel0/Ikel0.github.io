@@ -16,9 +16,9 @@ const observer = new IntersectionObserver(entries => entries.forEach(entry => { 
 document.querySelectorAll('.reveal, .capability, .project, .timeline article').forEach(el => { el.classList.add('will-reveal'); observer.observe(el); });
 
 const demos = [
-  { href: 'https://github.com/Ikel0/trust-layer', label: 'VOIR LE DÉPÔT ↗' },
+  { href: 'https://trust-layer-ikel-vt39.onrender.com', label: 'ESSAYER EN LIGNE ↗' },
   { href: 'https://signal-ikel.onrender.com', label: 'ESSAYER EN LIGNE ↗' },
-  { href: 'https://github.com/Ikel0/flow', label: 'VOIR LE DÉPÔT ↗' }
+  { href: 'https://flow-ikel-cgdd.onrender.com', label: 'ESSAYER EN LIGNE ↗' }
 ];
 document.querySelectorAll('.case-footer span:last-child').forEach((label, index) => {
   const link = document.createElement('a');
