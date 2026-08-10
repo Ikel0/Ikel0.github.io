@@ -15,11 +15,13 @@ lang.addEventListener('click', () => {
 const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), {threshold:.12});
 document.querySelectorAll('.reveal, .capability, .project, .timeline article').forEach(el => { el.classList.add('will-reveal'); observer.observe(el); });
 
-const demos = ['projects/trust-layer/', 'projects/signal/', 'projects/flow/'];
+const demos = ['https://github.com/Ikel0/trust-layer', 'https://github.com/Ikel0/signal', 'https://github.com/Ikel0/flow'];
 document.querySelectorAll('.case-footer span:last-child').forEach((label, index) => {
   const link = document.createElement('a');
   link.className = 'demo-link';
   link.href = demos[index];
-  link.textContent = 'VOIR LA DÉMO ↗';
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.textContent = 'VOIR LE DÉPÔT ↗';
   label.replaceWith(link);
 });
