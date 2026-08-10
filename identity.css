@@ -1,0 +1,67 @@
+/* Ikel's field notebook — a warmer, editorial visual identity. */
+:root {
+  --ink: #202821;
+  --muted: #6e7168;
+  --line: rgba(32, 40, 33, .18);
+  --acid: #c84a2f;
+  --bg: #f3ecdf;
+  --card: #fbf7ef;
+}
+
+body { background: var(--bg); color: var(--ink); font-family: 'Plus Jakarta Sans', sans-serif; }
+.noise { opacity: .035; mix-blend-mode: multiply; }
+.orb { opacity: .15; filter: blur(110px); }
+.orb-one { background: #d67455; }
+.orb-two { background: #78906a; }
+
+.nav-wrap { background: linear-gradient(to bottom, rgba(243,236,223,.94), rgba(243,236,223,.62), transparent); }
+.nav-wrap.is-scrolled { background: rgba(243,236,223,.94); }
+.brand-mark { background: var(--acid); color: #fffaf1; border-radius: 48% 52% 44% 56%; }
+.nav-cta { background: var(--ink); color: #fffaf1; border-radius: 999px; }
+.nav-cta span, .lang span, nav a:hover, footer a:hover, .contact-links a:hover { color: var(--acid); }
+.nav-cta span { color: #e8a28c; }
+
+.pulse { background: var(--acid); box-shadow: 0 0 0 5px rgba(200,74,47,.13); }
+.hero-kicker, .section-index, .project-type, .visual-label, .timeline-date, .cap-num, .arrow { color: var(--acid); }
+h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+em, .journal-side > span { font-family: 'Instrument Serif', serif; font-weight: 400; letter-spacing: -.045em; }
+.hero-aside p, .work-top > p, .section-heading > p, .intro-copy > p, .contact-side > p { color: #596056; }
+.text-link { color: var(--ink); border-color: var(--acid); }
+.text-link span { color: var(--acid); }
+
+.intro, .hero-bottom, .capabilities, .timeline, .timeline article, .project-intro, .lab-note { border-color: var(--line); }
+.profile-notes { background: var(--line); border-color: var(--line); }
+.profile-notes > div { background: rgba(251,247,239,.74); }
+.note-label, .project-intro > span, .lab-note b, .journal-no, .journal-answer span, .journal-side a { color: var(--acid); }
+.profile-notes p, .toolbelt p, .journey-heading > p, .journal-main > p:not(.journal-type), .journal-answer p, .lab-heading > p { color: var(--muted); }
+.traits span, .tags span, .tool-logos span { color: #4f574d; border-color: var(--line); background: rgba(255,255,255,.38); }
+.experience { background: linear-gradient(180deg, transparent, rgba(89,113,84,.07), transparent); }
+.capability { border-color: var(--line); }
+.capability:hover { background: rgba(200,74,47,.055); }
+.capability > div > p { color: var(--muted); }
+
+.project-intro { color: var(--muted); }
+.case-study, .project { background: #fffaf2; border-color: rgba(32,40,33,.22); box-shadow: 0 12px 35px rgba(50,42,29,.06); }
+.case-study:hover, .project:hover { border-color: var(--acid); box-shadow: 0 19px 44px rgba(50,42,29,.13); }
+.case-topline, .case-footer span:last-child, .case-lede em, .case-footer .demo-link { color: var(--acid); }
+.build-status { color: #766e62; border-color: var(--line); }
+.case-lede { color: #344035; }
+.case-details small, .case-details p, .case-footer { color: var(--muted); }
+.project-stack-v2 span { color: #4d554c; border-color: var(--line); }
+.journal-row { border-color: var(--line); }
+.journal-row:hover { background: rgba(200,74,47,.04); }
+.journal-type { color: #8c887e; }
+.journal-main strong, .journal-side > span { color: var(--ink); }
+.journal-answer, .journal-side { border-color: var(--line); }
+
+.contact { background: #31483b; color: #f7f0e5; }
+.contact .section-index, .contact-links a, .contact-links span { color: #d8b9a3; }
+.contact-side > p { color: #d9e1d4; }
+.contact em { color: #e9a58d; }
+.email { color: #fffaf2; border-color: #e9a58d; }
+.contact-links a:hover { color: #fffaf2; }
+footer { border-color: var(--line); }
+
+@media (max-width: 800px) {
+  .nav-wrap.open nav { background: #f3ecdf; border-color: var(--line); }
+}
