@@ -1,0 +1,18 @@
+.profile-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 70px; background: var(--line); border: 1px solid var(--line); }
+.profile-notes > div { min-height: 160px; padding: 25px; background: var(--bg); }
+.note-label { display: block; margin-bottom: 30px; color: var(--acid); font: 10px 'DM Mono'; letter-spacing: .1em; }
+.profile-notes strong { display: block; font-size: 18px; letter-spacing: -.045em; }
+.profile-notes p { margin: 9px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.toolbelt { display: grid; grid-template-columns: .75fr 1.25fr; align-items: center; gap: 30px; margin-top: 43px; padding: 26px 0 0; border-top: 1px solid var(--line); }
+.toolbelt p { color: var(--muted); font-size: 13px; margin: 10px 0 0; }
+.tool-logos { display: flex; justify-content: flex-end; gap: 9px; flex-wrap: wrap; }
+.tool-logos span { min-width: 82px; display: flex; flex-direction: column; align-items: center; gap: 9px; padding: 12px 8px; border: 1px solid var(--line); color: #d2d1ca; font: 10px 'DM Mono'; }
+.tool-logos img { width: 22px; height: 22px; }
+.journey-heading { display: flex; justify-content: space-between; align-items: baseline; }
+.journey-heading > p { margin: 0; color: var(--muted); font-size: 13px; }
+.company-mark { grid-row: span 2; display: flex; align-items: center; gap: 8px; color: var(--ink); font: 10px 'DM Mono'; letter-spacing: .08em; }
+.company-mark::first-letter { font: 700 22px 'Playfair Display'; }
+.company-mark span { color: var(--muted); }
+.company-mark.generali { color: #cfa66b; }.company-mark.mush { color: #97d892; }.company-mark.efrei { color: #d65070; }
+.timeline article { grid-template-columns: 15% 17% 1fr 1.2fr 1fr; }
+@media (max-width: 800px) { .profile-notes { grid-template-columns: 1fr; margin-top: 50px; }.profile-notes > div { min-height: auto; }.note-label { margin-bottom: 15px; }.toolbelt { grid-template-columns: 1fr; }.tool-logos { justify-content: flex-start; }.tool-logos span { min-width: 74px; }.journey-heading { display: block; }.journey-heading > p { margin-top: 13px; }.timeline article { grid-template-columns: 1fr; }.company-mark { grid-row: auto; } }
