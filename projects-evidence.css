@@ -1,0 +1,26 @@
+/* The lead project is a dossier, not another portfolio card. */
+.journal-featured {
+  position: relative;
+  margin-top: 30px;
+  padding: 42px 28px;
+  border-top: 2px solid var(--ink);
+  background: linear-gradient(118deg, rgba(42,95,117,.10), rgba(239,198,90,.13));
+}
+.journal-featured::before {
+  content: 'LEAD BUILD';
+  position: absolute;
+  top: -11px;
+  right: 20px;
+  padding: 5px 8px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 9px 'DM Mono', monospace;
+  letter-spacing: .08em;
+}
+.journal-featured .journal-main h3 { max-width: 750px; font-size: clamp(2.25rem, 4.1vw, 4.35rem); }
+.journal-featured .journal-side { border-color: rgba(16,32,30,.3); }
+.journal-side small { color: var(--muted); font: 9px 'DM Mono', monospace; line-height: 1.5; letter-spacing: .04em; }
+@media (max-width: 800px) {
+  .journal-featured { margin: 24px -8px 0; padding: 34px 18px; }
+  .journal-featured::before { right: 12px; }
+}
