@@ -60,6 +60,21 @@ if (lab) {
         </div>
         <aside class="dossier-aside"><span>État du projet</span><strong>Prototype<br>fonctionnel</strong><p>Trois lots de démonstration permettent de tester un cas sain, une dérive qualité et une dérive de schéma.</p><small>Python · contracts JSON · SQLite · HTTP API</small></aside>
       </article>
+      <article class="research-dossier research-dossier-routier">
+        <div class="dossier-number">03<br><span>2026</span></div>
+        <div class="dossier-main">
+          <p class="journal-type">STREAMING · DATA CONTRACTS · OPERATIONS</p>
+          <h3>Routier</h3>
+          <p class="dossier-lede">Je voulais construire un flux pour une équipe qui ne peut pas attendre le prochain dashboard : il faut savoir quel signal mérite une action, et pouvoir dire pourquoi.</p>
+          <div class="dossier-grid">
+            <div><small>POINT DE DÉPART</small><p>Des positions et états véhicule arrivent en continu. Sans contrat ni règle de priorité, les incidents importants se perdent dans le bruit.</p></div>
+            <div><small>CE QUI EST CONSTRUIT</small><p>Topic Kafka-compatible, contrôle de contrat, worker idempotent, topic de rejet, règles d’alerte explicables et tableau d’exploitation.</p></div>
+            <div><small>CE QUE JE VEUX MESURER</small><p>Le délai événement-vers-tableau, le taux de rejet par source et la pertinence des seuils pour une personne en charge du service.</p></div>
+          </div>
+          <div class="dossier-actions"><a href="https://routier-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo <span>↗</span></a><a href="https://github.com/Ikel0/routier" target="_blank" rel="noopener">Voir le code <span>↗</span></a><a href="https://github.com/Ikel0/routier/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Lire la fiche de travail <span>↗</span></a></div>
+        </div>
+        <aside class="dossier-aside"><span>État du projet</span><strong>Pile locale<br>fonctionnelle</strong><p>Les données de démonstration sont synthétiques. Le parcours complet Kafka/Redpanda est lançable avec Docker.</p><small>Python · Kafka / Redpanda · Docker · SQLite</small></aside>
+      </article>
     </section>
 
     <section class="playground" aria-labelledby="playground-title">
@@ -72,6 +87,7 @@ if (lab) {
         <li class="journal-row"><div class="journal-no">02</div><div class="journal-main"><p class="journal-type">KNOWLEDGE SEARCH</p><h3>Retrouver une règle dans une pile de documents</h3><p>Quand la réponse existe déjà quelque part, il faut surtout retrouver le bon passage. <strong>Signal</strong> aide à chercher et garde la source visible.</p><div class="journal-answer"><span>À tester</span><p>Une question, les extraits les plus proches, puis les documents d’où ils viennent.</p></div></div><div class="journal-side"><span>Signal</span><a href="https://signal-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a><a href="https://github.com/Ikel0/signal" target="_blank" rel="noopener">Voir le code</a></div></li>
         <li class="journal-row"><div class="journal-no">03</div><div class="journal-main"><p class="journal-type">EVENT MONITORING</p><h3>Un événement banal, ou un signal à regarder ?</h3><p><strong>Flow</strong> est un petit terrain de jeu pour poser des règles de surveillance explicables sur des événements JSON.</p><div class="journal-answer"><span>À tester</span><p>Une latence, un montant ou un champ dépasse le seuil prévu, et le système explique pourquoi il alerte.</p></div></div><div class="journal-side"><span>Flow</span><a href="https://flow-ikel-cgdd.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a><a href="https://github.com/Ikel0/flow" target="_blank" rel="noopener">Voir le code</a></div></li>
         <li class="journal-row"><div class="journal-no">04</div><div class="journal-main"><p class="journal-type">ANALYTICS ENGINEERING</p><h3>Passer de fichiers bruts aux bons indicateurs</h3><p><strong>Metric Lab</strong> est une mini data platform e-commerce : elle ingère plusieurs sources, construit un modèle de données et affiche les métriques utiles pour suivre une activité.</p><div class="journal-answer"><span>À tester</span><p>Les commandes, produits et clients deviennent des tables reliées ; le dashboard affiche chiffre d’affaires, panier moyen et évolution quotidienne.</p></div></div><div class="journal-side"><span>Metric Lab</span><a href="https://metric-lab-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a><a href="https://github.com/Ikel0/metric-lab" target="_blank" rel="noopener">Voir le code</a></div></li>
+        <li class="journal-row"><div class="journal-no">05</div><div class="journal-main"><p class="journal-type">KAFKA · STREAMING</p><h3>Une lecture de température, puis une décision</h3><p><strong>Glacis</strong> est un exercice court de chaîne du froid : un relevé passe par un topic Kafka, le contrat le vérifie et le tableau montre immédiatement s’il faut le regarder.</p><div class="journal-answer"><span>À tester</span><p>Chargez les cinq relevés synthétiques, puis repérez les deux écarts de consigne et la lecture critique.</p></div></div><div class="journal-side"><span>Glacis</span><a href="https://glacis-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a><a href="https://github.com/Ikel0/glacis" target="_blank" rel="noopener">Voir le code</a></div></li>
       </ol>
     </section>`;
   lab.querySelectorAll('.research-dossier, .journal-row').forEach(element => {
