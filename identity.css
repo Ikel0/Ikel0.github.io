@@ -1,4 +1,4 @@
-/* DATA FIELD NOTES — an original portfolio language for Ikel. */
+/* DATA FIELD NOTES: an original portfolio language for Ikel. */
 :root { --ink:#10201e; --paper:#ece8dc; --red:#ed5939; --blue:#2a5f75; --moss:#5d7255; --sun:#efc65a; --muted:#63706a; --line:rgba(16,32,30,.22); --acid:var(--red); --bg:var(--paper); --card:var(--paper); }
 * { cursor:default; }
 html { background:var(--paper); }

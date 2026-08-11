@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Signal — local lexical search with transparent citations."""
+"""Signal: local lexical search with transparent citations."""
 import argparse
 import re
 from collections import Counter
