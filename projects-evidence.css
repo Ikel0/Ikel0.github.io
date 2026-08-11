@@ -3,6 +3,8 @@
 .research-lab { padding-bottom: 140px; }
 .research-heading { margin-bottom: 44px; }
 .research-dossier { display:grid; grid-template-columns:9% 1fr 23%; gap:30px; border-top:2px solid var(--ink); border-bottom:1px solid var(--ink); background:rgba(255,255,255,.22); }
+.research-dossier + .research-dossier { border-top:0; background:rgba(255,255,255,.12); }
+.research-dossier-pacte .dossier-aside { background:rgba(70,112,93,.07); }
 .dossier-number { padding:29px 0 0 18px; color:var(--acid); font:12px 'DM Mono',monospace; line-height:1.2; }
 .dossier-number span { color:var(--muted); font-size:10px; }
 .dossier-main { padding:46px 0 42px; }
