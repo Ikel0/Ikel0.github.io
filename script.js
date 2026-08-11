@@ -45,6 +45,21 @@ if (lab) {
         </div>
         <aside class="dossier-aside"><span>État du projet</span><strong>Prototype<br>fonctionnel</strong><p>Local-first, sans clé requise. Le mode LLM est volontairement optionnel.</p><small>Python · SQLite FTS5 · HTTP API · tests</small></aside>
       </article>
+      <article class="research-dossier research-dossier-pacte">
+        <div class="dossier-number">02<br><span>2026</span></div>
+        <div class="dossier-main">
+          <p class="journal-type">DATA CONTRACTS · QUALITY · LINEAGE</p>
+          <h3>Pacte</h3>
+          <p class="dossier-lede">Je voulais sortir de l’idée qu’un pipeline est fiable parce qu’il a tourné. Pour moi, la vraie question est : est-ce que la donnée reçue respecte encore ce que les équipes ont décidé ensemble ?</p>
+          <div class="dossier-grid">
+            <div><small>POINT DE DÉPART</small><p>Une colonne change, un identifiant n’est plus unique ou un statut métier dérive. Le problème se voit souvent trop tard, une fois les tables aval déjà touchées.</p></div>
+            <div><small>CE QUI EST CONSTRUIT</small><p>Contrat versionné, contrôles de schéma et de qualité, décision d’ingestion, visualisation de l’impact et journal d’audit SQLite.</p></div>
+            <div><small>CE QUE JE VEUX MESURER</small><p>Le temps nécessaire pour comprendre une anomalie, justifier une mise en quarantaine et prévenir les bonnes personnes.</p></div>
+          </div>
+          <div class="dossier-actions"><a href="https://pacte-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo <span>↗</span></a><a href="https://github.com/Ikel0/pacte" target="_blank" rel="noopener">Voir le code <span>↗</span></a><a href="https://github.com/Ikel0/pacte/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Lire la fiche de travail <span>↗</span></a></div>
+        </div>
+        <aside class="dossier-aside"><span>État du projet</span><strong>Prototype<br>fonctionnel</strong><p>Trois lots de démonstration permettent de tester un cas sain, une dérive qualité et une dérive de schéma.</p><small>Python · contracts JSON · SQLite · HTTP API</small></aside>
+      </article>
     </section>
 
     <section class="playground" aria-labelledby="playground-title">
