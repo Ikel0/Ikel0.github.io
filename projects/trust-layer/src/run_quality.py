@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Trust Layer — dependency-free CSV quality checks."""
+"""Trust Layer: dependency-free CSV quality checks."""
 import argparse
 import csv
 import json
