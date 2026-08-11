@@ -1,9 +1,9 @@
 /* DATA FIELD NOTES: an original portfolio language for Ikel. */
-:root { --ink:#10201e; --paper:#ece8dc; --red:#ed5939; --blue:#2a5f75; --moss:#5d7255; --sun:#efc65a; --muted:#63706a; --line:rgba(16,32,30,.22); --acid:var(--red); --bg:var(--paper); --card:var(--paper); }
+:root { --ink:#0b1518; --paper:#eaf1ed; --red:#197887; --blue:#1d5975; --moss:#3f705b; --sun:#b9db8e; --muted:#58706d; --line:rgba(11,21,24,.22); --acid:var(--red); --bg:var(--paper); --card:var(--paper); }
 * { cursor:default; }
 html { background:var(--paper); }
 body { background:var(--paper); color:var(--ink); font-family:'Plus Jakarta Sans',sans-serif; }
-body::before { content:''; position:fixed; inset:0; z-index:-1; opacity:.5; background:radial-gradient(circle at 78% 3%,rgba(239,198,90,.48),transparent 22%),repeating-linear-gradient(0deg,transparent 0 31px,rgba(16,32,30,.035) 32px),repeating-linear-gradient(90deg,transparent 0 31px,rgba(16,32,30,.025) 32px); }
+body::before { content:''; position:fixed; inset:0; z-index:-1; opacity:.55; background:radial-gradient(circle at 78% 3%,rgba(29,89,117,.2),transparent 25%),radial-gradient(circle at 12% 72%,rgba(63,112,91,.15),transparent 24%),repeating-linear-gradient(0deg,transparent 0 31px,rgba(11,21,24,.035) 32px),repeating-linear-gradient(90deg,transparent 0 31px,rgba(11,21,24,.025) 32px); }
 .noise { opacity:.025; mix-blend-mode:multiply; }
 .orb { display:none; }
 .site-rail { position:fixed; z-index:20; top:0; bottom:0; left:0; width:34px; padding:17px 0; display:flex; flex-direction:column; align-items:center; justify-content:space-between; border-right:1px solid var(--line); background:rgba(236,232,220,.88); backdrop-filter:blur(8px); color:var(--ink); font:9px 'DM Mono'; letter-spacing:.09em; }
