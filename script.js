@@ -16,3 +16,29 @@ document.addEventListener('keydown', event => {
     menu.focus();
   }
 });
+
+// Change this value when your availability changes: available | limited | unavailable.
+const availabilityMode = 'available';
+const availability = {
+  available: {
+    label: 'Libre',
+    note: 'Ouvert aux opportunités et aux échanges.'
+  },
+  limited: {
+    label: 'Un peu occupé',
+    note: 'Quelques créneaux restent possibles selon le sujet.'
+  },
+  unavailable: {
+    label: 'Indisponible',
+    note: 'Je ne prends pas de nouveau sujet pour le moment.'
+  }
+};
+
+const availabilityElement = document.querySelector('#availability');
+const currentAvailability = availability[availabilityMode] ?? availability.available;
+
+if (availabilityElement) {
+  availabilityElement.dataset.mode = availabilityMode;
+  availabilityElement.querySelector('strong').textContent = currentAvailability.label;
+  availabilityElement.querySelector('.availability-note').textContent = currentAvailability.note;
+}
