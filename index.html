@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="finish.css?v=editorial-20260820" />
+    <link rel="stylesheet" href="finish.css?v=extended-20260822" />
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -22,6 +22,7 @@
       <nav id="main-navigation" aria-label="Navigation principale">
         <a href="#expertise">Expertise</a>
         <a href="#projets">Projets</a>
+        <a href="#livrer">Méthode</a>
         <a href="#parcours">Parcours</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -83,18 +84,28 @@
         <div class="workshop">
           <div class="workshop-heading"><span class="section-index">ATELIER</span><p>Des formats courts, déployés et testables pour travailler des situations concrètes d’équipe data : une contrainte précise, une solution utilisable, puis des pistes d’amélioration visibles.</p></div>
           <div class="workshop-grid">
-            <article><p>DATA QUALITY</p><h3>Trust Layer</h3><span>Contrôler un export CSV avant analyse.</span><a href="https://trust-layer-ikel-vt39.onrender.com" target="_blank" rel="noopener">Démo ↗</a></article>
-            <article><p>KNOWLEDGE SEARCH</p><h3>Signal</h3><span>Retrouver une règle et sa source.</span><a href="https://signal-ikel.onrender.com" target="_blank" rel="noopener">Démo ↗</a></article>
-            <article><p>EVENT MONITORING</p><h3>Flow</h3><span>Rendre une alerte JSON explicable.</span><a href="https://flow-ikel-cgdd.onrender.com" target="_blank" rel="noopener">Démo ↗</a></article>
-            <article><p>ANALYTICS ENGINEERING</p><h3>Metric Lab</h3><span>Transformer des fichiers en indicateurs.</span><a href="https://metric-lab-ikel.onrender.com" target="_blank" rel="noopener">Démo ↗</a></article>
-            <article><p>KAFKA · STREAMING</p><h3>Glacis</h3><span>Suivre des relevés de chaîne du froid.</span><a href="https://glacis-ikel.onrender.com" target="_blank" rel="noopener">Démo ↗</a></article>
-            <article><p>API DESIGN</p><h3>Courier API</h3><span>Tester une API, ses webhooks et son contrat.</span><a href="https://courier-api-ikel.onrender.com" target="_blank" rel="noopener">Démo ↗</a><a href="https://courier-api-ikel.onrender.com/docs" target="_blank" rel="noopener">OpenAPI ↗</a></article>
+            <article><p>DATA QUALITY</p><h3>Trust Layer</h3><span>Contrôler un export CSV avant analyse, puis rendre les erreurs compréhensibles.</span><a href="https://trust-layer-ikel-vt39.onrender.com" target="_blank" rel="noopener">Voir la démo ↗</a></article>
+            <article><p>KNOWLEDGE SEARCH</p><h3>Signal</h3><span>Retrouver une règle, son contexte et sa source en gardant une réponse vérifiable.</span><a href="https://signal-ikel.onrender.com" target="_blank" rel="noopener">Voir la démo ↗</a></article>
+            <article><p>EVENT MONITORING</p><h3>Flow</h3><span>Transformer une alerte JSON en signal lisible pour une personne qui doit agir vite.</span><a href="https://flow-ikel-cgdd.onrender.com" target="_blank" rel="noopener">Voir la démo ↗</a></article>
+            <article><p>ANALYTICS ENGINEERING</p><h3>Metric Lab</h3><span>Passer d’un fichier brut à des indicateurs cohérents, documentés et réutilisables.</span><a href="https://metric-lab-ikel.onrender.com" target="_blank" rel="noopener">Voir la démo ↗</a></article>
+            <article><p>KAFKA · STREAMING</p><h3>Glacis</h3><span>Suivre des relevés de chaîne du froid et remonter les écarts sans perdre le contexte.</span><a href="https://glacis-ikel.onrender.com" target="_blank" rel="noopener">Voir la démo ↗</a></article>
+            <article><p>API DESIGN</p><h3>Courier API</h3><span>Tester une API, ses webhooks et son contrat pour mettre les intégrations à l’épreuve.</span><a href="https://courier-api-ikel.onrender.com" target="_blank" rel="noopener">Voir la démo ↗</a><a href="https://courier-api-ikel.onrender.com/docs" target="_blank" rel="noopener">Lire OpenAPI ↗</a></article>
           </div>
         </div>
       </section>
 
+      <section class="delivery section-shell" id="livrer">
+        <div class="section-heading"><div><span class="section-index">03 / PRÊT À LIVRER</span><h2>Une attention aux <em>détails qui comptent.</em></h2></div><p>Un produit data utile ne s’arrête pas à un notebook ou à une démonstration. Il doit pouvoir être compris, testé et repris par une équipe.</p></div>
+        <div class="delivery-grid">
+          <article><span>01</span><h3>Des contrats clairs</h3><p>Schémas, formats attendus, erreurs explicites et documentation : l’interface entre deux systèmes doit être aussi simple à utiliser qu’à faire évoluer.</p><ul><li>OpenAPI et endpoints cohérents</li><li>Contrats de données versionnés</li><li>Jeux d’exemples reproductibles</li></ul></article>
+          <article><span>02</span><h3>Une qualité visible</h3><p>Les contrôles ne doivent pas seulement bloquer une erreur. Ils doivent indiquer où elle se situe, qui est concerné et ce qu’il faut corriger.</p><ul><li>Validations avant ingestion</li><li>Tests de régression ciblés</li><li>Journal de décisions lisible</li></ul></article>
+          <article><span>03</span><h3>Des flux observables</h3><p>Quand un pipeline ou une intégration se comporte mal, il faut pouvoir suivre la trace, isoler l’incident et remettre le service en mouvement.</p><ul><li>Événements structurés</li><li>Idempotence et gestion des rejets</li><li>Signaux exploitables par l’équipe</li></ul></article>
+        </div>
+        <div class="delivery-note"><span>EN PRATIQUE</span><p>Mes projets de recherche appliquée approfondissent un sujet. Les projets Atelier servent de prototypes courts pour tester une brique précise, avec une démo publique et des limites assumées.</p></div>
+      </section>
+
       <section class="journey section-shell" id="parcours">
-        <div class="section-heading"><div><span class="section-index">03 / PARCOURS</span><h2>Une expérience ancrée <em>dans le concret.</em></h2></div></div>
+        <div class="section-heading"><div><span class="section-index">04 / PARCOURS</span><h2>Une expérience ancrée <em>dans le concret.</em></h2></div><p>Un parcours construit entre production, recherche appliquée et compréhension des besoins métier.</p></div>
         <div class="timeline">
           <article><p class="timeline-date">AOÛT 2023 À JUIN 2026</p><div><h3>Data Engineer <span>Generali</span></h3><p>Industrialisation de pipelines Big Data et d’outils de pilotage de la performance digitale. Travail sur l’ingestion, la transformation, les agrégations et la mise à disposition d’indicateurs pour les équipes métier.</p></div><div class="tags"><span>Hadoop</span><span>Snowflake</span><span>PySpark</span><span>Snowpark</span><span>Power BI</span></div></article>
           <!-- <article><p class="timeline-date">2026</p><div><h3>AI Developer <span>WeAreMUSH</span></h3><p>Conception d’un assistant RAG autour de la transition écologique.</p></div><div class="tags"><span>RAG</span><span>OpenAI</span><span>Python</span><span>FastAPI</span></div></article> -->
@@ -103,8 +114,8 @@
       </section>
 
       <section class="contact section-shell" id="contact">
-        <div><span class="section-index">04 / CONTACT</span><h2>Parlons de votre <em>prochain sujet data.</em></h2></div>
-        <div class="contact-side"><p>Pour une opportunité ou un projet, vous pouvez me contacter directement.</p><a class="email" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com <span>↗</span></a><div class="contact-links"><a href="https://www.linkedin.com/in/ikel-ouedraogo-8460041b7" target="_blank" rel="noopener">LinkedIn ↗</a><a href="tel:+33753830689">+33 7 53 83 06 89</a><span>France</span></div></div>
+        <div><span class="section-index">05 / CONTACT</span><h2>Parlons de votre <em>prochain sujet data.</em></h2></div>
+        <div class="contact-side"><p>Je suis intéressé par des sujets où la qualité, la robustesse et l’usage métier de la donnée doivent avancer ensemble. Pour une opportunité, une mission ou une discussion technique, vous pouvez me contacter directement.</p><a class="email" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com <span>↗</span></a><div class="contact-links"><a href="https://www.linkedin.com/in/ikel-ouedraogo-8460041b7" target="_blank" rel="noopener">LinkedIn ↗</a><a href="tel:+33753830689">+33 7 53 83 06 89</a><span>Paris, France</span></div></div>
       </section>
     </main>
     <footer><a class="brand" href="#top"><span class="brand-mark">I</span><span>IKEL</span></a><p>©Ikel DATA & IA</p><a href="#top">Haut de page ↑</a></footer>
