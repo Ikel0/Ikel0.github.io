@@ -67,8 +67,8 @@
         <div class="project-list">
           <article class="project-feature research-dossier">
             <div class="project-number">01</div>
-            <div class="project-main"><p class="project-type">RAG AUDITABLE</p><h3>Evidence Desk</h3><p>Un assistant documentaire pour les équipes qui ne peuvent pas se contenter d’une réponse plausible. Il recherche dans un corpus, présente les passages utiles et signale lorsque la base ne permet pas de répondre avec assez de certitude.</p><ul><li>Recherche FTS5, reranking et découpage documentaire</li><li>Citations vérifiables, score de confiance et réponse prudente</li><li>Jeu de tests de retrieval pour suivre les régressions</li></ul><div class="project-actions"><a href="https://github.com/Ikel0/evidence-desk" target="_blank" rel="noopener">Code ↗</a><a href="https://github.com/Ikel0/evidence-desk/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Fiche de travail ↗</a></div></div>
-            <aside class="project-tech">Python<br />SQLite FTS5<br />HTTP API<br />Tests</aside>
+            <div class="project-main"><p class="project-type">RAG AUDITABLE</p><h3>Evidence Desk</h3><p>Un assistant documentaire pour les équipes qui ne peuvent pas se contenter d’une réponse plausible. Il retrouve les passages utiles, affiche ses sources et vérifie séparément que la recherche, la réponse et les citations restent cohérentes.</p><ul><li>Recherche FTS5, reranking lexical et découpage documentaire déterministe</li><li>Citations vérifiables, réponse prudente et mode local sans dépendance LLM</li><li>Quality gate <code>golden.v1</code> avec métriques de retrieval, ancrage et citations</li></ul><div class="project-actions"><a href="https://github.com/Ikel0/evidence-desk" target="_blank" rel="noopener">Code ↗</a><a href="https://github.com/Ikel0/evidence-desk/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Fiche de travail ↗</a></div></div>
+            <aside class="project-tech">Python<br />SQLite FTS5<br />Quality gate<br />HTTP API</aside>
           </article>
           <article class="project-feature research-dossier">
             <div class="project-number">02</div>
