@@ -171,6 +171,12 @@ body { background: radial-gradient(circle at 84% 5%, rgba(74, 132, 143, .22), tr
 .project-feature { position: relative; padding-right: 18px; padding-left: 18px; }
 .project-feature::before { position: absolute; top: 0; bottom: 0; left: 0; width: 2px; background: transparent; content: ''; transition: background-color .24s ease; }
 .project-feature:hover::before { background: var(--blue); }
+.retail-core-project { border-color: rgba(208, 232, 148, .35); background: linear-gradient(90deg, rgba(208, 232, 148, .075), rgba(128, 204, 215, .02) 72%, transparent); }
+.retail-core-project::before { background: var(--lime); }
+.retail-core-project .project-number, .retail-core-project .project-type { color: var(--lime); }
+.retail-core-project .project-tech { border-left-color: rgba(208, 232, 148, .28); }
+.retail-core-project:hover { border-color: rgba(208, 232, 148, .58); background: linear-gradient(90deg, rgba(208, 232, 148, .11), rgba(128, 204, 215, .035) 72%, transparent); }
+.retail-core-project:hover::before { background: var(--lime); }
 .project-tech { align-self: start; margin-top: 4px; }
 .workshop-grid { gap: 1px; border: 0; background: rgba(237, 245, 239, .12); }
 .workshop-grid article { position: relative; min-height: 224px; border: 0; background: #183238; }
@@ -223,4 +229,5 @@ body { background: radial-gradient(circle at 84% 5%, rgba(74, 132, 143, .22), tr
 
 @media (max-width: 820px) { .hero::after { right: 5%; width: 180px; height: 180px; }.section-heading::before { left: -10px; }.hero-aside { padding: 14px; }.capability, .project-feature, .timeline article { padding-right: 0; padding-left: 0; }.approach { padding-right: 0; padding-left: 0; background: transparent; }.delivery-grid { grid-template-columns: 1fr; }.delivery-grid article { min-height: auto; }.delivery-note { grid-template-columns: 1fr; gap: 10px; }.workshop-heading { display: grid; gap: 20px; }.workshop-grid { grid-template-columns: 1fr; }.workshop-grid .workshop-card, .workshop-grid .workshop-feature { min-height: 330px; }.workshop-footnote { grid-template-columns: 1fr; gap: 10px; margin-left: 0; }.availability { grid-template-columns: 1fr auto; gap: 7px 12px; }.availability-note { grid-column: 1 / -1; justify-self: start; text-align: left; } }
 
+@media (max-width: 820px) { .retail-core-project .project-number { padding-left: 8px; } }
 @media (max-width: 820px) { .nav-wrap.open nav { background: #102126; } }

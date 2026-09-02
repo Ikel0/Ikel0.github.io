@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="finish.css?v=availability-20260822" />
+    <link rel="stylesheet" href="finish.css?v=retail-core-20260902" />
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -65,18 +65,37 @@
       <section class="projects section-shell" id="projets">
         <div class="section-heading"><div><span class="section-index">02 / PROJETS SÉLECTIONNÉS</span><h2>Des projets qui montrent <em>la méthode.</em></h2></div><p>Chaque projet est déployé ou documenté. Les données de démonstration sont synthétiques quand c’est nécessaire, les sources ouvertes restent traçables.</p></div>
         <div class="project-list">
-          <article class="project-feature research-dossier">
+          <article class="project-feature retail-core-project">
             <div class="project-number">01</div>
+            <div class="project-main">
+              <p class="project-type">RETAIL DATA ENGINEERING · DÉMO INTERACTIVE</p>
+              <h3>Retail Core</h3>
+              <p>Une plateforme data omnicanale qui relie ventes, stock, clients et qualité dans un même produit. Le projet montre la chaîne complète : ingestion batch et streaming, modélisation analytique, contrôles automatisés, supervision et cockpit métier interactif.</p>
+              <ul>
+                <li>Architecture lakehouse en zones raw et curated, avec contrat <code>retail-core/v2.1</code></li>
+                <li>Customer 360, historique SCD2, stock disponible à la vente et KPI filtrables</li>
+                <li>16 contrôles qualité, réconciliation financière à zéro et simulation Black Friday</li>
+              </ul>
+              <div class="project-actions">
+                <a href="https://ikel0.github.io/retail-core-lakehouse/" target="_blank" rel="noopener">Démo interactive ↗</a>
+                <a href="https://github.com/Ikel0/retail-core-lakehouse" target="_blank" rel="noopener">Code ↗</a>
+                <a href="https://github.com/Ikel0/retail-core-lakehouse/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture ↗</a>
+              </div>
+            </div>
+            <aside class="project-tech">Python / SQL<br />dbt / Airflow<br />Streaming<br />Docker</aside>
+          </article>
+          <article class="project-feature research-dossier">
+            <div class="project-number">02</div>
             <div class="project-main"><p class="project-type">RAG AUDITABLE</p><h3>Evidence Desk</h3><p>Un assistant documentaire pour les équipes qui ne peuvent pas se contenter d’une réponse plausible. Il retrouve les passages utiles, affiche ses sources et vérifie séparément que la recherche, la réponse et les citations restent cohérentes.</p><ul><li>Recherche FTS5, reranking lexical et découpage documentaire déterministe</li><li>Citations vérifiables, réponse prudente et mode local sans dépendance LLM</li><li>Quality gate <code>golden.v1</code> avec métriques de retrieval, ancrage et citations</li></ul><div class="project-actions"><a href="https://github.com/Ikel0/evidence-desk" target="_blank" rel="noopener">Code ↗</a><a href="https://github.com/Ikel0/evidence-desk/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Fiche de travail ↗</a></div></div>
             <aside class="project-tech">Python<br />SQLite FTS5<br />Quality gate<br />HTTP API</aside>
           </article>
           <article class="project-feature research-dossier">
-            <div class="project-number">02</div>
+            <div class="project-number">03</div>
             <div class="project-main"><p class="project-type">DATA CONTRACTS</p><h3>Pacte</h3><p>Un outil de contrôle de contrats de données pensé pour arrêter les erreurs au bon endroit. Avant ingestion, Pacte vérifie le schéma, les règles de qualité et les champs critiques, puis explique clairement pourquoi un lot est accepté ou rejeté.</p><ul><li>Contrats versionnés et règles de validation réutilisables</li><li>Décision d’ingestion explicable pour les producteurs et consommateurs</li><li>Journal d’audit et vue d’impact pour préparer les corrections</li></ul><div class="project-actions"><a href="https://pacte-ikel.onrender.com" target="_blank" rel="noopener">Démo ↗</a><a href="https://github.com/Ikel0/pacte" target="_blank" rel="noopener">Code ↗</a><a href="https://github.com/Ikel0/pacte/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Fiche de travail ↗</a></div></div>
             <aside class="project-tech">Python<br />JSON contracts<br />SQLite<br />HTTP API</aside>
           </article>
           <article class="project-feature research-dossier">
-            <div class="project-number">03</div>
+            <div class="project-number">04</div>
             <div class="project-main"><p class="project-type">STREAMING ET OPÉRATIONS</p><h3>Routier</h3><p>Une plateforme de supervision qui transforme des signaux opérationnels en décisions explicables. La chaîne véhicule reste une simulation testable, tandis qu’un adaptateur SNCF GTFS-RT apporte une vraie source externe, horodatée et vérifiable sans inventer de télémétrie.</p><ul><li>Contrat <code>vehicle.telemetry.v1</code>, topics Kafka compatibles et rejets isolés</li><li>Worker idempotent, motifs de décision lisibles et file d’attention opérations</li><li>Photographie SNCF GTFS-RT avec volume, nombre d’entités et empreinte de contenu</li></ul><div class="project-actions"><a href="https://routier-ikel.onrender.com" target="_blank" rel="noopener">Démo ↗</a><a href="https://github.com/Ikel0/routier" target="_blank" rel="noopener">Code ↗</a><a href="https://github.com/Ikel0/routier/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Fiche de travail ↗</a></div></div>
             <aside class="project-tech">Python<br />Kafka / Redpanda<br />GTFS-RT<br />SQLite</aside>
           </article>
