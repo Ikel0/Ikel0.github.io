@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="finish.css?v=retail-core-20260902" />
+    <link rel="stylesheet" href="finish.css?v=retail-core-platform-20260902" />
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -70,11 +70,11 @@
             <div class="project-main">
               <p class="project-type">RETAIL DATA ENGINEERING · DÉMO INTERACTIVE</p>
               <h3>Retail Core</h3>
-              <p>Une plateforme data omnicanale qui relie ventes, stock, clients et qualité dans un même produit. Le projet montre la chaîne complète : ingestion batch et streaming, modélisation analytique, contrôles automatisés, supervision et cockpit métier interactif.</p>
+              <p>Une plateforme data omnicanale qui relie ventes, stock, clients et qualité dans un même produit. Un DAG Airflow exécute réellement l’ingestion, le profil AWS local, les transformations dbt, les rapprochements et la publication des KPI avant le SLA métier.</p>
               <ul>
-                <li>Architecture lakehouse en zones raw et curated, avec contrat <code>retail-core/v2.1</code></li>
-                <li>Customer 360, historique SCD2, stock disponible à la vente et KPI filtrables</li>
-                <li>16 contrôles qualité, réconciliation financière à zéro et simulation Black Friday</li>
+                <li>Airflow : 6 tâches ordonnées, retries, run complet validé et publication conditionnelle</li>
+                <li>dbt Core : 19 modèles, 78 tests, snapshot SCD2 et double réconciliation à zéro</li>
+                <li>S3, Kinesis, Lambda et CloudWatch via LocalStack ; infrastructure AWS cible en Terraform</li>
               </ul>
               <div class="project-actions">
                 <a href="https://ikel0.github.io/retail-core-lakehouse/" target="_blank" rel="noopener">Démo interactive ↗</a>
@@ -82,7 +82,7 @@
                 <a href="https://github.com/Ikel0/retail-core-lakehouse/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture ↗</a>
               </div>
             </div>
-            <aside class="project-tech">Python / SQL<br />dbt / Airflow<br />Streaming<br />Docker</aside>
+            <aside class="project-tech">Airflow / dbt<br />AWS / Terraform<br />Python / SQL<br />Docker / CI</aside>
           </article>
           <article class="project-feature research-dossier">
             <div class="project-number">02</div>
