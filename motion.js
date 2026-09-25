@@ -9,6 +9,7 @@ if (!reducedMotion) {
     '.capability',
     '.approach',
     '.collection-meta',
+    '.project-lens',
     '.project-feature',
     '.workshop-heading',
     '.workshop-card',
@@ -16,7 +17,8 @@ if (!reducedMotion) {
     '.delivery-grid article',
     '.delivery-note',
     '.timeline article',
-    '.contact > div'
+    '.contact > div',
+    '.contact-tools'
   ];
 
   const targets = [...document.querySelectorAll(selectors.join(','))];
