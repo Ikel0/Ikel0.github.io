@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="finish.css?v=motion-system-20260925" />
+    <link rel="stylesheet" href="finish.css?v=toolbox-system-20260925" />
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -28,7 +28,7 @@
         <a href="#parcours">Parcours</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div class="nav-actions"><a class="nav-cta" href="mailto:IkelITech@outlook.com">Me contacter <span>↗</span></a></div>
+      <div class="nav-actions"><button class="command-trigger" id="command-trigger" type="button" aria-haspopup="dialog" aria-controls="command-palette"><span>Parcourir</span><kbd>⌘ K</kbd></button><a class="nav-cta" href="mailto:IkelITech@outlook.com">Me contacter <span>↗</span></a></div>
       <button class="menu" id="menu" aria-label="Ouvrir le menu" aria-controls="main-navigation" aria-expanded="false"><i></i><i></i></button>
     </header>
 
@@ -71,8 +71,18 @@
       <section class="projects section-shell" id="projets">
         <div class="section-heading"><div><span class="section-index">02 / PROJETS SÉLECTIONNÉS</span><h2>Des projets qui montrent <em>la méthode.</em></h2></div><p>Chaque projet est déployé ou documenté. Les données de démonstration sont synthétiques quand c’est nécessaire, les sources ouvertes restent traçables.</p></div>
         <div class="collection-meta" aria-label="Repères de lecture"><span><b>04</b> projets de recherche appliquée</span><span><b>06</b> composants testables dans l’atelier</span><span>la traçabilité avant l’effet</span></div>
+        <div class="project-lens" aria-label="Explorer les projets">
+          <p><span>EXPLORER PAR SUJET</span><strong id="project-filter-summary" aria-live="polite">Tous les projets</strong></p>
+          <div class="project-filter-list" role="group" aria-label="Filtres de projets">
+            <button class="project-filter" type="button" data-project-filter="all" aria-pressed="true">Tout voir</button>
+            <button class="project-filter" type="button" data-project-filter="production" aria-pressed="false">Production</button>
+            <button class="project-filter" type="button" data-project-filter="ai" aria-pressed="false">IA fiable</button>
+            <button class="project-filter" type="button" data-project-filter="stream" aria-pressed="false">Temps réel</button>
+            <button class="project-filter" type="button" data-project-filter="api" aria-pressed="false">APIs</button>
+          </div>
+        </div>
         <div class="project-list">
-          <article class="project-feature retail-core-project">
+          <article class="project-feature retail-core-project" data-project-topics="production,quality">
             <div class="project-number">01</div>
             <div class="project-main">
               <p class="project-type">RETAIL DATA ENGINEERING · DÉMO INTERACTIVE</p>
@@ -91,17 +101,17 @@
             </div>
             <aside class="project-tech">Airflow / dbt<br />AWS / Terraform<br />Python / SQL<br />Docker / CI</aside>
           </article>
-          <article class="project-feature research-dossier">
+          <article class="project-feature research-dossier" data-project-topics="ai,quality">
             <div class="project-number">02</div>
             <div class="project-main"><p class="project-type">RAG AUDITABLE</p><h3>Evidence Desk</h3><p>Un assistant documentaire pour les équipes qui ne peuvent pas se contenter d’une réponse plausible. Il retrouve les passages utiles, affiche ses sources et vérifie séparément que la recherche, la réponse et les citations restent cohérentes.</p><ul><li>Recherche FTS5, reranking lexical et découpage documentaire déterministe</li><li>Citations vérifiables, réponse prudente et mode local sans dépendance LLM</li><li>Quality gate <code>golden.v1</code> avec métriques de retrieval, ancrage et citations</li></ul><div class="project-actions"><a href="https://github.com/Ikel0/evidence-desk" target="_blank" rel="noopener">Code ↗</a><a href="https://github.com/Ikel0/evidence-desk/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Fiche de travail ↗</a></div></div>
             <aside class="project-tech">Python<br />SQLite FTS5<br />Quality gate<br />HTTP API</aside>
           </article>
-          <article class="project-feature research-dossier">
+          <article class="project-feature research-dossier" data-project-topics="production,api,quality">
             <div class="project-number">03</div>
             <div class="project-main"><p class="project-type">DATA CONTRACTS</p><h3>Pacte</h3><p>Un outil de contrôle de contrats de données pensé pour arrêter les erreurs au bon endroit. Avant ingestion, Pacte vérifie le schéma, les règles de qualité et les champs critiques, puis explique clairement pourquoi un lot est accepté ou rejeté.</p><ul><li>Contrats versionnés et règles de validation réutilisables</li><li>Décision d’ingestion explicable pour les producteurs et consommateurs</li><li>Journal d’audit et vue d’impact pour préparer les corrections</li></ul><div class="project-actions"><a href="https://pacte-ikel.onrender.com" target="_blank" rel="noopener">Démo ↗</a><a href="https://github.com/Ikel0/pacte" target="_blank" rel="noopener">Code ↗</a><a href="https://github.com/Ikel0/pacte/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Fiche de travail ↗</a></div></div>
             <aside class="project-tech">Python<br />JSON contracts<br />SQLite<br />HTTP API</aside>
           </article>
-          <article class="project-feature research-dossier">
+          <article class="project-feature research-dossier" data-project-topics="production,stream">
             <div class="project-number">04</div>
             <div class="project-main"><p class="project-type">STREAMING ET OPÉRATIONS</p><h3>Routier</h3><p>Un control plane événementiel pour rendre une opération lisible : contrat strict, relecture Kafka sans doublon, règles de priorité et geste de prise en charge dans la même piste d’audit. La télémétrie est simulée, la provenance SNCF GTFS-RT est réelle et conservée séparément.</p><ul><li>Worker Kafka à commit manuel, sink idempotent sur <code>event_id</code> et dead letter topic</li><li>Règles versionnées, score de priorité, trace de corrélation et journal d’ingestion</li><li>Workflow de prise en charge, runbook et adapter GTFS-RT avec empreinte de contenu</li></ul><div class="project-actions"><a href="https://routier-ikel.onrender.com" target="_blank" rel="noopener">Démo ↗</a><a href="https://github.com/Ikel0/routier" target="_blank" rel="noopener">Code ↗</a><a href="https://github.com/Ikel0/routier/blob/main/docs/runbook.md" target="_blank" rel="noopener">Runbook ↗</a><a href="https://github.com/Ikel0/routier/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Fiche de travail ↗</a></div></div>
             <aside class="project-tech">Python<br />Kafka / Redpanda<br />Contract v1.0<br />SQLite + audit</aside>
@@ -111,12 +121,12 @@
         <div class="workshop">
           <div class="workshop-heading"><div><span class="section-index">ATELIER DE SYSTÈMES</span><h3>Des composants ciblés, <em>pensés de bout en bout.</em></h3></div><p>Chaque démonstration traite un problème concret avec un contrat, une interface testable, une trace de décision et des limites écrites. Le périmètre est volontairement concentré, le parcours complet.</p></div>
           <div class="workshop-grid">
-            <article class="workshop-card workshop-feature api-card"><div class="workshop-card-top"><p>API DESIGN</p><span>01 / EN LIGNE</span></div><h4>Courier API</h4><p class="workshop-copy">Une API de livraison fictive pour travailler les clés d’accès, l’idempotence, les webhooks et les erreurs qu’un intégrateur doit réellement comprendre.</p><div class="workshop-detail"><strong>À tester</strong><span>Créer une clé de démonstration, envoyer une livraison et suivre le statut avec une trace exploitable.</span></div><div class="workshop-actions"><a href="https://courier-api-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a><a href="https://courier-api-ikel.onrender.com/docs" target="_blank" rel="noopener">Contrat OpenAPI ↗</a></div></article>
-            <article class="workshop-card workshop-feature stream-card"><div class="workshop-card-top"><p>KAFKA · STREAMING</p><span>02 / EN LIGNE</span></div><h4>Glacis</h4><p class="workshop-copy">Un scénario de chaîne du froid qui suit les mesures entrantes, distingue un écart isolé d’un incident et conserve le contexte nécessaire pour agir.</p><div class="workshop-detail"><strong>À tester</strong><span>Explorer un flux de relevés, comprendre une alerte et consulter un contexte météo public clairement séparé du scénario.</span></div><div class="workshop-actions"><a href="https://glacis-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
-            <article class="workshop-card"><div class="workshop-card-top"><p>DATA QUALITY</p><span>03</span></div><h4>Trust Layer</h4><p class="workshop-copy">Contrôler un export CSV avant analyse et rendre les erreurs compréhensibles, avec une décision rattachée au contrat et au lot exact.</p><div class="workshop-detail"><strong>À tester</strong><span>Contrat versionné, empreinte de source, règles de qualité explicites et profilage séparé d’une série open data World Bank.</span></div><div class="workshop-actions"><a href="https://trust-layer-ikel-vt39.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
-            <article class="workshop-card"><div class="workshop-card-top"><p>KNOWLEDGE SEARCH</p><span>04</span></div><h4>Signal</h4><p class="workshop-copy">Retrouver une règle, son contexte et sa source en conservant une réponse qui peut être vérifiée.</p><div class="workshop-detail"><strong>À tester</strong><span>Recherche locale explicable, avec une source World Bank optionnelle et citée lorsqu’elle est chargée.</span></div><div class="workshop-actions"><a href="https://signal-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
-            <article class="workshop-card"><div class="workshop-card-top"><p>EVENT MONITORING</p><span>05</span></div><h4>Flow</h4><p class="workshop-copy">Un moniteur d’événements qui valide le contrat, traite les doublons par idempotence et conserve une trace pour qualifier les signaux importants.</p><div class="workshop-detail"><strong>À tester</strong><span>Contrat explicite, réponse rejouée, conflit visible, P95 de latence et flux de marché public injecté manuellement.</span></div><div class="workshop-actions"><a href="https://flow-ikel-cgdd.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
-            <article class="workshop-card"><div class="workshop-card-top"><p>ANALYTICS ENGINEERING</p><span>06</span></div><h4>Metric Lab</h4><p class="workshop-copy">Un pipeline court qui transforme des sources CSV en mart analytique seulement après avoir validé leur cohérence.</p><div class="workshop-detail"><strong>À tester</strong><span>Quality gate, rejet explicite d’un lot incohérent, empreinte du lot, métriques reconstruites et contexte de taux BCE.</span></div><div class="workshop-actions"><a href="https://metric-lab-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
+            <article class="workshop-card workshop-feature api-card" data-project-topics="api,production"><div class="workshop-card-top"><p>API DESIGN</p><span>01 / EN LIGNE</span></div><h4>Courier API</h4><p class="workshop-copy">Une API de livraison fictive pour travailler les clés d’accès, l’idempotence, les webhooks et les erreurs qu’un intégrateur doit réellement comprendre.</p><div class="workshop-detail"><strong>À tester</strong><span>Créer une clé de démonstration, envoyer une livraison et suivre le statut avec une trace exploitable.</span></div><div class="workshop-actions"><a href="https://courier-api-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a><a href="https://courier-api-ikel.onrender.com/docs" target="_blank" rel="noopener">Contrat OpenAPI ↗</a></div></article>
+            <article class="workshop-card workshop-feature stream-card" data-project-topics="stream,production"><div class="workshop-card-top"><p>KAFKA · STREAMING</p><span>02 / EN LIGNE</span></div><h4>Glacis</h4><p class="workshop-copy">Un scénario de chaîne du froid qui suit les mesures entrantes, distingue un écart isolé d’un incident et conserve le contexte nécessaire pour agir.</p><div class="workshop-detail"><strong>À tester</strong><span>Explorer un flux de relevés, comprendre une alerte et consulter un contexte météo public clairement séparé du scénario.</span></div><div class="workshop-actions"><a href="https://glacis-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
+            <article class="workshop-card" data-project-topics="production,quality"><div class="workshop-card-top"><p>DATA QUALITY</p><span>03</span></div><h4>Trust Layer</h4><p class="workshop-copy">Contrôler un export CSV avant analyse et rendre les erreurs compréhensibles, avec une décision rattachée au contrat et au lot exact.</p><div class="workshop-detail"><strong>À tester</strong><span>Contrat versionné, empreinte de source, règles de qualité explicites et profilage séparé d’une série open data World Bank.</span></div><div class="workshop-actions"><a href="https://trust-layer-ikel-vt39.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
+            <article class="workshop-card" data-project-topics="ai"><div class="workshop-card-top"><p>KNOWLEDGE SEARCH</p><span>04</span></div><h4>Signal</h4><p class="workshop-copy">Retrouver une règle, son contexte et sa source en conservant une réponse qui peut être vérifiée.</p><div class="workshop-detail"><strong>À tester</strong><span>Recherche locale explicable, avec une source World Bank optionnelle et citée lorsqu’elle est chargée.</span></div><div class="workshop-actions"><a href="https://signal-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
+            <article class="workshop-card" data-project-topics="stream,production"><div class="workshop-card-top"><p>EVENT MONITORING</p><span>05</span></div><h4>Flow</h4><p class="workshop-copy">Un moniteur d’événements qui valide le contrat, traite les doublons par idempotence et conserve une trace pour qualifier les signaux importants.</p><div class="workshop-detail"><strong>À tester</strong><span>Contrat explicite, réponse rejouée, conflit visible, P95 de latence et flux de marché public injecté manuellement.</span></div><div class="workshop-actions"><a href="https://flow-ikel-cgdd.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
+            <article class="workshop-card" data-project-topics="production,quality"><div class="workshop-card-top"><p>ANALYTICS ENGINEERING</p><span>06</span></div><h4>Metric Lab</h4><p class="workshop-copy">Un pipeline court qui transforme des sources CSV en mart analytique seulement après avoir validé leur cohérence.</p><div class="workshop-detail"><strong>À tester</strong><span>Quality gate, rejet explicite d’un lot incohérent, empreinte du lot, métriques reconstruites et contexte de taux BCE.</span></div><div class="workshop-actions"><a href="https://metric-lab-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
           </div>
           <p class="workshop-footnote"><span>NOTE D’ATELIER</span> Ces démonstrations ne revendiquent pas une exploitation critique. Elles montrent toutefois le même enchaînement qu’un vrai composant : entrée contrôlée, traitement explicable, état consultable, test automatisé et amélioration documentée.</p>
         </div>
@@ -143,11 +153,26 @@
 
       <section class="contact section-shell" id="contact">
         <div><span class="section-index">05 / CONTACT</span><h2>Parlons de votre <em>prochain sujet data.</em></h2></div>
-        <div class="contact-side"><p>Pour une opportunité, une mission ou une discussion technique, vous pouvez me contacter directement.</p><a class="email" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com <span>↗</span></a><div class="contact-links"><a href="https://www.linkedin.com/in/ikel-ouedraogo-8460041b7" target="_blank" rel="noopener">LinkedIn ↗</a><a href="tel:+33753830689">+33 7 53 83 06 89</a><span>France</span></div></div>
+        <div class="contact-side"><p>Pour une opportunité, une mission ou une discussion technique, vous pouvez me contacter directement.</p><a class="email" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com <span>↗</span></a><div class="contact-tools"><button class="copy-email" id="copy-email" type="button" data-email="IkelITech@outlook.com">Copier l’email <span aria-live="polite"></span></button><span>Réponse rapide</span></div><div class="contact-links"><a href="https://www.linkedin.com/in/ikel-ouedraogo-8460041b7" target="_blank" rel="noopener">LinkedIn ↗</a><a href="tel:+33753830689">+33 7 53 83 06 89</a><span>France</span></div></div>
       </section>
     </main>
     <footer><a class="brand" href="#top"><span class="brand-mark">I</span><span>IKEL</span></a><p>©Ikel DATA & IA</p><a href="#top">Haut de page ↑</a></footer>
-    <script src="script.js"></script>
-    <script type="module" src="motion.js"></script>
+    <dialog class="command-palette" id="command-palette" aria-labelledby="command-title">
+      <div class="command-panel">
+        <div class="command-panel-head"><div><span>RACCOURCI DE NAVIGATION</span><h2 id="command-title">Trouver un point d’entrée.</h2></div><button class="command-close" id="command-close" type="button" aria-label="Fermer">Fermer <kbd>Esc</kbd></button></div>
+        <label class="command-search" for="command-search"><span>Rechercher</span><input id="command-search" type="search" autocomplete="off" placeholder="Projet, compétence, contact..." /></label>
+        <div class="command-list" id="command-list" aria-label="Résultats de navigation">
+          <button type="button" data-command-target="#expertise" data-command-search="expertise compétences data engineering">Expertise <span>Compétences et méthode</span></button>
+          <button type="button" data-command-target="#projets" data-command-search="projets retail core evidence desk pacte routier atelier">Projets <span>Recherche appliquée et Atelier</span></button>
+          <button type="button" data-command-target="#livrer" data-command-search="méthode qualité contrats livraison">Méthode <span>Ce que je rends lisible et exploitable</span></button>
+          <button type="button" data-command-target="#parcours" data-command-search="parcours generali efrei expérience">Parcours <span>Expérience et formation</span></button>
+          <button type="button" data-command-target="#contact" data-command-search="contact email linkedin téléphone">Contact <span>Écrire ou échanger</span></button>
+        </div>
+        <p class="command-empty" id="command-empty" hidden>Aucun raccourci ne correspond à cette recherche.</p>
+        <p class="command-hint"><kbd>↑↓</kbd> parcourir <kbd>Entrée</kbd> ouvrir <kbd>Esc</kbd> fermer</p>
+      </div>
+    </dialog>
+    <script src="script.js?v=toolbox-system-20260925"></script>
+    <script type="module" src="motion.js?v=toolbox-system-20260925"></script>
   </body>
 </html>

@@ -90,3 +90,150 @@ if (!prefersReducedMotion && window.matchMedia('(hover: hover)').matches) {
     });
   });
 }
+
+const filterButtons = [...document.querySelectorAll('[data-project-filter]')];
+const filterSummary = document.querySelector('#project-filter-summary');
+const projectCards = [...document.querySelectorAll('[data-project-topics]')];
+const filterLabels = {
+  all: 'Tous les projets',
+  production: 'Systèmes pensés pour la production',
+  ai: 'IA fiable et vérifiable',
+  stream: 'Systèmes temps réel',
+  api: 'APIs et contrats d’intégration'
+};
+
+const applyProjectFilter = topic => {
+  let matchCount = 0;
+
+  projectCards.forEach(card => {
+    const matches = topic === 'all' || card.dataset.projectTopics.split(',').includes(topic);
+    card.classList.toggle('is-filtered', !matches);
+    if (matches) matchCount += 1;
+  });
+
+  filterButtons.forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.projectFilter === topic));
+  });
+
+  if (filterSummary) {
+    filterSummary.textContent = topic === 'all'
+      ? filterLabels.all
+      : `${matchCount} projets : ${filterLabels[topic]}`;
+  }
+};
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => applyProjectFilter(button.dataset.projectFilter));
+});
+
+const commandDialog = document.querySelector('#command-palette');
+const commandTrigger = document.querySelector('#command-trigger');
+const commandClose = document.querySelector('#command-close');
+const commandSearch = document.querySelector('#command-search');
+const commandItems = [...document.querySelectorAll('[data-command-target]')];
+const commandEmpty = document.querySelector('#command-empty');
+let activeCommandIndex = 0;
+
+const visibleCommandItems = () => commandItems.filter(item => !item.hidden);
+
+const setActiveCommand = index => {
+  const visibleItems = visibleCommandItems();
+  if (!visibleItems.length) return;
+
+  activeCommandIndex = (index + visibleItems.length) % visibleItems.length;
+  visibleItems.forEach((item, itemIndex) => item.classList.toggle('is-command-active', itemIndex === activeCommandIndex));
+};
+
+const filterCommands = () => {
+  const searchTerm = commandSearch.value.trim().toLocaleLowerCase('fr');
+
+  commandItems.forEach(item => {
+    const text = `${item.textContent} ${item.dataset.commandSearch}`.toLocaleLowerCase('fr');
+    item.hidden = Boolean(searchTerm) && !text.includes(searchTerm);
+  });
+
+  if (commandEmpty) commandEmpty.hidden = visibleCommandItems().length > 0;
+  activeCommandIndex = 0;
+  setActiveCommand(activeCommandIndex);
+};
+
+const openCommandPalette = () => {
+  if (!commandDialog || commandDialog.open) return;
+
+  commandDialog.showModal();
+  commandSearch.value = '';
+  filterCommands();
+  commandSearch.focus();
+};
+
+const runCommand = item => {
+  const target = document.querySelector(item.dataset.commandTarget);
+  if (!target) return;
+
+  commandDialog.close();
+  target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+  setCurrentSection(target.id);
+};
+
+if (commandDialog && commandTrigger && commandClose && commandSearch) {
+  commandTrigger.addEventListener('click', openCommandPalette);
+  commandClose.addEventListener('click', () => commandDialog.close());
+  commandSearch.addEventListener('input', filterCommands);
+  commandItems.forEach(item => item.addEventListener('click', () => runCommand(item)));
+
+  document.addEventListener('keydown', event => {
+    const isShortcut = (event.metaKey || event.ctrlKey) && event.key.toLocaleLowerCase('fr') === 'k';
+    const isTyping = event.target instanceof HTMLElement && event.target.matches('input, textarea, [contenteditable="true"]');
+
+    if (isShortcut) {
+      event.preventDefault();
+      openCommandPalette();
+      return;
+    }
+
+    if (!commandDialog.open && event.key === '/' && !isTyping) {
+      event.preventDefault();
+      openCommandPalette();
+      return;
+    }
+
+    if (!commandDialog.open) return;
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      commandDialog.close();
+      return;
+    }
+
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault();
+      setActiveCommand(activeCommandIndex + (event.key === 'ArrowDown' ? 1 : -1));
+      return;
+    }
+
+    if (event.key === 'Enter' && event.target === commandSearch) {
+      event.preventDefault();
+      const selectedItem = visibleCommandItems()[activeCommandIndex];
+      if (selectedItem) runCommand(selectedItem);
+    }
+  });
+
+  commandDialog.addEventListener('close', () => commandTrigger.focus());
+}
+
+const copyEmailButton = document.querySelector('#copy-email');
+
+if (copyEmailButton) {
+  const feedback = copyEmailButton.querySelector('span');
+
+  copyEmailButton.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(copyEmailButton.dataset.email);
+      feedback.textContent = 'Copié';
+    } catch {
+      feedback.textContent = 'À copier manuellement';
+    }
+
+    window.setTimeout(() => { feedback.textContent = ''; }, 2200);
+  });
+}
