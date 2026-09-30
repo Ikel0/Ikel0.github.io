@@ -1,10 +1,13 @@
 const nav = document.querySelector('.main-nav');
 const menu = document.querySelector('#menu');
+const menuLabels = document.documentElement.lang === 'en'
+  ? { close: 'Close menu', open: 'Open menu' }
+  : { close: 'Fermer le menu', open: 'Ouvrir le menu' };
 
 const setMenuState = open => {
   nav.classList.toggle('is-open', open);
   menu.setAttribute('aria-expanded', String(open));
-  menu.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+  menu.setAttribute('aria-label', open ? menuLabels.close : menuLabels.open);
 };
 
 menu.addEventListener('click', () => setMenuState(!nav.classList.contains('is-open')));
