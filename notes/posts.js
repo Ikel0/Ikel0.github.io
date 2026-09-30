@@ -21,7 +21,7 @@ window.publicationPosts = [
     date: "2026-09-11",
     readingTime: "4 min",
     title: "Un data contract protège surtout les décisions prises après le pipeline.",
-    summary: "Un schéma décrit une structure. Un contrat rend aussi visibles les règles, les hypothèses et les changements qui peuvent fausser une décision — humaine ou assistée par IA.",
+    summary: "Un schéma décrit une structure. Un contrat rend aussi visibles les règles, les hypothèses et les changements qui peuvent fausser une décision, humaine ou assistée par IA.",
     tags: ["Data quality", "Contrats", "Gouvernance"],
     href: "data-contracts.html"
   },
