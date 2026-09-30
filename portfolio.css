@@ -44,6 +44,7 @@ body:has(#projets:target) .main-nav a[href="#projets"]::after, body:has(#compete
 h1, h2, h3, p { margin-top: 0; }
 h1, h2, h3 { font-weight: 400; }
 h1 { max-width: 830px; margin: .75rem 0 1.5rem; font: 400 clamp(4.3rem, 10vw, 9.4rem)/.8 var(--serif); letter-spacing: -.075em; }
+.home-hero h1, .section-head h2, .atelier-head h3, .contact h2, .journal-head h1 { display: inline-block; padding: 0 .12em .06em .06em; background: #dce8ff; box-shadow: 5px 5px 0 #b6cdf6; }
 .hero-summary { max-width: 620px; margin-bottom: 1.8rem; font-size: clamp(1.1rem, 1.7vw, 1.32rem); line-height: 1.65; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
 .text-button { display: inline-flex; padding: .72rem 0; border-bottom: 1px solid var(--ink); font-weight: 650; text-decoration: none; }
