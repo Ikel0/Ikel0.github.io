@@ -117,7 +117,7 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
 .journal-side > div { position: sticky; top: 1.5rem; }
 .feed-filters { display: grid; margin-top: .7rem; border-top: 1px solid var(--line); }
 .feed-filters button { display: flex; justify-content: space-between; width: 100%; padding: .65rem 0; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--muted); font: 500 .88rem var(--sans); text-align: left; }
-.feed-filters button::after { content: '—'; opacity: 0; }
+.feed-filters button::after { content: '·'; opacity: 0; }
 .feed-filters button:hover, .feed-filters button[aria-pressed="true"] { color: var(--blue-dark); }
 .feed-filters button[aria-pressed="true"]::after { opacity: 1; }
 .feed-filters .filter-data { color: #8c5010; }.feed-filters .filter-ai { color: #2454ad; }.feed-filters .filter-systems { color: #236048; }
