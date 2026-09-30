@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ikel Ouedraogo, Data & AI Engineer. Reliable data systems, document products and useful AI applications." />
+    <meta name="theme-color" content="#edf2f3" />
+    <title>Ikel Ouedraogo — Data & AI Engineer</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../portfolio.css" />
+    <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Home"><span class="brand-mark">I</span><span class="brand-word">IKEL</span></a>
+      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+        <a href="#projets">Projects</a><a href="#competences">Skills</a><a href="#technologies">Tech</a><a href="../notes/index.html">Publications</a><a href="#parcours">Background</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="header-tools"><a class="language-switch" href="../index.html" lang="fr" hreflang="fr" aria-label="Passer en français">FR</a><a class="header-contact" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com</a></div>
+      <button class="menu" id="menu" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Open menu"><i></i><i></i></button>
+    </header>
+
+    <main id="contenu">
+      <section class="home-hero shell" id="top">
+        <div>
+          <p class="kicker">Ikel Ouedraogo / Data &amp; AI Engineer</p>
+          <h1>Data &amp; AI<br />Engineer.</h1>
+          <p class="hero-summary">I help teams turn an idea or business need into a useful system. My approach is simple: understand the subject, set a clear frame, then build something reliable and pleasant to use.</p>
+          <div class="hero-actions"><a class="text-button" href="#projets">See projects</a><a class="text-button" href="../notes/index.html">Read publications</a></div>
+        </div>
+        <figure class="hero-reference"><img src="../photo.jpg" alt="Portrait of Ikel Ouedraogo" /><figcaption><strong>01 / PROFILE</strong><span>France</span></figcaption></figure>
+      </section>
+
+      <section class="section shell" id="projets">
+        <div class="section-head"><div><p class="section-label">01 / SELECTED PROJECTS</p><h2>Projects.</h2></div><p>Personal projects built around a specific problem, with a demo or documentation when it helps explain the work.</p></div>
+        <div class="project-list">
+          <article class="project-row"><span class="project-number">01</span><div><p class="project-kind">Data platform</p><h3>Retail Core</h3><p class="project-summary">A demonstration pipeline that brings sales, inventory and customer data together. Airflow orchestrates ingestion; dbt builds the models and tests; LocalStack reproduces AWS services locally.</p><div class="project-links"><a href="https://ikel0.github.io/retail-core-lakehouse/" target="_blank" rel="noopener">Demo</a><a href="https://github.com/Ikel0/retail-core-lakehouse" target="_blank" rel="noopener">Code</a><a href="https://github.com/Ikel0/retail-core-lakehouse/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a></div></div><p class="project-stack">Airflow / dbt<br />AWS / Terraform<br />Python / SQL</p></article>
+          <article class="project-row"><span class="project-number">02</span><div><p class="project-kind">Document retrieval</p><h3>Evidence Desk</h3><p class="project-summary">A research tool for a document corpus. It retrieves passages, displays their sources and also works locally without an LLM.</p><div class="project-links"><a href="https://github.com/Ikel0/evidence-desk" target="_blank" rel="noopener">Code</a><a href="https://github.com/Ikel0/evidence-desk/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Documentation</a></div></div><p class="project-stack">Python<br />SQLite FTS5<br />HTTP API</p></article>
+          <article class="project-row"><span class="project-number">03</span><div><p class="project-kind">Data quality</p><h3>Pacte</h3><p class="project-summary">CSV batch checks before ingestion: schema validation, quality rules, accept-or-reject decisions and an audit trail.</p><div class="project-links"><a href="https://pacte-ikel.onrender.com" target="_blank" rel="noopener">Demo</a><a href="https://github.com/Ikel0/pacte" target="_blank" rel="noopener">Code</a><a href="https://github.com/Ikel0/pacte/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Documentation</a></div></div><p class="project-stack">Python<br />JSON contracts<br />SQLite</p></article>
+          <article class="project-row"><span class="project-number">04</span><div><p class="project-kind">Event systems</p><h3>Routier</h3><p class="project-summary">A Kafka telemetry monitoring chain: contract validation, idempotent processing, rejected events, alerts and an ingestion log.</p><div class="project-links"><a href="https://routier-ikel.onrender.com" target="_blank" rel="noopener">Demo</a><a href="https://github.com/Ikel0/routier" target="_blank" rel="noopener">Code</a><a href="https://github.com/Ikel0/routier/blob/main/docs/runbook.md" target="_blank" rel="noopener">Runbook</a></div></div><p class="project-stack">Python<br />Kafka / Redpanda<br />SQLite</p></article>
+        </div>
+        <section class="atelier" aria-labelledby="atelier-title"><div class="atelier-head"><div><p class="section-label">WORKSHOP / PROTOTYPES</p><h3 id="atelier-title">Workshop.</h3></div><p>Shorter projects used to work through one technical component, each with an accessible demo.</p></div><div class="atelier-list">
+          <article class="atelier-item"><span>01</span><div><h4>Courier API</h4><p>A fictional delivery API: keys, idempotency, webhooks and an OpenAPI contract.</p></div><a href="https://courier-api-ikel.onrender.com" target="_blank" rel="noopener">Open</a></article>
+          <article class="atelier-item"><span>02</span><div><h4>Glacis</h4><p>Temperature readings monitoring for a cold chain.</p></div><a href="https://glacis-ikel.onrender.com" target="_blank" rel="noopener">Open</a></article>
+          <article class="atelier-item"><span>03</span><div><h4>Trust Layer</h4><p>Checks a CSV export before analysis using a versioned contract.</p></div><a href="https://trust-layer-ikel-vt39.onrender.com" target="_blank" rel="noopener">Open</a></article>
+          <article class="atelier-item"><span>04</span><div><h4>Signal</h4><p>Local document search, with the corresponding sources.</p></div><a href="https://signal-ikel.onrender.com" target="_blank" rel="noopener">Open</a></article>
+          <article class="atelier-item"><span>05</span><div><h4>Flow</h4><p>Event validation and monitoring with duplicate handling.</p></div><a href="https://flow-ikel-cgdd.onrender.com" target="_blank" rel="noopener">Open</a></article>
+          <article class="atelier-item"><span>06</span><div><h4>Metric Lab</h4><p>A small analytics pipeline with a quality check before publication.</p></div><a href="https://metric-lab-ikel.onrender.com" target="_blank" rel="noopener">Open</a></article>
+        </div></section>
+        <aside class="publication-link"><div><p class="section-label">PUBLICATIONS</p><h3>Field notes on data, systems and applied AI.</h3></div><a href="../notes/index.html">Read publications</a></aside>
+      </section>
+
+      <section class="section shell" id="competences">
+        <div class="section-head"><div><p class="section-label">02 / SKILLS</p><h2>Skills.</h2></div></div>
+        <div class="competence-list">
+          <article class="competence-row"><span>01</span><h3>Pipelines and modelling</h3><p>Ingestion, transformation, orchestration, data warehousing and data delivery for business teams.</p></article>
+          <article class="competence-row"><span>02</span><h3>Quality and traceability</h3><p>Tests, schema validation, data contracts, audit trails and documentation for data flows.</p></article>
+          <article class="competence-row"><span>03</span><h3>APIs and events</h3><p>FastAPI, OpenAPI, idempotency, webhooks and Kafka-based message processing.</p></article>
+          <article class="competence-row"><span>04</span><h3>AI engineering</h3><p>Document assistants, RAG, LLM integration, response evaluation, citations and guardrails for practical use cases.</p></article>
+        </div>
+      </section>
+
+      <section class="section shell" id="technologies">
+        <div class="section-head"><div><p class="section-label">03 / TECHNOLOGIES</p><h2>Stack.</h2></div><p>The tools I use to build, test and ship data and AI products.</p></div>
+        <div class="tech-groups">
+          <section class="tech-group"><h3>Data</h3><div class="tech-list"><span class="tech"><img src="https://cdn.simpleicons.org/python" alt="" onerror="this.remove()" /><b>Python</b></span><span class="tech"><img src="https://cdn.simpleicons.org/apacheairflow" alt="" onerror="this.remove()" /><b>Airflow</b></span><span class="tech"><img src="https://cdn.simpleicons.org/apachespark" alt="" onerror="this.remove()" /><b>PySpark</b></span><span class="tech"><img src="https://cdn.simpleicons.org/snowflake" alt="" onerror="this.remove()" /><b>Snowflake</b></span><span class="tech"><img src="https://cdn.simpleicons.org/dbt" alt="" onerror="this.remove()" /><b>dbt</b></span><span class="tech tech-word"><b>SQL</b></span><span class="tech tech-word"><b>Dataiku</b></span><span class="tech tech-word"><b>Hadoop</b></span></div></section>
+          <section class="tech-group"><h3>AI engineering</h3><div class="tech-list"><span class="tech"><img src="https://cdn.simpleicons.org/openai" alt="" onerror="this.remove()" /><b>OpenAI</b></span><span class="tech"><img src="https://cdn.simpleicons.org/langchain" alt="" onerror="this.remove()" /><b>LangChain</b></span><span class="tech"><img src="https://cdn.simpleicons.org/fastapi" alt="" onerror="this.remove()" /><b>FastAPI</b></span><span class="tech tech-word"><b>RAG</b></span><span class="tech tech-word"><b>LLM evals</b></span><span class="tech tech-word"><b>Embeddings</b></span><span class="tech tech-word"><b>Vector search</b></span></div></section>
+          <section class="tech-group"><h3>Platform</h3><div class="tech-list"><span class="tech"><img src="https://cdn.simpleicons.org/apachekafka" alt="" onerror="this.remove()" /><b>Kafka</b></span><span class="tech"><img src="https://cdn.simpleicons.org/docker" alt="" onerror="this.remove()" /><b>Docker</b></span><span class="tech"><img src="https://cdn.simpleicons.org/terraform" alt="" onerror="this.remove()" /><b>Terraform</b></span><span class="tech"><img src="https://cdn.simpleicons.org/amazonaws" alt="" onerror="this.remove()" /><b>AWS</b></span><span class="tech"><img src="https://cdn.simpleicons.org/git" alt="" onerror="this.remove()" /><b>Git</b></span><span class="tech"><img src="https://cdn.simpleicons.org/githubactions" alt="" onerror="this.remove()" /><b>CI/CD</b></span><span class="tech tech-word"><b>Power BI</b></span></div></section>
+        </div>
+      </section>
+
+      <section class="section shell" id="parcours">
+        <div class="section-head"><div><p class="section-label">04 / BACKGROUND</p><h2>Background.</h2></div></div>
+        <div class="timeline">
+          <article class="timeline-row"><p>2023 — 2026</p><div class="timeline-role"><h3>Data Engineer</h3><p>Generali</p></div><div><p>Industrialising marketing data pipelines, migrating to Snowflake, introducing quality checks and delivering indicators to business teams.</p></div></article>
+          <article class="timeline-row"><p>Education</p><div class="timeline-role"><h3>EFREI Paris</h3><p>Big Data &amp; Machine Learning</p></div><div><p>Grande École programme, complemented by an academic semester in Kuala Lumpur.</p></div></article>
+        </div>
+      </section>
+
+      <section class="contact shell" id="contact"><div><p class="section-label">05 / CONTACT</p><h2>Contact.</h2></div><div class="contact-side"><p>For an opportunity, a mission or a technical conversation.</p><a class="email" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com</a><div class="contact-facts"><a href="tel:+33753830689">+33 7 53 83 06 89</a><span>France</span></div></div></section>
+    </main>
+    <footer><a class="brand" href="#top"><span class="brand-mark">I</span><span class="brand-word">IKEL</span></a><p class="footer-note">© Ikel Ouedraogo<a class="footer-privacy" href="../privacy.html">privacy</a></p><a href="#top">Back to top</a></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
