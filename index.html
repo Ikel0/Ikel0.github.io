@@ -3,176 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ikel Ouedraogo, Data Engineer. Pipelines data, APIs, IA appliquée et produits analytiques." />
-    <meta name="theme-color" content="#12262b" />
-    <title>Ikel | Data & IA</title>
+    <meta name="description" content="Ikel Ouedraogo, Data & AI Engineer. Systèmes data fiables, produits documentaires et applications d’IA utiles." />
+    <meta name="theme-color" content="#edf2f3" />
+    <title>Ikel Ouedraogo — Data & AI Engineer</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="favicon-96x96.png" sizes="96x96" type="image/png" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <link rel="manifest" href="site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="finish.css?v=toolbox-system-20260925" />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="portfolio.css" />
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
-    <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
-    <header class="nav-wrap">
-      <a class="brand" href="#top" aria-label="Accueil"><span class="brand-mark">I</span><span>IKEL</span></a>
-      <nav id="main-navigation" aria-label="Navigation principale">
-        <a href="#expertise">Expertise</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Accueil"><span class="brand-mark">I</span><span class="brand-word">IKEL</span></a>
+      <nav class="main-nav" id="main-navigation" aria-label="Navigation principale">
         <a href="#projets">Projets</a>
-        <a href="#livrer">Méthode</a>
+        <a href="#competences">Compétences</a>
+        <a href="#technologies">Technos</a>
+        <a href="notes/index.html">Publications</a>
         <a href="#parcours">Parcours</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div class="nav-actions"><button class="command-trigger" id="command-trigger" type="button" aria-haspopup="dialog" aria-controls="command-palette"><span>Parcourir</span><kbd>⌘ K</kbd></button><a class="nav-cta" href="mailto:IkelITech@outlook.com">Me contacter <span>↗</span></a></div>
-      <button class="menu" id="menu" aria-label="Ouvrir le menu" aria-controls="main-navigation" aria-expanded="false"><i></i><i></i></button>
+      <a class="header-contact" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com</a>
+      <button class="menu" id="menu" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Ouvrir le menu"><i></i><i></i></button>
     </header>
 
-    <main id="contenu" tabindex="-1">
-      <section class="hero section-shell" id="top">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <!-- <p class="eyebrow reveal"><span class="pulse"></span>Data Engineer · Paris</p> -->
-            <h1 class="reveal">Des systèmes data <em>fiables, utiles et lisibles.</em></h1>
-            <p class="hero-summary reveal">Je conçois des pipelines, des APIs et des produits data qui aident les équipes à utiliser leurs données avec confiance. Mon point de départ reste simple : comprendre le besoin, rendre le flux observable, puis livrer quelque chose qui tient dans la durée.</p>
-            <div class="hero-actions reveal"><a class="button-primary" href="#projets">Voir mes projets</a><a class="button-secondary" href="mailto:IkelITech@outlook.com">Écrire un message</a></div>
-            <div class="availability reveal" id="availability" aria-live="polite"><span class="availability-label">Disponibilité actuelle</span><span class="availability-state"><i aria-hidden="true"></i><strong></strong></span><span class="availability-note"></span></div>
-            <div class="hero-system reveal" aria-label="Des sources aux usages">
-              <div class="hero-system-head"><span>SYSTÈMES QUE JE CONSTRUIS</span><span><i aria-hidden="true"></i>DU SIGNAL À L’USAGE</span></div>
-              <div class="hero-system-flow"><span>Sources</span><b aria-hidden="true"></b><span>Flux</span><b aria-hidden="true"></b><span>Décisions</span></div>
-            </div>
-          </div>
-          <aside class="hero-aside reveal">
-            <figure class="portrait"><img src="photo.jpg" alt="Ikel" /><figcaption><span>IKEL</span></figcaption></figure>
-            <dl class="hero-facts"><div><dt>Expérience</dt><dd>Data Engineering</dd></div><div><dt>Formation</dt><dd>EFREI Paris</dd></div><div><dt>Localisation</dt><dd>Paris, France</dd></div></dl>
-          </aside>
+    <main id="contenu">
+      <section class="home-hero shell" id="top">
+        <div>
+          <p class="kicker">Ikel Ouedraogo / Data &amp; AI Engineer</p>
+          <h1>Data &amp; AI<br />Engineer.</h1>
+          <p class="hero-summary">J’aide les équipes à transformer une idée ou un besoin métier en système utile. Mon approche : comprendre le sujet, poser un cadre clair, puis construire quelque chose de fiable et agréable à utiliser.</p>
+          <div class="hero-actions"><a class="text-button" href="#projets">Voir les projets</a><a class="text-button" href="notes/index.html">Voir les publications</a></div>
         </div>
+        <figure class="hero-reference"><img src="photo.jpg" alt="Portrait d’Ikel Ouedraogo" /><figcaption><strong>01 / PROFIL</strong><span>France</span></figcaption></figure>
       </section>
 
-      <section class="expertise section-shell" id="expertise">
-        <div class="section-heading"><div><span class="section-index">01 / EXPERTISE</span><h2>Construire, fiabiliser, <em>mettre à disposition.</em></h2></div><p>Une approche orientée produit : une donnée fiable, un usage clair et des choix techniques documentés.</p></div>
-        <div class="capabilities">
-          <article class="capability"><span class="cap-num">01</span><div><h3>Data engineering</h3><p>Ingestion, transformation, qualité et orchestration de flux adaptés aux besoins métiers.</p></div><div class="tags"><span>Python</span><span>SQL</span><span>PySpark</span><span>Snowflake</span></div></article>
-          <article class="capability"><span class="cap-num">02</span><div><h3>APIs et automatisation</h3><p>Services testables et documentés, avec une attention portée au contrat, à la sécurité et à l’observabilité.</p></div><div class="tags"><span>FastAPI</span><span>OpenAPI</span><span>Docker</span><span>CI/CD</span></div></article>
-          <article class="capability"><span class="cap-num">03</span><div><h3>IA appliquée et analytics</h3><p>Assistants sourcés, recherche documentaire et indicateurs qui restent compréhensibles pour les équipes.</p></div><div class="tags"><span>RAG</span><span>LLM</span><span>Power BI</span><span>Dataiku</span></div></article>
-        </div>
-        <div class="approach" aria-label="Méthode de travail">
-          <p class="approach-label">MA FAÇON DE TRAVAILLER</p>
-          <div><strong>01. Cadrer</strong><span>Identifier la décision à améliorer, les sources disponibles et le niveau de fiabilité attendu.</span></div>
-          <div><strong>02. Construire</strong><span>Créer un flux lisible, versionné et testable, avec des interfaces simples pour les personnes qui l’utilisent.</span></div>
-          <div><strong>03. Faire vivre</strong><span>Mesurer la qualité, tracer les incidents et documenter les compromis pour que l’équipe puisse faire évoluer le produit.</span></div>
-        </div>
-      </section>
-
-      <section class="projects section-shell" id="projets">
-        <div class="section-heading"><div><span class="section-index">02 / PROJETS SÉLECTIONNÉS</span><h2>Des projets qui montrent <em>la méthode.</em></h2></div><p>Chaque projet est déployé ou documenté. Les données de démonstration sont synthétiques quand c’est nécessaire, les sources ouvertes restent traçables.</p></div>
-        <div class="collection-meta" aria-label="Repères de lecture"><span><b>04</b> projets de recherche appliquée</span><span><b>06</b> composants testables dans l’atelier</span><span>la traçabilité avant l’effet</span></div>
-        <div class="project-lens" aria-label="Explorer les projets">
-          <p><span>EXPLORER PAR SUJET</span><strong id="project-filter-summary" aria-live="polite">Tous les projets</strong></p>
-          <div class="project-filter-list" role="group" aria-label="Filtres de projets">
-            <button class="project-filter" type="button" data-project-filter="all" aria-pressed="true">Tout voir</button>
-            <button class="project-filter" type="button" data-project-filter="production" aria-pressed="false">Production</button>
-            <button class="project-filter" type="button" data-project-filter="ai" aria-pressed="false">IA fiable</button>
-            <button class="project-filter" type="button" data-project-filter="stream" aria-pressed="false">Temps réel</button>
-            <button class="project-filter" type="button" data-project-filter="api" aria-pressed="false">APIs</button>
-          </div>
-        </div>
+      <section class="section shell" id="projets">
+        <div class="section-head"><div><p class="section-label">01 / PROJETS SÉLECTIONNÉS</p><h2>Projets.</h2></div><p>Des projets personnels construits pour explorer un problème précis, avec une démo ou une documentation lorsque c’est pertinent.</p></div>
         <div class="project-list">
-          <article class="project-feature retail-core-project" data-project-topics="production,quality">
-            <div class="project-number">01</div>
-            <div class="project-main">
-              <p class="project-type">RETAIL DATA ENGINEERING · DÉMO INTERACTIVE</p>
-              <h3>Retail Core</h3>
-              <p>Une plateforme data omnicanale qui relie ventes, stock, clients et qualité dans un même produit. Un DAG Airflow exécute réellement l’ingestion, le profil AWS local, les transformations dbt, les rapprochements et la publication des KPI avant le SLA métier.</p>
-              <ul>
-                <li>Airflow : 6 tâches ordonnées, retries, run complet validé et publication conditionnelle</li>
-                <li>dbt Core : 19 modèles, 78 tests, snapshot SCD2 et double réconciliation à zéro</li>
-                <li>S3, Kinesis, Lambda et CloudWatch via LocalStack ; infrastructure AWS cible en Terraform</li>
-              </ul>
-              <div class="project-actions">
-                <a href="https://ikel0.github.io/retail-core-lakehouse/" target="_blank" rel="noopener">Démo interactive ↗</a>
-                <a href="https://github.com/Ikel0/retail-core-lakehouse" target="_blank" rel="noopener">Code ↗</a>
-                <a href="https://github.com/Ikel0/retail-core-lakehouse/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture ↗</a>
-              </div>
-            </div>
-            <aside class="project-tech">Airflow / dbt<br />AWS / Terraform<br />Python / SQL<br />Docker / CI</aside>
-          </article>
-          <article class="project-feature research-dossier" data-project-topics="ai,quality">
-            <div class="project-number">02</div>
-            <div class="project-main"><p class="project-type">RAG AUDITABLE</p><h3>Evidence Desk</h3><p>Un assistant documentaire pour les équipes qui ne peuvent pas se contenter d’une réponse plausible. Il retrouve les passages utiles, affiche ses sources et vérifie séparément que la recherche, la réponse et les citations restent cohérentes.</p><ul><li>Recherche FTS5, reranking lexical et découpage documentaire déterministe</li><li>Citations vérifiables, réponse prudente et mode local sans dépendance LLM</li><li>Quality gate <code>golden.v1</code> avec métriques de retrieval, ancrage et citations</li></ul><div class="project-actions"><a href="https://github.com/Ikel0/evidence-desk" target="_blank" rel="noopener">Code ↗</a><a href="https://github.com/Ikel0/evidence-desk/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Fiche de travail ↗</a></div></div>
-            <aside class="project-tech">Python<br />SQLite FTS5<br />Quality gate<br />HTTP API</aside>
-          </article>
-          <article class="project-feature research-dossier" data-project-topics="production,api,quality">
-            <div class="project-number">03</div>
-            <div class="project-main"><p class="project-type">DATA CONTRACTS</p><h3>Pacte</h3><p>Un outil de contrôle de contrats de données pensé pour arrêter les erreurs au bon endroit. Avant ingestion, Pacte vérifie le schéma, les règles de qualité et les champs critiques, puis explique clairement pourquoi un lot est accepté ou rejeté.</p><ul><li>Contrats versionnés et règles de validation réutilisables</li><li>Décision d’ingestion explicable pour les producteurs et consommateurs</li><li>Journal d’audit et vue d’impact pour préparer les corrections</li></ul><div class="project-actions"><a href="https://pacte-ikel.onrender.com" target="_blank" rel="noopener">Démo ↗</a><a href="https://github.com/Ikel0/pacte" target="_blank" rel="noopener">Code ↗</a><a href="https://github.com/Ikel0/pacte/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Fiche de travail ↗</a></div></div>
-            <aside class="project-tech">Python<br />JSON contracts<br />SQLite<br />HTTP API</aside>
-          </article>
-          <article class="project-feature research-dossier" data-project-topics="production,stream">
-            <div class="project-number">04</div>
-            <div class="project-main"><p class="project-type">STREAMING ET OPÉRATIONS</p><h3>Routier</h3><p>Un control plane événementiel pour rendre une opération lisible : contrat strict, relecture Kafka sans doublon, règles de priorité et geste de prise en charge dans la même piste d’audit. La télémétrie est simulée, la provenance SNCF GTFS-RT est réelle et conservée séparément.</p><ul><li>Worker Kafka à commit manuel, sink idempotent sur <code>event_id</code> et dead letter topic</li><li>Règles versionnées, score de priorité, trace de corrélation et journal d’ingestion</li><li>Workflow de prise en charge, runbook et adapter GTFS-RT avec empreinte de contenu</li></ul><div class="project-actions"><a href="https://routier-ikel.onrender.com" target="_blank" rel="noopener">Démo ↗</a><a href="https://github.com/Ikel0/routier" target="_blank" rel="noopener">Code ↗</a><a href="https://github.com/Ikel0/routier/blob/main/docs/runbook.md" target="_blank" rel="noopener">Runbook ↗</a><a href="https://github.com/Ikel0/routier/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Fiche de travail ↗</a></div></div>
-            <aside class="project-tech">Python<br />Kafka / Redpanda<br />Contract v1.0<br />SQLite + audit</aside>
-          </article>
+          <article class="project-row"><span class="project-number">01</span><div><p class="project-kind">Plateforme data</p><h3>Retail Core</h3><p class="project-summary">Pipeline de démonstration pour rapprocher ventes, stock et clients. Airflow orchestre l’ingestion ; dbt produit les modèles et les tests ; LocalStack sert à reproduire les services AWS en local.</p><div class="project-links"><a href="https://ikel0.github.io/retail-core-lakehouse/" target="_blank" rel="noopener">Démo</a><a href="https://github.com/Ikel0/retail-core-lakehouse" target="_blank" rel="noopener">Code</a><a href="https://github.com/Ikel0/retail-core-lakehouse/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture</a></div></div><p class="project-stack">Airflow / dbt<br />AWS / Terraform<br />Python / SQL</p></article>
+          <article class="project-row"><span class="project-number">02</span><div><p class="project-kind">Recherche documentaire</p><h3>Evidence Desk</h3><p class="project-summary">Outil de recherche dans un corpus documentaire. Il retrouve des extraits, les affiche avec leurs sources et fonctionne aussi dans un mode local sans LLM.</p><div class="project-links"><a href="https://github.com/Ikel0/evidence-desk" target="_blank" rel="noopener">Code</a><a href="https://github.com/Ikel0/evidence-desk/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Documentation</a></div></div><p class="project-stack">Python<br />SQLite FTS5<br />HTTP API</p></article>
+          <article class="project-row"><span class="project-number">03</span><div><p class="project-kind">Qualité des données</p><h3>Pacte</h3><p class="project-summary">Contrôle de lots CSV avant ingestion : validation du schéma, règles de qualité, décision d’acceptation ou de rejet et journal d’audit.</p><div class="project-links"><a href="https://pacte-ikel.onrender.com" target="_blank" rel="noopener">Démo</a><a href="https://github.com/Ikel0/pacte" target="_blank" rel="noopener">Code</a><a href="https://github.com/Ikel0/pacte/blob/main/docs/working-paper.md" target="_blank" rel="noopener">Documentation</a></div></div><p class="project-stack">Python<br />JSON contracts<br />SQLite</p></article>
+          <article class="project-row"><span class="project-number">04</span><div><p class="project-kind">Systèmes événementiels</p><h3>Routier</h3><p class="project-summary">Chaîne Kafka de supervision de télémétrie : validation du contrat, traitement idempotent, événements rejetés, alertes et journal d’ingestion.</p><div class="project-links"><a href="https://routier-ikel.onrender.com" target="_blank" rel="noopener">Démo</a><a href="https://github.com/Ikel0/routier" target="_blank" rel="noopener">Code</a><a href="https://github.com/Ikel0/routier/blob/main/docs/runbook.md" target="_blank" rel="noopener">Runbook</a></div></div><p class="project-stack">Python<br />Kafka / Redpanda<br />SQLite</p></article>
         </div>
+        <section class="atelier" aria-labelledby="atelier-title"><div class="atelier-head"><div><p class="section-label">ATELIER / PROTOTYPES</p><h3 id="atelier-title">Atelier.</h3></div><p>Des projets plus courts pour travailler une brique technique précise, avec une démo accessible.</p></div><div class="atelier-list">
+          <article class="atelier-item"><span>01</span><div><h4>Courier API</h4><p>API de livraison fictive : clés, idempotence, webhooks et contrat OpenAPI.</p></div><a href="https://courier-api-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir</a></article>
+          <article class="atelier-item"><span>02</span><div><h4>Glacis</h4><p>Suivi de relevés de température pour une chaîne du froid.</p></div><a href="https://glacis-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir</a></article>
+          <article class="atelier-item"><span>03</span><div><h4>Trust Layer</h4><p>Contrôle d’un export CSV avant analyse, à partir d’un contrat versionné.</p></div><a href="https://trust-layer-ikel-vt39.onrender.com" target="_blank" rel="noopener">Ouvrir</a></article>
+          <article class="atelier-item"><span>04</span><div><h4>Signal</h4><p>Recherche locale dans des documents, avec les sources associées.</p></div><a href="https://signal-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir</a></article>
+          <article class="atelier-item"><span>05</span><div><h4>Flow</h4><p>Validation et surveillance d’événements avec traitement des doublons.</p></div><a href="https://flow-ikel-cgdd.onrender.com" target="_blank" rel="noopener">Ouvrir</a></article>
+          <article class="atelier-item"><span>06</span><div><h4>Metric Lab</h4><p>Petit pipeline d’analytics avec un contrôle qualité avant publication.</p></div><a href="https://metric-lab-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir</a></article>
+        </div></section>
+        <aside class="publication-link"><div><p class="section-label">PUBLICATIONS</p><h3>Notes de terrain sur la data, les systèmes et l’IA appliquée.</h3></div><a href="notes/index.html">Voir les publications</a></aside>
+      </section>
 
-        <div class="workshop">
-          <div class="workshop-heading"><div><span class="section-index">ATELIER DE SYSTÈMES</span><h3>Des composants ciblés, <em>pensés de bout en bout.</em></h3></div><p>Chaque démonstration traite un problème concret avec un contrat, une interface testable, une trace de décision et des limites écrites. Le périmètre est volontairement concentré, le parcours complet.</p></div>
-          <div class="workshop-grid">
-            <article class="workshop-card workshop-feature api-card" data-project-topics="api,production"><div class="workshop-card-top"><p>API DESIGN</p><span>01 / EN LIGNE</span></div><h4>Courier API</h4><p class="workshop-copy">Une API de livraison fictive pour travailler les clés d’accès, l’idempotence, les webhooks et les erreurs qu’un intégrateur doit réellement comprendre.</p><div class="workshop-detail"><strong>À tester</strong><span>Créer une clé de démonstration, envoyer une livraison et suivre le statut avec une trace exploitable.</span></div><div class="workshop-actions"><a href="https://courier-api-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a><a href="https://courier-api-ikel.onrender.com/docs" target="_blank" rel="noopener">Contrat OpenAPI ↗</a></div></article>
-            <article class="workshop-card workshop-feature stream-card" data-project-topics="stream,production"><div class="workshop-card-top"><p>KAFKA · STREAMING</p><span>02 / EN LIGNE</span></div><h4>Glacis</h4><p class="workshop-copy">Un scénario de chaîne du froid qui suit les mesures entrantes, distingue un écart isolé d’un incident et conserve le contexte nécessaire pour agir.</p><div class="workshop-detail"><strong>À tester</strong><span>Explorer un flux de relevés, comprendre une alerte et consulter un contexte météo public clairement séparé du scénario.</span></div><div class="workshop-actions"><a href="https://glacis-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
-            <article class="workshop-card" data-project-topics="production,quality"><div class="workshop-card-top"><p>DATA QUALITY</p><span>03</span></div><h4>Trust Layer</h4><p class="workshop-copy">Contrôler un export CSV avant analyse et rendre les erreurs compréhensibles, avec une décision rattachée au contrat et au lot exact.</p><div class="workshop-detail"><strong>À tester</strong><span>Contrat versionné, empreinte de source, règles de qualité explicites et profilage séparé d’une série open data World Bank.</span></div><div class="workshop-actions"><a href="https://trust-layer-ikel-vt39.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
-            <article class="workshop-card" data-project-topics="ai"><div class="workshop-card-top"><p>KNOWLEDGE SEARCH</p><span>04</span></div><h4>Signal</h4><p class="workshop-copy">Retrouver une règle, son contexte et sa source en conservant une réponse qui peut être vérifiée.</p><div class="workshop-detail"><strong>À tester</strong><span>Recherche locale explicable, avec une source World Bank optionnelle et citée lorsqu’elle est chargée.</span></div><div class="workshop-actions"><a href="https://signal-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
-            <article class="workshop-card" data-project-topics="stream,production"><div class="workshop-card-top"><p>EVENT MONITORING</p><span>05</span></div><h4>Flow</h4><p class="workshop-copy">Un moniteur d’événements qui valide le contrat, traite les doublons par idempotence et conserve une trace pour qualifier les signaux importants.</p><div class="workshop-detail"><strong>À tester</strong><span>Contrat explicite, réponse rejouée, conflit visible, P95 de latence et flux de marché public injecté manuellement.</span></div><div class="workshop-actions"><a href="https://flow-ikel-cgdd.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
-            <article class="workshop-card" data-project-topics="production,quality"><div class="workshop-card-top"><p>ANALYTICS ENGINEERING</p><span>06</span></div><h4>Metric Lab</h4><p class="workshop-copy">Un pipeline court qui transforme des sources CSV en mart analytique seulement après avoir validé leur cohérence.</p><div class="workshop-detail"><strong>À tester</strong><span>Quality gate, rejet explicite d’un lot incohérent, empreinte du lot, métriques reconstruites et contexte de taux BCE.</span></div><div class="workshop-actions"><a href="https://metric-lab-ikel.onrender.com" target="_blank" rel="noopener">Ouvrir la démo ↗</a></div></article>
-          </div>
-          <p class="workshop-footnote"><span>NOTE D’ATELIER</span> Ces démonstrations ne revendiquent pas une exploitation critique. Elles montrent toutefois le même enchaînement qu’un vrai composant : entrée contrôlée, traitement explicable, état consultable, test automatisé et amélioration documentée.</p>
+      <section class="section shell" id="competences">
+        <div class="section-head"><div><p class="section-label">02 / COMPÉTENCES</p><h2>Compétences.</h2></div></div>
+        <div class="competence-list">
+          <article class="competence-row"><span>01</span><h3>Pipelines et modélisation</h3><p>Ingestion, transformation, orchestration, data warehouse et restitution de données pour les équipes métier.</p></article>
+          <article class="competence-row"><span>02</span><h3>Qualité et traçabilité</h3><p>Tests, validations de schéma, contrats de données, audit et documentation des flux.</p></article>
+          <article class="competence-row"><span>03</span><h3>APIs et événements</h3><p>FastAPI, OpenAPI, idempotence, webhooks et traitement de messages avec Kafka.</p></article>
+          <article class="competence-row"><span>04</span><h3>AI engineering</h3><p>Assistants documentaires, RAG, intégration de LLMs, évaluation des réponses, citations et garde-fous pour mettre l’IA au service d’un usage réel.</p></article>
         </div>
       </section>
 
-      <section class="delivery section-shell" id="livrer">
-        <div class="section-heading"><div><span class="section-index">03 / PRÊT À LIVRER</span><h2>Une attention aux <em>détails qui comptent.</em></h2></div><p>Un produit data utile ne s’arrête pas à un notebook ou à une démonstration. Il doit pouvoir être compris, testé et repris par une équipe.</p></div>
-        <div class="delivery-grid">
-          <article><span>01</span><h3>Des contrats clairs</h3><p>Schémas, formats attendus, erreurs explicites et documentation : l’interface entre deux systèmes doit être aussi simple à utiliser qu’à faire évoluer.</p><ul><li>OpenAPI et endpoints cohérents</li><li>Contrats de données versionnés</li><li>Jeux d’exemples reproductibles</li></ul></article>
-          <article><span>02</span><h3>Une qualité visible</h3><p>Les contrôles ne doivent pas seulement bloquer une erreur. Ils doivent indiquer où elle se situe, qui est concerné et ce qu’il faut corriger.</p><ul><li>Validations avant ingestion</li><li>Tests de régression ciblés</li><li>Journal de décisions lisible</li></ul></article>
-          <article><span>03</span><h3>Des flux observables</h3><p>Quand un pipeline ou une intégration se comporte mal, il faut pouvoir suivre la trace, isoler l’incident et remettre le service en mouvement.</p><ul><li>Événements structurés</li><li>Idempotence et gestion des rejets</li><li>Signaux exploitables par l’équipe</li></ul></article>
+      <section class="section shell" id="technologies">
+        <div class="section-head"><div><p class="section-label">03 / TECHNOLOGIES</p><h2>Stack.</h2></div><p>Les outils que j’utilise pour construire, tester et mettre à disposition des produits data et IA.</p></div>
+        <div class="tech-groups">
+          <section class="tech-group"><h3>Data</h3><div class="tech-list"><span class="tech"><img src="https://cdn.simpleicons.org/python" alt="" onerror="this.remove()" /><b>Python</b></span><span class="tech"><img src="https://cdn.simpleicons.org/apacheairflow" alt="" onerror="this.remove()" /><b>Airflow</b></span><span class="tech"><img src="https://cdn.simpleicons.org/apachespark" alt="" onerror="this.remove()" /><b>PySpark</b></span><span class="tech"><img src="https://cdn.simpleicons.org/snowflake" alt="" onerror="this.remove()" /><b>Snowflake</b></span><span class="tech"><img src="https://cdn.simpleicons.org/dbt" alt="" onerror="this.remove()" /><b>dbt</b></span><span class="tech tech-word"><b>SQL</b></span><span class="tech tech-word"><b>Dataiku</b></span><span class="tech tech-word"><b>Hadoop</b></span></div></section>
+          <section class="tech-group"><h3>AI engineering</h3><div class="tech-list"><span class="tech"><img src="https://cdn.simpleicons.org/openai" alt="" onerror="this.remove()" /><b>OpenAI</b></span><span class="tech"><img src="https://cdn.simpleicons.org/langchain" alt="" onerror="this.remove()" /><b>LangChain</b></span><span class="tech"><img src="https://cdn.simpleicons.org/fastapi" alt="" onerror="this.remove()" /><b>FastAPI</b></span><span class="tech tech-word"><b>RAG</b></span><span class="tech tech-word"><b>LLM evals</b></span><span class="tech tech-word"><b>Embeddings</b></span><span class="tech tech-word"><b>Vector search</b></span></div></section>
+          <section class="tech-group"><h3>Plateforme</h3><div class="tech-list"><span class="tech"><img src="https://cdn.simpleicons.org/apachekafka" alt="" onerror="this.remove()" /><b>Kafka</b></span><span class="tech"><img src="https://cdn.simpleicons.org/docker" alt="" onerror="this.remove()" /><b>Docker</b></span><span class="tech"><img src="https://cdn.simpleicons.org/terraform" alt="" onerror="this.remove()" /><b>Terraform</b></span><span class="tech"><img src="https://cdn.simpleicons.org/amazonaws" alt="" onerror="this.remove()" /><b>AWS</b></span><span class="tech"><img src="https://cdn.simpleicons.org/git" alt="" onerror="this.remove()" /><b>Git</b></span><span class="tech"><img src="https://cdn.simpleicons.org/githubactions" alt="" onerror="this.remove()" /><b>CI/CD</b></span><span class="tech tech-word"><b>Power BI</b></span></div></section>
         </div>
-        <div class="delivery-note"><span>EN PRATIQUE</span><p>Mes projets de recherche appliquée approfondissent un sujet. Les projets Atelier servent de prototypes courts pour tester une brique précise, avec une démo publique et des limites assumées.</p></div>
       </section>
 
-      <section class="journey section-shell" id="parcours">
-        <div class="section-heading"><div><span class="section-index">04 / PARCOURS</span><h2>Une expérience ancrée <em>dans le concret.</em></h2></div><p>Un parcours construit entre production, recherche appliquée et compréhension des besoins métier.</p></div>
+      <section class="section shell" id="parcours">
+        <div class="section-head"><div><p class="section-label">04 / PARCOURS</p><h2>Parcours.</h2></div></div>
         <div class="timeline">
-          <article><p class="timeline-date">AOÛT 2023 À JUIN 2026</p><div><h3>Data Engineer <span>Generali</span></h3><p>Industrialisation de pipelines Big Data et d’outils de pilotage de la performance digitale. Travail sur l’ingestion, la transformation, les agrégations et la mise à disposition d’indicateurs pour les équipes métier.</p></div><div class="tags"><span>Hadoop</span><span>Snowflake</span><span>PySpark</span><span>Snowpark</span><span>Power BI</span></div></article>
-          <!-- <article><p class="timeline-date">2026</p><div><h3>AI Developer <span>WeAreMUSH</span></h3><p>Conception d’un assistant RAG autour de la transition écologique.</p></div><div class="tags"><span>RAG</span><span>OpenAI</span><span>Python</span><span>FastAPI</span></div></article> -->
-          <article><p class="timeline-date">FORMATION</p><div><h3>EFREI Paris <span>Big Data &amp; Machine Learning</span></h3><p>Programme Grande École, complété par un semestre académique à Kuala Lumpur.</p></div></article>
+          <article class="timeline-row"><p>2023 — 2026</p><div class="timeline-role"><h3>Data Engineer</h3><p>Generali</p></div><div><p>Industrialisation de pipelines de données marketing, migration vers Snowflake, contrôles qualité et mise à disposition d’indicateurs pour les équipes métier.</p></div></article>
+          <article class="timeline-row"><p>Formation</p><div class="timeline-role"><h3>EFREI Paris</h3><p>Big Data &amp; Machine Learning</p></div><div><p>Programme Grande École, complété par un semestre académique à Kuala Lumpur.</p></div></article>
         </div>
       </section>
 
-      <section class="contact section-shell" id="contact">
-        <div><span class="section-index">05 / CONTACT</span><h2>Parlons de votre <em>prochain sujet data.</em></h2></div>
-        <div class="contact-side"><p>Pour une opportunité, une mission ou une discussion technique, vous pouvez me contacter directement.</p><a class="email" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com <span>↗</span></a><div class="contact-tools"><button class="copy-email" id="copy-email" type="button" data-email="IkelITech@outlook.com">Copier l’email <span aria-live="polite"></span></button><span>Réponse rapide</span></div><div class="contact-links"><a href="https://www.linkedin.com/in/ikel-ouedraogo-8460041b7" target="_blank" rel="noopener">LinkedIn ↗</a><a href="tel:+33753830689">+33 7 53 83 06 89</a><span>France</span></div></div>
-      </section>
+      <section class="contact shell" id="contact"><div><p class="section-label">05 / CONTACT</p><h2>Contact.</h2></div><div class="contact-side"><p>Pour une opportunité, une mission ou une discussion technique.</p><a class="email" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com</a><div class="contact-facts"><a href="tel:+33753830689">+33 7 53 83 06 89</a><span>France</span></div></div></section>
     </main>
-    <footer><a class="brand" href="#top"><span class="brand-mark">I</span><span>IKEL</span></a><p>©Ikel DATA & IA</p><a href="#top">Haut de page ↑</a></footer>
-    <dialog class="command-palette" id="command-palette" aria-labelledby="command-title">
-      <div class="command-panel">
-        <div class="command-panel-head"><div><span>RACCOURCI DE NAVIGATION</span><h2 id="command-title">Trouver un point d’entrée.</h2></div><button class="command-close" id="command-close" type="button" aria-label="Fermer">Fermer <kbd>Esc</kbd></button></div>
-        <label class="command-search" for="command-search"><span>Rechercher</span><input id="command-search" type="search" autocomplete="off" placeholder="Projet, compétence, contact..." /></label>
-        <div class="command-list" id="command-list" aria-label="Résultats de navigation">
-          <button type="button" data-command-target="#expertise" data-command-search="expertise compétences data engineering">Expertise <span>Compétences et méthode</span></button>
-          <button type="button" data-command-target="#projets" data-command-search="projets retail core evidence desk pacte routier atelier">Projets <span>Recherche appliquée et Atelier</span></button>
-          <button type="button" data-command-target="#livrer" data-command-search="méthode qualité contrats livraison">Méthode <span>Ce que je rends lisible et exploitable</span></button>
-          <button type="button" data-command-target="#parcours" data-command-search="parcours generali efrei expérience">Parcours <span>Expérience et formation</span></button>
-          <button type="button" data-command-target="#contact" data-command-search="contact email linkedin téléphone">Contact <span>Écrire ou échanger</span></button>
-        </div>
-        <p class="command-empty" id="command-empty" hidden>Aucun raccourci ne correspond à cette recherche.</p>
-        <p class="command-hint"><kbd>↑↓</kbd> parcourir <kbd>Entrée</kbd> ouvrir <kbd>Esc</kbd> fermer</p>
-      </div>
-    </dialog>
-    <script src="script.js?v=toolbox-system-20260925"></script>
-    <script type="module" src="motion.js?v=toolbox-system-20260925"></script>
+    <footer><a class="brand" href="#top"><span class="brand-mark">I</span><span class="brand-word">IKEL</span></a><p class="footer-note">© Ikel Ouedraogo</p><a href="#top">Haut de page</a></footer>
+    <script src="script.js"></script>
   </body>
 </html>

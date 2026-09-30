@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pourquoi les doublons doivent être un cas de conception dans un flux d’événements." />
+    <meta name="theme-color" content="#edf2f3" />
+    <title>Les doublons dans un flux d’événements — Ikel Ouedraogo</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../portfolio.css" />
+  </head>
+  <body class="article-page article-page--systems">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header"><a class="brand" href="../index.html" aria-label="Accueil"><span class="brand-mark">I</span><span class="brand-word">IKEL</span></a><nav class="main-nav" id="main-navigation" aria-label="Navigation principale"><a href="../index.html#projets">Projets</a><a href="../index.html#competences">Compétences</a><a href="../index.html#technologies">Technos</a><a href="index.html" aria-current="page">Publications</a><a href="../index.html#parcours">Parcours</a><a href="../index.html#contact">Contact</a></nav><a class="header-contact" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com</a><button class="menu" id="menu" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Ouvrir le menu"><i></i><i></i></button></header>
+    <main id="contenu" class="article-shell shell">
+      <header class="article-head"><p class="article-meta">Systèmes · 28 août 2026 · 3 min</p><h1>Dans un flux d’événements, les doublons ne sont pas une exception.</h1><p class="article-deck">Une nouvelle tentative peut arriver parce qu’un réseau a coupé, qu’un consommateur redémarre ou qu’un message est rejoué. Le sujet n’est pas de prétendre que cela n’arrive pas ; c’est de rendre l’effet prévisible.</p></header>
+      <div class="article-grid"><aside class="article-aside"><div><strong>Mis à l’épreuve</strong><span>Ingestion, validation et alerting événementiel.</span></div></aside><article class="article-body">
+        <h2>Le cas paraît banal jusqu’au premier incident.</h2>
+        <p>Un producteur envoie un événement. Le système le traite, mais l’accusé de réception se perd. Le producteur réessaie. Sans règle explicite, l’événement est compté deux fois, une alerte part deux fois ou une opération est dupliquée.</p>
+        <p>Le comportement n’est pas forcément un bug de l’infrastructure. Les garanties de livraison impliquent souvent des rejouements. Il faut donc prévoir ce que signifie « déjà vu » dans le langage du métier.</p>
+        <h2>L’idempotence pose une règle simple.</h2>
+        <p>Pour une même intention, traiter le message une fois ou plusieurs fois doit conduire au même résultat observable. Cela suppose une clé stable, une manière de mémoriser les traitements déjà effectués et une décision claire quand deux messages portent la même clé mais un contenu différent.</p>
+        <ul><li>Même clé, même contenu : le résultat déjà produit est réutilisé.</li><li>Même clé, contenu différent : le conflit est visible, il ne passe pas silencieusement.</li><li>Nouvelle clé : le traitement suit son cours normal.</li></ul>
+        <h2>Rendre le comportement visible.</h2>
+        <p>Je ne mets pas les événements rejetés ou rejoués de côté comme du bruit. Ils rejoignent un journal avec la raison de la décision. Cela aide à distinguer un problème de source, une mauvaise clé ou un changement de contrat. C’est aussi ce qui permet de vérifier que la protection fonctionne réellement.</p>
+        <p>Une chaîne événementielle fiable ne promet pas un monde sans erreurs. Elle explique ce qu’elle fait lorsqu’elles arrivent.</p>
+        <section class="article-application" aria-labelledby="application-title"><h2 id="application-title">Mise en pratique</h2><p>La chaîne <a href="https://routier-ikel.onrender.com" target="_blank" rel="noopener">Routier</a> traite des événements de télémétrie avec validation de contrat, détection de doublons et journal d’ingestion.</p></section>
+        <section class="article-sources" aria-labelledby="sources-title"><h2 id="sources-title">Lectures &amp; sources</h2><ul><li><a href="https://www.rfc-editor.org/rfc/rfc9110.html" target="_blank" rel="noopener">IETF — HTTP Semantics</a><span>Les principes de sémantique HTTP qui cadrent les opérations répétées.</span></li><li><a href="https://kafka.apache.org/documentation/#semantics" target="_blank" rel="noopener">Apache Kafka — Delivery semantics</a><span>Repères sur la livraison, les rejouements et le traitement des messages.</span></li></ul></section>
+        <footer class="article-footer"><a href="index.html">Toutes les notes</a><a href="rag-sources.html">Revenir à la première note</a></footer>
+      </article></div>
+    </main>
+    <footer><a class="brand" href="../index.html"><span class="brand-mark">I</span><span class="brand-word">IKEL</span></a><p class="footer-note">© Ikel Ouedraogo</p><a href="#contenu">Haut de page</a></footer><script src="../script.js"></script>
+  </body>
+</html>
