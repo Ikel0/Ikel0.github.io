@@ -193,7 +193,7 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
 .profile-output { font-size: .85rem; }
 .profile-output strong a { font-family: var(--mono); }
 .hero-reference { border-left: 0; }
-.hero-reference img { min-height: 0; height: auto; aspect-ratio: 782 / 900; object-fit: cover; filter: none; }
+.hero-reference img { min-height: 0; height: auto; aspect-ratio: 660 / 880; object-fit: cover; filter: none; }
 .hero-reference { display: block; align-self: end; justify-self: end; width: 100%; max-width: 360px; min-height: 0; border-bottom: 1px solid var(--ink); }
 .hero-reference img { display: block; width: 100%; }
 @media (max-width: 820px) { .hero-reference { justify-self: start; max-width: 280px; } }
