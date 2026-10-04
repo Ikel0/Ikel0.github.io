@@ -34,7 +34,7 @@ const renderPosts = () => {
   }
   postList.innerHTML = visiblePosts.map(post => `
     <article class="post" data-post-id="${escapeHtml(post.id)}" data-type="${escapeHtml(post.type)}">
-      <p class="post-meta">${escapeHtml(post.label)} · ${escapeHtml(post.readingTime)}</p>
+      <p class="post-meta">${escapeHtml(post.label)}</p>
       <h2><a href="${escapeHtml(post.href)}">${escapeHtml(post.title)}</a></h2>
       <p class="post-summary">${escapeHtml(post.summary)}</p>
       ${renderMedia(post.media)}
