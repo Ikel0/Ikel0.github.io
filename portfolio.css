@@ -197,3 +197,15 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
 .hero-reference { display: block; align-self: end; justify-self: end; width: 100%; max-width: 360px; min-height: 0; border-bottom: 1px solid var(--ink); }
 .hero-reference img { display: block; width: 100%; }
 @media (max-width: 820px) { .hero-reference { justify-self: start; max-width: 280px; } }
+/* Hero : deux colonnes équilibrées. Le bloc texte et la photo sont centrés l'un sur
+   l'autre ; le titre ne domine plus au point d'écraser la photo. */
+.home-hero { grid-template-columns: minmax(0, 1fr) minmax(280px, 400px); gap: clamp(3rem, 6vw, 6.5rem); align-items: center; padding-top: clamp(3.5rem, 7vw, 6.5rem); padding-bottom: clamp(3.5rem, 7vw, 6.5rem); }
+.home-hero h1 { margin: 0 0 2rem; font-size: clamp(3rem, 6vw, 5.8rem); line-height: .92; }
+.home-hero .hero-summary { max-width: 36rem; margin: 0 0 1.8rem; font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.65; }
+.home-hero .hero-reference { align-self: center; justify-self: end; width: 100%; max-width: 400px; margin: 0; border-bottom: 0; }
+@media (max-width: 820px) {
+  .home-hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 2.5rem; }
+  .home-hero .hero-reference { order: -1; justify-self: start; max-width: 200px; }
+  .home-hero h1 { font-size: clamp(2.6rem, 11vw, 3.6rem); }
+}
+.project-shot img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
