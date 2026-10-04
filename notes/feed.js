@@ -32,21 +32,17 @@ const renderMedia = media => {
 const renderPosts = () => {
   const visiblePosts = posts.filter(post => selectedFilter === 'all' || post.type === selectedFilter);
   postCount.textContent = visiblePosts.length;
+  if (!visiblePosts.length) {
+    postList.innerHTML = '<p class="feed-empty">Aucune publication dans ce thème pour l’instant.</p>';
+    return;
+  }
   postList.innerHTML = visiblePosts.map(post => `
     <article class="post" data-post-id="${escapeHtml(post.id)}" data-type="${escapeHtml(post.type)}">
-      <header class="post-header">
-        <div class="post-author"><span aria-hidden="true">IO</span><div><strong>Ikel Ouedraogo</strong><p>Data &amp; AI Engineer · France</p></div></div>
-        <p class="post-meta">${escapeHtml(post.label)}<br /><time datetime="${escapeHtml(post.date)}">${formatDate(post.date)}</time></p>
-      </header>
-      <div class="post-copy">
-        <h2><a href="${escapeHtml(post.href)}"${post.external ? ' target="_blank" rel="noopener"' : ''}>${escapeHtml(post.title)}</a></h2>
-        <p>${escapeHtml(post.summary)}</p>
-      </div>
+      <p class="post-meta">${escapeHtml(post.label)} · <time datetime="${escapeHtml(post.date)}">${formatDate(post.date)}</time> · ${escapeHtml(post.readingTime)}</p>
+      <h2><a href="${escapeHtml(post.href)}">${escapeHtml(post.title)}</a></h2>
+      <p class="post-summary">${escapeHtml(post.summary)}</p>
       ${renderMedia(post.media)}
-      <footer class="post-footer">
-        <div class="post-tags">${post.tags.map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
-        <div class="post-actions"><span>${escapeHtml(post.readingTime)}</span><a href="${escapeHtml(post.href)}"${post.external ? ' target="_blank" rel="noopener"' : ''}>${post.external ? 'Ouvrir la démo' : 'Lire'}</a></div>
-      </footer>
+      ${post.project ? `<p class="post-project">Projet : <a href="${escapeHtml(post.project.href)}" target="_blank" rel="noopener">${escapeHtml(post.project.name)}</a></p>` : ''}
     </article>
   `).join('');
 };

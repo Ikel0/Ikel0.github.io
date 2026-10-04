@@ -1,116 +1,144 @@
-// Ajouter une publication ici, puis créer sa page HTML si elle doit être longue.
-// Pour un média, ajouter par exemple :
-// media: { type: "image", src: "media/mon-image.jpg", alt: "Description de l’image" }
-// Les types pris en charge sont image, video et embed.
+// Liste des publications, de la plus récente à la plus ancienne. Le champ project relie
+// chaque note au dépôt qui la soutient.
 window.publicationPosts = [
   {
-    id: "sources-rag",
-    type: "ai",
-    label: "AI engineering",
-    date: "2026-09-18",
-    readingTime: "5 min",
-    title: "Une réponse IA sans source peut sembler juste et rester inutilisable.",
-    summary: "Dans un assistant documentaire, je cherche moins une réponse brillante qu’un chemin vérifiable vers le passage qui la soutient.",
-    tags: ["RAG", "Citations", "Confiance"],
-    href: "rag-sources.html"
+    "id": "olist-backtest",
+    "type": "analytics",
+    "label": "Analytics",
+    "date": "2026-10-04",
+    "readingTime": "3 min",
+    "href": "olist-backtest.html",
+    "title": "J’ai testé trois règles de date de livraison sur les commandes Olist de 2018",
+    "summary": "Calibrées sur 2017, mesurées sur 2018 : recalculer la date par trajet ou en glissant sur 14 jours ne fait pas mieux qu’Olist. Seuls 5 jours de plus sur 25 trajets à risque retirent 12 % des retards.",
+    "project": {
+      "name": "Comptoir",
+      "href": "https://ikel0.github.io/comptoir/"
+    }
   },
   {
-    id: "data-contracts",
-    type: "data",
-    label: "Data",
-    date: "2026-09-11",
-    readingTime: "4 min",
-    title: "Un data contract protège surtout les décisions prises après le pipeline.",
-    summary: "Un schéma décrit une structure. Un contrat rend aussi visibles les règles, les hypothèses et les changements qui peuvent fausser une décision, humaine ou assistée par IA.",
-    tags: ["Data quality", "Contrats", "Gouvernance"],
-    href: "data-contracts.html"
+    "id": "olist-pieges",
+    "type": "analytics",
+    "label": "Analytics",
+    "date": "2026-10-04",
+    "readingTime": "3 min",
+    "href": "olist-pieges.html",
+    "title": "Sept pièges du jeu de données Olist, et ce que j’en ai fait",
+    "summary": "customer_id qui change à chaque commande, mois presque vides, avis en double, dates impossibles : ce qu’il faut corriger avant de calculer un taux de réachat ou une note moyenne.",
+    "project": {
+      "name": "Comptoir",
+      "href": "https://ikel0.github.io/comptoir/"
+    }
   },
   {
-    id: "llm-evaluation",
-    type: "ai",
-    label: "AI engineering",
-    date: "2026-09-04",
-    readingTime: "6 min",
-    title: "Avant d’évaluer un LLM, il faut décider ce qu’une bonne réponse signifie.",
-    summary: "Une réponse peut être fluide, rapide et peu utile. L’évaluation commence par des critères explicites : source, pertinence, refus, coût et délai.",
-    tags: ["LLM evals", "RAG", "Qualité"],
-    href: "evaluer-llm.html"
+    "id": "data-contracts",
+    "type": "data",
+    "label": "Data engineering",
+    "date": "2026-10-01",
+    "readingTime": "3 min",
+    "href": "data-contracts.html",
+    "title": "Ce que déclare le contrat de données de Pacte et ce qu’il bloque",
+    "summary": "Un lot avec une colonne en trop, currency, aux valeurs toutes valides : Pacte ne le publie pas et attend la revue du propriétaire du contrat. Le contrat, les règles et la décision.",
+    "project": {
+      "name": "Pacte",
+      "href": "https://github.com/Ikel0/pacte"
+    }
   },
   {
-    id: "idempotence-events",
-    type: "systems",
-    label: "Systèmes",
-    date: "2026-08-28",
-    readingTime: "3 min",
-    title: "Dans un flux d’événements, les doublons ne sont pas une exception.",
-    summary: "Les rejouements arrivent. Le sujet n’est pas de les empêcher à tout prix, mais de rendre leur effet prévisible et vérifiable.",
-    tags: ["Événements", "Idempotence", "Fiabilité"],
-    href: "idempotence.html"
+    "id": "audit-trail",
+    "type": "data",
+    "label": "Data engineering",
+    "date": "2026-10-01",
+    "readingTime": "3 min",
+    "href": "journal-audit.html",
+    "title": "Ce que Pacte enregistre dans un reçu d’audit",
+    "summary": "Valider deux fois le même fichier sous le même contrat ne crée qu’une ligne d’audit : l’identifiant du reçu vient des empreintes du lot et du contrat. Ce que ça garantit, et sa limite.",
+    "project": {
+      "name": "Pacte",
+      "href": "https://github.com/Ikel0/pacte"
+    }
   },
   {
-    id: "mcp-authorization",
-    type: "ai",
-    label: "AI engineering",
-    date: "2026-08-21",
-    readingTime: "5 min",
-    title: "MCP : connecter un modèle à un outil ne suffit pas à le rendre utile.",
-    summary: "Le protocole facilite l’accès aux outils. Il ne remplace ni l’autorisation, ni la validation, ni la trace de ce qui a réellement été demandé.",
-    tags: ["MCP", "Autorisation", "Sécurité"],
-    href: "mcp-autorisation.html"
+    "id": "data-freshness",
+    "type": "data",
+    "label": "Data engineering",
+    "date": "2026-10-01",
+    "readingTime": "3 min",
+    "href": "fraicheur-donnee.html",
+    "title": "Pourquoi Pacte déclare une fraîcheur de 24 heures sans la contrôler",
+    "summary": "Le contrat promet 24 heures, mais les fichiers de démonstration ne portent pas d’horodatage de livraison. J’ai laissé l’écart visible plutôt que de le combler avec une mesure fausse.",
+    "project": {
+      "name": "Pacte",
+      "href": "https://github.com/Ikel0/pacte"
+    }
   },
   {
-    id: "data-freshness",
-    type: "data",
-    label: "Data",
-    date: "2026-08-14",
-    readingTime: "4 min",
-    title: "La fraîcheur d’une donnée est une promesse, pas un simple timestamp.",
-    summary: "Dire qu’une table est fraîche ne veut rien dire sans préciser pour quel usage, avec quel délai acceptable et quelle action prendre lorsqu’il est dépassé.",
-    tags: ["Freshness", "SLA", "Qualité"],
-    href: "fraicheur-donnee.html"
+    "id": "idempotence-events",
+    "type": "systems",
+    "label": "Systèmes",
+    "date": "2026-10-01",
+    "readingTime": "3 min",
+    "href": "idempotence.html",
+    "title": "Comment Routier traite la relecture d’un même événement Kafka",
+    "summary": "Commit de l’offset après l’effet, clé primaire sur event_id, réponse duplicate et journal d’ingestion : ce qui se passe quand Kafka redonne un message déjà traité.",
+    "project": {
+      "name": "Routier",
+      "href": "https://github.com/Ikel0/routier"
+    }
   },
   {
-    id: "audit-trail",
-    type: "data",
-    label: "Data",
-    date: "2026-08-07",
-    readingTime: "4 min",
-    title: "Un journal d’audit utile doit permettre de reconstruire une décision.",
-    summary: "Un log technique dit qu’un traitement a eu lieu. Un journal d’audit explique quelles données, quelles règles et quelle version ont mené à un résultat.",
-    tags: ["Lineage", "Audit", "Traçabilité"],
-    href: "journal-audit.html"
+    "id": "api-errors",
+    "type": "systems",
+    "label": "Systèmes",
+    "date": "2026-10-01",
+    "readingTime": "3 min",
+    "href": "api-erreurs.html",
+    "title": "Ce que Courier API renvoie quand il refuse une requête",
+    "summary": "401, 403, 409, 422, 429 : chaque refus de Courier API, dans quel ordre il est vérifié, et pourquoi un refus libère la clé d’idempotence.",
+    "project": {
+      "name": "Courier API",
+      "href": "https://github.com/Ikel0/courier-api"
+    }
   },
   {
-    id: "api-problem-details",
-    type: "systems",
-    label: "Systèmes",
-    date: "2026-07-31",
-    readingTime: "3 min",
-    title: "Une API fiable doit expliquer pourquoi elle refuse.",
-    summary: "Un code 4xx ou 5xx est rarement suffisant pour corriger le problème. Une erreur exploitable doit indiquer la cause, le contexte et la suite possible.",
-    tags: ["API", "Erreurs", "Contrat"],
-    href: "api-erreurs.html"
+    "id": "sources-rag",
+    "type": "ai",
+    "label": "IA appliquée",
+    "date": "2026-10-01",
+    "readingTime": "3 min",
+    "href": "rag-sources.html",
+    "title": "Evidence Desk : citer le passage exact et sa version dans une réponse documentaire",
+    "summary": "Recherche SQLite FTS5, sélection de passages actifs, citation au format source@version#passage et abstention quand les preuves manquent. Sans LLM par défaut.",
+    "project": {
+      "name": "Evidence Desk",
+      "href": "https://github.com/Ikel0/evidence-desk"
+    }
   },
   {
-    id: "agents-tools",
-    type: "ai",
-    label: "AI engineering",
-    date: "2026-07-24",
-    readingTime: "5 min",
-    title: "Un agent n’est pas autonome parce qu’il peut appeler des outils.",
-    summary: "La capacité d’agir n’est utile que si les limites sont claires : outils disponibles, permissions, validation et moment où une personne doit reprendre la main.",
-    tags: ["Agents", "Tool use", "Garde-fous"],
-    href: "agents-outils.html"
+    "id": "llm-evaluation",
+    "type": "ai",
+    "label": "IA appliquée",
+    "date": "2026-10-01",
+    "readingTime": "3 min",
+    "href": "evaluer-llm.html",
+    "title": "Ce que vérifie la suite golden.v2 d’Evidence Desk, cas par cas",
+    "summary": "Quatre cas, dont un refus attendu, et cinq contrôles séparés : retrieval, ancrage, citation, traçabilité et abstention. Ce que chaque contrôle attrape.",
+    "project": {
+      "name": "Evidence Desk",
+      "href": "https://github.com/Ikel0/evidence-desk"
+    }
   },
   {
-    id: "observability",
-    type: "systems",
-    label: "Systèmes",
-    date: "2026-07-17",
-    readingTime: "5 min",
-    title: "Surveiller un système IA, ce n’est pas seulement mesurer sa latence.",
-    summary: "Le temps de réponse compte, mais il ne dit ni si la recherche était bonne, ni quel outil a été appelé, ni si le résultat a aidé la personne qui l’utilise.",
-    tags: ["Observabilité", "Traces", "Évaluation"],
-    href: "observabilite.html"
+    "id": "agents-tools",
+    "type": "ai",
+    "label": "IA appliquée",
+    "date": "2026-10-01",
+    "readingTime": "3 min",
+    "href": "agents-outils.html",
+    "title": "Sillage AI : un triage d’incident data qui propose un runbook et attend une décision humaine",
+    "summary": "Un score de routage déterministe, un runbook versionné, une décision humaine obligatoire et un journal d’audit chaîné. Aucune action sur les données n’est automatisée.",
+    "project": {
+      "name": "Sillage AI",
+      "href": "https://github.com/Ikel0/sillage-ai"
+    }
   }
 ];
