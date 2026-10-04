@@ -134,10 +134,10 @@ window.publicationPosts = [
     "date": "2026-10-01",
     "readingTime": "3 min",
     "href": "agents-outils.html",
-    "title": "Sillage AI : un triage d’incident data qui propose un runbook et attend une décision humaine",
+    "title": "Sillage : un triage d’incident data qui propose un runbook et attend une décision humaine",
     "summary": "Un score de routage déterministe, un runbook versionné, une décision humaine obligatoire et un journal d’audit chaîné. Aucune action sur les données n’est automatisée.",
     "project": {
-      "name": "Sillage AI",
+      "name": "Sillage",
       "href": "https://github.com/Ikel0/sillage-ai"
     }
   }
