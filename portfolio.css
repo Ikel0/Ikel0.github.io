@@ -226,3 +226,51 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
 .home-hero .hero-reference { position: relative; border-bottom: 0; isolation: isolate; }
 .home-hero .hero-reference::before { content: ""; position: absolute; z-index: -1; left: 4%; right: 4%; top: 22%; bottom: 0; background: #dce8ff; box-shadow: 5px 5px 0 #b6cdf6; }
 .home-hero .hero-reference img { position: relative; }
+/* Ouverture façon note d'analyse : identité, titre sobre, présentation, puis la
+   meilleure preuve (le graphique de Comptoir) dessinée en SVG. */
+.opening { padding-top: clamp(3rem, 7vw, 5.5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+.opening-text { max-width: 46rem; }
+.identity { display: flex; align-items: center; gap: 1rem; margin: 0 0 2rem; }
+.identity img { width: 80px; height: 100px; object-fit: cover; border-radius: 2px; }
+.identity p { display: grid; margin: 0; font: 1rem/1.4 var(--sans); }
+.identity strong { font-size: 1.1rem; font-weight: 600; }
+.identity span { color: var(--muted); font-size: .92rem; }
+.opening h1 { display: block; max-width: none; margin: 0 0 1.2rem; padding: 0; background: none; box-shadow: none; font: 700 clamp(2.2rem, 4.2vw, 3rem)/1.08 var(--sans); letter-spacing: -.02em; }
+.opening .hero-summary { max-width: 42rem; margin: 0 0 1.6rem; font-size: clamp(1.05rem, 1.4vw, 1.18rem); line-height: 1.65; }
+.opening-proof { max-width: 64rem; margin: clamp(2.5rem, 5vw, 3.5rem) 0 0; padding-top: 1.2rem; border-top: 1px solid var(--ink); }
+.proof-title { margin: 0 0 1rem; font: 600 1rem/1.4 var(--sans); }
+.opening-proof svg { display: block; width: 100%; height: auto; font-family: var(--sans); }
+.opening-proof .kept { fill: var(--blue); }
+.opening-proof .missed { fill: #b4441c; }
+.opening-proof text { fill: var(--ink); font-size: 13px; }
+.opening-proof .chart-axis { fill: var(--muted); }
+.opening-proof figcaption { display: flex; justify-content: space-between; gap: 1.5rem; align-items: baseline; margin-top: .8rem; color: var(--muted); font: .9rem/1.5 var(--sans); }
+.opening-proof figcaption a { flex: none; color: var(--blue-dark); font-weight: 600; }
+.latest-notes { margin: 0; padding: 0; border-top: 1px solid var(--ink); list-style: none; }
+.latest-notes li { display: flex; justify-content: space-between; gap: 1.5rem; align-items: baseline; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+.latest-notes a { color: var(--ink); font: 600 1.08rem/1.35 var(--sans); text-decoration: none; }
+.latest-notes a:hover { color: var(--blue-dark); text-decoration: underline; }
+.latest-notes span { flex: none; color: var(--muted); font: .88rem var(--sans); }
+.latest-all { margin: 1.2rem 0 0; }
+.latest-all a { color: var(--blue-dark); font-weight: 600; }
+@media (max-width: 640px) {
+  .opening-proof figcaption, .latest-notes li { flex-direction: column; gap: .35rem; }
+  .opening-proof text { font-size: 15px; }
+}
+.main-nav a[aria-current="true"] { color: var(--blue-dark); }
+.main-nav a[aria-current="true"]::after { transform: scaleX(1); transform-origin: left; }
+/* Transitions entre pages : fondu natif du navigateur, ignoré là où il n'existe pas. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+/* Titres de section et noms de projets dans le même système que le titre principal :
+   sans, taille mesurée. Le serif reste au texte des notes. */
+.section-head h2, .profile-head h2, .contact h2, .atelier-head h3 { display: block; padding: 0; background: none; box-shadow: none; font: 700 clamp(1.8rem, 3vw, 2.4rem)/1.1 var(--sans); letter-spacing: -.015em; }
+.project-row h3 { margin: .3rem 0 .6rem; font: 700 clamp(1.4rem, 2.2vw, 1.75rem)/1.15 var(--sans); letter-spacing: -.01em; }
+.section, .profile-path { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+.journal-head h1, .article-head h1 { display: block; padding: 0; background: none; box-shadow: none; font: 700 clamp(2.2rem, 4.2vw, 3rem)/1.08 var(--sans); letter-spacing: -.02em; }
+.cert-list { margin: 0; padding: 0; border-top: 1px solid var(--ink); list-style: none; }
+.cert-list li { display: grid; grid-template-columns: 6rem minmax(0, 1fr) minmax(0, .8fr); gap: 1rem; align-items: baseline; padding: .9rem 0; border-bottom: 1px solid var(--line); font: 1rem/1.4 var(--sans); }
+.cert-list strong { font-weight: 600; }
+.cert-list span { color: var(--muted); font-size: .92rem; }
+@media (max-width: 640px) { .cert-list li { grid-template-columns: 5rem minmax(0, 1fr); } .cert-list li > span:last-child { grid-column: 2; } }

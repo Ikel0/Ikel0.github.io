@@ -23,36 +23,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../portfolio.css?v=20261004s" />
+    <link rel="stylesheet" href="../portfolio.css?v=20261005f" />
     <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#contenu">Skip to content</a>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Home"><span class="brand-mark">I</span><span class="brand-word">Ikel Ouedraogo</span></a>
-      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-        <a href="#competences">Skills</a><a href="#projets">Projects</a><a href="#technologies">Tech</a><a href="../notes/index.html">Publications</a><a href="#parcours">Background</a><a href="#contact">Contact</a>
-      </nav>
+      <nav class="main-nav" id="main-navigation" aria-label="Main navigation"><a href="#projets">Projects</a><a href="#competences">Skills</a><a href="#publications">Publications</a><a href="#technologies">Stack</a><a href="#certifications">Certifications</a><a href="#parcours">Background</a><a href="#contact">Contact</a></nav>
       <div class="header-tools"><a class="language-switch" href="../index.html" lang="fr" hreflang="fr" aria-label="Passer en français">FR</a><a class="header-contact" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com</a></div>
       <button class="menu" id="menu" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Open menu"><i></i><i></i></button>
     </header>
 
     <main id="contenu">
-      <section class="home-hero shell" id="top">
-        <div>
-          <h1>Data Engineer,<br />analytics-minded.</h1>
+      <section class="opening shell" id="top">
+        <div class="opening-text">
+          <div class="identity"><img src="../media/portrait-blue.jpg" width="720" height="900" alt="" /><p><strong>Ikel Ouedraogo</strong><span>France</span></p></div>
+          <h1>Analytics-minded Data Engineer</h1>
           <p class="hero-summary">For three years at Generali, I built marketing pipelines and worked on the migration to Snowflake. I also produced the campaign performance metrics that digital marketing, management and sales teams followed every week and every month.</p>
           <div class="hero-actions"><a class="text-button" href="#projets">See projects</a><a class="text-button" href="../notes/index.html">See publications</a></div>
-        </div>
-        <figure class="hero-reference"><img src="../media/portrait.png" width="760" height="618" alt="Portrait of Ikel Ouedraogo" /></figure>
-      </section>
-
-      <section class="profile-path shell" id="competences" aria-labelledby="profil-title">
-        <header class="profile-head"><div><h2 id="profil-title">Skills, and where to check them.</h2></div><p>Data Engineer by trade. At Generali I also built the metrics and reports business teams used; AI is something I practise on personal projects.</p></header>
-        <div class="profile-steps">
-          <article><div><p class="profile-role">Core role · 3 years in production</p><h3>Data engineering</h3><p>Ingestion, orchestration, data contracts and quality checks. At Generali, I industrialised marketing pipelines and worked on the migration to Snowflake.</p></div><p class="profile-output">Evidence<strong><a href="#parcours">Generali</a><a href="https://github.com/Ikel0/pacte" target="_blank" rel="noopener">Pacte</a><a href="https://github.com/Ikel0/routier" target="_blank" rel="noopener">Routier</a></strong></p></article>
-          <article><div><p class="profile-role">Data Analyst · Analytics Engineer</p><h3>Analytics</h3><p>Define a KPI and its grain, model it in SQL and dbt, build the report, then explain the variances. Comptoir shows the whole process on public data, down to the tested recommendations and the ones I rule out.</p></div><p class="profile-output">Evidence<strong><a href="#parcours">Generali</a><a href="https://ikel0.github.io/comptoir/" target="_blank" rel="noopener">Comptoir</a><a href="https://ikel0.github.io/retail-core-lakehouse/" target="_blank" rel="noopener">Retail Core</a></strong></p></article>
-          <article><div><p class="profile-role">AI Engineer · complementary</p><h3>Applied AI</h3><p>Evidence Desk answers with the cited passage and abstains when its sources are too weak; Sillage proposes an incident triage plan that an operator accepts or rejects.</p></div><p class="profile-output">Evidence<strong><a href="https://github.com/Ikel0/evidence-desk" target="_blank" rel="noopener">Evidence Desk</a><a href="https://github.com/Ikel0/sillage-ai" target="_blank" rel="noopener">Sillage</a></strong></p></article>
         </div>
       </section>
 
@@ -70,7 +59,21 @@
           <article class="atelier-item"><div><h4>Metric Lab</h4><p>Reject an invalid batch without touching the mart, then rebuild the valid batch and read the daily metrics.</p><div class="atelier-links"><a href="https://metric-lab-ikel.onrender.com" target="_blank" rel="noopener">Demo</a><a href="https://github.com/Ikel0/metric-lab" target="_blank" rel="noopener">Code</a></div></div></article>
           <article class="atelier-item"><div><h4>Trust Layer</h4><p>Reject an out-of-contract CSV in one click, then separately profile a public World Bank series with its provenance.</p><div class="atelier-links"><a href="https://trust-layer-ikel-vt39.onrender.com" target="_blank" rel="noopener">Demo</a><a href="https://github.com/Ikel0/trust-layer" target="_blank" rel="noopener">Code</a></div></div></article>
         </div></section>
-        <aside class="publication-link"><div><p class="section-label">PUBLICATIONS</p><h3>Field notes on data, systems and applied AI.</h3></div><a href="../notes/index.html">Read publications</a></aside>
+      </section>
+
+      <section class="profile-path shell" id="competences" aria-labelledby="profil-title">
+        <header class="profile-head"><div><h2 id="profil-title">Skills, and where to check them.</h2></div><p>Data Engineer by trade. At Generali I also built the metrics and reports business teams used; AI is something I practise on personal projects.</p></header>
+        <div class="profile-steps">
+          <article><div><p class="profile-role">Core role · 3 years in production</p><h3>Data engineering</h3><p>Ingestion, orchestration, data contracts and quality checks. At Generali, I industrialised marketing pipelines and worked on the migration to Snowflake.</p></div><p class="profile-output">Evidence<strong><a href="#parcours">Generali</a><a href="https://github.com/Ikel0/pacte" target="_blank" rel="noopener">Pacte</a><a href="https://github.com/Ikel0/routier" target="_blank" rel="noopener">Routier</a></strong></p></article>
+          <article><div><p class="profile-role">Data Analyst · Analytics Engineer</p><h3>Analytics</h3><p>Define a KPI and its grain, model it in SQL and dbt, build the report, then explain the variances. Comptoir shows the whole process on public data, down to the tested recommendations and the ones I rule out.</p></div><p class="profile-output">Evidence<strong><a href="#parcours">Generali</a><a href="https://ikel0.github.io/comptoir/" target="_blank" rel="noopener">Comptoir</a><a href="https://ikel0.github.io/retail-core-lakehouse/" target="_blank" rel="noopener">Retail Core</a></strong></p></article>
+          <article><div><p class="profile-role">AI Engineer · complementary</p><h3>Applied AI</h3><p>Evidence Desk answers with the cited passage and abstains when its sources are too weak; Sillage proposes an incident triage plan that an operator accepts or rejects.</p></div><p class="profile-output">Evidence<strong><a href="https://github.com/Ikel0/evidence-desk" target="_blank" rel="noopener">Evidence Desk</a><a href="https://github.com/Ikel0/sillage-ai" target="_blank" rel="noopener">Sillage</a></strong></p></article>
+        </div>
+      </section>
+
+      <section class="section shell" id="publications">
+        <div class="section-head"><div><h2>Publications</h2></div><p>Latest notes, written from my projects (in French).</p></div>
+        <ul class="latest-notes"><li><a href="../notes/olist-backtest.html" lang="fr">J’ai testé trois règles de date de livraison sur les commandes Olist de 2018</a><span>Analytics · 3 min</span></li><li><a href="../notes/olist-pieges.html" lang="fr">Sept pièges du jeu de données Olist, et ce que j’en ai fait</a><span>Analytics · 3 min</span></li><li><a href="../notes/data-contracts.html" lang="fr">Pourquoi une colonne en trop met une publication Pacte en attente</a><span>Data engineering · 3 min</span></li></ul>
+        <p class="latest-all"><a href="../notes/index.html">All publications</a></p>
       </section>
 
       <section class="section shell" id="technologies">
@@ -82,17 +85,22 @@
         </div>
       </section>
 
+      <section class="section shell" id="certifications">
+        <div class="section-head"><div><h2>Certifications</h2></div><p>Certified courses taken since 2026, related to data and AI.</p></div>
+        <ul class="cert-list"><li><span class="cert-year">2026</span><strong>Snowflake Data Engineering</strong><span>Professional certificate, Snowflake</span></li><li><span class="cert-year">2026</span><strong>Introduction to Data Engineering</strong><span>IBM</span></li><li><span class="cert-year">2026</span><strong>Google Cloud Fundamentals: Core Infrastructure</strong><span>Google Cloud</span></li><li><span class="cert-year">2026</span><strong>AI Fundamentals and the Cloud</strong><span>AWS</span></li><li><span class="cert-year">2026</span><strong>Agile Project Management</strong><span>Google</span></li><li><span class="cert-year">In progress</span><strong>RAG and Agentic AI</strong><span>Professional certificate, IBM</span></li></ul>
+      </section>
+
       <section class="section shell" id="parcours">
         <div class="section-head"><div><h2>Background</h2></div></div>
         <div class="timeline">
           <article class="timeline-row"><p>2023 to June 2026</p><div class="timeline-role"><h3>Data Engineer</h3><p>Generali</p></div><div><p><b>Engineering.</b> Industrialised marketing pipelines and took part in the migration to Snowflake.</p><p><b>Analytics.</b> Power BI campaign performance dashboards, reviewed every week and every month and used to steer campaigns. Targeted statistical analyses for business teams.</p></div></article>
-          <article class="timeline-row"><p>Education</p><div class="timeline-role"><h3>EFREI Paris</h3><p>Big Data &amp; Machine Learning</p></div><div><p>Grande École programme, complemented by an academic semester in Kuala Lumpur.</p><p>Snowflake Data Engineering professional certificate (2026). In progress: IBM RAG and Agentic AI professional certificate.</p></div></article>
+          <article class="timeline-row"><p>Education</p><div class="timeline-role"><h3>EFREI Paris</h3><p>Big Data &amp; Machine Learning</p></div><div><p>Grande École programme, complemented by an academic semester in Kuala Lumpur.</p></div></article>
         </div>
       </section>
 
       <section class="contact shell" id="contact"><div><h2>Contact</h2></div><div class="contact-side"><p>Open to Data Engineer, Analytics Engineer and Data Analyst roles, as well as data-focused AI Engineer roles.</p><a class="email" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com</a><div class="contact-facts"><a href="https://github.com/Ikel0" target="_blank" rel="noopener">GitHub</a><span>France</span></div></div></section>
     </main>
     <footer><a class="brand" href="#top"><span class="brand-mark">I</span><span class="brand-word">Ikel Ouedraogo</span></a><p class="footer-note">© Ikel Ouedraogo<a class="footer-privacy" href="../privacy.html">privacy</a></p><a href="#top">Back to top</a></footer>
-    <script src="../script.js"></script>
+    <script src="../script.js?v=20261005g"></script>
   </body>
 </html>
