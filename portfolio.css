@@ -209,3 +209,11 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
   .home-hero h1 { font-size: clamp(2.6rem, 11vw, 3.6rem); }
 }
 .project-shot img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+/* Stack : trois listes de texte, sans pastilles ni logos. */
+.tech-groups { gap: 0 clamp(1.5rem, 4vw, 3rem); border-left: 0; }
+.tech-group { padding: 1.1rem 0 1.4rem; border-right: 0; }
+.tech-group h3 { margin: 0 0 .6rem; }
+.tech-line { margin: 0; color: var(--ink); font: .84rem/1.85 var(--mono); }
+/* Derniers libellés en sans, casse normale. */
+.footer-note { font-family: var(--sans) !important; font-size: .88rem !important; text-transform: none !important; letter-spacing: 0 !important; }
+.timeline-row > p { font: 500 .9rem var(--sans); }
