@@ -26,96 +26,96 @@ window.publicationPosts = [
     }
   },
   {
+    "id": "couche-semantique",
+    "type": "analytics",
+    "label": "Analytics",
+    "href": "couche-semantique.html",
+    "title": "Couche sémantique : un format commun existe, la portabilité reste à prouver",
+    "summary": "MetricFlow ouvert, OSI devenu Apache Ossie, un benchmark dbt de 2026 : où en est la couche sémantique, et pourquoi la définition des métriques compte encore plus quand un LLM interroge l’entrepôt.",
+    "project": {
+      "name": "Comptoir",
+      "href": "https://github.com/Ikel0/comptoir/blob/main/METRICS.md"
+    }
+  },
+  {
+    "id": "text-to-sql",
+    "type": "analytics",
+    "label": "Analytics",
+    "href": "text-to-sql.html",
+    "title": "Text-to-SQL : les scores des benchmarks face aux entrepôts réels",
+    "summary": "Spider 2.0, BIRD, BEAVER et un benchmark dbt de 2026 : les scores du text-to-SQL, l’écart avec les entrepôts réels, et ce qui aide un LLM à écrire un SQL juste."
+  },
+  {
+    "id": "formats-tables",
+    "type": "data",
+    "label": "Data engineering",
+    "href": "formats-tables.html",
+    "title": "Formats de tables ouverts en 2026 : la décision se joue sur le catalogue",
+    "summary": "Iceberg v3 et le catalogue REST, Snowflake ouvert aux écritures externes, Delta et Hudi tournés vers le catalogue, DuckLake 1.0 : ce qu’un Data Engineer venu de Snowflake doit vérifier en premier."
+  },
+  {
     "id": "data-contracts",
     "type": "data",
     "label": "Data engineering",
     "href": "data-contracts.html",
-    "title": "Pourquoi une colonne en trop met une publication Pacte en attente",
-    "summary": "Un lot avec une colonne en trop, currency, aux valeurs toutes valides : Pacte ne le publie pas et attend la revue du propriétaire du contrat. Le contrat, les règles et la décision.",
+    "title": "Data contracts : ce qui bloque chez les producteurs, ce que les outils savent versionner",
+    "summary": "Ce que disent les praticiens des data contracts (le blocage est côté producteurs), où en sont ODCS 3.2.0, les contrats dbt et datacontract-cli sur le versionnage, et ce que Pacte couvre ou non.",
     "project": {
       "name": "Pacte",
       "href": "https://github.com/Ikel0/pacte"
     }
   },
   {
-    "id": "audit-trail",
-    "type": "data",
-    "label": "Data engineering",
-    "href": "journal-audit.html",
-    "title": "Le reçu d’audit de Pacte, champ par champ",
-    "summary": "Valider deux fois le même fichier sous le même contrat ne crée qu’une ligne d’audit : l’identifiant du reçu vient des empreintes du lot et du contrat. Ce que ça garantit, et sa limite.",
-    "project": {
-      "name": "Pacte",
-      "href": "https://github.com/Ikel0/pacte"
-    }
-  },
-  {
-    "id": "data-freshness",
+    "id": "fraicheur-donnee",
     "type": "data",
     "label": "Data engineering",
     "href": "fraicheur-donnee.html",
-    "title": "Pourquoi Pacte déclare une fraîcheur de 24 heures sans la contrôler",
-    "summary": "Le contrat promet 24 heures, mais les fichiers de démonstration ne portent pas d’horodatage de livraison. J’ai laissé l’écart visible plutôt que de le combler avec une mesure fausse.",
+    "title": "Mesurer la fraîcheur d’une donnée commence par choisir l’horodatage",
+    "summary": "Trois mesures derrière le mot « fraîcheur », ce que fait la commande freshness de dbt en 2026, les fausses alertes du week-end, et pourquoi Pacte déclare 24 h sans les contrôler.",
     "project": {
       "name": "Pacte",
       "href": "https://github.com/Ikel0/pacte"
     }
   },
   {
-    "id": "idempotence-events",
+    "id": "idempotence",
     "type": "systems",
     "label": "Systèmes",
     "href": "idempotence.html",
-    "title": "Comment Routier traite la relecture d’un même événement Kafka",
-    "summary": "Commit de l’offset après l’effet, clé primaire sur event_id, réponse duplicate et journal d’ingestion : ce qui se passe quand Kafka redonne un message déjà traité.",
+    "title": "Exactly once avec Kafka : où s’arrête la garantie des transactions",
+    "summary": "Ce que les transactions Kafka garantissent vraiment, les malentendus fréquents, le 2PC de la KIP-939 accepté mais pas livré, et ce que cela confirme dans Routier.",
     "project": {
       "name": "Routier",
       "href": "https://github.com/Ikel0/routier"
     }
   },
   {
-    "id": "api-errors",
-    "type": "systems",
-    "label": "Systèmes",
-    "href": "api-erreurs.html",
-    "title": "Courier API, refus par refus : ordre des contrôles et écart avec la RFC 9457",
-    "summary": "401, 403, 409, 422, 429 : chaque refus de Courier API, dans quel ordre il est vérifié, et pourquoi un refus libère la clé d’idempotence.",
-    "project": {
-      "name": "Courier API",
-      "href": "https://github.com/Ikel0/courier-api"
-    }
-  },
-  {
-    "id": "sources-rag",
+    "id": "rag-sources",
     "type": "ai",
     "label": "IA appliquée",
     "href": "rag-sources.html",
-    "title": "Evidence Desk : citer le passage exact et sa version dans une réponse documentaire",
-    "summary": "Recherche SQLite FTS5, sélection de passages actifs, citation au format source@version#passage et abstention quand les preuves manquent. Sans LLM par défaut.",
+    "title": "Évaluer un RAG : mesurer la recherche à part et compter les refus",
+    "summary": "Ce que mesurent les praticiens pour évaluer un RAG : recherche évaluée à part, fidélité au contexte, refus comptés séparément, et pourquoi le 4 sur 4 d’Evidence Desk est facile.",
     "project": {
       "name": "Evidence Desk",
       "href": "https://github.com/Ikel0/evidence-desk"
     }
   },
   {
-    "id": "llm-evaluation",
+    "id": "mcp-donnees",
     "type": "ai",
     "label": "IA appliquée",
-    "href": "evaluer-llm.html",
-    "title": "Pourquoi le 4 sur 4 d’Evidence Desk est facile à obtenir",
-    "summary": "Quatre cas, dont un refus attendu, et cinq contrôles séparés : retrieval, ancrage, citation, traçabilité et abstention. Ce que chaque contrôle attrape.",
-    "project": {
-      "name": "Evidence Desk",
-      "href": "https://github.com/Ikel0/evidence-desk"
-    }
+    "href": "mcp-donnees.html",
+    "title": "Brancher un modèle sur un entrepôt via MCP : les contrôles que j’exigerais",
+    "summary": "Ce que la spécification MCP impose sur l’autorisation, comment l’injection passe par les résultats d’outils (cas Supabase), ce que recommande OWASP, et les contrôles à exiger avant de brancher un modèle sur un entrepôt."
   },
   {
-    "id": "agents-tools",
+    "id": "agents-outils",
     "type": "ai",
     "label": "IA appliquée",
     "href": "agents-outils.html",
-    "title": "Sillage : un triage d’incident data qui propose un runbook et attend une décision humaine",
-    "summary": "Un score de routage déterministe, un runbook versionné, une décision humaine obligatoire et un journal d’audit chaîné. Aucune action sur les données n’est automatisée.",
+    "title": "Agents IA d’astreinte : ce que mesure le premier banc d’essai",
+    "summary": "Les agents d’astreinte de PagerDuty, Datadog et Monte Carlo préparent l’enquête, mais un banc d’essai de l’été 2026 montre qu’ils trouvent rarement toute la cause : la décision reste humaine.",
     "project": {
       "name": "Sillage",
       "href": "https://github.com/Ikel0/sillage-ai"
