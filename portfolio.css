@@ -184,7 +184,7 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
 .feed-head { display: block; }
 /* Le mono est réservé au code et à la donnée (stack, noms de dépôts). Les libellés
    éditoriaux passent en sans, sans majuscules forcées. */
-.home-hero { grid-template-columns: minmax(0, 1fr); }
+
 .brand { font: 600 .95rem var(--sans); letter-spacing: 0; }
 .brand-word { font-size: inherit; }
 .profile-role, .project-kind, .post-meta, .article-meta, .feed-head, .section-label, .atelier-area, .profile-output { font-family: var(--sans) !important; text-transform: none !important; letter-spacing: 0 !important; }
@@ -192,3 +192,8 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
 .post-meta, .article-meta, .feed-head, .section-label { font-size: .88rem; font-weight: 500; }
 .profile-output { font-size: .85rem; }
 .profile-output strong a { font-family: var(--mono); }
+.hero-reference { border-left: 0; }
+.hero-reference img { min-height: 0; height: auto; aspect-ratio: 782 / 900; object-fit: cover; filter: none; }
+.hero-reference { display: block; align-self: end; justify-self: end; width: 100%; max-width: 360px; min-height: 0; border-bottom: 1px solid var(--ink); }
+.hero-reference img { display: block; width: 100%; }
+@media (max-width: 820px) { .hero-reference { justify-self: start; max-width: 280px; } }
