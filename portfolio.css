@@ -286,25 +286,28 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
     --blue: #7aa5f2; --blue-dark: #a3c0f6; color-scheme: dark;
   }
 }
-:root[data-theme="dark"] .article-page--data, :root[data-theme="dark"] .post[data-type="data"] .post-meta { --article-topic: #e0a25a; }
-:root[data-theme="dark"] .post[data-type="data"] .post-meta { color: #e0a25a; }
-:root[data-theme="dark"] .post[data-type="ai"] .post-meta { color: #8fb1f0; }
-:root[data-theme="dark"] .post[data-type="systems"] .post-meta { color: #6fc49b; }
-:root[data-theme="dark"] .post[data-type="analytics"] .post-meta { color: #d98ab8; }
-:root[data-theme="dark"] .article-page--ai { --article-topic: #8fb1f0; }
-:root[data-theme="dark"] .article-page--systems { --article-topic: #6fc49b; }
-:root[data-theme="dark"] .article-page--analytics { --article-topic: #d98ab8; }
+:root[data-theme="dark"] .article-page--data, :root[data-theme="dark"] .post[data-type="data"] .post-meta { --article-topic: #d1a06e; }
+:root[data-theme="dark"] .post[data-type="data"] .post-meta { color: #d1a06e; }
+:root[data-theme="dark"] .post[data-type="ai"] .post-meta { color: #98b3e3; }
+:root[data-theme="dark"] .post[data-type="systems"] .post-meta { color: #7fb89a; }
+:root[data-theme="dark"] .post[data-type="analytics"] .post-meta { color: #c49ab3; }
+:root[data-theme="dark"] .article-page--ai { --article-topic: #98b3e3; }
+:root[data-theme="dark"] .article-page--systems { --article-topic: #7fb89a; }
+:root[data-theme="dark"] .article-page--analytics { --article-topic: #c49ab3; }
 :root[data-theme="dark"] .project-shot, :root[data-theme="dark"] .identity img { border: 1px solid var(--line); }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .post[data-type="data"] .post-meta { color: #e0a25a; }
-  :root:not([data-theme="light"]) .post[data-type="ai"] .post-meta { color: #8fb1f0; }
-  :root:not([data-theme="light"]) .post[data-type="systems"] .post-meta { color: #6fc49b; }
-  :root:not([data-theme="light"]) .post[data-type="analytics"] .post-meta { color: #d98ab8; }
-  :root:not([data-theme="light"]) .article-page--data { --article-topic: #e0a25a; }
-  :root:not([data-theme="light"]) .article-page--ai { --article-topic: #8fb1f0; }
-  :root:not([data-theme="light"]) .article-page--systems { --article-topic: #6fc49b; }
-  :root:not([data-theme="light"]) .article-page--analytics { --article-topic: #d98ab8; }
+  :root:not([data-theme="light"]) .post[data-type="data"] .post-meta { color: #d1a06e; }
+  :root:not([data-theme="light"]) .post[data-type="ai"] .post-meta { color: #98b3e3; }
+  :root:not([data-theme="light"]) .post[data-type="systems"] .post-meta { color: #7fb89a; }
+  :root:not([data-theme="light"]) .post[data-type="analytics"] .post-meta { color: #c49ab3; }
+  :root:not([data-theme="light"]) .article-page--data { --article-topic: #d1a06e; }
+  :root:not([data-theme="light"]) .article-page--ai { --article-topic: #98b3e3; }
+  :root:not([data-theme="light"]) .article-page--systems { --article-topic: #7fb89a; }
+  :root:not([data-theme="light"]) .article-page--analytics { --article-topic: #c49ab3; }
   :root:not([data-theme="light"]) .project-shot, :root:not([data-theme="light"]) .identity img { border: 1px solid var(--line); }
 }
 .theme-toggle { padding: .2rem .45rem; border: 1px solid var(--line); background: none; color: var(--ink); font: 500 .8rem var(--sans); cursor: pointer; }
 .theme-toggle:hover { border-color: var(--ink); }
+/* Encart « Projet » des notes en sans, comme le reste des libellés. */
+.article-aside { font: .92rem/1.55 var(--sans) !important; }
+.article-aside strong { font: 600 .82rem var(--sans) !important; text-transform: none !important; letter-spacing: 0 !important; }
