@@ -4,10 +4,6 @@ const filterButtons = [...document.querySelectorAll('[data-filter]')];
 const posts = window.publicationPosts || [];
 let selectedFilter = 'all';
 
-const formatDate = value => new Intl.DateTimeFormat('fr-FR', {
-  day: 'numeric', month: 'long', year: 'numeric'
-}).format(new Date(`${value}T12:00:00`));
-
 const escapeHtml = value => String(value)
   .replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;')
@@ -38,7 +34,7 @@ const renderPosts = () => {
   }
   postList.innerHTML = visiblePosts.map(post => `
     <article class="post" data-post-id="${escapeHtml(post.id)}" data-type="${escapeHtml(post.type)}">
-      <p class="post-meta">${escapeHtml(post.label)} · <time datetime="${escapeHtml(post.date)}">${formatDate(post.date)}</time> · ${escapeHtml(post.readingTime)}</p>
+      <p class="post-meta">${escapeHtml(post.label)} · ${escapeHtml(post.readingTime)}</p>
       <h2><a href="${escapeHtml(post.href)}">${escapeHtml(post.title)}</a></h2>
       <p class="post-summary">${escapeHtml(post.summary)}</p>
       ${renderMedia(post.media)}
