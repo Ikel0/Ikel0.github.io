@@ -45,3 +45,27 @@ if (trackedSections.length) {
   }, { passive: true });
   update();
 }
+
+// Bascule clair / sombre. Le thème initial est posé dans le <head> avant l'affichage.
+const themeButton = document.querySelector('.theme-toggle');
+if (themeButton) {
+  const root = document.documentElement;
+  const english = root.lang === 'en';
+  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const currentTheme = () => root.dataset.theme || (darkQuery.matches ? 'dark' : 'light');
+  const updateLabel = () => {
+    const dark = currentTheme() === 'dark';
+    themeButton.textContent = english ? (dark ? 'Light' : 'Dark') : (dark ? 'Clair' : 'Sombre');
+    themeButton.setAttribute('aria-label', english
+      ? (dark ? 'Switch to light theme' : 'Switch to dark theme')
+      : (dark ? 'Passer en thème clair' : 'Passer en thème sombre'));
+  };
+  themeButton.addEventListener('click', () => {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (error) { /* stockage indisponible : le choix vaut pour la page */ }
+    updateLabel();
+  });
+  darkQuery.addEventListener('change', updateLabel);
+  updateLabel();
+}
