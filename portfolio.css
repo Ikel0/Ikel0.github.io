@@ -311,3 +311,14 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
 /* Encart « Projet » des notes en sans, comme le reste des libellés. */
 .article-aside { font: .92rem/1.55 var(--sans) !important; }
 .article-aside strong { font: 600 .82rem var(--sans) !important; text-transform: none !important; letter-spacing: 0 !important; }
+/* Formations certifiantes : intitulé, organisme, lien de vérification. */
+.cert-list li { grid-template-columns: minmax(0, 1fr) minmax(0, .7fr) auto; }
+.cert-list a { color: var(--blue-dark); font: 600 .9rem var(--sans); }
+.cert-list em { color: var(--muted); font: italic .9rem var(--sans); }
+@media (max-width: 640px) { .cert-list li { grid-template-columns: 1fr; gap: .2rem; } .cert-list li > span:last-child { grid-column: auto; } }
+/* Ouverture : portrait détouré sans fond, posé sur la page ; « France » en discret. */
+.identity { align-items: flex-end; gap: 1.2rem; }
+.identity img { width: 190px; height: auto; object-fit: contain; border: 0 !important; border-radius: 0; }
+.identity p { padding-bottom: .6rem; }
+.identity span { font-size: .8rem; letter-spacing: .01em; }
+@media (max-width: 640px) { .identity img { width: 150px; } }
