@@ -36,7 +36,7 @@ window.publicationPosts = [
     "date": "2026-10-01",
     "readingTime": "3 min",
     "href": "data-contracts.html",
-    "title": "Ce que déclare le contrat de données de Pacte et ce qu’il bloque",
+    "title": "Pourquoi une colonne en trop met une publication Pacte en attente",
     "summary": "Un lot avec une colonne en trop, currency, aux valeurs toutes valides : Pacte ne le publie pas et attend la revue du propriétaire du contrat. Le contrat, les règles et la décision.",
     "project": {
       "name": "Pacte",
@@ -50,7 +50,7 @@ window.publicationPosts = [
     "date": "2026-10-01",
     "readingTime": "3 min",
     "href": "journal-audit.html",
-    "title": "Ce que Pacte enregistre dans un reçu d’audit",
+    "title": "Le reçu d’audit de Pacte, champ par champ",
     "summary": "Valider deux fois le même fichier sous le même contrat ne crée qu’une ligne d’audit : l’identifiant du reçu vient des empreintes du lot et du contrat. Ce que ça garantit, et sa limite.",
     "project": {
       "name": "Pacte",
@@ -92,7 +92,7 @@ window.publicationPosts = [
     "date": "2026-10-01",
     "readingTime": "3 min",
     "href": "api-erreurs.html",
-    "title": "Ce que Courier API renvoie quand il refuse une requête",
+    "title": "Courier API, refus par refus : ordre des contrôles et écart avec la RFC 9457",
     "summary": "401, 403, 409, 422, 429 : chaque refus de Courier API, dans quel ordre il est vérifié, et pourquoi un refus libère la clé d’idempotence.",
     "project": {
       "name": "Courier API",
@@ -120,7 +120,7 @@ window.publicationPosts = [
     "date": "2026-10-01",
     "readingTime": "3 min",
     "href": "evaluer-llm.html",
-    "title": "Ce que vérifie la suite golden.v2 d’Evidence Desk, cas par cas",
+    "title": "Pourquoi le 4 sur 4 d’Evidence Desk est facile à obtenir",
     "summary": "Quatre cas, dont un refus attendu, et cinq contrôles séparés : retrieval, ancrage, citation, traçabilité et abstention. Ce que chaque contrôle attrape.",
     "project": {
       "name": "Evidence Desk",

@@ -182,3 +182,13 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
 .post-project { margin: .7rem 0 0; font-size: .9rem; }
 .feed-empty { padding: 1.5rem 0; color: var(--muted); }
 .feed-head { display: block; }
+/* Le mono est réservé au code et à la donnée (stack, noms de dépôts). Les libellés
+   éditoriaux passent en sans, sans majuscules forcées. */
+.home-hero { grid-template-columns: minmax(0, 1fr); }
+.brand { font: 600 .95rem var(--sans); letter-spacing: 0; }
+.brand-word { font-size: inherit; }
+.profile-role, .project-kind, .post-meta, .article-meta, .feed-head, .section-label, .atelier-area, .profile-output { font-family: var(--sans) !important; text-transform: none !important; letter-spacing: 0 !important; }
+.profile-role, .project-kind { font-size: .9rem; font-weight: 500; }
+.post-meta, .article-meta, .feed-head, .section-label { font-size: .88rem; font-weight: 500; }
+.profile-output { font-size: .85rem; }
+.profile-output strong a { font-family: var(--mono); }
