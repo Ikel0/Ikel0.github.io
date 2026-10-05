@@ -334,3 +334,14 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
   .opening { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 2rem; }
   .opening-portrait { order: -1; width: min(240px, 70%); margin: 0 auto 1.5rem 0; }
 }
+
+/* Nom à côté du portrait */
+@media (min-width: 761px) { .opening { grid-template-columns: minmax(0, 1fr) minmax(260px, 390px); } }
+.opening-portrait { display: flex; flex-direction: row-reverse; align-items: flex-end; gap: 1rem; }
+.opening-portrait img { width: min(270px, 68%); flex: none; }
+.opening-portrait figcaption { padding-bottom: clamp(2.5rem, 5vw, 4rem); font: 600 1.05rem/1.3 var(--sans); color: var(--ink); white-space: nowrap; }
+@media (max-width: 760px) {
+  .opening-portrait { flex-direction: row; width: auto; margin: 0 0 1.5rem; }
+  .opening-portrait img { width: 170px; }
+  .opening-portrait figcaption { padding-bottom: 1.2rem; }
+}
