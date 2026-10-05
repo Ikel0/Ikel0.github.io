@@ -345,3 +345,16 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
   .opening-portrait img { width: 170px; }
   .opening-portrait figcaption { padding-bottom: 1.2rem; }
 }
+
+/* Alignement du portrait sur le bloc de texte : bas de la photo et nom sur la ligne des boutons */
+.opening { padding-bottom: clamp(3rem, 6vw, 5rem); align-items: end; }
+.opening-text { padding-bottom: 0; }
+.opening-portrait { align-self: stretch; justify-content: flex-start; }
+.opening-portrait img { width: auto; height: 100%; max-height: 340px; max-width: 72%; object-fit: contain; object-position: bottom; }
+.opening-portrait figcaption { padding-bottom: .86rem; }
+@media (max-width: 760px) {
+  .opening { padding-bottom: clamp(3rem, 6vw, 5rem); }
+  .opening-portrait { align-self: auto; }
+  .opening-portrait img { height: auto; width: 170px; max-width: none; }
+  .opening-portrait figcaption { padding-bottom: 1.2rem; }
+}
