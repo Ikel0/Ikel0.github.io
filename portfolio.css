@@ -527,3 +527,9 @@ code, a, .tech-line, .project-links, .cert-list { hyphens: manual; }
 .schema-step.is-dim { opacity: .25; }
 @media (max-width: 760px) { .project-row > .schema { padding: 1rem 1rem .5rem; } .schema-scenario { min-height: 44px; } }
 @media (prefers-reduced-motion: reduce) { .schema-edge, .schema-node, .schema-node circle, .schema-step, .schema-step::before { transition: none; } }
+
+/* Portrait : plus petit, traité en noir et blanc pour rester dans l'encre et le papier du site */
+.opening-portrait img { max-height: 260px; filter: grayscale(1) contrast(1.06) brightness(1.02); }
+:root[data-theme="dark"] .opening-portrait img { filter: grayscale(1) contrast(1.04) brightness(.96); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .opening-portrait img { filter: grayscale(1) contrast(1.04) brightness(.96); } }
+@media (max-width: 760px) { .opening-portrait img { width: 140px; max-height: none; } }
