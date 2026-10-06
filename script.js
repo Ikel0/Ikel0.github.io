@@ -10,7 +10,10 @@ const setMenuState = open => {
   menu.setAttribute('aria-label', open ? menuLabels.close : menuLabels.open);
 };
 
-menu.addEventListener('click', () => setMenuState(!nav.classList.contains('is-open')));
+menu.addEventListener('click', () => {
+  setMenuState(!nav.classList.contains('is-open'));
+  placeIndicator();
+});
 document.querySelectorAll('.main-nav a').forEach(link => {
   link.addEventListener('click', () => setMenuState(false));
 });
@@ -21,6 +24,34 @@ document.addEventListener('keydown', event => {
     menu.focus();
   }
 });
+
+// Indicateur de lien courant : un seul trait, qui glisse sous le lien marqué aria-current.
+// Posé sans transition la première fois et après un changement de taille, pour que rien ne
+// bouge sans qu'on ait fait quelque chose.
+const navIndicator = document.createElement('span');
+navIndicator.className = 'nav-indicator';
+navIndicator.setAttribute('aria-hidden', 'true');
+nav.append(navIndicator);
+const placeIndicator = (animate = true) => {
+  const current = nav.querySelector('a[aria-current]');
+  if (!current || nav.classList.contains('is-open')) {
+    navIndicator.classList.remove('is-on');
+    return;
+  }
+  const navBox = nav.getBoundingClientRect();
+  const box = current.getBoundingClientRect();
+  if (!animate || !navIndicator.classList.contains('is-on')) {
+    navIndicator.classList.remove('is-live');
+    void navIndicator.offsetWidth;
+  }
+  navIndicator.style.transform = `translateX(${box.left - navBox.left}px)`;
+  navIndicator.style.width = `${box.width}px`;
+  navIndicator.classList.add('is-on');
+  requestAnimationFrame(() => navIndicator.classList.add('is-live'));
+};
+placeIndicator(false);
+window.addEventListener('resize', () => placeIndicator(false));
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => placeIndicator(false));
 
 // Menu : souligne la section en cours de lecture (page d'accueil seulement). La section
 // active est la dernière dont le haut a dépassé 20 % de la hauteur de l'écran.
@@ -39,6 +70,7 @@ if (trackedSections.length) {
     });
     sectionLinks.forEach(link => link.toggleAttribute('aria-current', link === current));
     if (current) current.setAttribute('aria-current', 'true');
+    placeIndicator();
   };
   window.addEventListener('scroll', () => {
     if (!scheduled) { scheduled = true; requestAnimationFrame(update); }
@@ -69,3 +101,33 @@ if (themeButton) {
   darkQuery.addEventListener('change', updateLabel);
   updateLabel();
 }
+
+// Raccourcis clavier : « t » bascule le thème, « ? » ouvre la liste des raccourcis dans un
+// dialog natif (Échap le ferme). Rien n'est capturé quand le focus est dans un champ.
+const inField = element => Boolean(element && element.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"])'));
+const shortcutsText = document.documentElement.lang === 'en'
+  ? { title: 'Keyboard shortcuts', theme: 'Switch theme', list: 'Show this list', esc: 'Esc', close: 'Close' }
+  : { title: 'Raccourcis clavier', theme: 'Changer de thème', list: 'Afficher cette liste', esc: 'Échap', close: 'Fermer' };
+let shortcutsDialog = null;
+const toggleShortcuts = () => {
+  if (!shortcutsDialog) {
+    shortcutsDialog = document.createElement('dialog');
+    shortcutsDialog.className = 'shortcuts';
+    shortcutsDialog.setAttribute('aria-labelledby', 'shortcuts-title');
+    shortcutsDialog.innerHTML = `<h2 id="shortcuts-title">${shortcutsText.title}</h2>
+      <dl><dt><kbd>t</kbd></dt><dd>${shortcutsText.theme}</dd><dt><kbd>?</kbd></dt><dd>${shortcutsText.list}</dd><dt><kbd>${shortcutsText.esc}</kbd></dt><dd>${shortcutsText.close}</dd></dl>
+      <form method="dialog"><button type="submit">${shortcutsText.close}</button></form>`;
+    document.body.append(shortcutsDialog);
+  }
+  if (shortcutsDialog.open) shortcutsDialog.close(); else shortcutsDialog.showModal();
+};
+document.addEventListener('keydown', event => {
+  if (event.altKey || event.ctrlKey || event.metaKey || inField(event.target)) return;
+  if (event.key === 't' && themeButton && !(shortcutsDialog && shortcutsDialog.open)) {
+    event.preventDefault();
+    themeButton.click();
+  } else if (event.key === '?') {
+    event.preventDefault();
+    toggleShortcuts();
+  }
+});

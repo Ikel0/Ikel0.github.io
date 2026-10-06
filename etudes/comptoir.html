@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Étude de cas du projet Comptoir : la question posée aux 96 470 commandes Olist, les contraintes, les choix techniques et ce que j’ai écarté, ce qui a cassé en route, et les limites de la note." />
     <meta name="theme-color" content="#edf2f3" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ikel0.github.io/etudes/comptoir.html" />
+    <meta property="og:title" content="Comptoir, de l’archive Olist à une note dont chaque chiffre se vérifie" />
+    <meta property="og:description" content="Étude de cas du projet Comptoir : la question posée aux 96 470 commandes Olist, les contraintes, les choix techniques et ce que j’ai écarté, ce qui a cassé en route, et les limites de la note." />
+    <meta property="og:image" content="https://ikel0.github.io/media/og/etudes-comptoir.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>Étude de cas : Comptoir · Ikel Ouedraogo</title>
     <link rel="icon" href="../favicon-96x96.png" type="image/png" sizes="96x96" />
     <link rel="icon" href="../favicon.ico" sizes="any" />
@@ -13,8 +21,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
-    <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
-    <link rel="stylesheet" href="../portfolio.css?v=20261006g" />
+    <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&((performance.getEntriesByType("navigation")[0]||{}).type!=="back_forward"))document.documentElement.classList.add("is-entering")</script>
+    <link rel="stylesheet" href="../portfolio.css?v=20261006i" />
     <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
   </head>
   <body class="article-page article-page--analytics">
@@ -28,10 +36,10 @@
         <h2>Ce avec quoi il fallait faire</h2>
         <p>Les achats s’arrêtent au 29 août 2018, ce qui borne tout calcul de réachat. L’archive ne contient pas les visites sans achat&nbsp;: impossible de mesurer ce qu’une date de livraison plus lointaine coûte en ventes. Olist ne donne qu’une date estimée, sans heure, et envoie le questionnaire d’avis à cette date, que le colis soit arrivé ou non. Les commandes à plusieurs vendeurs (1,3&nbsp;%) n’ont pas une date par colis, je les ai sorties des calculs par trajet. Côté outils, tout devait se rejouer sur un portable et en intégration continue sans identifiants, depuis l’archive brute de 44,7&nbsp;Mo.</p>
         <h2>Les décisions, et ce que j’ai écarté</h2>
-        <p>DuckDB plutôt qu’un entrepôt cloud. Les sept fichiers chargés pèsent 65&nbsp;Mo. BigQuery ou Snowflake auraient ajouté un compte, des identifiants dans la CI et une facture, sans gain sur ce volume. <code>make all</code> télécharge l’archive, vérifie son empreinte SHA-256, charge, construit, teste et calcule, et GitHub Actions rejoue la même commande à chaque push.</p>
+        <p>J’ai choisi DuckDB, parce que les sept fichiers chargés pèsent 65&nbsp;Mo. Un entrepôt cloud comme BigQuery ou Snowflake aurait ajouté un compte, des identifiants dans la CI et une facture, sans gain sur ce volume. <code>make all</code> télécharge l’archive, vérifie son empreinte SHA-256, charge, construit, teste et calcule, et GitHub Actions rejoue la même commande à chaque push.</p>
         <p>dbt plutôt qu’un script pandas. Les CSV entrent en texte brut dans un schéma <code>raw</code>, le typage se fait en staging, là où les tests vérifient clés, relations et valeurs admises. Un script unique aurait enfoui les règles qui changent le résultat (l’avis retenu par commande, la fenêtre d’éligibilité au réachat) au milieu du code. En dbt, ce sont des modèles testés, et les deux paramètres du réachat, <code>data_end_date</code> et <code>repeat_window_days</code>, sont des variables de projet.</p>
-        <p>Un backtest plutôt qu’une règle jugée sur les données qui l’ont réglée. Les règles de date de livraison sont calibrées sur 2017 puis appliquées aux 51&nbsp;983 commandes livrées de janvier à août 2018. C’est ce qui permet d’écrire qu’une règle ne marche pas.</p>
-        <p>Un site statique contrôlé par <code>check_numbers.py</code> plutôt qu’un tableau de bord. Un chiffre recopié à la main n’est plus vérifié par personne. <code>analysis.py</code> écrit tout dans <code>results.json</code>, chaque chiffre de la page porte un attribut <code>data-k</code> qui pointe dans ce fichier, et <code>check_numbers.py</code> échoue si les deux divergent. <code>test_backtest.py</code> recalcule à part, en Python depuis <code>fct_orders</code>, la grille de marges de la figure 3.</p>
+        <p>Le backtest sépare les données qui règlent une règle de celles qui la jugent. Les règles de date de livraison sont calibrées sur 2017 puis appliquées aux 51&nbsp;983 commandes livrées de janvier à août 2018. Sans cette séparation, je n’aurais pas pu écrire qu’une règle ne marche pas.</p>
+        <p>La note est un site statique, pas un tableau de bord, et c’est <code>check_numbers.py</code> qui le contrôle, parce qu’un chiffre recopié à la main n’est plus vérifié par personne.<code>analysis.py</code> écrit tout dans <code>results.json</code>, chaque chiffre de la page porte un attribut <code>data-k</code> qui pointe dans ce fichier, et <code>check_numbers.py</code> échoue si les deux divergent. <code>test_backtest.py</code> recalcule à part, en Python depuis <code>fct_orders</code>, la grille de marges de la figure 3.</p>
         <p><code>METRICS.md</code> plutôt que des définitions laissées dans le SQL. Chaque indicateur y a son grain, sa formule, le modèle qui le porte et le piège qu’il évite. Un lecteur qui doute du 3,1&nbsp;% de réachat doit pouvoir lire comment il est calculé sans ouvrir le projet dbt.</p>
         <h2>Ce qui a cassé ou surpris</h2>
         <p><code>customer_id</code> change à chaque commande (99&nbsp;441 identifiants pour 99&nbsp;441 commandes), la personne est <code>customer_unique_id</code>, soit 96&nbsp;096 clients. Cinq mois comptent moins de 400 commandes. 547 commandes ont plusieurs avis et 789 identifiants d’avis couvrent plusieurs commandes. 166 commandes sont remises au transporteur avant l’achat, 23 livrées avant d’être expédiées, 260 ont un paiement qui s’écarte du panier de plus de 5 centimes. Et 4&nbsp;976 avis sont déposés avant la livraison, à 95&nbsp;% pour des commandes en retard, avec une note moyenne de 1,93 contre 4,28 pour les autres&nbsp;: ils font 29&nbsp;% des avis à 1 ou 2 étoiles.</p>
@@ -45,6 +53,6 @@
         <footer class="article-footer"><a href="../index.html#projets">Retour aux projets</a></footer>
       </article></div>
     </main>
-    <footer><a class="brand" href="../index.html"><span class="brand-mark">I</span><span class="brand-word">Ikel</span></a><p class="footer-note">© Ikel Ouedraogo<a class="footer-privacy" href="../privacy.html">confidentialité</a></p><a href="#contenu">Haut de page</a></footer><script src="../script.js?v=20261005i"></script>
+    <footer><a class="brand" href="../index.html"><span class="brand-mark">I</span><span class="brand-word">Ikel</span></a><p class="footer-note">© Ikel Ouedraogo<a class="footer-privacy" href="../privacy.html">confidentialité</a></p><a href="#contenu">Haut de page</a><p class="colophon">Site statique, sans framework ni cookie ; audience comptée en agrégé. Chiffres de Comptoir contrôlés par check_numbers.py, lignage dbt extrait de son manifest.</p></footer><script src="../script.js?v=20261006h"></script>
   </body>
 </html>

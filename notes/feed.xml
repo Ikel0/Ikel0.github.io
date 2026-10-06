@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fr">
+  <id>https://ikel0.github.io/notes/feed.xml</id>
+  <title>Publications · Ikel Ouedraogo</title>
+  <subtitle>Notes sur la data et l’IA, documentées avec leurs sources.</subtitle>
+  <link rel="self" type="application/atom+xml" href="https://ikel0.github.io/notes/feed.xml"/>
+  <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/"/>
+  <updated>2026-10-04T20:52:27+02:00</updated>
+  <author><name>Ikel Ouedraogo</name><uri>https://ikel0.github.io/</uri></author>
+  <entry>
+    <id>https://ikel0.github.io/notes/olist-backtest.html</id>
+    <title>J’ai testé trois règles de date de livraison sur les commandes Olist de 2018</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/olist-backtest.html"/>
+    <published>2026-10-04T11:40:21+02:00</published>
+    <updated>2026-10-04T11:40:21+02:00</updated>
+    <category term="analytics" label="Analytics"/>
+    <summary>Calibrées sur 2017, mesurées sur 2018 : recalculer la date par trajet ou en glissant sur 14 jours ne fait pas mieux qu’Olist. Seuls 5 jours de plus sur 25 trajets à risque retirent 12 % des retards.</summary>
+  </entry>
+  <entry>
+    <id>https://ikel0.github.io/notes/olist-pieges.html</id>
+    <title>Sept pièges du jeu de données Olist, et ce que j’en ai fait</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/olist-pieges.html"/>
+    <published>2026-10-04T11:40:21+02:00</published>
+    <updated>2026-10-04T11:40:21+02:00</updated>
+    <category term="analytics" label="Analytics"/>
+    <summary>customer_id qui change à chaque commande, mois presque vides, avis en double, dates impossibles : ce qu’il faut corriger avant de calculer un taux de réachat ou une note moyenne.</summary>
+  </entry>
+  <entry>
+    <id>https://ikel0.github.io/notes/couche-semantique.html</id>
+    <title>Couche sémantique : un format commun existe, la portabilité reste à prouver</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/couche-semantique.html"/>
+    <published>2026-10-04T20:52:27+02:00</published>
+    <updated>2026-10-04T20:52:27+02:00</updated>
+    <category term="analytics" label="Analytics"/>
+    <summary>MetricFlow ouvert, OSI devenu Apache Ossie, un benchmark dbt de 2026 : où en est la couche sémantique, et pourquoi la définition des métriques compte encore plus quand un LLM interroge l’entrepôt.</summary>
+  </entry>
+  <entry>
+    <id>https://ikel0.github.io/notes/text-to-sql.html</id>
+    <title>Text-to-SQL : les scores des benchmarks face aux entrepôts réels</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/text-to-sql.html"/>
+    <published>2026-10-04T20:52:27+02:00</published>
+    <updated>2026-10-04T20:52:27+02:00</updated>
+    <category term="analytics" label="Analytics"/>
+    <summary>Spider 2.0, BIRD, BEAVER et un benchmark dbt de 2026 : les scores du text-to-SQL, l’écart avec les entrepôts réels, et ce qui aide un LLM à écrire un SQL juste.</summary>
+  </entry>
+  <entry>
+    <id>https://ikel0.github.io/notes/formats-tables.html</id>
+    <title>Formats de tables ouverts en 2026 : la décision se joue sur le catalogue</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/formats-tables.html"/>
+    <published>2026-10-04T20:52:27+02:00</published>
+    <updated>2026-10-04T20:52:27+02:00</updated>
+    <category term="data" label="Data engineering"/>
+    <summary>Iceberg v3 et le catalogue REST, Snowflake ouvert aux écritures externes, Delta et Hudi tournés vers le catalogue, DuckLake 1.0 : ce qu’un Data Engineer venu de Snowflake doit vérifier en premier.</summary>
+  </entry>
+  <entry>
+    <id>https://ikel0.github.io/notes/data-contracts.html</id>
+    <title>Data contracts : ce qui bloque chez les producteurs, ce que les outils savent versionner</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/data-contracts.html"/>
+    <published>2026-10-01T00:07:18+02:00</published>
+    <updated>2026-10-01T00:07:18+02:00</updated>
+    <category term="data" label="Data engineering"/>
+    <summary>Ce que disent les praticiens des data contracts (le blocage est côté producteurs), où en sont ODCS 3.2.0, les contrats dbt et datacontract-cli sur le versionnage, et ce que Pacte couvre ou non.</summary>
+  </entry>
+  <entry>
+    <id>https://ikel0.github.io/notes/fraicheur-donnee.html</id>
+    <title>Mesurer la fraîcheur d’une donnée commence par choisir l’horodatage</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/fraicheur-donnee.html"/>
+    <published>2026-10-01T00:07:18+02:00</published>
+    <updated>2026-10-01T00:07:18+02:00</updated>
+    <category term="data" label="Data engineering"/>
+    <summary>Trois mesures derrière le mot « fraîcheur », ce que fait la commande freshness de dbt en 2026, les fausses alertes du week-end, et pourquoi Pacte déclare 24 h sans les contrôler.</summary>
+  </entry>
+  <entry>
+    <id>https://ikel0.github.io/notes/idempotence.html</id>
+    <title>Exactly once avec Kafka : où s’arrête la garantie des transactions</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/idempotence.html"/>
+    <published>2026-10-01T00:07:18+02:00</published>
+    <updated>2026-10-01T00:07:18+02:00</updated>
+    <category term="systems" label="Systèmes"/>
+    <summary>Ce que les transactions Kafka garantissent vraiment, les malentendus fréquents, le 2PC de la KIP-939 accepté mais pas livré, et ce que cela confirme dans Routier.</summary>
+  </entry>
+  <entry>
+    <id>https://ikel0.github.io/notes/rag-sources.html</id>
+    <title>Évaluer un RAG : mesurer la recherche à part et compter les refus</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/rag-sources.html"/>
+    <published>2026-10-01T00:07:18+02:00</published>
+    <updated>2026-10-01T00:07:18+02:00</updated>
+    <category term="ai" label="IA appliquée"/>
+    <summary>Ce que mesurent les praticiens pour évaluer un RAG : recherche évaluée à part, fidélité au contexte, refus comptés séparément, et pourquoi le 4 sur 4 d’Evidence Desk est facile.</summary>
+  </entry>
+  <entry>
+    <id>https://ikel0.github.io/notes/mcp-donnees.html</id>
+    <title>Brancher un modèle sur un entrepôt via MCP : les contrôles que j’exigerais</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/mcp-donnees.html"/>
+    <published>2026-10-04T20:52:27+02:00</published>
+    <updated>2026-10-04T20:52:27+02:00</updated>
+    <category term="ai" label="IA appliquée"/>
+    <summary>Ce que la spécification MCP impose sur l’autorisation, comment l’injection passe par les résultats d’outils (cas Supabase), ce que recommande OWASP, et les contrôles à exiger avant de brancher un modèle sur un entrepôt.</summary>
+  </entry>
+  <entry>
+    <id>https://ikel0.github.io/notes/agents-outils.html</id>
+    <title>Agents IA d’astreinte : ce que mesure le premier banc d’essai</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/agents-outils.html"/>
+    <published>2026-10-01T00:07:18+02:00</published>
+    <updated>2026-10-01T00:07:18+02:00</updated>
+    <category term="ai" label="IA appliquée"/>
+    <summary>Les agents d’astreinte de PagerDuty, Datadog et Monte Carlo préparent l’enquête, mais un banc d’essai de l’été 2026 montre qu’ils trouvent rarement toute la cause : la décision reste humaine.</summary>
+  </entry>
+</feed>
