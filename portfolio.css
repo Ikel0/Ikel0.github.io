@@ -484,3 +484,6 @@ code, a, .tech-line, .project-links, .cert-list { hyphens: manual; }
 @media (max-width: 480px) { .hero-summary, .project-summary { hyphens: manual; } }
 /* Page 404 : libellés en sans, casse normale, sans accent de couleur */
 .page-404 .article-meta, .page-404 .article-aside strong { color: var(--muted); }
+/* Portrait : coupe nette, posé sur un filet */
+.opening-portrait { border-bottom: 1px solid var(--ink); }
+.opening-portrait img { object-position: bottom; }
