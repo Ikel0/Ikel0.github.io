@@ -1,0 +1,50 @@
+{
+  "project": "Evidence Desk",
+  "checked_in": "evidence-desk : README.md, data/demo/catalog.json, src/evidence_desk/store.py (search, ingest), src/evidence_desk/rag.py (retrieve, answer)",
+  "nodes": [
+    { "id": "question", "x": 0, "y": 0, "kind": "source",
+      "label": { "fr": "Question", "en": "Question" },
+      "text": { "fr": "Une question en clair, par exemple « Quel contrôle bloque un indicateur critique ? ».", "en": "A plain-language question, for example “Which check blocks a critical indicator?” (the corpus is in French)." } },
+    { "id": "sources", "x": 0, "y": 1, "kind": "source",
+      "label": { "fr": "Sources actives\nversionnées", "en": "Active versioned\nsources" },
+      "text": { "fr": "Trois procédures fictives, chacune avec identifiant, version, propriétaire, autorité, statut et date de revue.", "en": "Three fictional procedures, each with an id, version, owner, authority, status and review date." } },
+    { "id": "superseded", "x": 0, "y": 2, "kind": "source",
+      "label": { "fr": "Version remplacée\nou brouillon", "en": "Superseded version\nor draft" },
+      "text": { "fr": "Une version passée à superseded, ou un brouillon, n’entre pas dans la recherche.", "en": "A version marked superseded, or a draft, never enters the search." } },
+    { "id": "search", "x": 1, "y": 1, "kind": "step",
+      "label": { "fr": "Recherche\nSQLite FTS5", "en": "SQLite FTS5\nsearch" },
+      "text": { "fr": "FTS5 classe les passages des seules sources actives, puis un reranking lexical explicite les reclasse.", "en": "FTS5 ranks passages from active sources only, then an explicit lexical reranking reorders them." } },
+    { "id": "passages", "x": 2, "y": 1, "kind": "step",
+      "label": { "fr": "Passages\nau-dessus du seuil", "en": "Passages\nabove the threshold" },
+      "text": { "fr": "Un passage n’est retenu que s’il couvre assez de mots de la question et reste proche du meilleur candidat.", "en": "A passage is kept only if it covers enough of the question’s words and stays close to the best candidate." } },
+    { "id": "answer", "x": 3, "y": 0.4, "kind": "outcome",
+      "label": { "fr": "Réponse citée\nsource@version#passage", "en": "Cited answer\nsource@version#passage" },
+      "text": { "fr": "Réponse extractive : chaque phrase renvoie à son passage, cité sous la forme source@version#passage.", "en": "Extractive answer: each sentence points to its passage, cited as source@version#passage." } },
+    { "id": "abstain", "x": 3, "y": 1.6, "kind": "outcome",
+      "label": { "fr": "Abstention\npreuves insuffisantes", "en": "Abstention\ninsufficient evidence" },
+      "text": { "fr": "Sans passage actif qui l’étaye, l’outil ne répond pas et le dit.", "en": "With no active passage to support it, the tool does not answer and says so." } },
+    { "id": "receipt", "x": 4, "y": 1, "kind": "outcome",
+      "label": { "fr": "Reçu\nempreintes", "en": "Receipt\nfingerprints" },
+      "text": { "fr": "Le reçu (EDR-000042, par exemple) garde l’empreinte de la question et des passages, pas la question en clair.", "en": "The receipt (EDR-000042, for example) keeps fingerprints of the question and passages, not the question itself." } }
+  ],
+  "edges": [
+    ["question", "search"], ["sources", "search"], ["superseded", "search", "cut"],
+    ["search", "passages"],
+    ["passages", "answer"], ["passages", "abstain"],
+    ["answer", "receipt"], ["abstain", "receipt"]
+  ],
+  "scenarios": [
+    { "id": "cited",
+      "label": { "fr": "Réponse citée", "en": "Cited answer" },
+      "nodes": ["question", "sources", "search", "passages", "answer", "receipt"],
+      "text": { "fr": "« Quel contrôle bloque un indicateur critique ? » : un passage du standard qualité passe le seuil, la réponse cite STD-DQ-004@1.8#p1.", "en": "“Which check blocks a critical indicator?”: a passage from the data quality standard clears the threshold and the answer cites STD-DQ-004@1.8#p1." } },
+    { "id": "stale",
+      "label": { "fr": "Source périmée écartée", "en": "Stale source set aside" },
+      "nodes": ["question", "sources", "superseded", "search", "passages", "answer", "receipt"],
+      "text": { "fr": "Quand une nouvelle version active arrive avec le même identifiant, l’ancienne passe à superseded et sort de la recherche : seule la version courante peut être citée.", "en": "When a new active version arrives with the same id, the old one becomes superseded and leaves the search: only the current version can be cited." } },
+    { "id": "abstain",
+      "label": { "fr": "Abstention", "en": "Abstention" },
+      "nodes": ["question", "sources", "search", "passages", "abstain", "receipt"],
+      "text": { "fr": "« Quel est le protocole de rotation des clés cryptographiques ? » : aucun passage actif ne l’étaye, l’outil s’abstient et le reçu ne garde que des empreintes.", "en": "“What is the cryptographic key rotation protocol?”: no active passage supports it, the tool abstains and the receipt keeps only fingerprints." } }
+  ]
+}

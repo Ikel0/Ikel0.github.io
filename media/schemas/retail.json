@@ -1,0 +1,214 @@
+{
+ "project": "Retail Core",
+ "checked_in": "retail-core-lakehouse : README.md, docs/ARCHITECTURE.md, src/generate_data.py, src/pipeline.py, src/orchestration.py",
+ "nodes": [
+  {
+   "id": "sales",
+   "x": 0,
+   "y": 0,
+   "kind": "source",
+   "label": {
+    "fr": "Ventes\nweb, magasins,\nmarketplace",
+    "en": "Sales\nweb, stores,\nmarketplace"
+   },
+   "text": {
+    "fr": "Commandes des trois canaux : web, magasins et marketplace. Chaque achat part aussi en événement dans le flux.",
+    "en": "Orders from the three channels: web, stores and marketplace. Each purchase is also sent as an event on the stream."
+   }
+  },
+  {
+   "id": "payments",
+   "x": 0,
+   "y": 1,
+   "kind": "source",
+   "label": {
+    "fr": "Paiements",
+    "en": "Payments"
+   },
+   "text": {
+    "fr": "Paiements : carte, PayPal ou espèces selon le canal, un par commande (960 / 960).",
+    "en": "Payments: card, PayPal or cash depending on the channel, one per order (960 / 960)."
+   }
+  },
+  {
+   "id": "stock",
+   "x": 0,
+   "y": 2,
+   "kind": "source",
+   "label": {
+    "fr": "Stocks",
+    "en": "Stock"
+   },
+   "text": {
+    "fr": "Stock magasin, stock entrepôt et entrants, qui servent au stock disponible à la promesse.",
+    "en": "Store stock, warehouse stock and inbound units, used for available-to-promise."
+   }
+  },
+  {
+   "id": "stream",
+   "x": 1,
+   "y": 0,
+   "kind": "step",
+   "label": {
+    "fr": "Flux Kinesis",
+    "en": "Kinesis stream"
+   },
+   "text": {
+    "fr": "Les événements d’achat passent par Kinesis : leurs unités sont comparées à celles du batch.",
+    "en": "Purchase events go through Kinesis: their units are compared with the batch units."
+   }
+  },
+  {
+   "id": "batch",
+   "x": 1,
+   "y": 1.5,
+   "kind": "step",
+   "label": {
+    "fr": "Ingestion batch\nS3",
+    "en": "Batch ingestion\nS3"
+   },
+   "text": {
+    "fr": "Avec le profil AWS local, les huit sources sont déposées dans S3 Raw (LocalStack), sans compte AWS réel.",
+    "en": "With the local AWS profile, the eight sources land in S3 Raw (LocalStack), with no real AWS account."
+   }
+  },
+  {
+   "id": "dbt",
+   "x": 2,
+   "y": 1.5,
+   "kind": "step",
+   "label": {
+    "fr": "dbt\nstaging → marts",
+    "en": "dbt\nstaging → marts"
+   },
+   "text": {
+    "fr": "dbt sur DuckDB : 19 modèles, du staging aux marts (ventes, paiements, ATP, RFM), et 1 snapshot.",
+    "en": "dbt on DuckDB: 19 models, from staging to marts (sales, payments, ATP, RFM), and 1 snapshot."
+   }
+  },
+  {
+   "id": "gate",
+   "x": 3,
+   "y": 0.75,
+   "kind": "step",
+   "label": {
+    "fr": "Porte de publication\n24 contrôles · 78 tests",
+    "en": "Publishing gate\n24 checks · 78 tests"
+   },
+   "text": {
+    "fr": "La porte s’ouvre si les 24 contrôles et les 78 tests dbt passent, si ventes et paiements se rapprochent et si batch et flux donnent les mêmes unités.",
+    "en": "The gate opens only if the 24 checks and the 78 dbt tests pass, sales match payments and batch and stream report the same units."
+   }
+  },
+  {
+   "id": "published",
+   "x": 4,
+   "y": 0.25,
+   "kind": "outcome",
+   "label": {
+    "fr": "Flash ventes publié",
+    "en": "Sales flash published"
+   },
+   "text": {
+    "fr": "publish_kpis écrit le manifeste de publication ; le flash ventes du matin lit les séries publiées.",
+    "en": "publish_kpis writes the publication manifest; the morning sales flash reads the published series."
+   }
+  },
+  {
+   "id": "blocked",
+   "x": 4,
+   "y": 1.25,
+   "kind": "outcome",
+   "label": {
+    "fr": "Publication bloquée",
+    "en": "Publication blocked"
+   },
+   "text": {
+    "fr": "Un test en échec ou un écart de rapprochement ferme la porte : rien n’est publié.",
+    "en": "A failing test or a reconciliation gap closes the gate: nothing is published."
+   }
+  }
+ ],
+ "edges": [
+  [
+   "payments",
+   "batch"
+  ],
+  [
+   "sales",
+   "batch"
+  ],
+  [
+   "stock",
+   "batch"
+  ],
+  [
+   "sales",
+   "stream"
+  ],
+  [
+   "batch",
+   "dbt"
+  ],
+  [
+   "dbt",
+   "gate"
+  ],
+  [
+   "stream",
+   "gate"
+  ],
+  [
+   "gate",
+   "published"
+  ],
+  [
+   "gate",
+   "blocked"
+  ]
+ ],
+ "scenarios": [
+  {
+   "id": "pass",
+   "label": {
+    "fr": "Run conforme : publié",
+    "en": "Clean run: published"
+   },
+   "nodes": [
+    "payments",
+    "sales",
+    "stock",
+    "batch",
+    "stream",
+    "dbt",
+    "gate",
+    "published"
+   ],
+   "text": {
+    "fr": "Les 24 contrôles et les 78 tests passent, batch et flux concordent (0 unité d’écart), ventes et paiements aussi (0,00 €) : le flash ventes est publié.",
+    "en": "The 24 checks and 78 tests pass, batch and stream agree (0 units apart), so do sales and payments (€0.00): the sales flash is published."
+   }
+  },
+  {
+   "id": "fail",
+   "label": {
+    "fr": "Un rapprochement échoue : bloqué",
+    "en": "A reconciliation fails: blocked"
+   },
+   "nodes": [
+    "payments",
+    "sales",
+    "stock",
+    "batch",
+    "stream",
+    "dbt",
+    "gate",
+    "blocked"
+   ],
+   "text": {
+    "fr": "Les unités du batch et du flux divergent, ou les ventes ne tombent pas sur les paiements : reconcile_platform ferme la porte et le run s’arrête avant publication.",
+    "en": "Batch and stream units differ, or sales do not match payments: reconcile_platform closes the gate and the run stops before publishing."
+   }
+  }
+ ]
+}

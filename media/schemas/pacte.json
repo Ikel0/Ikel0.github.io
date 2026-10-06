@@ -1,0 +1,53 @@
+{
+  "project": "Pacte",
+  "checked_in": "pacte : README.md, contracts/orders.json, data/*.csv, src/pacte/validation.py, src/pacte/lineage.py, src/pacte/audit.py",
+  "nodes": [
+    { "id": "batch", "x": 0, "y": 1, "kind": "source",
+      "label": { "fr": "Lot CSV", "en": "CSV batch" },
+      "text": { "fr": "Un export quotidien de commandes, contrôlé avant toute ingestion.", "en": "A daily orders export, checked before any ingestion." } },
+    { "id": "contract", "x": 1, "y": 1, "kind": "step",
+      "label": { "fr": "Contrat 1.2.0\nschéma, validité, clé, volume", "en": "Contract 1.2.0\nschema, validity, key, volume" },
+      "text": { "fr": "Le contrat customer_orders 1.2.0 fixe les en-têtes, les types et bornes, l’unicité de order_id et un lot non vide.", "en": "The customer_orders 1.2.0 contract sets the headers, types and bounds, order_id uniqueness and a non-empty batch." } },
+    { "id": "accept", "x": 2, "y": 0, "kind": "step",
+      "label": { "fr": "accept", "en": "accept" },
+      "text": { "fr": "accept : le lot respecte le contrat.", "en": "accept: the batch meets the contract." } },
+    { "id": "review", "x": 2, "y": 1, "kind": "step",
+      "label": { "fr": "review", "en": "review" },
+      "text": { "fr": "review : un écart non bloquant que le propriétaire du contrat doit comprendre avant publication.", "en": "review: a non-blocking gap the contract owner must understand before publishing." } },
+    { "id": "quarantine", "x": 2, "y": 2, "kind": "step",
+      "label": { "fr": "quarantine", "en": "quarantine" },
+      "text": { "fr": "quarantine : un contrôle bloquant échoue, le lot est tenu à l’écart.", "en": "quarantine: a blocking check fails and the batch is kept aside." } },
+    { "id": "open", "x": 3, "y": 0, "kind": "outcome",
+      "label": { "fr": "Consommateurs\nouverts", "en": "Consumers\nopen" },
+      "text": { "fr": "Les trois consommateurs déclarés dans le contrat peuvent recevoir le lot.", "en": "The three consumers declared in the contract may receive the batch." } },
+    { "id": "paused", "x": 3, "y": 1, "kind": "outcome",
+      "label": { "fr": "Consommateurs\nsuspendus", "en": "Consumers\non hold" },
+      "text": { "fr": "La publication attend la revue du propriétaire ; aucun consommateur ne reçoit le lot entre-temps.", "en": "Publishing waits for the owner’s review; no consumer receives the batch in the meantime." } },
+    { "id": "closed", "x": 3, "y": 2, "kind": "outcome",
+      "label": { "fr": "Consommateurs\nfermés", "en": "Consumers\nclosed" },
+      "text": { "fr": "Aucun consommateur ne reçoit de nouvelle version : mart_daily_revenue et mart_customer_ltv sont bloqués, sales_ops_dashboard passe en revue.", "en": "No consumer receives a new version: mart_daily_revenue and mart_customer_ltv are blocked, sales_ops_dashboard goes to review." } },
+    { "id": "receipt", "x": 4, "y": 1, "kind": "outcome",
+      "label": { "fr": "Reçu\nempreintes SHA-256", "en": "Receipt\nSHA-256 fingerprints" },
+      "text": { "fr": "Le reçu garde la décision, l’empreinte du fichier brut et celle du contrat. Rejouer le même lot avec le même contrat retrouve le même run.", "en": "The receipt keeps the decision, the raw file fingerprint and the contract fingerprint. Replaying the same batch with the same contract finds the same run." } }
+  ],
+  "edges": [
+    ["batch", "contract"],
+    ["contract", "accept"], ["contract", "review"], ["contract", "quarantine"],
+    ["accept", "open"], ["review", "paused"], ["quarantine", "closed"],
+    ["open", "receipt"], ["paused", "receipt"], ["closed", "receipt"]
+  ],
+  "scenarios": [
+    { "id": "clean",
+      "label": { "fr": "Lot conforme", "en": "Clean batch" },
+      "nodes": ["batch", "contract", "accept", "open", "receipt"],
+      "text": { "fr": "orders_clean.csv passe tous les contrôles : décision accept, les consommateurs restent ouverts, le reçu est enregistré.", "en": "orders_clean.csv passes every check: decision accept, consumers stay open, the receipt is recorded." } },
+    { "id": "drift",
+      "label": { "fr": "Colonne en trop", "en": "Extra column" },
+      "nodes": ["batch", "contract", "review", "paused", "receipt"],
+      "text": { "fr": "orders_schema_drift.csv ajoute une colonne currency absente du contrat : décision review, la publication attend le propriétaire.", "en": "orders_schema_drift.csv adds a currency column the contract does not know: decision review, publishing waits for the owner." } },
+    { "id": "bad",
+      "label": { "fr": "Clé en double, date invalide", "en": "Duplicate key, invalid date" },
+      "nodes": ["batch", "contract", "quarantine", "closed", "receipt"],
+      "text": { "fr": "orders_quality_issues.csv répète ord-1001 et porte la date « not-a-date », parmi cinq écarts : décision quarantine, aucun consommateur ne reçoit le lot.", "en": "orders_quality_issues.csv repeats ord-1001 and carries the date “not-a-date”, among five issues: decision quarantine, no consumer receives the batch." } }
+  ]
+}

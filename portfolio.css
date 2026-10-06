@@ -487,3 +487,43 @@ code, a, .tech-line, .project-links, .cert-list { hyphens: manual; }
 /* Portrait : coupe nette, posé sur un filet */
 .opening-portrait { border-bottom: 1px solid var(--ink); }
 .opening-portrait img { object-position: bottom; }
+
+.atelier-state { margin: .3rem 0 0; color: var(--muted); font-size: .85rem; }
+
+/* Schémas des grands projets (schemas.js) : même vocabulaire que le lignage de Comptoir.
+   Encre, gris et un seul bleu ; rien ne bouge au repos, 200 ms au plus sur changement d'état. */
+.project-row > .schema { grid-column: 1 / -1; max-width: none; margin-top: 1.5rem; padding: 1rem 1.5rem .6rem; }
+.schema-svg { display: block; width: 100%; height: auto; font: 13px var(--sans); }
+.schema-edge { fill: none; stroke: var(--line); stroke-width: 1.2; transition: stroke .2s, opacity .2s; }
+.schema-edge.is-cut { stroke-dasharray: 4 4; }
+.schema-edge.is-lit { stroke: var(--blue); stroke-width: 1.8; }
+.schema-edge.is-dim { opacity: .25; }
+.schema-node { cursor: pointer; transition: opacity .2s; }
+.schema-node circle { fill: var(--ink); transition: fill .2s, stroke .2s; }
+.schema-node.kind-source circle { fill: var(--muted); }
+.schema-node.kind-outcome circle { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; }
+.schema-node.is-lit circle { fill: var(--blue); stroke: var(--blue); }
+.schema-node text { fill: var(--ink); font-weight: 500; }
+.schema-node .sub { fill: var(--muted); font-weight: 400; }
+.schema-node .schema-hit { fill: transparent; }
+.schema-node.is-dim { opacity: .25; }
+.schema-node:focus { outline: 0; }
+.schema-node:focus-visible circle { stroke: var(--ink); stroke-width: 3; }
+.schema-dot { fill: var(--blue); }
+.schema-scenarios { display: flex; flex-wrap: wrap; gap: .2rem 1.5rem; margin: .5rem 0 0; }
+.schema-scenario { display: inline-flex; align-items: center; padding: .3rem 0; border: 0; background: none; color: var(--muted); font: inherit; font-size: .9rem; cursor: pointer;
+  background-image: linear-gradient(currentColor, currentColor); background-repeat: no-repeat; background-position: 0 calc(50% + .75em); background-size: 0 1px; transition: background-size .15s ease-out, color .2s; }
+.schema-scenario:hover, .schema-scenario:focus-visible, .schema-scenario[aria-pressed="true"] { color: var(--ink); background-size: 100% 1px; }
+.schema-readout { margin: .5rem 0 .2rem; min-height: 2.9em; font: .9rem/1.45 var(--sans); color: var(--ink); font-variant-numeric: tabular-nums; }
+.schema-steps { display: grid; gap: .55rem; margin: 0; padding: .1rem 0 .1rem 1rem; border-left: 1px solid var(--line); list-style: none; }
+.schema-steps li { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; }
+.schema-step { font-size: .92rem; line-height: 1.35; transition: opacity .2s; }
+.schema-step::before { content: ''; display: inline-block; box-sizing: border-box; width: 9px; height: 9px; margin-right: .5rem; border-radius: 50%; background: var(--ink); vertical-align: .02em; transition: background-color .2s, border-color .2s; }
+.schema-step.kind-source::before { background: var(--muted); }
+.schema-step.kind-outcome::before { border: 1.5px solid var(--ink); background: var(--paper); }
+.schema-step b { font-weight: 500; }
+.schema-step small { color: var(--muted); font-size: .85rem; }
+.schema-step.is-lit::before { border-color: var(--blue); background: var(--blue); }
+.schema-step.is-dim { opacity: .25; }
+@media (max-width: 760px) { .project-row > .schema { padding: 1rem 1rem .5rem; } .schema-scenario { min-height: 44px; } }
+@media (prefers-reduced-motion: reduce) { .schema-edge, .schema-node, .schema-node circle, .schema-step, .schema-step::before { transition: none; } }

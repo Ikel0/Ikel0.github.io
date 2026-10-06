@@ -1,0 +1,53 @@
+{
+  "project": "Routier",
+  "checked_in": "routier : README.md, src/routier/contract.py, src/routier/pipeline.py, src/routier/worker.py, src/routier/decision.py, src/routier/store.py",
+  "nodes": [
+    { "id": "telemetry", "x": 0, "y": 0.6, "kind": "source",
+      "label": { "fr": "Télémétrie\nvéhicule", "en": "Vehicle\ntelemetry" },
+      "text": { "fr": "Retard, occupation, statut et position d’un véhicule, produits par un générateur synthétique.", "en": "A vehicle’s delay, occupancy, status and position, from a synthetic producer." } },
+    { "id": "topic", "x": 1, "y": 0.6, "kind": "step",
+      "label": { "fr": "Topic Kafka\nvehicle.telemetry.v1", "en": "Kafka topic\nvehicle.telemetry.v1" },
+      "text": { "fr": "Les messages arrivent sur vehicle.telemetry.v1 (Redpanda).", "en": "Messages land on vehicle.telemetry.v1 (Redpanda)." } },
+    { "id": "worker", "x": 2, "y": 0.6, "kind": "step",
+      "label": { "fr": "Worker\ncontrat 1.0", "en": "Worker\ncontract 1.0" },
+      "text": { "fr": "Le worker valide chaque message contre le contrat vehicle.telemetry 1.0 : horodatage avec fuseau, valeurs finies, bornes métier.", "en": "The worker checks each message against the vehicle.telemetry 1.0 contract: timestamp with time zone, finite values, business bounds." } },
+    { "id": "api", "x": 3, "y": 0, "kind": "step",
+      "label": { "fr": "API idempotente\nclé event_id", "en": "Idempotent API\nevent_id key" },
+      "text": { "fr": "L’API écrit l’événement une seule fois : event_id est unique dans SQLite, une relecture reçoit la réponse duplicate.", "en": "The API writes the event once: event_id is unique in SQLite, a replay gets the duplicate response." } },
+    { "id": "invalid", "x": 3, "y": 1.6, "kind": "outcome",
+      "label": { "fr": "Topic de rejet\n….invalid.v1", "en": "Rejection topic\n….invalid.v1" },
+      "text": { "fr": "Un message hors contrat part sur vehicle.telemetry.invalid.v1, avec l’event_id en clé et un rejection_id stable.", "en": "An out-of-contract message goes to vehicle.telemetry.invalid.v1, keyed by event_id with a stable rejection_id." } },
+    { "id": "log", "x": 4, "y": -0.2, "kind": "outcome",
+      "label": { "fr": "Main courante", "en": "Operations log" },
+      "text": { "fr": "Le journal d’ingestion inscrit chaque résultat (accepté, doublon) avec son identifiant de trace.", "en": "The ingestion log records each outcome (accepted, duplicate) with its trace id." } },
+    { "id": "alerts", "x": 4, "y": 0.6, "kind": "outcome",
+      "label": { "fr": "Alertes", "en": "Alerts" },
+      "text": { "fr": "Des règles explicites fixent la priorité ; une alerte reste ouverte jusqu’à sa prise en charge par l’opérateur.", "en": "Explicit rules set the priority; an alert stays open until the operator acknowledges it." } },
+    { "id": "commit", "x": 4, "y": 1.6, "kind": "step",
+      "label": { "fr": "Commit de l’offset\naprès effet durable", "en": "Offset commit\nafter a durable effect" },
+      "text": { "fr": "Le worker ne commite l’offset qu’après une écriture de l’API, un doublon assumé ou un rejet confirmé : un message n’est jamais perdu en silence.", "en": "The worker commits the offset only after an API write, an acknowledged duplicate or a confirmed rejection: no message is lost silently." } }
+  ],
+  "edges": [
+    ["telemetry", "topic"], ["topic", "worker"],
+    ["worker", "api"], ["worker", "invalid"],
+    ["api", "log"], ["api", "alerts"], ["api", "commit"], ["invalid", "commit"]
+  ],
+  "scenarios": [
+    { "id": "valid",
+      "label": { "fr": "Message valide", "en": "Valid message" },
+      "nodes": ["telemetry", "topic", "worker", "api", "log", "commit"],
+      "text": { "fr": "Le message respecte le contrat 1.0 : l’API l’écrit, la main courante l’inscrit comme accepté, puis le worker commite l’offset.", "en": "The message meets contract 1.0: the API writes it, the log records it as accepted, then the worker commits the offset." } },
+    { "id": "replay",
+      "label": { "fr": "Relecture", "en": "Replay" },
+      "nodes": ["topic", "worker", "api", "log", "commit"],
+      "text": { "fr": "Kafka relivre un message déjà traité : même event_id, l’API répond duplicate, aucune deuxième alerte n’est créée et l’offset est commité.", "en": "Kafka redelivers a message already processed: same event_id, the API answers duplicate, no second alert is created and the offset is committed." } },
+    { "id": "reject",
+      "label": { "fr": "Message hors contrat", "en": "Out-of-contract message" },
+      "nodes": ["telemetry", "topic", "worker", "invalid", "commit"],
+      "text": { "fr": "Un retard négatif sort du contrat : le worker publie le message sur vehicle.telemetry.invalid.v1, puis commite l’offset.", "en": "A negative delay breaks the contract: the worker publishes the message to vehicle.telemetry.invalid.v1, then commits the offset." } },
+    { "id": "critical",
+      "label": { "fr": "Alerte critique", "en": "Critical alert" },
+      "nodes": ["telemetry", "topic", "worker", "api", "log", "alerts", "commit"],
+      "text": { "fr": "Retard de plus de 15 minutes : la règle delay.critical donne un score de 80 (critique à partir de 65), l’alerte attend sa prise en charge.", "en": "Delay over 15 minutes: rule delay.critical gives a score of 80 (critical from 65), and the alert waits to be acknowledged." } }
+  ]
+}
