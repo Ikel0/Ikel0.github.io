@@ -5,8 +5,17 @@
   <subtitle>Notes sur la data et l’IA, documentées avec leurs sources.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://ikel0.github.io/notes/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/"/>
-  <updated>2026-10-04T20:52:27+02:00</updated>
+  <updated>2026-10-08T22:10:44+00:00</updated>
   <author><name>Ikel Ouedraogo</name><uri>https://ikel0.github.io/</uri></author>
+  <entry>
+    <id>https://ikel0.github.io/notes/lineage-explicite.html</id>
+    <title>OpenLineage 1.53 : décrire un lignage exact, sans le déduire</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/lineage-explicite.html"/>
+    <published>2026-10-08T22:10:44+00:00</published>
+    <updated>2026-10-08T22:10:44+00:00</updated>
+    <category term="data" label="Data engineering"/>
+    <summary>La version 1.53 ajoute des facets pour déclarer les relations exactes entre jeux de données, jobs et champs. Utile lorsque la liste des entrées et sorties d’un run ne suffit plus à dessiner un lignage juste.</summary>
+  </entry>
   <entry>
     <id>https://ikel0.github.io/notes/olist-backtest.html</id>
     <title>J’ai testé trois règles de date de livraison sur les commandes Olist de 2018</title>

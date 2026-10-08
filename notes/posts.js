@@ -2,6 +2,14 @@
 // chaque note au dépôt qui la soutient.
 window.publicationPosts = [
   {
+    "id": "lineage-explicite",
+    "type": "data",
+    "label": "Data engineering",
+    "href": "lineage-explicite.html",
+    "title": "OpenLineage 1.53 : décrire un lignage exact, sans le déduire",
+    "summary": "La version 1.53 ajoute des facets pour déclarer les relations exactes entre jeux de données, jobs et champs. Utile lorsque la liste des entrées et sorties d’un run ne suffit plus à dessiner un lignage juste."
+  },
+  {
     "id": "olist-backtest",
     "type": "analytics",
     "label": "Analytics",
