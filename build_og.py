@@ -24,11 +24,11 @@ SITE = 'https://ikel0.github.io'
 CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 AUTHOR = 'Ikel Ouedraogo'
 W, H, MARGIN = 1200, 630, 96
-FONT_URL = 'https://fonts.googleapis.com/css2?family=Figtree:wght@500;600'
+FONT_URL = 'https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600'
 
 
 def font_css():
-    """Figtree embarquée en data: URI. Chrome headless ne se ferme plus quand le SVG importe
+    """Familjen Grotesk embarquée en data: URI. Chrome headless ne se ferme plus quand le SVG importe
     une feuille distante ; on télécharge donc la police une fois et on l'inline. Sans réseau,
     le SVG retombe sur la sans du système."""
     import base64
@@ -40,7 +40,7 @@ def font_css():
         for weight, url in re.findall(r'font-weight: (\d+);\s*src: url\((https://[^)]+)\)', css):
             with urllib.request.urlopen(url, timeout=15) as response:
                 data = base64.b64encode(response.read()).decode()
-            faces.append(f"@font-face {{ font-family: Figtree; font-weight: {weight}; src: url(data:font/ttf;base64,{data}) format('truetype'); }}")
+            faces.append(f"@font-face {{ font-family: 'Familjen Grotesk'; font-weight: {weight}; src: url(data:font/ttf;base64,{data}) format('truetype'); }}")
         return ' '.join(faces)
     except OSError as error:
         print(f'police non téléchargée ({error}) : sans du système', file=sys.stderr)
@@ -56,7 +56,7 @@ HOME = {
 
 
 def wrap(text, size, width=W - 2 * MARGIN):
-    """Coupe le titre en lignes ; Figtree 600 fait en moyenne 0,53 em par caractère."""
+    """Coupe le titre en lignes ; Familjen Grotesk 600 fait en moyenne 0,53 em par caractère."""
     per_line = int(width / (size * 0.53))
     lines, current = [], ''
     for word in text.split():
@@ -80,13 +80,13 @@ def svg(title, kicker):
         f'<tspan x="{MARGIN}" y="{top + i * leading}">{html.escape(line)}</tspan>' for i, line in enumerate(lines)
     )
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">
-  <style>{FONT_CSS} text {{ font-family: Figtree, "Helvetica Neue", Arial, sans-serif; }}</style>
-  <rect width="{W}" height="{H}" fill="#edf2f3"/>
-  <text x="{MARGIN}" y="112" fill="#103e93" font-size="24" font-weight="500">{html.escape(kicker)}</text>
-  <text fill="#172126" font-size="{size}" font-weight="600" letter-spacing="-0.01em">{tspans}</text>
-  <line x1="{MARGIN}" y1="{H - 118}" x2="{W - MARGIN}" y2="{H - 118}" stroke="#172126" stroke-width="1"/>
-  <text x="{MARGIN}" y="{H - 72}" fill="#172126" font-size="26" font-weight="600">{AUTHOR}</text>
-  <text x="{W - MARGIN}" y="{H - 72}" fill="#58686e" font-size="22" font-weight="500" text-anchor="end">ikel0.github.io</text>
+  <style>{FONT_CSS} text {{ font-family: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif; }}</style>
+  <rect width="{W}" height="{H}" fill="#12171a"/>
+  <text x="{MARGIN}" y="112" fill="#a3c0f6" font-size="24" font-weight="500">{html.escape(kicker)}</text>
+  <text fill="#e6ecee" font-size="{size}" font-weight="600" letter-spacing="-0.01em">{tspans}</text>
+  <line x1="{MARGIN}" y1="{H - 118}" x2="{W - MARGIN}" y2="{H - 118}" stroke="#2e393e" stroke-width="1"/>
+  <text x="{MARGIN}" y="{H - 72}" fill="#e6ecee" font-size="26" font-weight="600">{AUTHOR}</text>
+  <text x="{W - MARGIN}" y="{H - 72}" fill="#9fb0b6" font-size="22" font-weight="500" text-anchor="end">ikel0.github.io</text>
 </svg>
 '''
 

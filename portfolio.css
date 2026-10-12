@@ -555,7 +555,6 @@ code, a, .tech-line, .project-links, .cert-list { hyphens: manual; }
 ul.tech-line { display: flex; flex-wrap: wrap; gap: .55rem 1.2rem; padding: 0; list-style: none; line-height: 1.4; }
 ul.tech-line li { display: inline-flex; gap: .45rem; align-items: center; }
 ul.tech-line svg { flex: none; width: .95rem; height: .95rem; fill: var(--muted); }
-.tech-mark { flex: none; width: .45rem; height: .45rem; margin: 0 .25rem; border: 1px solid var(--muted); border-radius: 50%; }
 
 /* Lien principal d'un projet : l'étude de cas passe en premier */
 .project-links a.is-primary { border-bottom-width: 2px; color: var(--ink); }
