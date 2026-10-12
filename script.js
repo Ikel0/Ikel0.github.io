@@ -131,3 +131,8 @@ document.addEventListener('keydown', event => {
     toggleShortcuts();
   }
 });
+
+const stackBand = document.querySelector('.stack-band');
+if (stackBand && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => stackBand.classList.toggle('is-away', !entry.isIntersecting)).observe(stackBand);
+}
