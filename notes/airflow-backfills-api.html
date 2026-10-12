@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Airflow 3.3.2 corrige quatre endpoints de backfill : une ressource nommée dans l’URL n’est plus autorisée à partir d’un dag_id reçu dans la requête, ce qui évite de révéler l’existence de backfills sur des DAGs inaccessibles." />
+    <meta name="theme-color" content="#12171a" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ikel0.github.io/notes/airflow-backfills-api.html" />
+    <meta property="og:title" content="Airflow 3.3.2 : une 404 qui ne révèle pas les backfills" />
+    <meta property="og:description" content="Airflow 3.3.2 corrige quatre endpoints de backfill : une ressource nommée dans l’URL n’est plus autorisée à partir d’un dag_id reçu dans la requête, ce qui évite de révéler l’existence de backfills sur des DAGs inaccessibles." />
+    <meta property="og:image" content="https://ikel0.github.io/media/og/airflow-backfills-api.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Airflow 3.3.2 : une 404 qui ne révèle pas les backfills · Ikel Ouedraogo</title>
+    <link rel="icon" href="../favicon-96x96.png" type="image/png" sizes="96x96" />
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&((performance.getEntriesByType("navigation")[0]||{}).type!=="back_forward"))document.documentElement.classList.add("is-entering")</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;display=swap" />
+    <link rel="stylesheet" href="../portfolio.css?v=20261012e" />
+    <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <link rel="canonical" href="https://ikel0.github.io/notes/airflow-backfills-api.html" />
+    <link rel="alternate" type="application/atom+xml" title="Publications · Ikel Ouedraogo" href="feed.xml" />
+  </head>
+  <body class="article-page article-page--systems">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header"><a class="brand" href="../index.html" aria-label="Accueil"><span class="brand-mark">I</span><span class="brand-word">Ikel</span></a><nav class="main-nav" id="main-navigation" aria-label="Navigation principale"><a href="../index.html#projets">Projets</a><a href="../index.html#competences">Compétences</a><a href="index.html" aria-current="page">Publications</a><a href="../index.html#parcours">Parcours</a><a href="../index.html#contact">Contact</a></nav><div class="header-tools"><a class="header-contact" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com</a></div><button class="menu" id="menu" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Ouvrir le menu"><i></i><i></i></button></header>
+    <main id="contenu" class="article-shell shell">
+      <header class="article-head"><p class="article-meta">Systèmes</p><h1>Airflow 3.3.2&nbsp;: une 404 qui ne révèle pas les backfills</h1><p class="article-deck">Un code HTTP ne signale pas seulement le résultat d’une action. Il peut aussi révéler qu’une ressource existe. Airflow 3.3.2 corrige ce cas précis sur quatre routes de backfill.</p></header>
+      <div class="article-grid"><aside class="article-aside"><div><strong>Repère</strong><span>Airflow 3.3.2 est publié le 17 septembre 2026. La correction concerne quatre endpoints qui portent un <code>backfill_id</code> dans leur chemin.</span></div></aside><article class="article-body">
+        <h2>Une autorisation ne doit pas changer l’objet demandé</h2>
+        <p>Un backfill Airflow est rattaché à un DAG. Les routes <code>GET /backfills/{backfill_id}</code>, <code>pause</code>, <code>unpause</code> et <code>cancel</code> désignent toutes un backfill par son identifiant dans l’URL. C’est cet objet qui doit servir à déterminer le DAG auquel l’utilisateur a accès.</p>
+        <p>Avant la version 3.3.2, lorsque l’identifiant du chemin ne correspondait à aucune ligne, ces routes pouvaient résoudre l’autorisation à partir du <code>dag_id</code> envoyé dans le corps ou la chaîne de requête. Deux cas devenaient alors distinguables&nbsp;: un identifiant inexistant et un backfill existant, mais rattaché à un DAG que l’appelant ne peut pas lire. La différence de réponse permettait donc d’énumérer des identifiants de backfill à travers des DAGs inaccessibles.</p>
+        <h2>La correction tient dans la source de vérité</h2>
+        <p>La note de version est précise&nbsp;: les quatre routes autorisent désormais uniquement le backfill nommé dans le chemin. Un <code>dag_id</code> fourni à côté ne peut plus modifier la ressource contre laquelle le contrôle est effectué. Les routes qui ne nomment pas de backfill dans leur chemin — liste, création et <code>dry_run</code> — continuent logiquement à s’autoriser à partir de la requête.</p>
+        <p>Ce n’est pas une règle selon laquelle toute absence devient une <code>404</code>. Airflow conserve une différence utile quand elle ne révèle pas une ressource cachée&nbsp;: une personne qui peut lire le DAG, mais n’a pas le droit de modifier son backfill, reçoit encore une <code>403</code> sur une opération d’écriture.</p>
+        <div class="table-scroll"><table>
+          <thead><tr><th>Cas sur une route nommée</th><th>Réponse après 3.3.2</th><th>Ce que l’appelant apprend</th></tr></thead>
+          <tbody>
+            <tr><th>Identifiant inconnu</th><td><code>404</code></td><td>Rien sur un éventuel DAG</td></tr>
+            <tr><th>Backfill existant, DAG non lisible</th><td><code>404</code></td><td>La même chose qu’avec un identifiant inconnu</td></tr>
+            <tr><th>DAG lisible, écriture non autorisée</th><td><code>403</code></td><td>La ressource est visible ; l’action ne l’est pas</td></tr>
+          </tbody>
+        </table></div>
+        <p>Cette matrice n’est pas une politique de sécurité universelle. Elle exprime le contrat de ces quatre routes. Le choix de masquer ou non l’existence d’une ressource dépend d’abord du modèle de permissions et du produit concerné.</p>
+        <h2>Le test à conserver avec la route</h2>
+        <p>Un correctif d’autorisation est facile à fragiliser lors d’une refonte d’API, surtout si le même identifiant apparaît dans le chemin, un payload et des paramètres. Je garderais trois tests de non-régression&nbsp;: une route avec un identifiant inexistant, la même route avec un backfill d’un DAG non lisible, puis une écriture sur un DAG lisible sans permission d’écriture. Les deux premiers doivent produire le même statut et le même détail de réponse&nbsp;; le troisième doit rester un refus explicite.</p>
+        <p>Je testerais aussi qu’un <code>dag_id</code> contradictoire ne change rien à une route qui porte déjà un <code>backfill_id</code>. Ce n’est pas un test d’interface : il vérifie que l’objet autorisé est bien celui que la route a nommé.</p>
+        <h2>Ce que cette note ne dit pas</h2>
+        <p>La correction ne couvre que ces routes de backfill. Elle ne remplace ni une revue des permissions des autres endpoints, ni la configuration d’un gestionnaire d’authentification adapté à la production. La documentation Airflow rappelle d’ailleurs que le gestionnaire traduit les actions et ressources de l’API en rôles ou permissions propres au déploiement.</p>
+        <section class="article-sources" aria-labelledby="sources-title"><h2 id="sources-title">Lectures &amp; sources</h2><ul><li><a href="https://airflow.apache.org/docs/apache-airflow/3.3.2/release_notes.html" target="_blank" rel="noopener">Apache Airflow 3.3.2 · Release notes</a><span>17 septembre 2026&nbsp;: description de la fuite d’existence, des quatre routes concernées et du nouveau comportement <code>404</code>/<code>403</code>.</span></li><li><a href="https://airflow.apache.org/docs/apache-airflow/stable/security/api_permissions_ref.html" target="_blank" rel="noopener">Apache Airflow · API Endpoint Permission Reference</a><span>Référence générée des permissions requises par les endpoints REST de l’API stable.</span></li><li><a href="https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/auth-manager/index.html" target="_blank" rel="noopener">Apache Airflow · Auth manager</a><span>Contrat du gestionnaire d’authentification et relation entre méthode HTTP, ressource et permission.</span></li></ul></section>
+        <footer class="article-footer"><a href="index.html">Toutes les notes</a><a href="lineage-explicite.html">Note suivante</a></footer>
+      </article></div>
+    </main>
+    <footer><a class="brand" href="../index.html"><span class="brand-mark">I</span><span class="brand-word">Ikel</span></a><p class="footer-note">© Ikel Ouedraogo<a class="footer-privacy" href="../privacy.html">confidentialité</a></p><a href="#contenu">Haut de page</a></footer><script src="../script.js?v=20261012b"></script>
+  </body>
+</html>

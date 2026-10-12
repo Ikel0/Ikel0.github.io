@@ -2,6 +2,14 @@
 // chaque note au dépôt qui la soutient.
 window.publicationPosts = [
   {
+    "id": "airflow-backfills-api",
+    "type": "systems",
+    "label": "Systèmes",
+    "href": "airflow-backfills-api.html",
+    "title": "Airflow 3.3.2 : une 404 qui ne révèle pas les backfills",
+    "summary": "Le correctif de septembre 2026 empêche quatre endpoints de backfill d’autoriser une ressource nommée dans l’URL à partir d’un dag_id fourni dans la requête. Le détail compte : une 404 et une 403 ne racontent pas la même chose."
+  },
+  {
     "id": "lineage-explicite",
     "type": "data",
     "label": "Data engineering",
