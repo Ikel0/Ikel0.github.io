@@ -633,3 +633,9 @@ ul.tech-line svg { flex: none; width: .95rem; height: .95rem; fill: var(--muted)
   .fig-bars li { grid-template-columns: 1fr; }
   .fig-axis { margin-left: 0; }
 }
+
+/* Figures reprises des sources, sous licence ouverte : fond blanc d'origine conservé */
+.fig-src > a { display: block; }
+.fig-src img { display: block; box-sizing: border-box; width: auto; max-width: 100%; height: auto; padding: .8rem; background: #fff; }
+.fig-src figcaption a { color: var(--ink); text-decoration-color: var(--article-topic); text-underline-offset: .2rem; }
+.fig-src img[src$=".svg"] { width: 100%; }

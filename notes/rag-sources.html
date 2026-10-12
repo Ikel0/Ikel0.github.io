@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;display=swap" />
-    <link rel="stylesheet" href="../portfolio.css?v=20261012c" />
+    <link rel="stylesheet" href="../portfolio.css?v=20261012d" />
     <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
       <link rel="canonical" href="https://ikel0.github.io/notes/rag-sources.html" />
     <link rel="alternate" type="application/atom+xml" title="Publications · Ikel Ouedraogo" href="feed.xml" />
@@ -36,6 +36,7 @@
         <h2>La recherche s’évalue avec des métriques de recherche</h2>
         <p>La FAQ d’évaluation de Hamel Husain et Shreya Shankar, mise à jour en septembre 2026, traite la récupération comme un problème de recherche d’information&nbsp;: Recall@k (parmi les documents pertinents, combien sont dans les k premiers), MRR. Pour construire le jeu de test sans tout annoter à la main, elle propose d’extraire des faits du corpus puis d’écrire les questions auxquelles ils répondent. La génération se juge ensuite à part, par analyse d’erreurs et par des juges LLM qu’on valide contre des annotations humaines avant de leur faire confiance.</p>
         <p>L’intérêt de cette séparation est pratique&nbsp;: quand une réponse est fausse, on sait si le bon passage manquait ou s’il était là et a été mal utilisé.</p>
+        <figure class="fig fig-src"><a href="../media/notes/ragas-component-metrics.png" target="_blank" rel="noopener"><img src="../media/notes/ragas-component-metrics.png" width="1000" height="563" loading="lazy" alt="Ragas range aussi ses métriques en deux familles" /></a><figcaption>Ragas range aussi ses métriques en deux familles : la génération (fidélité, pertinence de la réponse) et la recherche (précision et rappel du contexte). Figure : documentation de <a href="https://github.com/vibrantlabsai/ragas" target="_blank" rel="noopener">Ragas</a>, licence Apache 2.0.</figcaption></figure>
         <h2>La fidélité se mesure par rapport au contexte reçu</h2>
         <p>Ragas définit la fidélité comme la part des affirmations de la réponse qui peuvent être déduites du contexte récupéré. La mesure ne dit rien de la justesse de ce contexte&nbsp;: une réponse peut être parfaitement fidèle à une procédure périmée. C’est pour cette raison qu’Evidence Desk ne cherche que dans les sources au statut <code>active</code> et passe les anciennes versions à <code>superseded</code>&nbsp;; la fidélité ne protège pas contre une mauvaise source.</p>
         <h2>Compter les refus à part</h2>
