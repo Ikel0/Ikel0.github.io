@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;display=swap" />
-    <link rel="stylesheet" href="../portfolio.css?v=20261012b" />
+    <link rel="stylesheet" href="../portfolio.css?v=20261012c" />
     <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
       <link rel="canonical" href="https://ikel0.github.io/notes/idempotence.html" />
     <link rel="alternate" type="application/atom+xml" title="Publications · Ikel Ouedraogo" href="feed.xml" />
@@ -36,6 +36,19 @@
         <h2>Deux mécanismes, une garantie entre topics</h2>
         <p>Deux mécanismes, tous deux présents depuis la 0.11. Le producteur idempotent&nbsp;: le broker attribue un identifiant à chaque producteur et écarte les doublons grâce à un numéro de séquence. Dans le client Java, il est activé par défaut quand aucune option ne le contredit (<code>acks=all</code>, retries, au plus 5 requêtes en vol). Les transactions&nbsp;: un producteur écrit sur plusieurs partitions et enregistre les offsets du consommateur dans le même commit, puisque ces offsets sont eux-mêmes des messages d’un topic interne.</p>
         <p>La documentation en tire une conclusion précise&nbsp;: exactly once vaut pour Kafka Streams et pour une boucle lire, traiter, écrire entre topics Kafka. Pour un autre système, elle renvoie à sa coopération, et propose de stocker l’offset au même endroit que la sortie, ou de compter sur une clé primaire qui rend l’écriture idempotente. Sans cela, la garantie par défaut reste at least once.</p>
+        <figure class="fig">
+          <p class="fig-title">Où s’arrête exactly once</p>
+          <div class="fig-panels">
+            <div class="fig-panel hot"><h4>Entre topics Kafka</h4>
+              <ol class="fig-flow"><li>Topic d’entrée</li><li>Application<small>lit, traite, écrit</small></li><li class="hot">Topic de sortie + offsets du consommateur<small>même transaction</small></li></ol>
+              <span class="fig-verdict acc">exactly once</span></div>
+            <div class="fig-panel"><h4>Vers une base externe</h4>
+              <ol class="fig-flow"><li>Topic d’entrée</li><li>Worker</li><li>Base de données<small>hors de la transaction Kafka</small></li><li>Commit de l’offset<small>après l’écriture</small></li></ol>
+              <span class="fig-verdict">at least once</span>
+              <p>Le rejeu est absorbé par une clé primaire. Dans Routier : <code>INSERT OR IGNORE</code> sur <code>event_id</code>.</p></div>
+          </div>
+          <figcaption>D’après la documentation Apache Kafka 4.3 (Design). La KIP-939, qui ferait entrer une base dans la transaction, n’est pas livrée au 4 octobre 2026.</figcaption>
+        </figure>
         <h2>Les malentendus qui reviennent</h2>
         <p>Le premier confond producteur idempotent et traitement unique. Le producteur idempotent protège contre ses propres retries&nbsp;; il ne voit pas un consommateur qui retraite un message après un crash.</p>
         <p>Le second touche à l’isolation. Par défaut, un consommateur est en <code>read_uncommitted</code> et lit aussi les messages des transactions annulées. Il faut <code>isolation.level=read_committed</code> côté lecture. Et après un abort, la documentation précise que la position du consommateur doit être remise en arrière par l’application.</p>

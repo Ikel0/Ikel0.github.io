@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;display=swap" />
-    <link rel="stylesheet" href="../portfolio.css?v=20261012b" />
+    <link rel="stylesheet" href="../portfolio.css?v=20261012c" />
     <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
       <link rel="canonical" href="https://ikel0.github.io/notes/text-to-sql.html" />
     <link rel="alternate" type="application/atom+xml" title="Publications · Ikel Ouedraogo" href="feed.xml" />
@@ -38,6 +38,20 @@
         <p>Sur BIRD, le meilleur système atteint 82,95&nbsp;% au 26 septembre 2026, pour 92,96&nbsp;% chez des ingénieurs data et étudiants en bases de données. Chaque question de BIRD arrive avec un indice de connaissance externe, du type « le prêt exige que le compte soit de type OWNER ». En pratique, le benchmark donne la définition métier au modèle. Les auteurs annoncent d’ailleurs une piste interactive qui retirera cet indice.</p>
         <h2>Là où ça casse en entreprise</h2>
         <p>BEAVER est construit sur trois entrepôts privés (97, 366 et 349 tables), avec des questions issues de vrais journaux de requêtes. Dans sa version de mai 2026, les meilleurs agents répondent juste à environ 11&nbsp;% (10,8&nbsp;% avec GPT-5.2), et à 30,1&nbsp;% quand on leur fournit en indice l’annotation des sous-tâches. Les auteurs pointent trois causes&nbsp;: le savoir métier, la complexité des requêtes et l’usage de fonctions avancées.</p>
+        <figure class="fig">
+          <p class="fig-title">Meilleur score cité par benchmark, en % de réponses justes</p>
+          <p class="fig-legend"><span>benchmark public</span><span class="alt">entrepôts privés (BEAVER)</span><span class="ref">humains sur BIRD</span></p>
+          <ul class="fig-bars">
+            <li><span class="lbl">Spider 2.0-Snow<small>métadonnées et documentation fournies</small></span><div class="fig-track"><div class="fig-bar"><i style="--w:96.7%"></i><b>96,70</b></div></div></li>
+            <li><span class="lbl">BIRD<small>indice métier fourni</small></span><div class="fig-track"><div class="fig-bar"><i style="--w:82.95%"></i><b>82,95</b></div><div class="fig-bar ref"><i style="--w:92.96%"></i><b>92,96 humains</b></div></div></li>
+            <li><span class="lbl">Spider 2.0-Lite</span><div class="fig-track"><div class="fig-bar"><i style="--w:76.23%"></i><b>76,23</b></div></div></li>
+            <li><span class="lbl">Spider 2.0-DBT</span><div class="fig-track"><div class="fig-bar"><i style="--w:65.6%"></i><b>65,6</b></div></div></li>
+            <li><span class="lbl">BEAVER<small>avec l’annotation des sous-tâches</small></span><div class="fig-track"><div class="fig-bar alt"><i style="--w:30.1%"></i><b>30,1</b></div></div></li>
+            <li><span class="lbl">BEAVER<small>sans indice, GPT-5.2</small></span><div class="fig-track"><div class="fig-bar alt"><i style="--w:10.8%"></i><b>10,8</b></div></div></li>
+          </ul>
+          <div class="fig-axis" aria-hidden="true"><span>0</span><span>50</span><span>100 %</span></div>
+          <figcaption>Les systèmes diffèrent d’un classement à l’autre : la figure compare des conditions de test, pas des modèles. Sources : Spider 2.0, BIRD (26 septembre 2026), BEAVER (mai 2026).</figcaption>
+        </figure>
         <p>Le fil Hacker News de juillet 2026 sur une tribune de la CACM à ce sujet ajoute le point de vue des praticiens. Plusieurs personnes y décrivent des métriques qui changent de règle selon le service, des schémas anciens où les noms de colonnes ne disent plus rien, et des questions que l’utilisateur ne sait pas formuler du premier coup. Le risque soulevé en tête du fil est qu’un utilisateur métier prenne le résultat pour acquis, sans personne pour relire la requête.</p>
         <h2>Les droits d’accès&nbsp;: rester dans le rôle de l’utilisateur</h2>
         <p>Le sujet des droits est moins discuté dans les benchmarks, qui n’en ont pas. Pour Cortex Analyst, Snowflake indique que le SQL généré respecte le RBAC et les contrôles d’accès en place. Cela suppose que l’agent n’ait pas un compte de service plus large que la personne qui pose la question. C’est le premier point que je vérifierais sur n’importe quel outil de ce type.</p>

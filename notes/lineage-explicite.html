@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;display=swap" />
-    <link rel="stylesheet" href="../portfolio.css?v=20261012b" />
+    <link rel="stylesheet" href="../portfolio.css?v=20261012c" />
     <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
     <link rel="canonical" href="https://ikel0.github.io/notes/lineage-explicite.html" />
     <link rel="alternate" type="application/atom+xml" title="Publications · Ikel Ouedraogo" href="feed.xml" />
@@ -36,6 +36,14 @@
         <h2>La liste des entrées et sorties ne suffit pas toujours</h2>
         <p>Un événement d’exécution OpenLineage décrit un job, puis les jeux de données lus et écrits pendant ce run. C’est une bonne base pour observer un pipeline. Mais lorsqu’un même job lit deux sources et écrit deux tables, l’information seule ne dit pas quelle source alimente quelle sortie. Un consommateur peut l’inférer à partir de la frontière du run ; l’inférence devient trop large si les deux sorties n’ont pas la même provenance.</p>
         <p>Le problème est concret dans les transformations qui mélangent plusieurs écritures, dans les chaînes avec tables temporaires, ou lorsqu’un job produit à la fois une table de contrôle et une table métier. Montrer quatre arêtes plutôt que deux n’est pas neutre : une analyse d’impact peut alors alerter une équipe qui n’est pas concernée.</p>
+        <figure class="fig">
+          <p class="fig-title">Le même job, deux lectures du lignage</p>
+          <div class="fig-panels">
+            <div class="fig-panel"><h4>Déduit de la frontière du run</h4><svg viewBox="0 0 280 150" aria-hidden="true"><path class="edge " d="M118 37 C140 37 140 37 162 37"/><path class="edge " d="M118 113 C140 113 140 113 162 113"/><path class="edge extra" d="M118 37 C140 37 140 113 162 113"/><path class="edge extra" d="M118 113 C140 113 140 37 162 37"/><rect class="node" x="8" y="20" width="110" height="34"/><text x="63" y="42" text-anchor="middle">source A</text><rect class="node" x="8" y="96" width="110" height="34"/><text x="63" y="118" text-anchor="middle">source B</text><rect class="node" x="162" y="20" width="110" height="34"/><text x="217" y="42" text-anchor="middle">table métier</text><rect class="node" x="162" y="96" width="110" height="34"/><text x="217" y="118" text-anchor="middle">table de contrôle</text></svg><p>Quatre arêtes : chaque entrée est reliée à chaque sortie. Les pointillés n’existent pas dans le code.</p></div>
+            <div class="fig-panel hot"><h4>Déclaré avec les Lineage Facets</h4><svg viewBox="0 0 280 150" aria-hidden="true"><path class="edge acc" d="M118 37 C140 37 140 37 162 37"/><path class="edge acc" d="M118 113 C140 113 140 113 162 113"/><rect class="node" x="8" y="20" width="110" height="34"/><text x="63" y="42" text-anchor="middle">source A</text><rect class="node" x="8" y="96" width="110" height="34"/><text x="63" y="118" text-anchor="middle">source B</text><rect class="node" x="162" y="20" width="110" height="34"/><text x="217" y="42" text-anchor="middle">table métier</text><rect class="node" x="162" y="96" width="110" height="34"/><text x="217" y="118" text-anchor="middle">table de contrôle</text></svg><p>Deux arêtes, celles que le producteur connaît et émet.</p></div>
+          </div>
+          <figcaption>Cas d’un job qui lit deux sources et écrit une table métier et une table de contrôle. D’après la spécification OpenLineage 1.53.0.</figcaption>
+        </figure>
         <h2>Ce que la version 1.53 ajoute</h2>
         <p>La version 1.53.0 introduit les <em>Lineage Facets</em>. Sur un <code>JobEvent</code> ou un <code>RunEvent</code>, la facet de job peut déclarer des relations exactes entre jeu de données et jeu de données, job et jeu de données, jeu de données et job, ou job et job. Le but est explicite dans la spécification&nbsp;: ne plus dépendre uniquement du lignage déduit de la frontière de l’événement.</p>
         <p>La même idée existe côté jeu de données. Une <em>Lineage Dataset Facet</em> peut être portée par un <code>DatasetEvent</code> pour décrire l’origine exacte d’une table, d’une vue ou d’un alias lorsqu’aucun job exécuté n’est le bon propriétaire de la relation. La spécification distingue les dépendances au niveau du jeu de données et celles au niveau du champ.</p>

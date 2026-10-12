@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;display=swap" />
-    <link rel="stylesheet" href="../portfolio.css?v=20261012b" />
+    <link rel="stylesheet" href="../portfolio.css?v=20261012c" />
     <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
       <link rel="canonical" href="https://ikel0.github.io/notes/formats-tables.html" />
     <link rel="alternate" type="application/atom+xml" title="Publications · Ikel Ouedraogo" href="feed.xml" />
@@ -37,6 +37,19 @@
         <p>La v3 de la spécification apporte les vecteurs de suppression, le lignage de lignes, les valeurs par défaut de colonnes et le type <code>variant</code>. Iceberg 1.11, sorti le 19 mai 2026, déplace une partie du travail vers le catalogue REST&nbsp;: la planification des scans peut être faite côté serveur, le chargement des tables tient compte de leur fraîcheur, et les premières structures des manifestes v4 apparaissent dans le code. Le catalogue fait donc plus que pointer vers un fichier de métadonnées.</p>
         <h2>Snowflake ouvre l’écriture aux moteurs externes</h2>
         <p>Trois notes de version de 2026 concernent directement qui vient de Snowflake. Le 7 mai, le support de la v3 passe en disponibilité générale, avec la lecture externe via l’API Iceberg REST de Horizon Catalog, mais sans écriture externe sur les tables v3. Le 26 mai, l’écriture par un moteur externe comme Spark passe en disponibilité générale pour les tables v2 et v3 gérées par Snowflake, avec les rôles et politiques existants. Le 18 août, une <a href="https://docs.snowflake.com/en/release-notes/2026/other/2026-08-18-externally-managed-iceberg-tables-horizon-irc-preview" target="_blank" rel="noopener">préversion</a> étend ce point d’accès aux tables gérées à l’extérieur, lisibles depuis Spark, Trino, DuckDB ou PyIceberg. En parallèle, <a href="https://polaris.apache.org/blog/2026/02/19/apache-polaris-graduates-to-top-level-project/" target="_blank" rel="noopener">Apache Polaris</a>, implémentation neutre de la spécification Iceberg REST, est devenu un projet de premier niveau de la fondation Apache en février 2026.</p>
+        <figure class="fig">
+          <p class="fig-title">Ce qui a changé en 2026, dans l’ordre</p>
+          <ol class="fig-time">
+            <li>Apache Polaris devient un projet de premier niveau de la fondation Apache<time>février</time></li>
+            <li>DuckLake 1.0<time>13 avril</time></li>
+            <li class="hot">Snowflake : Iceberg v3 en disponibilité générale, lecture externe, pas d’écriture externe en v3<time>7 mai</time></li>
+            <li>Iceberg 1.11 : planification des scans côté catalogue REST<time>19 mai</time></li>
+            <li class="hot">Snowflake : écriture par un moteur externe en disponibilité générale, tables v2 et v3<time>26 mai</time></li>
+            <li>Delta Lake 4.4 branché sur l’API Delta d’Unity Catalog<time>août</time></li>
+            <li class="hot">Snowflake : préversion pour les tables gérées à l’extérieur<time>18 août</time></li>
+          </ol>
+          <figcaption>En couleur, les changements côté Snowflake. Sources : notes de version Snowflake, Apache Iceberg, Delta Lake et DuckLake citées plus bas.</figcaption>
+        </figure>
         <p>Dans le fil Hacker News sur pg_lake, l’extension Postgres pour Iceberg ouverte par Snowflake en novembre 2025, un commentaire y voit le signe qu’Iceberg l’emporte, en citant aussi S3 Table Buckets et R2 Data Catalog. Un développeur du projet y explique qu’il ne vise pas à remplacer un entrepôt.</p>
         <h2>Delta et Hudi se tournent aussi vers le catalogue</h2>
         <p>Delta Lake 4.0 (septembre 2025) a introduit en préversion les tables gérées par un catalogue, et la <a href="https://github.com/delta-io/delta/releases/tag/v4.4.0" target="_blank" rel="noopener">4.4</a> (août 2026) branche Delta Kernel et le connecteur Flink expérimental sur l’API Delta d’Unity Catalog pour ces tables. <a href="https://hudi.apache.org/blog/2025/11/25/apache-hudi-release-1-1-announcement/" target="_blank" rel="noopener">Hudi 1.1</a> (novembre 2025) sépare son moteur de stockage du format, avec des adaptateurs Iceberg et Delta encore en développement via Apache XTable.</p>

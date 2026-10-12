@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;display=swap" />
-    <link rel="stylesheet" href="../portfolio.css?v=20261012b" />
+    <link rel="stylesheet" href="../portfolio.css?v=20261012c" />
     <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
       <link rel="canonical" href="https://ikel0.github.io/notes/rag-sources.html" />
     <link rel="alternate" type="application/atom+xml" title="Publications · Ikel Ouedraogo" href="feed.xml" />
@@ -40,6 +40,15 @@
         <p>Ragas définit la fidélité comme la part des affirmations de la réponse qui peuvent être déduites du contexte récupéré. La mesure ne dit rien de la justesse de ce contexte&nbsp;: une réponse peut être parfaitement fidèle à une procédure périmée. C’est pour cette raison qu’Evidence Desk ne cherche que dans les sources au statut <code>active</code> et passe les anciennes versions à <code>superseded</code>&nbsp;; la fidélité ne protège pas contre une mauvaise source.</p>
         <h2>Compter les refus à part</h2>
         <p>Un préprint d’août 2026, écrit par des auteurs de CustomGPT.ai (éditeur d’un des systèmes testés, ce qu’ils déclarent), pose le problème clairement. Un score d’exactitude classique traite pareil un «&nbsp;je ne sais pas&nbsp;» honnête et une invention quand la réponse manque. Ils ajoutent des questions «&nbsp;canaris&nbsp;» dont la réponse est absente de la base, et notent +1 pour une bonne réponse, −4 pour une fausse, 0 pour une abstention. Sur trois systèmes commerciaux, l’exactitude quand ils répondent va de 97,0 à 98,0&nbsp;%, mais le taux de réponse aux canaris va de 16,7 à 98,1&nbsp;%. Le classement change avec ce barème.</p>
+        <figure class="fig">
+          <p class="fig-title">Trois systèmes commerciaux : plage des valeurs observées, en %</p>
+          <ul class="fig-bars">
+            <li><span class="lbl">Exactitude quand le système répond</span><div class="fig-track"><div class="fig-range" style="--from:97%;--to:98%"><i></i><b>97,0 à 98,0</b></div></div></li>
+            <li><span class="lbl">Réponse aux questions canaris<small>la réponse n’est pas dans la base</small></span><div class="fig-track"><div class="fig-range" style="--from:16.7%;--to:98.1%"><i></i><b>16,7 à 98,1</b></div></div></li>
+          </ul>
+          <div class="fig-axis" aria-hidden="true"><span>0</span><span>50</span><span>100 %</span></div>
+          <figcaption>Les trois systèmes se tiennent en un point sur l’exactitude, mais l’un d’eux invente presque à chaque canari. Source : préprint d’août 2026, écrit par des auteurs de CustomGPT.ai, éditeur d’un des systèmes testés.</figcaption>
+        </figure>
         <h2>Retours d’équipes en production</h2>
         <p>Dans un fil «&nbsp;Ask HN&nbsp;» de mars 2026 sur la façon dont les gens évaluent leurs systèmes, les pratiques varient. Dans une équipe, des chefs de produit écrivent les questions et l’équipe technique note chaque réponse réussie ou ratée. Une autre personne tire environ 2&nbsp;000 e-mails de support, dont un LLM extrait des paires question-réponse. Une troisième fait noter les sorties par une IA, puis une personne classe l’ensemble. L’auteur du fil et un autre commentaire reconnaissent que les sorties non binaires restent difficiles à juger.</p>
         <h2>Le 4 sur 4 d’Evidence Desk, relu</h2>

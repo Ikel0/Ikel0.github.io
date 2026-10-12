@@ -561,3 +561,75 @@ ul.tech-line svg { flex: none; width: .95rem; height: .95rem; fill: var(--muted)
 .project-links a.is-primary { border-bottom-width: 2px; color: var(--ink); }
 .project-links a.is-primary::after { content: " →"; color: var(--blue); }
 .project-links a.is-primary:hover { border-color: var(--ink); }
+
+/* Figures des publications : schémas et graphiques faits à la main, en HTML, à partir des chiffres de la note */
+.fig { margin: 2.2rem 0; padding: 1.2rem 0 0; border-top: 1px solid var(--line); }
+.fig figcaption { margin-top: 1rem; color: var(--muted); font-size: .86rem; line-height: 1.55; }
+.fig-title { margin: 0 0 1rem; color: var(--ink); font: 600 .95rem/1.35 var(--sans); }
+.fig-note { color: var(--muted); font-size: .8rem; }
+.fig .acc { color: var(--article-topic); }
+/* barres */
+.fig-bars { display: grid; gap: .7rem; margin: 0; padding: 0; list-style: none; }
+.fig-bars li { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: .25rem 1rem; align-items: center; }
+.fig-bars .lbl { font-size: .86rem; line-height: 1.3; }
+.fig-bars .lbl small { display: block; color: var(--muted); font-size: .76rem; }
+.fig-track { position: relative; display: grid; gap: 3px; margin-right: 6rem; }
+.fig-bar { display: flex; align-items: center; height: 1.15rem; }
+.fig-bar i { flex: none; display: block; height: 100%; width: var(--w); min-width: 2px; background: var(--article-topic); }
+.fig-bar.alt i { background: var(--muted); opacity: .55; }
+.fig-bar.ref i { border: 1px dashed var(--ink); background: none; }
+.fig-bar.ref b { color: var(--muted); }
+.fig-legend span.ref::before { border: 1px dashed var(--ink); background: none; }
+.fig-bar b { margin-left: .5rem; font: 500 .78rem var(--mono); white-space: nowrap; }
+.fig-range { position: relative; height: 1.15rem; }
+.fig-range i { position: absolute; top: 0; bottom: 0; left: var(--from); width: calc(var(--to) - var(--from)); min-width: 3px; background: var(--article-topic); }
+.fig-range b { position: absolute; top: 50%; left: calc(var(--to) + .5rem); transform: translateY(-50%); font: 500 .78rem var(--mono); white-space: nowrap; }
+.fig-mark { position: absolute; top: -3px; bottom: -3px; left: var(--at); border-left: 2px dashed var(--ink); }
+.fig-mark span { position: absolute; top: 100%; left: -1px; margin-top: 2px; color: var(--muted); font: .7rem var(--mono); white-space: nowrap; }
+.fig-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin: 0 0 1rem; color: var(--muted); font-size: .8rem; }
+.fig-legend span::before { content: ""; display: inline-block; width: .8rem; height: .8rem; margin-right: .4rem; vertical-align: -.1rem; background: var(--article-topic); }
+.fig-legend span.alt::before { background: var(--muted); opacity: .55; }
+.fig-legend span.b::before { background: color-mix(in srgb, var(--article-topic) 70%, var(--paper)); }
+.fig-legend span.c::before { background: color-mix(in srgb, var(--article-topic) 45%, var(--paper)); }
+.fig-legend span.dash::before { width: 0; height: .9rem; border-left: 2px dashed var(--ink); background: none; }
+.fig-axis { display: flex; justify-content: space-between; margin: .4rem 6rem 0 calc(12rem + 1rem); color: var(--muted); font: .7rem var(--mono); }
+/* panneaux et boîtes */
+.fig-panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.fig-panel { padding: 1rem; border: 1px solid var(--line); background: var(--surface); }
+.fig-panel.hot { border-color: var(--article-topic); }
+.fig-panel h4 { margin: 0 0 .8rem; font: 600 .9rem/1.3 var(--sans); }
+.fig-panel p { margin: .8rem 0 0; font-size: .84rem; line-height: 1.5; }
+.fig-flow { display: flex; flex-direction: column; align-items: stretch; gap: 0; margin: 0; padding: 0; list-style: none; }
+.fig-flow li { padding: .45rem .6rem; border: 1px solid var(--line); background: var(--paper); font-size: .84rem; line-height: 1.35; }
+.fig-flow li small { display: block; color: var(--muted); font: .74rem var(--mono); }
+.fig-flow li + li { position: relative; margin-top: 1.3rem; }
+.fig-flow li + li::before { content: "↓"; position: absolute; top: -1.25rem; left: .6rem; color: var(--muted); font-size: .85rem; line-height: 1.2rem; }
+.fig-flow li.hot { border-color: var(--article-topic); }
+.fig-verdict { display: inline-block; margin-top: .8rem; padding: .15rem .45rem; border: 1px solid currentColor; font: 500 .78rem var(--mono); }
+.fig-panel svg { display: block; width: 100%; height: auto; }
+.fig-panel svg text { fill: var(--ink); font: 13px var(--sans); }
+.fig-panel svg .node { fill: var(--paper); stroke: var(--line); }
+.fig-panel svg .edge { fill: none; stroke: var(--muted); stroke-width: 1.4; }
+.fig-panel svg .edge.acc { stroke: var(--article-topic); stroke-width: 2; }
+.fig-panel svg .edge.extra { stroke-dasharray: 4 4; }
+/* frise */
+.fig-time { position: relative; display: grid; gap: .9rem; margin: 0; padding: 0 0 0 1.2rem; list-style: none; border-left: 1px solid var(--line); }
+.fig-time li { position: relative; font-size: .86rem; line-height: 1.45; }
+.fig-time li::before { content: ""; position: absolute; top: .4rem; left: calc(-1.2rem - 4px); width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+.fig-time li.hot::before { background: var(--article-topic); }
+.fig-time time { display: block; color: var(--muted); font: .74rem var(--mono); }
+/* empilement (score Sillage) */
+.fig-stack { display: flex; height: 2.2rem; border: 1px solid var(--line); }
+.fig-stack span { display: flex; align-items: center; justify-content: center; width: var(--w); font: 500 .74rem var(--mono); color: var(--paper); background: var(--article-topic); }
+.fig-stack span + span { border-left: 1px solid var(--paper); }
+.fig-stack span.b { justify-content: flex-start; padding-left: .35rem; background: color-mix(in srgb, var(--article-topic) 70%, var(--paper)); }
+.fig-stack span.c { background: color-mix(in srgb, var(--article-topic) 45%, var(--paper)); color: var(--ink); }
+.fig-scale { position: relative; height: 1.6rem; margin-top: .3rem; color: var(--muted); font: .72rem var(--mono); }
+.fig-scale span { position: absolute; top: 0; left: var(--at); transform: translateX(-50%); white-space: nowrap; }
+.fig-scale span.thr { color: var(--ink); }
+.fig-thr { position: relative; }
+.fig-thr::after { content: ""; position: absolute; top: -4px; bottom: -4px; left: 80%; border-left: 2px dashed var(--ink); }
+@media (max-width: 640px) {
+  .fig-bars li { grid-template-columns: 1fr; }
+  .fig-axis { margin-left: 0; }
+}

@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;display=swap" />
-    <link rel="stylesheet" href="../portfolio.css?v=20261012b" />
+    <link rel="stylesheet" href="../portfolio.css?v=20261012c" />
     <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
       <link rel="canonical" href="https://ikel0.github.io/notes/mcp-donnees.html" />
     <link rel="alternate" type="application/atom+xml" title="Publications · Ikel Ouedraogo" href="feed.xml" />
@@ -39,6 +39,15 @@
         <h2>L’injection arrive par les données que l’outil renvoie</h2>
         <p>Le cas Supabase a été publié par General Analysis et repris par Simon Willison le 6 juillet 2025. Un développeur utilise Cursor avec le serveur MCP de Supabase, connecté avec le rôle <code>service_role</code>, qui contourne la sécurité au niveau des lignes. Un attaquant dépose un ticket de support contenant des instructions. Quand l’assistant lit les tickets, il lit aussi la table <code>integration_tokens</code> et recopie son contenu dans le ticket, visible par l’attaquant.</p>
         <p>Willison appelle cette combinaison la «&nbsp;lethal trifecta&nbsp;»&nbsp;: accès à des données privées, exposition à du contenu non fiable, moyen de faire sortir l’information. Ici, la table de tickets cumulait les deux derniers rôles.</p>
+        <figure class="fig">
+          <p class="fig-title">Les trois éléments de la « lethal trifecta » dans le cas Supabase</p>
+          <div class="fig-panels">
+            <div class="fig-panel"><h4>Données privées</h4><p>Table <code>integration_tokens</code>, lisible avec <code>service_role</code>, qui contourne la sécurité au niveau des lignes.</p></div>
+            <div class="fig-panel hot"><h4>Contenu non fiable</h4><p>Un ticket de support déposé par l’attaquant, avec des instructions.</p></div>
+            <div class="fig-panel hot"><h4>Canal de sortie</h4><p>Le même ticket : l’assistant y recopie les jetons, l’attaquant les lit.</p></div>
+          </div>
+          <figcaption>D’après Simon Willison et General Analysis, juillet 2025. En couleur, les deux rôles tenus par la même table de tickets. Ma liste plus bas vise à retirer au moins un des trois éléments.</figcaption>
+        </figure>
         <h2>La réponse de Supabase sur Hacker News</h2>
         <p>Dans le fil Hacker News sur le billet de General Analysis (470 commentaires), un ingénieur de Supabase décrit les mesures prises&nbsp;: lecture seule encouragée dans la documentation, résultats SQL encadrés par un texte qui dissuade le modèle de suivre des instructions, tests de bout en bout. Il les présente comme des atténuations, l’injection de prompt restant un problème non résolu. Plusieurs commentaires ajoutent que la lecture seule n’empêche pas la fuite si l’agent dispose d’un autre canal de sortie.</p>
         <h2>Les listes d’OWASP</h2>

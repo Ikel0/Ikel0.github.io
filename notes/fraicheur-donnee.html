@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;display=swap" />
-    <link rel="stylesheet" href="../portfolio.css?v=20261012b" />
+    <link rel="stylesheet" href="../portfolio.css?v=20261012c" />
     <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
       <link rel="canonical" href="https://ikel0.github.io/notes/fraicheur-donnee.html" />
     <link rel="alternate" type="application/atom+xml" title="Publications · Ikel Ouedraogo" href="feed.xml" />
@@ -35,6 +35,20 @@
       <div class="article-grid"><aside class="article-aside"><div><strong>Projet</strong><span><a href="https://github.com/Ikel0/pacte" target="_blank" rel="noopener">Pacte</a>, dont le contrat déclare <code>freshness_hours: 24</code> sans contrôle associé.</span></div></aside><article class="article-body">
         <h2>Trois mesures sous le même mot</h2>
         <p>La documentation de DQOps (mise à jour en juillet 2025) sépare trois délais. La fraîcheur part du dernier événement métier enregistré, donc d’une colonne de date métier. L’ancienneté du chargement part du dernier chargement, donc d’une colonne remplie par le pipeline. Le délai d’ingestion est l’écart entre les deux. Un même SLA de 24&nbsp;heures ne dit pas la même chose selon la colonne choisie.</p>
+        <figure class="fig">
+          <p class="fig-title">Trois horodatages, trois délais</p>
+          <ol class="fig-time">
+            <li>Dernier événement métier<time>colonne métier, par exemple order_date</time></li>
+            <li>Dernier chargement<time>colonne remplie par le pipeline</time></li>
+            <li class="hot">Maintenant<time>heure du contrôle</time></li>
+          </ol>
+          <div class="fig-panels" style="margin-top:1.2rem">
+            <div class="fig-panel"><h4>Fraîcheur</h4><p>maintenant − dernier événement métier</p></div>
+            <div class="fig-panel"><h4>Ancienneté du chargement</h4><p>maintenant − dernier chargement</p></div>
+            <div class="fig-panel"><h4>Délai d’ingestion</h4><p>dernier chargement − dernier événement métier</p></div>
+          </div>
+          <figcaption>D’après la documentation DQOps (juillet 2025). Un week-end sans commande fait monter la fraîcheur alors que le pipeline tourne normalement.</figcaption>
+        </figure>
         <p>Le SRE Workbook de Google formule la fraîcheur d’un pipeline comme un indicateur de service&nbsp;: la proportion des données mises à jour plus récemment qu’un seuil. Son exemple enregistre un repère horodaté à chaque mise à jour de la table. Le principe est le même&nbsp;: c’est le système qui charge qui écrit l’heure.</p>
         <h2>dbt freshness en 2026</h2>
         <p>Dans la documentation actuelle, <code>dbt freshness</code> (dbt v2) contrôle les sources et les modèles. <code>dbt source freshness</code> devient une commande historique, toujours prise en charge et qui produit encore <code>sources.json</code>. Les seuils restent <code>warn_after</code> et <code>error_after</code>. L’horodatage vient de <code>loaded_at_field</code> ou, depuis la 1.10, d’une requête <code>loaded_at_query</code>, jamais des deux à la fois. Depuis la 1.12, une source sans <code>loaded_at_field</code> est mesurée par les métadonnées de l’entrepôt quand c’est possible, avec une réserve explicite pour les tables BigQuery à joker. Les vues, elles, exigent une colonne&nbsp;: elles n’exposent pas de métadonnées au niveau des lignes.</p>
