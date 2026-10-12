@@ -78,60 +78,6 @@ if (trackedSections.length) {
   update();
 }
 
-// Bascule clair / sombre. Le thème initial est posé dans le <head> avant l'affichage.
-const themeButton = document.querySelector('.theme-toggle');
-if (themeButton) {
-  const root = document.documentElement;
-  const english = root.lang === 'en';
-  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  const currentTheme = () => root.dataset.theme || (darkQuery.matches ? 'dark' : 'light');
-  const updateLabel = () => {
-    const dark = currentTheme() === 'dark';
-    themeButton.textContent = english ? (dark ? 'Light' : 'Dark') : (dark ? 'Clair' : 'Sombre');
-    themeButton.setAttribute('aria-label', english
-      ? (dark ? 'Switch to light theme' : 'Switch to dark theme')
-      : (dark ? 'Passer en thème clair' : 'Passer en thème sombre'));
-  };
-  themeButton.addEventListener('click', () => {
-    const next = currentTheme() === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = next;
-    try { localStorage.setItem('theme', next); } catch (error) { /* stockage indisponible : le choix vaut pour la page */ }
-    updateLabel();
-  });
-  darkQuery.addEventListener('change', updateLabel);
-  updateLabel();
-}
-
-// Raccourcis clavier : « t » bascule le thème, « ? » ouvre la liste des raccourcis dans un
-// dialog natif (Échap le ferme). Rien n'est capturé quand le focus est dans un champ.
-const inField = element => Boolean(element && element.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"])'));
-const shortcutsText = document.documentElement.lang === 'en'
-  ? { title: 'Keyboard shortcuts', theme: 'Switch theme', list: 'Show this list', esc: 'Esc', close: 'Close' }
-  : { title: 'Raccourcis clavier', theme: 'Changer de thème', list: 'Afficher cette liste', esc: 'Échap', close: 'Fermer' };
-let shortcutsDialog = null;
-const toggleShortcuts = () => {
-  if (!shortcutsDialog) {
-    shortcutsDialog = document.createElement('dialog');
-    shortcutsDialog.className = 'shortcuts';
-    shortcutsDialog.setAttribute('aria-labelledby', 'shortcuts-title');
-    shortcutsDialog.innerHTML = `<h2 id="shortcuts-title">${shortcutsText.title}</h2>
-      <dl><dt><kbd>t</kbd></dt><dd>${shortcutsText.theme}</dd><dt><kbd>?</kbd></dt><dd>${shortcutsText.list}</dd><dt><kbd>${shortcutsText.esc}</kbd></dt><dd>${shortcutsText.close}</dd></dl>
-      <form method="dialog"><button type="submit">${shortcutsText.close}</button></form>`;
-    document.body.append(shortcutsDialog);
-  }
-  if (shortcutsDialog.open) shortcutsDialog.close(); else shortcutsDialog.showModal();
-};
-document.addEventListener('keydown', event => {
-  if (event.altKey || event.ctrlKey || event.metaKey || inField(event.target)) return;
-  if (event.key === 't' && themeButton && !(shortcutsDialog && shortcutsDialog.open)) {
-    event.preventDefault();
-    themeButton.click();
-  } else if (event.key === '?') {
-    event.preventDefault();
-    toggleShortcuts();
-  }
-});
-
 const stackBand = document.querySelector('.stack-band');
 if (stackBand && 'IntersectionObserver' in window) {
   new IntersectionObserver(([entry]) => stackBand.classList.toggle('is-away', !entry.isIntersecting)).observe(stackBand);
