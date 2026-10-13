@@ -11,6 +11,7 @@ window.publicationPosts = [
   },
   {
     "id": "lineage-explicite",
+    "thumb": "../media/notes/thumbs/lineage-explicite.png",
     "type": "data",
     "label": "Data engineering",
     "href": "lineage-explicite.html",
@@ -31,6 +32,7 @@ window.publicationPosts = [
   },
   {
     "id": "olist-pieges",
+    "thumb": "../media/notes/thumbs/olist-pieges.png",
     "type": "analytics",
     "label": "Analytics",
     "href": "olist-pieges.html",
@@ -43,6 +45,7 @@ window.publicationPosts = [
   },
   {
     "id": "couche-semantique",
+    "thumb": "../media/notes/thumbs/couche-semantique.png",
     "type": "analytics",
     "label": "Analytics",
     "href": "couche-semantique.html",
@@ -55,6 +58,7 @@ window.publicationPosts = [
   },
   {
     "id": "text-to-sql",
+    "thumb": "../media/notes/thumbs/text-to-sql.png",
     "type": "analytics",
     "label": "Analytics",
     "href": "text-to-sql.html",
@@ -63,6 +67,7 @@ window.publicationPosts = [
   },
   {
     "id": "formats-tables",
+    "thumb": "../media/notes/thumbs/formats-tables.png",
     "type": "data",
     "label": "Data engineering",
     "href": "formats-tables.html",
@@ -83,6 +88,7 @@ window.publicationPosts = [
   },
   {
     "id": "fraicheur-donnee",
+    "thumb": "../media/notes/thumbs/fraicheur-donnee.png",
     "type": "data",
     "label": "Data engineering",
     "href": "fraicheur-donnee.html",
@@ -95,6 +101,7 @@ window.publicationPosts = [
   },
   {
     "id": "idempotence",
+    "thumb": "../media/notes/thumbs/idempotence.png",
     "type": "systems",
     "label": "Systèmes",
     "href": "idempotence.html",
@@ -107,6 +114,7 @@ window.publicationPosts = [
   },
   {
     "id": "rag-sources",
+    "thumb": "../media/notes/thumbs/rag-sources.png",
     "type": "ai",
     "label": "IA appliquée",
     "href": "rag-sources.html",
@@ -119,6 +127,7 @@ window.publicationPosts = [
   },
   {
     "id": "mcp-donnees",
+    "thumb": "../media/notes/thumbs/mcp-donnees.png",
     "type": "ai",
     "label": "IA appliquée",
     "href": "mcp-donnees.html",
@@ -127,6 +136,7 @@ window.publicationPosts = [
   },
   {
     "id": "agents-outils",
+    "thumb": "../media/notes/thumbs/agents-outils.png",
     "type": "ai",
     "label": "IA appliquée",
     "href": "agents-outils.html",

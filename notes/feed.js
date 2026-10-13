@@ -33,7 +33,8 @@ const renderPosts = () => {
     return;
   }
   postList.innerHTML = visiblePosts.map(post => `
-    <article class="post" data-post-id="${escapeHtml(post.id)}" data-type="${escapeHtml(post.type)}">
+    <article class="post${post.thumb ? ' has-thumb' : ''}" data-post-id="${escapeHtml(post.id)}" data-type="${escapeHtml(post.type)}">
+      ${post.thumb ? `<a class="post-thumb" href="${escapeHtml(post.href)}" tabindex="-1" aria-hidden="true"><img src="${escapeHtml(post.thumb)}" alt="" width="1200" height="750" loading="lazy" /></a>` : ''}
       <p class="post-meta">${escapeHtml(post.label)}</p>
       <h2><a href="${escapeHtml(post.href)}">${escapeHtml(post.title)}</a></h2>
       <p class="post-summary">${escapeHtml(post.summary)}</p>

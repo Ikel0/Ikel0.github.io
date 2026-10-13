@@ -641,3 +641,21 @@ ul.tech-line svg { flex: none; width: .95rem; height: .95rem; fill: var(--muted)
 
 /* L'adresse de contact suit la police du site */
 .email { font-family: var(--sans); font-weight: 500; letter-spacing: -.01em; }
+
+/* Projets : le titre mène à l'étude de cas (ou au code), la ligne réagit au survol */
+.project-row h3 a { color: inherit; text-decoration: none; }
+.project-row .project-number { transition: color .15s ease; }
+.project-row h3 a:hover, .project-row h3 a:focus-visible { color: var(--blue-dark); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+.project-row:hover .project-number { color: var(--blue-dark); }
+
+/* Publications : vignette tirée de la figure de la note */
+.post.has-thumb { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; column-gap: 1.6rem; align-items: start; }
+.post.has-thumb > * { grid-column: 1; }
+.post.has-thumb > .post-thumb { grid-column: 2; grid-row: 1 / span 5; }
+.post-thumb { display: block; border: 1px solid var(--line); }
+.post-thumb img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+.post-thumb:hover { border-color: var(--article-topic, var(--muted)); }
+@media (max-width: 700px) {
+  .post.has-thumb { grid-template-columns: 1fr; }
+  .post.has-thumb > .post-thumb { grid-column: 1; grid-row: auto; order: 9; max-width: 22rem; margin-top: 1rem; }
+}
