@@ -638,3 +638,6 @@ ul.tech-line svg { flex: none; width: .95rem; height: .95rem; fill: var(--muted)
 .fig-src img { display: block; box-sizing: border-box; width: auto; max-width: 100%; height: auto; padding: .8rem; background: #fff; }
 .fig-src figcaption a { color: var(--ink); text-decoration-color: var(--article-topic); text-underline-offset: .2rem; }
 .fig-src img[src$=".svg"] { width: 100%; }
+
+/* L'adresse de contact suit la police du site */
+.email { font-family: var(--sans); font-weight: 500; letter-spacing: -.01em; }
