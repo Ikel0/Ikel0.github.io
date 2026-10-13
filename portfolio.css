@@ -542,7 +542,7 @@ code, a, .tech-line, .project-links, .cert-list { hyphens: manual; }
 
 /* Bande de stack sous l'intro */
 .stack-band { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.stack-track { display: flex; width: max-content; animation: stack-scroll 90s linear infinite; }
+.stack-track { display: flex; width: max-content; animation: stack-scroll 100s linear infinite; }
 .stack-band { contain: paint; }
 .stack-band:hover .stack-track, .stack-band.is-away .stack-track { animation-play-state: paused; }
 .stack-track ul { display: flex; flex: none; margin: 0; padding: 0; list-style: none; }
