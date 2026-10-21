@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Iceberg 1.12 publie des runtimes pour Spark 3.5, 4.0 et 4.1, mais pas pour Spark 4.2. Le suivi Apache indique que le support 4.2 restait en validation en octobre 2026 : un JAR voisin ne constitue pas une compatibilité déclarée." />
+    <meta name="theme-color" content="#12171a" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ikel0.github.io/notes/iceberg-spark-42.html" />
+    <meta property="og:title" content="Iceberg 1.12 et Spark 4.2 : le runtime qui manque est un signal" />
+    <meta property="og:description" content="Iceberg 1.12 publie des runtimes pour Spark 3.5, 4.0 et 4.1, mais pas pour Spark 4.2. Le suivi Apache indique que le support 4.2 restait en validation en octobre 2026 : un JAR voisin ne constitue pas une compatibilité déclarée." />
+    <meta property="og:image" content="https://ikel0.github.io/media/og/iceberg-spark-42.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Iceberg 1.12 et Spark 4.2 : le runtime qui manque est un signal · Ikel Ouedraogo</title>
+    <link rel="icon" href="../favicon-96x96.png" type="image/png" sizes="96x96" />
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&((performance.getEntriesByType("navigation")[0]||{}).type!=="back_forward"))document.documentElement.classList.add("is-entering")</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;display=swap" />
+    <link rel="stylesheet" href="../portfolio.css?v=20261013c" />
+    <script data-goatcounter="https://ikel-portfolio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <link rel="canonical" href="https://ikel0.github.io/notes/iceberg-spark-42.html" />
+    <link rel="alternate" type="application/atom+xml" title="Publications · Ikel Ouedraogo" href="feed.xml" />
+  </head>
+  <body class="article-page article-page--data">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header"><a class="brand" href="../index.html" aria-label="Accueil"><span class="brand-mark">I</span><span class="brand-word">Ikel</span></a><nav class="main-nav" id="main-navigation" aria-label="Navigation principale"><a href="../index.html#projets">Projets</a><a href="../index.html#competences">Compétences</a><a href="index.html" aria-current="page">Publications</a><a href="../index.html#parcours">Parcours</a><a href="../index.html#contact">Contact</a></nav><div class="header-tools"><a class="header-contact" href="mailto:IkelITech@outlook.com">IkelITech@outlook.com</a></div><button class="menu" id="menu" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Ouvrir le menu"><i></i><i></i></button></header>
+    <main id="contenu" class="article-shell shell">
+      <header class="article-head"><p class="article-meta">Data engineering</p><h1>Iceberg 1.12 et Spark 4.2&nbsp;: le runtime qui manque est un signal</h1><p class="article-deck">Spark 4.2 est sorti. Iceberg 1.12 publie des runtimes jusqu’à Spark 4.1. Le suivi du projet confirme que la 4.2 restait en validation mi-octobre&nbsp;: un artefact 4.1 ne devient pas, par proximité, une compatibilité déclarée.</p></header>
+      <div class="article-grid"><aside class="article-aside"><div><strong>Repère</strong><span>Iceberg 1.12.0 est sorti le 29 septembre 2026. Au 14 octobre, la prise en charge de Spark 4.2 était toujours suivie par la communauté.</span></div></aside><article class="article-body">
+        <h2>Le support visible est dans les artefacts publiés</h2>
+        <p>La page de téléchargement d’Iceberg 1.12.0 liste des runtimes pour Spark 3.5, 4.0 et 4.1. Pour Spark 4.1, la coordonnée publiée est <code>iceberg-spark-runtime-4.1_2.13:1.12.0</code>. Il n’y a pas d’artefact <code>iceberg-spark-runtime-4.2_2.13</code> dans cette version.</p>
+        <p>Ce détail est plus utile qu’une lecture rapide de la numérotation. Un runtime Iceberg se branche sur les API de l’exécuteur Spark, ses extensions SQL et son catalogue. Le nom du JAR est donc une partie du contrat d’intégration, pas seulement une convention de packaging.</p>
+        <div class="table-scroll"><table>
+          <thead><tr><th>Version Spark</th><th>Runtime Iceberg 1.12 publié</th><th>État à lire</th></tr></thead>
+          <tbody>
+            <tr><th>3.5</th><td>Oui, Scala 2.12 et 2.13</td><td>Pris en charge par 1.12</td></tr>
+            <tr><th>4.0</th><td>Oui, Scala 2.13</td><td>Pris en charge par 1.12</td></tr>
+            <tr><th>4.1</th><td>Oui, Scala 2.13</td><td>Pris en charge par 1.12</td></tr>
+            <tr><th>4.2</th><td>Non</td><td>Validation en cours, pas de runtime 1.12 publié</td></tr>
+          </tbody>
+        </table></div>
+        <p>Le tableau décrit Iceberg 1.12, pas l’ensemble de l’écosystème. Il ne dit pas que Spark 4.2 est inutilisable avec Iceberg pour toujours&nbsp;; il dit que la paire n’est pas livrée comme supportée dans cette version.</p>
+        <h2>Le raccourci vers le JAR 4.1 a déjà une limite observée</h2>
+        <p>Dans le ticket Apache qui suit Spark 4.2, une personne a demandé si le runtime 4.1 pouvait être employé en attendant. Elle rapporte ensuite une <code>IncompatibleClassChangeError</code> autour de <code>SparkView</code>. Ce retour ne vaut pas une matrice de tests complète, mais il montre pourquoi une résolution Maven réussie ne suffit pas à conclure à la compatibilité.</p>
+        <p>La réponse d’un collaborateur Iceberg est plus importante que cette erreur isolée&nbsp;: des éléments de support 4.2 existent, mais les binaires n’ont pas été inclus dans la 1.12 car ils demandaient encore des validations. C’est une frontière claire entre du travail en cours et une dépendance que l’on peut standardiser dans une plateforme.</p>
+        <h2>Transformer la matrice en contrôle de déploiement</h2>
+        <p>Pour une migration, je traiterais le couple Spark / Iceberg comme une dépendance unique dans le manifeste de l’environnement. Le contrôle de départ est simple&nbsp;: la version de Spark, la version Scala et le nom du runtime Iceberg doivent correspondre à un artefact officiellement publié pour la version choisie.</p>
+        <p>Avant un passage de version, je garderais ensuite un petit jeu de tests sur le catalogue réellement utilisé&nbsp;: lecture d’une table existante, écriture d’un lot, puis l’opération de maintenance qui compte pour l’exploitation. L’objectif n’est pas de prouver toutes les fonctionnalités de Spark&nbsp;; il est de repérer tôt l’écart entre la dépendance résolue et les appels que le pipeline emploie réellement.</p>
+        <h2>Une mise à niveau qui sépare deux décisions</h2>
+        <p>Iceberg 1.12 apporte du support Spark 4.1 et retire celui de Spark 3.4. Spark 4.2, de son côté, ajoute entre autres des interfaces de CDC. Ces évolutions peuvent être intéressantes séparément, mais elles ne forment pas automatiquement un même palier de production. Tant qu’un runtime 4.2 n’est pas publié par Iceberg, la décision raisonnable est de conserver un couple supporté, ou d’assumer explicitement une validation locale hors support.</p>
+        <section class="article-sources" aria-labelledby="sources-title"><h2 id="sources-title">Lectures &amp; sources</h2><ul><li><a href="https://iceberg.apache.org/releases/" target="_blank" rel="noopener">Apache Iceberg · Releases</a><span>Artefacts publiés pour Iceberg 1.12.0, versions Spark prises en charge et retrait de Spark 3.4.</span></li><li><a href="https://iceberg.apache.org/blog/apache-iceberg-1.12.0-release/" target="_blank" rel="noopener">Apache Iceberg · 1.12.0 Release</a><span>5 octobre 2026&nbsp;: résumé de la version et support annoncé pour Spark 3.5, 4.0 et 4.1.</span></li><li><a href="https://github.com/apache/iceberg/issues/17959" target="_blank" rel="noopener">Apache Iceberg · Issue #17959, Spark 4.2 feature tracking</a><span>Suivi du support 4.2 et échange du 14 octobre sur l’absence de runtime 4.2 dans la 1.12.</span></li><li><a href="https://spark.apache.org/releases/spark-release-4-2-0" target="_blank" rel="noopener">Apache Spark · Release 4.2.0</a><span>Présentation officielle de Spark 4.2 et de ses évolutions, notamment autour de la CDC.</span></li></ul></section>
+        <footer class="article-footer"><a href="index.html">Toutes les notes</a><a href="airflow-backfills-api.html">Note suivante</a></footer>
+      </article></div>
+    </main>
+    <footer><a class="brand" href="../index.html"><span class="brand-mark">I</span><span class="brand-word">Ikel</span></a><p class="footer-note">© Ikel Ouedraogo<a class="footer-privacy" href="../privacy.html">confidentialité</a></p><a href="#contenu">Haut de page</a></footer><script src="../script.js?v=20261012b"></script>
+  </body>
+</html>

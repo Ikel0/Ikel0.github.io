@@ -2,6 +2,14 @@
 // chaque note au dépôt qui la soutient.
 window.publicationPosts = [
   {
+    "id": "iceberg-spark-42",
+    "type": "data",
+    "label": "Data engineering",
+    "href": "iceberg-spark-42.html",
+    "title": "Iceberg 1.12 et Spark 4.2 : le runtime qui manque est un signal",
+    "summary": "Iceberg 1.12 publie des runtimes Spark jusqu’à la 4.1. Le suivi du projet indique que la 4.2 restait en validation mi-octobre : un JAR 4.1 n’est pas une compatibilité déclarée."
+  },
+  {
     "id": "airflow-backfills-api",
     "type": "systems",
     "label": "Systèmes",

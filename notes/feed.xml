@@ -5,14 +5,23 @@
   <subtitle>Notes sur la data et l’IA, documentées avec leurs sources.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://ikel0.github.io/notes/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/"/>
-  <updated>2026-10-12T21:59:51+00:00</updated>
+  <updated>2026-10-21T13:14:30+00:00</updated>
   <author><name>Ikel Ouedraogo</name><uri>https://ikel0.github.io/</uri></author>
+  <entry>
+    <id>https://ikel0.github.io/notes/iceberg-spark-42.html</id>
+    <title>Iceberg 1.12 et Spark 4.2 : le runtime qui manque est un signal</title>
+    <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/iceberg-spark-42.html"/>
+    <published>2026-10-21T13:14:30+00:00</published>
+    <updated>2026-10-21T13:14:30+00:00</updated>
+    <category term="data" label="Data engineering"/>
+    <summary>Iceberg 1.12 publie des runtimes Spark jusqu’à la 4.1. Le suivi du projet indique que la 4.2 restait en validation mi-octobre : un JAR 4.1 n’est pas une compatibilité déclarée.</summary>
+  </entry>
   <entry>
     <id>https://ikel0.github.io/notes/airflow-backfills-api.html</id>
     <title>Airflow 3.3.2 : une 404 qui ne révèle pas les backfills</title>
     <link rel="alternate" type="text/html" href="https://ikel0.github.io/notes/airflow-backfills-api.html"/>
-    <published>2026-10-12T21:59:51+00:00</published>
-    <updated>2026-10-12T21:59:51+00:00</updated>
+    <published>2026-10-13T00:01:52+02:00</published>
+    <updated>2026-10-13T00:01:52+02:00</updated>
     <category term="systems" label="Systèmes"/>
     <summary>Le correctif de septembre 2026 empêche quatre endpoints de backfill d’autoriser une ressource nommée dans l’URL à partir d’un dag_id fourni dans la requête. Le détail compte : une 404 et une 403 ne racontent pas la même chose.</summary>
   </entry>
